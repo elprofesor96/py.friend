@@ -36,7 +36,10 @@ For opening docs in HTML form: ```python3 pyfriend.py -d```
 
 For removing and downloading new HTML docs from website: ```python3 pyfriend.py -r```
 
+# Update
 
+ - Now on deb ```http://repos.elprofesor.me/elprofesor /```
+```apt update && apt install pyfriend```
 
 
 
