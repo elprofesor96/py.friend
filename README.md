@@ -16,7 +16,7 @@ To install dependencies: ```pip3 install -r requirements.txt```
 
 # Usage
 
-- First, you need to change 'configuration.ini'.
+- First, you need to change 'pyfriend.conf'.
 
 - Path option is the application path. Update this with folder path. Exemple: /home/user/Desktop/Py-Friend
 
