@@ -38,7 +38,8 @@ For removing and downloading new HTML docs from website: ```python3 pyfriend.py 
 
 # Update
 
- - Now on deb ```http://repos.elprofesor.me/elprofesor /```
+ - Now on ```deb http://repos.elprofesor.me/elprofesor /```
+
 ```apt update && apt install pyfriend```
 
 
