@@ -1,23 +1,25 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>uu — Encode and decode uuencode files &#8212; Python 3.7.3 documentation</title>
-    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>uu — Encode and decode uuencode files &#8212; Python 3.10.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../_static/pydoctheme.css?2021.11.1" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     
-    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Python 3.7.3 documentation"
+          title="Search within Python 3.10.0 documentation"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -25,13 +27,11 @@
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="next" title="Structured Markup Processing Tools" href="markup.html" />
     <link rel="prev" title="quopri — Encode and decode MIME quoted-printable data" href="quopri.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
     <link rel="canonical" href="https://docs.python.org/3/library/uu.html" />
     
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../_static/switchers.js"></script>
+      
     
-    
+
     
     <style>
       @media only screen {
@@ -40,9 +40,56 @@
         }
       }
     </style>
- 
+<link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
 
-  </head><body>
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://www.python.org/" class="nav-logo">
+             <img src="../_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="quopri.html"
+                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">quopri</span></code> — Encode and decode MIME quoted-printable data</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="markup.html"
+                        title="next chapter">Structured Markup Processing Tools</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">Report a Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/library/uu.rst"
+            rel="nofollow">Show Source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
   
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -59,32 +106,37 @@
         <li class="right" >
           <a href="quopri.html" title="quopri — Encode and decode MIME quoted-printable data"
              accesskey="P">previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="netdata.html" accesskey="U">Internet Data Handling</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">uu</span></code> — Encode and decode uuencode files</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>    
 
@@ -95,7 +147,7 @@
             
   <div class="section" id="module-uu">
 <span id="uu-encode-and-decode-uuencode-files"></span><h1><a class="reference internal" href="#module-uu" title="uu: Encode and decode files in uuencode format."><code class="xref py py-mod docutils literal notranslate"><span class="pre">uu</span></code></a> — Encode and decode uuencode files<a class="headerlink" href="#module-uu" title="Permalink to this headline">¶</a></h1>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.7/Lib/uu.py">Lib/uu.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.10/Lib/uu.py">Lib/uu.py</a></p>
 <hr class="docutils" />
 <p>This module encodes and decodes files in uuencode format, allowing arbitrary
 binary data to be transferred over ASCII-only connections. Wherever a file
@@ -107,9 +159,9 @@ deprecated; it’s better for the caller to open the file itself, and be sure
 that, when required, the mode is <code class="docutils literal notranslate"><span class="pre">'rb'</span></code> or <code class="docutils literal notranslate"><span class="pre">'wb'</span></code> on Windows.</p>
 <p id="index-0">This code was contributed by Lance Ellinghouse, and modified by Jack Jansen.</p>
 <p>The <a class="reference internal" href="#module-uu" title="uu: Encode and decode files in uuencode format."><code class="xref py py-mod docutils literal notranslate"><span class="pre">uu</span></code></a> module defines the following functions:</p>
-<dl class="function">
+<dl class="py function">
 <dt id="uu.encode">
-<code class="descclassname">uu.</code><code class="descname">encode</code><span class="sig-paren">(</span><em>in_file</em>, <em>out_file</em>, <em>name=None</em>, <em>mode=None</em>, <em>*</em>, <em>backtick=False</em><span class="sig-paren">)</span><a class="headerlink" href="#uu.encode" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">uu.</code><code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">in_file</span></em>, <em class="sig-param"><span class="n">out_file</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mode</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">backtick</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#uu.encode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Uuencode file <em>in_file</em> into file <em>out_file</em>.  The uuencoded file will have
 the header specifying <em>name</em> and <em>mode</em> as the defaults for the results of
 decoding the file. The default defaults are taken from <em>in_file</em>, or <code class="docutils literal notranslate"><span class="pre">'-'</span></code>
@@ -120,9 +172,9 @@ and <code class="docutils literal notranslate"><span class="pre">0o666</span></c
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="uu.decode">
-<code class="descclassname">uu.</code><code class="descname">decode</code><span class="sig-paren">(</span><em>in_file</em>, <em>out_file=None</em>, <em>mode=None</em>, <em>quiet=False</em><span class="sig-paren">)</span><a class="headerlink" href="#uu.decode" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">uu.</code><code class="sig-name descname">decode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">in_file</span></em>, <em class="sig-param"><span class="n">out_file</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mode</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">quiet</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#uu.decode" title="Permalink to this definition">¶</a></dt>
 <dd><p>This call decodes uuencoded file <em>in_file</em> placing the result on file
 <em>out_file</em>. If <em>out_file</em> is a pathname, <em>mode</em> is used to set the permission
 bits if the file must be created. Defaults for <em>out_file</em> and <em>mode</em> are taken
@@ -133,9 +185,9 @@ by an incorrect uuencoder and Python could recover from that error.  Setting
 <em>quiet</em> to a true value silences this warning.</p>
 </dd></dl>
 
-<dl class="exception">
+<dl class="py exception">
 <dt id="uu.Error">
-<em class="property">exception </em><code class="descclassname">uu.</code><code class="descname">Error</code><a class="headerlink" href="#uu.Error" title="Permalink to this definition">¶</a></dt>
+<em class="property">exception </em><code class="sig-prename descclassname">uu.</code><code class="sig-name descname">Error</code><a class="headerlink" href="#uu.Error" title="Permalink to this definition">¶</a></dt>
 <dd><p>Subclass of <a class="reference internal" href="exceptions.html#Exception" title="Exception"><code class="xref py py-exc docutils literal notranslate"><span class="pre">Exception</span></code></a>, this can be raised by <a class="reference internal" href="#uu.decode" title="uu.decode"><code class="xref py py-func docutils literal notranslate"><span class="pre">uu.decode()</span></code></a> under
 various situations, such as described above, but also including a badly
 formatted header, or truncated input file.</p>
@@ -151,6 +203,7 @@ formatted header, or truncated input file.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -167,7 +220,7 @@ formatted header, or truncated input file.</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a Bug</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.7/Doc/library/uu.rst"
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/library/uu.rst"
             rel="nofollow">Show Source
         </a>
       </li>
@@ -192,44 +245,59 @@ formatted header, or truncated input file.</p>
         <li class="right" >
           <a href="quopri.html" title="quopri — Encode and decode MIME quoted-printable data"
              >previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="netdata.html" >Internet Data Handling</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">uu</span></code> — Encode and decode uuencode files</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">Copyright</a> 2001-2019, Python Software Foundation.
+    &copy; <a href="../copyright.html">Copyright</a> 2001-2021, Python Software Foundation.
     <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
     The Python Software Foundation is a non-profit corporation.
-    <a href="https://www.python.org/psf/donations/">Please donate.</a>
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
     <br />
-    Last updated on Jun 19, 2019.
-    <a href="../bugs.html">Found a bug</a>?
+
+    Last updated on Nov 06, 2021.
+    <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.0.1.
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
     </div>
 
   </body>

@@ -1,23 +1,25 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>email.mime: Creating email and MIME objects from scratch &#8212; Python 3.7.3 documentation</title>
-    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>email.mime: Creating email and MIME objects from scratch &#8212; Python 3.10.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../_static/pydoctheme.css?2021.11.1" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     
-    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Python 3.7.3 documentation"
+          title="Search within Python 3.10.0 documentation"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -25,13 +27,11 @@
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="next" title="email.header: Internationalized headers" href="email.header.html" />
     <link rel="prev" title="email.message.Message: Representing an email message using the compat32 API" href="email.compat32-message.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
     <link rel="canonical" href="https://docs.python.org/3/library/email.mime.html" />
     
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../_static/switchers.js"></script>
+      
     
-    
+
     
     <style>
       @media only screen {
@@ -40,9 +40,56 @@
         }
       }
     </style>
- 
+<link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
 
-  </head><body>
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://www.python.org/" class="nav-logo">
+             <img src="../_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="email.compat32-message.html"
+                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.message.Message</span></code>: Representing an email message using the <code class="xref py py-data docutils literal notranslate"><span class="pre">compat32</span></code> API</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="email.header.html"
+                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.header</span></code>: Internationalized headers</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">Report a Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/library/email.mime.rst"
+            rel="nofollow">Show Source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
   
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -59,33 +106,38 @@
         <li class="right" >
           <a href="email.compat32-message.html" title="email.message.Message: Representing an email message using the compat32 API"
              accesskey="P">previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="netdata.html" >Internet Data Handling</a> &#187;</li>
           <li class="nav-item nav-item-3"><a href="email.html" accesskey="U"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email</span></code> — An email and MIME handling package</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.mime</span></code>: Creating email and MIME objects from scratch</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>    
 
@@ -96,7 +148,7 @@
             
   <div class="section" id="module-email.mime">
 <span id="email-mime-creating-email-and-mime-objects-from-scratch"></span><h1><a class="reference internal" href="#module-email.mime" title="email.mime: Build MIME messages."><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.mime</span></code></a>: Creating email and MIME objects from scratch<a class="headerlink" href="#module-email.mime" title="Permalink to this headline">¶</a></h1>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.7/Lib/email/mime/">Lib/email/mime/</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.10/Lib/email/mime/">Lib/email/mime/</a></p>
 <hr class="docutils" />
 <p>This module is part of the legacy (<code class="docutils literal notranslate"><span class="pre">Compat32</span></code>) email API.  Its functionality
 is partially replaced by the <a class="reference internal" href="email.contentmanager.html#module-email.contentmanager" title="email.contentmanager: Storing and Retrieving Content from MIME Parts"><code class="xref py py-mod docutils literal notranslate"><span class="pre">contentmanager</span></code></a> in the new API, but
@@ -114,9 +166,9 @@ instances, adding attachments and all the appropriate headers manually.  For MIM
 messages though, the <a class="reference internal" href="email.html#module-email" title="email: Package supporting the parsing, manipulating, and generating email messages."><code class="xref py py-mod docutils literal notranslate"><span class="pre">email</span></code></a> package provides some convenient subclasses to
 make things easier.</p>
 <p>Here are the classes:</p>
-<dl class="class">
+<dl class="py class">
 <dt id="email.mime.base.MIMEBase">
-<em class="property">class </em><code class="descclassname">email.mime.base.</code><code class="descname">MIMEBase</code><span class="sig-paren">(</span><em>_maintype</em>, <em>_subtype</em>, <em>*</em>, <em>policy=compat32</em>, <em>**_params</em><span class="sig-paren">)</span><a class="headerlink" href="#email.mime.base.MIMEBase" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">email.mime.base.</code><code class="sig-name descname">MIMEBase</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_maintype</span></em>, <em class="sig-param"><span class="n">_subtype</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">policy</span><span class="o">=</span><span class="default_value">compat32</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">_params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#email.mime.base.MIMEBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">email.mime.base</span></code></p>
 <p>This is the base class for all the MIME-specific subclasses of
 <a class="reference internal" href="email.compat32-message.html#email.message.Message" title="email.message.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>.  Ordinarily you won’t create instances
@@ -138,9 +190,9 @@ key/value dictionary and is passed directly to <a class="reference internal" hre
 </div>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="email.mime.nonmultipart.MIMENonMultipart">
-<em class="property">class </em><code class="descclassname">email.mime.nonmultipart.</code><code class="descname">MIMENonMultipart</code><a class="headerlink" href="#email.mime.nonmultipart.MIMENonMultipart" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">email.mime.nonmultipart.</code><code class="sig-name descname">MIMENonMultipart</code><a class="headerlink" href="#email.mime.nonmultipart.MIMENonMultipart" title="Permalink to this definition">¶</a></dt>
 <dd><p>Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">email.mime.nonmultipart</span></code></p>
 <p>A subclass of <a class="reference internal" href="#email.mime.base.MIMEBase" title="email.mime.base.MIMEBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">MIMEBase</span></code></a>, this is an intermediate base
 class for MIME messages that are not <em class="mimetype">multipart</em>.  The primary
@@ -150,9 +202,9 @@ purpose of this class is to prevent the use of the
 is called, a <a class="reference internal" href="email.errors.html#email.errors.MultipartConversionError" title="email.errors.MultipartConversionError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">MultipartConversionError</span></code></a> exception is raised.</p>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="email.mime.multipart.MIMEMultipart">
-<em class="property">class </em><code class="descclassname">email.mime.multipart.</code><code class="descname">MIMEMultipart</code><span class="sig-paren">(</span><em>_subtype='mixed'</em>, <em>boundary=None</em>, <em>_subparts=None</em>, <em>*</em>, <em>policy=compat32</em>, <em>**_params</em><span class="sig-paren">)</span><a class="headerlink" href="#email.mime.multipart.MIMEMultipart" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">email.mime.multipart.</code><code class="sig-name descname">MIMEMultipart</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_subtype</span><span class="o">=</span><span class="default_value">'mixed'</span></em>, <em class="sig-param"><span class="n">boundary</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">_subparts</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">policy</span><span class="o">=</span><span class="default_value">compat32</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">_params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#email.mime.multipart.MIMEMultipart" title="Permalink to this definition">¶</a></dt>
 <dd><p>Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">email.mime.multipart</span></code></p>
 <p>A subclass of <a class="reference internal" href="#email.mime.base.MIMEBase" title="email.mime.base.MIMEBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">MIMEBase</span></code></a>, this is an intermediate base
 class for MIME messages that are <em class="mimetype">multipart</em>.  Optional <em>_subtype</em>
@@ -175,9 +227,9 @@ dictionary.</p>
 </div>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="email.mime.application.MIMEApplication">
-<em class="property">class </em><code class="descclassname">email.mime.application.</code><code class="descname">MIMEApplication</code><span class="sig-paren">(</span><em>_data</em>, <em>_subtype='octet-stream'</em>, <em>_encoder=email.encoders.encode_base64</em>, <em>*</em>, <em>policy=compat32</em>, <em>**_params</em><span class="sig-paren">)</span><a class="headerlink" href="#email.mime.application.MIMEApplication" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">email.mime.application.</code><code class="sig-name descname">MIMEApplication</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_data</span></em>, <em class="sig-param"><span class="n">_subtype</span><span class="o">=</span><span class="default_value">'octet-stream'</span></em>, <em class="sig-param"><span class="n">_encoder</span><span class="o">=</span><span class="default_value">email.encoders.encode_base64</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">policy</span><span class="o">=</span><span class="default_value">compat32</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">_params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#email.mime.application.MIMEApplication" title="Permalink to this definition">¶</a></dt>
 <dd><p>Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">email.mime.application</span></code></p>
 <p>A subclass of <a class="reference internal" href="#email.mime.nonmultipart.MIMENonMultipart" title="email.mime.nonmultipart.MIMENonMultipart"><code class="xref py py-class docutils literal notranslate"><span class="pre">MIMENonMultipart</span></code></a>, the
 <a class="reference internal" href="#email.mime.application.MIMEApplication" title="email.mime.application.MIMEApplication"><code class="xref py py-class docutils literal notranslate"><span class="pre">MIMEApplication</span></code></a> class is used to represent MIME message objects of
@@ -200,9 +252,9 @@ object as necessary.  The default encoding is base64.  See the
 </div>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="email.mime.audio.MIMEAudio">
-<em class="property">class </em><code class="descclassname">email.mime.audio.</code><code class="descname">MIMEAudio</code><span class="sig-paren">(</span><em>_audiodata</em>, <em>_subtype=None</em>, <em>_encoder=email.encoders.encode_base64</em>, <em>*</em>, <em>policy=compat32</em>, <em>**_params</em><span class="sig-paren">)</span><a class="headerlink" href="#email.mime.audio.MIMEAudio" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">email.mime.audio.</code><code class="sig-name descname">MIMEAudio</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_audiodata</span></em>, <em class="sig-param"><span class="n">_subtype</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">_encoder</span><span class="o">=</span><span class="default_value">email.encoders.encode_base64</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">policy</span><span class="o">=</span><span class="default_value">compat32</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">_params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#email.mime.audio.MIMEAudio" title="Permalink to this definition">¶</a></dt>
 <dd><p>Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">email.mime.audio</span></code></p>
 <p>A subclass of <a class="reference internal" href="#email.mime.nonmultipart.MIMENonMultipart" title="email.mime.nonmultipart.MIMENonMultipart"><code class="xref py py-class docutils literal notranslate"><span class="pre">MIMENonMultipart</span></code></a>, the
 <a class="reference internal" href="#email.mime.audio.MIMEAudio" title="email.mime.audio.MIMEAudio"><code class="xref py py-class docutils literal notranslate"><span class="pre">MIMEAudio</span></code></a> class is used to create MIME message objects of major type
@@ -228,9 +280,9 @@ object as necessary.  The default encoding is base64.  See the
 </div>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="email.mime.image.MIMEImage">
-<em class="property">class </em><code class="descclassname">email.mime.image.</code><code class="descname">MIMEImage</code><span class="sig-paren">(</span><em>_imagedata</em>, <em>_subtype=None</em>, <em>_encoder=email.encoders.encode_base64</em>, <em>*</em>, <em>policy=compat32</em>, <em>**_params</em><span class="sig-paren">)</span><a class="headerlink" href="#email.mime.image.MIMEImage" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">email.mime.image.</code><code class="sig-name descname">MIMEImage</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_imagedata</span></em>, <em class="sig-param"><span class="n">_subtype</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">_encoder</span><span class="o">=</span><span class="default_value">email.encoders.encode_base64</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">policy</span><span class="o">=</span><span class="default_value">compat32</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">_params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#email.mime.image.MIMEImage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">email.mime.image</span></code></p>
 <p>A subclass of <a class="reference internal" href="#email.mime.nonmultipart.MIMENonMultipart" title="email.mime.nonmultipart.MIMENonMultipart"><code class="xref py py-class docutils literal notranslate"><span class="pre">MIMENonMultipart</span></code></a>, the
 <a class="reference internal" href="#email.mime.image.MIMEImage" title="email.mime.image.MIMEImage"><code class="xref py py-class docutils literal notranslate"><span class="pre">MIMEImage</span></code></a> class is used to create MIME message objects of major type
@@ -257,9 +309,9 @@ constructor.</p>
 </div>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="email.mime.message.MIMEMessage">
-<em class="property">class </em><code class="descclassname">email.mime.message.</code><code class="descname">MIMEMessage</code><span class="sig-paren">(</span><em>_msg</em>, <em>_subtype='rfc822'</em>, <em>*</em>, <em>policy=compat32</em><span class="sig-paren">)</span><a class="headerlink" href="#email.mime.message.MIMEMessage" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">email.mime.message.</code><code class="sig-name descname">MIMEMessage</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_msg</span></em>, <em class="sig-param"><span class="n">_subtype</span><span class="o">=</span><span class="default_value">'rfc822'</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">policy</span><span class="o">=</span><span class="default_value">compat32</span></em><span class="sig-paren">)</span><a class="headerlink" href="#email.mime.message.MIMEMessage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">email.mime.message</span></code></p>
 <p>A subclass of <a class="reference internal" href="#email.mime.nonmultipart.MIMENonMultipart" title="email.mime.nonmultipart.MIMENonMultipart"><code class="xref py py-class docutils literal notranslate"><span class="pre">MIMENonMultipart</span></code></a>, the
 <a class="reference internal" href="#email.mime.message.MIMEMessage" title="email.mime.message.MIMEMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">MIMEMessage</span></code></a> class is used to create MIME objects of main type
@@ -274,9 +326,9 @@ a <a class="reference internal" href="exceptions.html#TypeError" title="TypeErro
 </div>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="email.mime.text.MIMEText">
-<em class="property">class </em><code class="descclassname">email.mime.text.</code><code class="descname">MIMEText</code><span class="sig-paren">(</span><em>_text</em>, <em>_subtype='plain'</em>, <em>_charset=None</em>, <em>*</em>, <em>policy=compat32</em><span class="sig-paren">)</span><a class="headerlink" href="#email.mime.text.MIMEText" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">email.mime.text.</code><code class="sig-name descname">MIMEText</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_text</span></em>, <em class="sig-param"><span class="n">_subtype</span><span class="o">=</span><span class="default_value">'plain'</span></em>, <em class="sig-param"><span class="n">_charset</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">policy</span><span class="o">=</span><span class="default_value">compat32</span></em><span class="sig-paren">)</span><a class="headerlink" href="#email.mime.text.MIMEText" title="Permalink to this definition">¶</a></dt>
 <dd><p>Module: <code class="xref py py-mod docutils literal notranslate"><span class="pre">email.mime.text</span></code></p>
 <p>A subclass of <a class="reference internal" href="#email.mime.nonmultipart.MIMENonMultipart" title="email.mime.nonmultipart.MIMENonMultipart"><code class="xref py py-class docutils literal notranslate"><span class="pre">MIMENonMultipart</span></code></a>, the
 <a class="reference internal" href="#email.mime.text.MIMEText" title="email.mime.text.MIMEText"><code class="xref py py-class docutils literal notranslate"><span class="pre">MIMEText</span></code></a> class is used to create MIME objects of major type
@@ -308,6 +360,7 @@ will automatically encode the new payload (and add a new
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -324,7 +377,7 @@ will automatically encode the new payload (and add a new
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a Bug</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.7/Doc/library/email.mime.rst"
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/library/email.mime.rst"
             rel="nofollow">Show Source
         </a>
       </li>
@@ -349,45 +402,60 @@ will automatically encode the new payload (and add a new
         <li class="right" >
           <a href="email.compat32-message.html" title="email.message.Message: Representing an email message using the compat32 API"
              >previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="netdata.html" >Internet Data Handling</a> &#187;</li>
           <li class="nav-item nav-item-3"><a href="email.html" ><code class="xref py py-mod docutils literal notranslate"><span class="pre">email</span></code> — An email and MIME handling package</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.mime</span></code>: Creating email and MIME objects from scratch</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">Copyright</a> 2001-2019, Python Software Foundation.
+    &copy; <a href="../copyright.html">Copyright</a> 2001-2021, Python Software Foundation.
     <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
     The Python Software Foundation is a non-profit corporation.
-    <a href="https://www.python.org/psf/donations/">Please donate.</a>
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
     <br />
-    Last updated on Jun 19, 2019.
-    <a href="../bugs.html">Found a bug</a>?
+
+    Last updated on Nov 06, 2021.
+    <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.0.1.
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
     </div>
 
   </body>

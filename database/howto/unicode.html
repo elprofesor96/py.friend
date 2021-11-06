@@ -1,23 +1,25 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>Unicode HOWTO &#8212; Python 3.7.3 documentation</title>
-    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unicode HOWTO &#8212; Python 3.10.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../_static/pydoctheme.css?2021.11.1" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     
-    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Python 3.7.3 documentation"
+          title="Search within Python 3.10.0 documentation"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -25,13 +27,11 @@
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="next" title="HOWTO Fetch Internet Resources Using The urllib Package" href="urllib2.html" />
     <link rel="prev" title="Sorting HOW TO" href="sorting.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
     <link rel="canonical" href="https://docs.python.org/3/howto/unicode.html" />
     
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../_static/switchers.js"></script>
+      
     
-    
+
     
     <style>
       @media only screen {
@@ -40,9 +40,90 @@
         }
       }
     </style>
- 
+<link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
 
-  </head><body>
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://www.python.org/" class="nav-logo">
+             <img src="../_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Unicode HOWTO</a><ul>
+<li><a class="reference internal" href="#introduction-to-unicode">Introduction to Unicode</a><ul>
+<li><a class="reference internal" href="#definitions">Definitions</a></li>
+<li><a class="reference internal" href="#encodings">Encodings</a></li>
+<li><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#python-s-unicode-support">Python’s Unicode Support</a><ul>
+<li><a class="reference internal" href="#the-string-type">The String Type</a></li>
+<li><a class="reference internal" href="#converting-to-bytes">Converting to Bytes</a></li>
+<li><a class="reference internal" href="#unicode-literals-in-python-source-code">Unicode Literals in Python Source Code</a></li>
+<li><a class="reference internal" href="#unicode-properties">Unicode Properties</a></li>
+<li><a class="reference internal" href="#comparing-strings">Comparing Strings</a></li>
+<li><a class="reference internal" href="#unicode-regular-expressions">Unicode Regular Expressions</a></li>
+<li><a class="reference internal" href="#id2">References</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#reading-and-writing-unicode-data">Reading and Writing Unicode Data</a><ul>
+<li><a class="reference internal" href="#unicode-filenames">Unicode filenames</a></li>
+<li><a class="reference internal" href="#tips-for-writing-unicode-aware-programs">Tips for Writing Unicode-aware Programs</a><ul>
+<li><a class="reference internal" href="#converting-between-file-encodings">Converting Between File Encodings</a></li>
+<li><a class="reference internal" href="#files-in-an-unknown-encoding">Files in an Unknown Encoding</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id3">References</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#acknowledgements">Acknowledgements</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="sorting.html"
+                        title="previous chapter">Sorting HOW TO</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="urllib2.html"
+                        title="next chapter">HOWTO Fetch Internet Resources Using The urllib Package</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">Report a Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/howto/unicode.rst"
+            rel="nofollow">Show Source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
   
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -59,31 +140,36 @@
         <li class="right" >
           <a href="sorting.html" title="Sorting HOW TO"
              accesskey="P">previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Python HOWTOs</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href="">Unicode HOWTO</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>    
 
@@ -127,8 +213,9 @@ separate from the uppercase letter ‘I’.  They’ll usually look the same,
 but these are two different characters that have different meanings.</p>
 <p>The Unicode standard describes how characters are represented by
 <strong>code points</strong>.  A code point value is an integer in the range 0 to
-0x10FFFF (about 1.1 million values, with some 110 thousand assigned so
-far).  In the standard and in this document, a code point is written
+0x10FFFF (about 1.1 million values, the
+<a class="reference external" href="https://www.unicode.org/versions/latest/#Summary">actual number assigned</a>
+is less than that). In the standard and in this document, a code point is written
 using the notation <code class="docutils literal notranslate"><span class="pre">U+265E</span></code> to mean the character with value
 <code class="docutils literal notranslate"><span class="pre">0x265e</span></code> (9,822 in decimal).</p>
 <p>The Unicode standard contains a lot of tables listing characters and
@@ -139,14 +226,14 @@ their corresponding code points:</p>
 ...
 007B    &#39;{&#39;; LEFT CURLY BRACKET
 ...
-2167    &#39;Ⅶ&#39;: ROMAN NUMERAL EIGHT
-2168    &#39;Ⅸ&#39;: ROMAN NUMERAL NINE
+2167    &#39;Ⅷ&#39;; ROMAN NUMERAL EIGHT
+2168    &#39;Ⅸ&#39;; ROMAN NUMERAL NINE
 ...
-265E    &#39;♞&#39;: BLACK CHESS KNIGHT
-265F    &#39;♟&#39;: BLACK CHESS PAWN
+265E    &#39;♞&#39;; BLACK CHESS KNIGHT
+265F    &#39;♟&#39;; BLACK CHESS PAWN
 ...
-1F600   &#39;😀&#39;: GRINNING FACE
-1F609   &#39;😉&#39;: WINKING FACE
+1F600   &#39;😀&#39;; GRINNING FACE
+1F609   &#39;😉&#39;; WINKING FACE
 ...
 </pre></div>
 </div>
@@ -229,12 +316,12 @@ on the hardware on which the string was encoded.</p></li>
 </div>
 <div class="section" id="references">
 <h3>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h3>
-<p>The <a class="reference external" href="http://www.unicode.org">Unicode Consortium site</a> has character charts, a
+<p>The <a class="reference external" href="https://www.unicode.org">Unicode Consortium site</a> has character charts, a
 glossary, and PDF versions of the Unicode specification.  Be prepared for some
-difficult reading.  <a class="reference external" href="http://www.unicode.org/history/">A chronology</a> of the
+difficult reading.  <a class="reference external" href="https://www.unicode.org/history/">A chronology</a> of the
 origin and development of Unicode is also available on the site.</p>
 <p>On the Computerphile Youtube channel, Tom Scott briefly
-<cite>discusses the history of Unicode and UTF-8 &lt;https://www.youtube.com/watch?v=MijmeoH9LT4&gt;</cite>
+<a class="reference external" href="https://www.youtube.com/watch?v=MijmeoH9LT4">discusses the history of Unicode and UTF-8</a>
 (9 minutes 36 seconds).</p>
 <p>To help understand the standard, Jukka Korpela has written <a class="reference external" href="http://jkorpela.fi/unicode/guide.html">an introductory
 guide</a> to reading the
@@ -442,7 +529,7 @@ These are grouped into categories such as “Letter”, “Number”, “Punctua
 from the above output, <code class="docutils literal notranslate"><span class="pre">'Ll'</span></code> means ‘Letter, lowercase’, <code class="docutils literal notranslate"><span class="pre">'No'</span></code> means
 “Number, other”, <code class="docutils literal notranslate"><span class="pre">'Mn'</span></code> is “Mark, nonspacing”, and <code class="docutils literal notranslate"><span class="pre">'So'</span></code> is “Symbol,
 other”.  See
-<a class="reference external" href="http://www.unicode.org/reports/tr44/#General_Category_Values">the General Category Values section of the Unicode Character Database documentation</a> for a
+<a class="reference external" href="https://www.unicode.org/reports/tr44/#General_Category_Values">the General Category Values section of the Unicode Character Database documentation</a> for a
 list of category codes.</p>
 </div>
 <div class="section" id="comparing-strings">
@@ -588,7 +675,7 @@ of partial coding sequences.  The work of implementing this has already been
 done for you: the built-in <a class="reference internal" href="../library/functions.html#open" title="open"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a> function can return a file-like object
 that assumes the file’s contents are in a specified encoding and accepts Unicode
 parameters for methods such as <a class="reference internal" href="../library/io.html#io.TextIOBase.read" title="io.TextIOBase.read"><code class="xref py py-meth docutils literal notranslate"><span class="pre">read()</span></code></a> and
-<a class="reference internal" href="../library/io.html#io.TextIOBase.write" title="io.TextIOBase.write"><code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code></a>.  This works through <a class="reference internal" href="../library/functions.html#open" title="open"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a>’s <em>encoding</em> and
+<a class="reference internal" href="../library/io.html#io.TextIOBase.write" title="io.TextIOBase.write"><code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code></a>.  This works through <a class="reference internal" href="../library/functions.html#open" title="open"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a>'s <em>encoding</em> and
 <em>errors</em> parameters which are interpreted just like those in <a class="reference internal" href="../library/stdtypes.html#str.encode" title="str.encode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">str.encode()</span></code></a>
 and <a class="reference internal" href="../library/stdtypes.html#bytes.decode" title="bytes.decode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">bytes.decode()</span></code></a>.</p>
 <p>Reading Unicode from a file is therefore simple:</p>
@@ -625,9 +712,8 @@ implemented by converting the Unicode string into some encoding that
 varies depending on the system.  Today Python is converging on using
 UTF-8: Python on MacOS has used UTF-8 for several versions, and Python
 3.6 switched to using UTF-8 on Windows as well.  On Unix systems,
-there will only be a filesystem encoding if you’ve set the <code class="docutils literal notranslate"><span class="pre">LANG</span></code> or
-<code class="docutils literal notranslate"><span class="pre">LC_CTYPE</span></code> environment variables; if you haven’t, the default
-encoding is again UTF-8.</p>
+there will only be a <a class="reference internal" href="../glossary.html#term-filesystem-encoding-and-error-handler"><span class="xref std std-term">filesystem encoding</span></a>. if you’ve set the <code class="docutils literal notranslate"><span class="pre">LANG</span></code> or <code class="docutils literal notranslate"><span class="pre">LC_CTYPE</span></code> environment variables; if
+you haven’t, the default encoding is again UTF-8.</p>
 <p>The <a class="reference internal" href="../library/sys.html#sys.getfilesystemencoding" title="sys.getfilesystemencoding"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys.getfilesystemencoding()</span></code></a> function returns the encoding to use on
 your current system, in case you want to do the encoding manually, but there’s
 not much reason to bother.  When opening a file for reading or writing, you can
@@ -647,8 +733,7 @@ provided the directory path as bytes or a Unicode string.  If you pass a
 Unicode string as the path, filenames will be decoded using the filesystem’s
 encoding and a list of Unicode strings will be returned, while passing a byte
 path will return the filenames as bytes.  For example,
-assuming the default filesystem encoding is UTF-8, running the following
-program:</p>
+assuming the default <a class="reference internal" href="../glossary.html#term-filesystem-encoding-and-error-handler"><span class="xref std std-term">filesystem encoding</span></a> is UTF-8, running the following program:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">fn</span> <span class="o">=</span> <span class="s1">&#39;filename</span><span class="se">\u4500</span><span class="s1">abc&#39;</span>
 <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
 <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
@@ -760,6 +845,7 @@ Eryk Sun, Chad Whitacre, Graham Wideman.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -810,7 +896,7 @@ Eryk Sun, Chad Whitacre, Graham Wideman.</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a Bug</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.7/Doc/howto/unicode.rst"
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/howto/unicode.rst"
             rel="nofollow">Show Source
         </a>
       </li>
@@ -835,43 +921,58 @@ Eryk Sun, Chad Whitacre, Graham Wideman.</p>
         <li class="right" >
           <a href="sorting.html" title="Sorting HOW TO"
              >previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python HOWTOs</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href="">Unicode HOWTO</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">Copyright</a> 2001-2019, Python Software Foundation.
+    &copy; <a href="../copyright.html">Copyright</a> 2001-2021, Python Software Foundation.
     <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
     The Python Software Foundation is a non-profit corporation.
-    <a href="https://www.python.org/psf/donations/">Please donate.</a>
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
     <br />
-    Last updated on Jun 19, 2019.
-    <a href="../bugs.html">Found a bug</a>?
+
+    Last updated on Nov 06, 2021.
+    <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.0.1.
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
     </div>
 
   </body>

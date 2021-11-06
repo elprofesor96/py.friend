@@ -1,23 +1,25 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>urllib.request — Extensible library for opening URLs &#8212; Python 3.7.3 documentation</title>
-    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>urllib.request — Extensible library for opening URLs &#8212; Python 3.10.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../_static/pydoctheme.css?2021.11.1" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     
-    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Python 3.7.3 documentation"
+          title="Search within Python 3.10.0 documentation"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -25,13 +27,11 @@
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="next" title="urllib.parse — Parse URLs into components" href="urllib.parse.html" />
     <link rel="prev" title="urllib — URL handling modules" href="urllib.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
     <link rel="canonical" href="https://docs.python.org/3/library/urllib.request.html" />
     
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../_static/switchers.js"></script>
+      
     
-    
+
     
     <style>
       @media only screen {
@@ -40,9 +40,89 @@
         }
       }
     </style>
- 
+<link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
 
-  </head><body>
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://www.python.org/" class="nav-logo">
+             <img src="../_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">urllib.request</span></code> — Extensible library for opening URLs</a><ul>
+<li><a class="reference internal" href="#request-objects">Request Objects</a></li>
+<li><a class="reference internal" href="#openerdirector-objects">OpenerDirector Objects</a></li>
+<li><a class="reference internal" href="#basehandler-objects">BaseHandler Objects</a></li>
+<li><a class="reference internal" href="#httpredirecthandler-objects">HTTPRedirectHandler Objects</a></li>
+<li><a class="reference internal" href="#httpcookieprocessor-objects">HTTPCookieProcessor Objects</a></li>
+<li><a class="reference internal" href="#proxyhandler-objects">ProxyHandler Objects</a></li>
+<li><a class="reference internal" href="#httppasswordmgr-objects">HTTPPasswordMgr Objects</a></li>
+<li><a class="reference internal" href="#httppasswordmgrwithpriorauth-objects">HTTPPasswordMgrWithPriorAuth Objects</a></li>
+<li><a class="reference internal" href="#abstractbasicauthhandler-objects">AbstractBasicAuthHandler Objects</a></li>
+<li><a class="reference internal" href="#httpbasicauthhandler-objects">HTTPBasicAuthHandler Objects</a></li>
+<li><a class="reference internal" href="#proxybasicauthhandler-objects">ProxyBasicAuthHandler Objects</a></li>
+<li><a class="reference internal" href="#abstractdigestauthhandler-objects">AbstractDigestAuthHandler Objects</a></li>
+<li><a class="reference internal" href="#httpdigestauthhandler-objects">HTTPDigestAuthHandler Objects</a></li>
+<li><a class="reference internal" href="#proxydigestauthhandler-objects">ProxyDigestAuthHandler Objects</a></li>
+<li><a class="reference internal" href="#httphandler-objects">HTTPHandler Objects</a></li>
+<li><a class="reference internal" href="#httpshandler-objects">HTTPSHandler Objects</a></li>
+<li><a class="reference internal" href="#filehandler-objects">FileHandler Objects</a></li>
+<li><a class="reference internal" href="#datahandler-objects">DataHandler Objects</a></li>
+<li><a class="reference internal" href="#ftphandler-objects">FTPHandler Objects</a></li>
+<li><a class="reference internal" href="#cacheftphandler-objects">CacheFTPHandler Objects</a></li>
+<li><a class="reference internal" href="#unknownhandler-objects">UnknownHandler Objects</a></li>
+<li><a class="reference internal" href="#httperrorprocessor-objects">HTTPErrorProcessor Objects</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+<li><a class="reference internal" href="#legacy-interface">Legacy interface</a></li>
+<li><a class="reference internal" href="#urllib-request-restrictions"><code class="xref py py-mod docutils literal notranslate"><span class="pre">urllib.request</span></code> Restrictions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-urllib.response"><code class="xref py py-mod docutils literal notranslate"><span class="pre">urllib.response</span></code> — Response classes used by urllib</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="urllib.html"
+                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">urllib</span></code> — URL handling modules</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="urllib.parse.html"
+                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">urllib.parse</span></code> — Parse URLs into components</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">Report a Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/library/urllib.request.rst"
+            rel="nofollow">Show Source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
   
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -59,32 +139,37 @@
         <li class="right" >
           <a href="urllib.html" title="urllib — URL handling modules"
              accesskey="P">previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="internet.html" accesskey="U">Internet Protocols and Support</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">urllib.request</span></code> — Extensible library for opening URLs</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>    
 
@@ -95,20 +180,20 @@
             
   <div class="section" id="module-urllib.request">
 <span id="urllib-request-extensible-library-for-opening-urls"></span><h1><a class="reference internal" href="#module-urllib.request" title="urllib.request: Extensible library for opening URLs."><code class="xref py py-mod docutils literal notranslate"><span class="pre">urllib.request</span></code></a> — Extensible library for opening URLs<a class="headerlink" href="#module-urllib.request" title="Permalink to this headline">¶</a></h1>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.7/Lib/urllib/request.py">Lib/urllib/request.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.10/Lib/urllib/request.py">Lib/urllib/request.py</a></p>
 <hr class="docutils" />
 <p>The <a class="reference internal" href="#module-urllib.request" title="urllib.request: Extensible library for opening URLs."><code class="xref py py-mod docutils literal notranslate"><span class="pre">urllib.request</span></code></a> module defines functions and classes which help in
 opening URLs (mostly HTTP) in a complex world — basic and digest
 authentication, redirections, cookies and more.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p>The <a class="reference external" href="http://docs.python-requests.org/">Requests package</a>
+<p>The <a class="reference external" href="https://requests.readthedocs.io/en/master/">Requests package</a>
 is recommended for a higher-level HTTP client interface.</p>
 </div>
 <p>The <a class="reference internal" href="#module-urllib.request" title="urllib.request: Extensible library for opening URLs."><code class="xref py py-mod docutils literal notranslate"><span class="pre">urllib.request</span></code></a> module defines the following functions:</p>
-<dl class="function">
+<dl class="py function">
 <dt id="urllib.request.urlopen">
-<code class="descclassname">urllib.request.</code><code class="descname">urlopen</code><span class="sig-paren">(</span><em>url</em>, <em>data=None</em>, <span class="optional">[</span><em>timeout</em>, <span class="optional">]</span><em>*</em>, <em>cafile=None</em>, <em>capath=None</em>, <em>cadefault=False</em>, <em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.urlopen" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">urllib.request.</code><code class="sig-name descname">urlopen</code><span class="sig-paren">(</span><em class="sig-param">url</em>, <em class="sig-param">data=None</em>, <span class="optional">[</span><em class="sig-param">timeout</em>, <span class="optional">]</span><em class="sig-param">*</em>, <em class="sig-param">cafile=None</em>, <em class="sig-param">capath=None</em>, <em class="sig-param">cadefault=False</em>, <em class="sig-param">context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.urlopen" title="Permalink to this definition">¶</a></dt>
 <dd><p>Open the URL <em>url</em>, which can be either a string or a
 <a class="reference internal" href="#urllib.request.Request" title="urllib.request.Request"><code class="xref py py-class docutils literal notranslate"><span class="pre">Request</span></code></a> object.</p>
 <p><em>data</em> must be an object specifying additional data to be sent to the
@@ -130,15 +215,8 @@ point to a directory of hashed certificate files.  More information can
 be found in <a class="reference internal" href="ssl.html#ssl.SSLContext.load_verify_locations" title="ssl.SSLContext.load_verify_locations"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ssl.SSLContext.load_verify_locations()</span></code></a>.</p>
 <p>The <em>cadefault</em> parameter is ignored.</p>
 <p>This function always returns an object which can work as a
-<a class="reference internal" href="../glossary.html#term-context-manager"><span class="xref std std-term">context manager</span></a> and has methods such as</p>
-<ul class="simple">
-<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">geturl()</span></code> — return the URL of the resource retrieved,
-commonly used to determine if a redirect was followed</p></li>
-<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">info()</span></code> — return the meta-information of the page, such as headers,
-in the form of an <a class="reference internal" href="email.parser.html#email.message_from_string" title="email.message_from_string"><code class="xref py py-func docutils literal notranslate"><span class="pre">email.message_from_string()</span></code></a> instance (see
-<a class="reference external" href="http://jkorpela.fi/http.html">Quick Reference to HTTP Headers</a>)</p></li>
-<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">getcode()</span></code> – return the HTTP status code of the response.</p></li>
-</ul>
+<a class="reference internal" href="../glossary.html#term-context-manager"><span class="xref std std-term">context manager</span></a> and has the properties <em>url</em>, <em>headers</em>, and <em>status</em>.
+See <a class="reference internal" href="#urllib.response.addinfourl" title="urllib.response.addinfourl"><code class="xref py py-class docutils literal notranslate"><span class="pre">urllib.response.addinfourl</span></code></a> for more detail on these properties.</p>
 <p>For HTTP and HTTPS URLs, this function returns a
 <a class="reference internal" href="http.client.html#http.client.HTTPResponse" title="http.client.HTTPResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">http.client.HTTPResponse</span></code></a> object slightly modified. In addition
 to the three new methods above, the msg attribute contains the
@@ -148,7 +226,7 @@ the response headers as it is specified in the documentation for
 <a class="reference internal" href="http.client.html#http.client.HTTPResponse" title="http.client.HTTPResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTTPResponse</span></code></a>.</p>
 <p>For FTP, file, and data URLs and requests explicitly handled by legacy
 <a class="reference internal" href="#urllib.request.URLopener" title="urllib.request.URLopener"><code class="xref py py-class docutils literal notranslate"><span class="pre">URLopener</span></code></a> and <a class="reference internal" href="#urllib.request.FancyURLopener" title="urllib.request.FancyURLopener"><code class="xref py py-class docutils literal notranslate"><span class="pre">FancyURLopener</span></code></a> classes, this function
-returns a <code class="xref py py-class docutils literal notranslate"><span class="pre">urllib.response.addinfourl</span></code> object.</p>
+returns a <a class="reference internal" href="#urllib.response.addinfourl" title="urllib.response.addinfourl"><code class="xref py py-class docutils literal notranslate"><span class="pre">urllib.response.addinfourl</span></code></a> object.</p>
 <p>Raises <a class="reference internal" href="urllib.error.html#urllib.error.URLError" title="urllib.error.URLError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">URLError</span></code></a> on protocol errors.</p>
 <p>Note that <code class="docutils literal notranslate"><span class="pre">None</span></code> may be returned if no handler handles the request (though
 the default installed global <a class="reference internal" href="#urllib.request.OpenerDirector" title="urllib.request.OpenerDirector"><code class="xref py py-class docutils literal notranslate"><span class="pre">OpenerDirector</span></code></a> uses
@@ -162,6 +240,10 @@ discontinued; <a class="reference internal" href="#urllib.request.urlopen" title
 <code class="docutils literal notranslate"><span class="pre">urllib2.urlopen</span></code>.  Proxy handling, which was done by passing a dictionary
 parameter to <code class="docutils literal notranslate"><span class="pre">urllib.urlopen</span></code>, can be obtained by using
 <a class="reference internal" href="#urllib.request.ProxyHandler" title="urllib.request.ProxyHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProxyHandler</span></code></a> objects.</p>
+<p class="audit-hook"><p>The default opener raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a>
+<code class="docutils literal notranslate"><span class="pre">urllib.Request</span></code> with arguments <code class="docutils literal notranslate"><span class="pre">fullurl</span></code>, <code class="docutils literal notranslate"><span class="pre">data</span></code>, <code class="docutils literal notranslate"><span class="pre">headers</span></code>,
+<code class="docutils literal notranslate"><span class="pre">method</span></code> taken from the request object.</p>
+</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.2: </span><em>cafile</em> and <em>capath</em> were added.</p>
 </div>
@@ -178,6 +260,11 @@ parameter to <code class="docutils literal notranslate"><span class="pre">urllib
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.4.3: </span><em>context</em> was added.</p>
 </div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.10: </span>HTTPS connection now send an ALPN extension with protocol indicator
+<code class="docutils literal notranslate"><span class="pre">http/1.1</span></code> when no <em>context</em> is given. Custom <em>context</em> should set
+ALPN protocols with <code class="xref py py-meth docutils literal notranslate"><span class="pre">set_alpn_protocol()</span></code>.</p>
+</div>
 <div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 3.6: </span><em>cafile</em>, <em>capath</em> and <em>cadefault</em> are deprecated in favor of <em>context</em>.
 Please use <a class="reference internal" href="ssl.html#ssl.SSLContext.load_cert_chain" title="ssl.SSLContext.load_cert_chain"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ssl.SSLContext.load_cert_chain()</span></code></a> instead, or let
@@ -186,9 +273,9 @@ certificates for you.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="urllib.request.install_opener">
-<code class="descclassname">urllib.request.</code><code class="descname">install_opener</code><span class="sig-paren">(</span><em>opener</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.install_opener" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">urllib.request.</code><code class="sig-name descname">install_opener</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">opener</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.install_opener" title="Permalink to this definition">¶</a></dt>
 <dd><p>Install an <a class="reference internal" href="#urllib.request.OpenerDirector" title="urllib.request.OpenerDirector"><code class="xref py py-class docutils literal notranslate"><span class="pre">OpenerDirector</span></code></a> instance as the default global opener.
 Installing an opener is only necessary if you want urlopen to use that
 opener; otherwise, simply call <a class="reference internal" href="#urllib.request.OpenerDirector.open" title="urllib.request.OpenerDirector.open"><code class="xref py py-meth docutils literal notranslate"><span class="pre">OpenerDirector.open()</span></code></a> instead of
@@ -197,9 +284,9 @@ opener; otherwise, simply call <a class="reference internal" href="#urllib.reque
 work.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="urllib.request.build_opener">
-<code class="descclassname">urllib.request.</code><code class="descname">build_opener</code><span class="sig-paren">(</span><span class="optional">[</span><em>handler</em>, <em>...</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.build_opener" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">urllib.request.</code><code class="sig-name descname">build_opener</code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param">handler</em>, <em class="sig-param">...</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.build_opener" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return an <a class="reference internal" href="#urllib.request.OpenerDirector" title="urllib.request.OpenerDirector"><code class="xref py py-class docutils literal notranslate"><span class="pre">OpenerDirector</span></code></a> instance, which chains the handlers in the
 order given. <em>handler</em>s can be either instances of <a class="reference internal" href="#urllib.request.BaseHandler" title="urllib.request.BaseHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseHandler</span></code></a>, or
 subclasses of <a class="reference internal" href="#urllib.request.BaseHandler" title="urllib.request.BaseHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseHandler</span></code></a> (in which case it must be possible to call
@@ -215,30 +302,30 @@ can be imported), <a class="reference internal" href="#urllib.request.HTTPSHandl
 attribute to modify its position in the handlers list.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="urllib.request.pathname2url">
-<code class="descclassname">urllib.request.</code><code class="descname">pathname2url</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.pathname2url" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">urllib.request.</code><code class="sig-name descname">pathname2url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.pathname2url" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert the pathname <em>path</em> from the local syntax for a path to the form used in
 the path component of a URL.  This does not produce a complete URL.  The return
 value will already be quoted using the <a class="reference internal" href="urllib.parse.html#urllib.parse.quote" title="urllib.parse.quote"><code class="xref py py-func docutils literal notranslate"><span class="pre">quote()</span></code></a> function.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="urllib.request.url2pathname">
-<code class="descclassname">urllib.request.</code><code class="descname">url2pathname</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.url2pathname" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">urllib.request.</code><code class="sig-name descname">url2pathname</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.url2pathname" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert the path component <em>path</em> from a percent-encoded URL to the local syntax for a
 path.  This does not accept a complete URL.  This function uses
 <a class="reference internal" href="urllib.parse.html#urllib.parse.unquote" title="urllib.parse.unquote"><code class="xref py py-func docutils literal notranslate"><span class="pre">unquote()</span></code></a> to decode <em>path</em>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="urllib.request.getproxies">
-<code class="descclassname">urllib.request.</code><code class="descname">getproxies</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.getproxies" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">urllib.request.</code><code class="sig-name descname">getproxies</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.getproxies" title="Permalink to this definition">¶</a></dt>
 <dd><p>This helper function returns a dictionary of scheme to proxy server URL
 mappings. It scans the environment for variables named <code class="docutils literal notranslate"><span class="pre">&lt;scheme&gt;_proxy</span></code>,
 in a case insensitive approach, for all operating systems first, and when it
-cannot find it, looks for proxy information from Mac OSX System
-Configuration for Mac OS X and Windows Systems Registry for Windows.
+cannot find it, looks for proxy information from System
+Configuration for macOS and Windows Systems Registry for Windows.
 If both lowercase and uppercase environment variables exist (and disagree),
 lowercase is preferred.</p>
 <div class="admonition note">
@@ -254,16 +341,16 @@ lowercase (or at least the <code class="docutils literal notranslate"><span clas
 </dd></dl>
 
 <p>The following classes are provided:</p>
-<dl class="class">
+<dl class="py class">
 <dt id="urllib.request.Request">
-<em class="property">class </em><code class="descclassname">urllib.request.</code><code class="descname">Request</code><span class="sig-paren">(</span><em>url</em>, <em>data=None</em>, <em>headers={}</em>, <em>origin_req_host=None</em>, <em>unverifiable=False</em>, <em>method=None</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.Request" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">urllib.request.</code><code class="sig-name descname">Request</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em>, <em class="sig-param"><span class="n">data</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">headers</span><span class="o">=</span><span class="default_value">{}</span></em>, <em class="sig-param"><span class="n">origin_req_host</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">unverifiable</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">method</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.Request" title="Permalink to this definition">¶</a></dt>
 <dd><p>This class is an abstraction of a URL request.</p>
 <p><em>url</em> should be a string containing a valid URL.</p>
 <p><em>data</em> must be an object specifying additional data to send to the
 server, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if no such data is needed.  Currently HTTP
 requests are the only ones that use <em>data</em>.  The supported object
-types include bytes, file-like objects, and iterables.  If no
-<code class="docutils literal notranslate"><span class="pre">Content-Length</span></code> nor <code class="docutils literal notranslate"><span class="pre">Transfer-Encoding</span></code> header field
+types include bytes, file-like objects, and iterables of bytes-like objects.
+If no <code class="docutils literal notranslate"><span class="pre">Content-Length</span></code> nor <code class="docutils literal notranslate"><span class="pre">Transfer-Encoding</span></code> header field
 has been provided, <a class="reference internal" href="#urllib.request.HTTPHandler" title="urllib.request.HTTPHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTTPHandler</span></code></a> will set these headers according
 to the type of <em>data</em>.  <code class="docutils literal notranslate"><span class="pre">Content-Length</span></code> will be used to send
 bytes objects, while <code class="docutils literal notranslate"><span class="pre">Transfer-Encoding:</span> <span class="pre">chunked</span></code> as specified in
@@ -286,7 +373,7 @@ For example, Mozilla Firefox may identify itself as <code class="docutils litera
 argument is present.  If this header has not been provided and <em>data</em>
 is not None, <code class="docutils literal notranslate"><span class="pre">Content-Type:</span> <span class="pre">application/x-www-form-urlencoded</span></code> will
 be added as a default.</p>
-<p>The final two arguments are only of interest for correct handling
+<p>The next two arguments are only of interest for correct handling
 of third-party HTTP cookies:</p>
 <p><em>origin_req_host</em> should be the request-host of the origin
 transaction, as defined by <span class="target" id="index-2"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc2965.html"><strong>RFC 2965</strong></a>.  It defaults to
@@ -329,49 +416,49 @@ Fall back to use chunked transfer encoding instead.</p>
 </div>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="urllib.request.OpenerDirector">
-<em class="property">class </em><code class="descclassname">urllib.request.</code><code class="descname">OpenerDirector</code><a class="headerlink" href="#urllib.request.OpenerDirector" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">urllib.request.</code><code class="sig-name descname">OpenerDirector</code><a class="headerlink" href="#urllib.request.OpenerDirector" title="Permalink to this definition">¶</a></dt>
 <dd><p>The <a class="reference internal" href="#urllib.request.OpenerDirector" title="urllib.request.OpenerDirector"><code class="xref py py-class docutils literal notranslate"><span class="pre">OpenerDirector</span></code></a> class opens URLs via <a class="reference internal" href="#urllib.request.BaseHandler" title="urllib.request.BaseHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseHandler</span></code></a>s chained
 together. It manages the chaining of handlers, and recovery from errors.</p>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="urllib.request.BaseHandler">
-<em class="property">class </em><code class="descclassname">urllib.request.</code><code class="descname">BaseHandler</code><a class="headerlink" href="#urllib.request.BaseHandler" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">urllib.request.</code><code class="sig-name descname">BaseHandler</code><a class="headerlink" href="#urllib.request.BaseHandler" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is the base class for all registered handlers — and handles only the
 simple mechanics of registration.</p>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="urllib.request.HTTPDefaultErrorHandler">
-<em class="property">class </em><code class="descclassname">urllib.request.</code><code class="descname">HTTPDefaultErrorHandler</code><a class="headerlink" href="#urllib.request.HTTPDefaultErrorHandler" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">urllib.request.</code><code class="sig-name descname">HTTPDefaultErrorHandler</code><a class="headerlink" href="#urllib.request.HTTPDefaultErrorHandler" title="Permalink to this definition">¶</a></dt>
 <dd><p>A class which defines a default handler for HTTP error responses; all responses
 are turned into <a class="reference internal" href="urllib.error.html#urllib.error.HTTPError" title="urllib.error.HTTPError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">HTTPError</span></code></a> exceptions.</p>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="urllib.request.HTTPRedirectHandler">
-<em class="property">class </em><code class="descclassname">urllib.request.</code><code class="descname">HTTPRedirectHandler</code><a class="headerlink" href="#urllib.request.HTTPRedirectHandler" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">urllib.request.</code><code class="sig-name descname">HTTPRedirectHandler</code><a class="headerlink" href="#urllib.request.HTTPRedirectHandler" title="Permalink to this definition">¶</a></dt>
 <dd><p>A class to handle redirections.</p>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="urllib.request.HTTPCookieProcessor">
-<em class="property">class </em><code class="descclassname">urllib.request.</code><code class="descname">HTTPCookieProcessor</code><span class="sig-paren">(</span><em>cookiejar=None</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPCookieProcessor" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">urllib.request.</code><code class="sig-name descname">HTTPCookieProcessor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cookiejar</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPCookieProcessor" title="Permalink to this definition">¶</a></dt>
 <dd><p>A class to handle HTTP Cookies.</p>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="urllib.request.ProxyHandler">
-<em class="property">class </em><code class="descclassname">urllib.request.</code><code class="descname">ProxyHandler</code><span class="sig-paren">(</span><em>proxies=None</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.ProxyHandler" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">urllib.request.</code><code class="sig-name descname">ProxyHandler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">proxies</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.ProxyHandler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cause requests to go through a proxy. If <em>proxies</em> is given, it must be a
 dictionary mapping protocol names to URLs of proxies. The default is to read
 the list of proxies from the environment variables
 <code class="docutils literal notranslate"><span class="pre">&lt;protocol&gt;_proxy</span></code>.  If no proxy environment variables are set, then
 in a Windows environment proxy settings are obtained from the registry’s
-Internet Settings section, and in a Mac OS X environment proxy information
-is retrieved from the OS X System Configuration Framework.</p>
+Internet Settings section, and in a macOS environment proxy information
+is retrieved from the System Configuration Framework.</p>
 <p>To disable autodetected proxy pass an empty dictionary.</p>
 <p>The <span class="target" id="index-4"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">no_proxy</span></code> environment variable can be used to specify hosts
 which shouldn’t be reached via proxy; if set, it should be a comma-separated
@@ -386,23 +473,23 @@ see the documentation on <a class="reference internal" href="#urllib.request.get
 </div></blockquote>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="urllib.request.HTTPPasswordMgr">
-<em class="property">class </em><code class="descclassname">urllib.request.</code><code class="descname">HTTPPasswordMgr</code><a class="headerlink" href="#urllib.request.HTTPPasswordMgr" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">urllib.request.</code><code class="sig-name descname">HTTPPasswordMgr</code><a class="headerlink" href="#urllib.request.HTTPPasswordMgr" title="Permalink to this definition">¶</a></dt>
 <dd><p>Keep a database of  <code class="docutils literal notranslate"><span class="pre">(realm,</span> <span class="pre">uri)</span> <span class="pre">-&gt;</span> <span class="pre">(user,</span> <span class="pre">password)</span></code> mappings.</p>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="urllib.request.HTTPPasswordMgrWithDefaultRealm">
-<em class="property">class </em><code class="descclassname">urllib.request.</code><code class="descname">HTTPPasswordMgrWithDefaultRealm</code><a class="headerlink" href="#urllib.request.HTTPPasswordMgrWithDefaultRealm" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">urllib.request.</code><code class="sig-name descname">HTTPPasswordMgrWithDefaultRealm</code><a class="headerlink" href="#urllib.request.HTTPPasswordMgrWithDefaultRealm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Keep a database of  <code class="docutils literal notranslate"><span class="pre">(realm,</span> <span class="pre">uri)</span> <span class="pre">-&gt;</span> <span class="pre">(user,</span> <span class="pre">password)</span></code> mappings. A realm of
 <code class="docutils literal notranslate"><span class="pre">None</span></code> is considered a catch-all realm, which is searched if no other realm
 fits.</p>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="urllib.request.HTTPPasswordMgrWithPriorAuth">
-<em class="property">class </em><code class="descclassname">urllib.request.</code><code class="descname">HTTPPasswordMgrWithPriorAuth</code><a class="headerlink" href="#urllib.request.HTTPPasswordMgrWithPriorAuth" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">urllib.request.</code><code class="sig-name descname">HTTPPasswordMgrWithPriorAuth</code><a class="headerlink" href="#urllib.request.HTTPPasswordMgrWithPriorAuth" title="Permalink to this definition">¶</a></dt>
 <dd><p>A variant of <a class="reference internal" href="#urllib.request.HTTPPasswordMgrWithDefaultRealm" title="urllib.request.HTTPPasswordMgrWithDefaultRealm"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTTPPasswordMgrWithDefaultRealm</span></code></a> that also has a
 database of <code class="docutils literal notranslate"><span class="pre">uri</span> <span class="pre">-&gt;</span> <span class="pre">is_authenticated</span></code> mappings.  Can be used by a
 BasicAuth handler to determine when to send authentication credentials
@@ -412,9 +499,9 @@ immediately instead of waiting for a <code class="docutils literal notranslate">
 </div>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="urllib.request.AbstractBasicAuthHandler">
-<em class="property">class </em><code class="descclassname">urllib.request.</code><code class="descname">AbstractBasicAuthHandler</code><span class="sig-paren">(</span><em>password_mgr=None</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.AbstractBasicAuthHandler" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">urllib.request.</code><code class="sig-name descname">AbstractBasicAuthHandler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">password_mgr</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.AbstractBasicAuthHandler" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is a mixin class that helps with HTTP authentication, both to the remote
 host and to a proxy. <em>password_mgr</em>, if given, should be something that is
 compatible with <a class="reference internal" href="#urllib.request.HTTPPasswordMgr" title="urllib.request.HTTPPasswordMgr"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTTPPasswordMgr</span></code></a>; refer to section
@@ -436,9 +523,9 @@ authentication credentials.</p>
 </div>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="urllib.request.HTTPBasicAuthHandler">
-<em class="property">class </em><code class="descclassname">urllib.request.</code><code class="descname">HTTPBasicAuthHandler</code><span class="sig-paren">(</span><em>password_mgr=None</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPBasicAuthHandler" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">urllib.request.</code><code class="sig-name descname">HTTPBasicAuthHandler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">password_mgr</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPBasicAuthHandler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Handle authentication with the remote host. <em>password_mgr</em>, if given, should
 be something that is compatible with <a class="reference internal" href="#urllib.request.HTTPPasswordMgr" title="urllib.request.HTTPPasswordMgr"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTTPPasswordMgr</span></code></a>; refer to
 section <a class="reference internal" href="#http-password-mgr"><span class="std std-ref">HTTPPasswordMgr Objects</span></a> for information on the interface that must
@@ -446,18 +533,18 @@ be supported. HTTPBasicAuthHandler will raise a <a class="reference internal" hr
 presented with a wrong Authentication scheme.</p>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="urllib.request.ProxyBasicAuthHandler">
-<em class="property">class </em><code class="descclassname">urllib.request.</code><code class="descname">ProxyBasicAuthHandler</code><span class="sig-paren">(</span><em>password_mgr=None</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.ProxyBasicAuthHandler" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">urllib.request.</code><code class="sig-name descname">ProxyBasicAuthHandler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">password_mgr</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.ProxyBasicAuthHandler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Handle authentication with the proxy. <em>password_mgr</em>, if given, should be
 something that is compatible with <a class="reference internal" href="#urllib.request.HTTPPasswordMgr" title="urllib.request.HTTPPasswordMgr"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTTPPasswordMgr</span></code></a>; refer to section
 <a class="reference internal" href="#http-password-mgr"><span class="std std-ref">HTTPPasswordMgr Objects</span></a> for information on the interface that must be
 supported.</p>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="urllib.request.AbstractDigestAuthHandler">
-<em class="property">class </em><code class="descclassname">urllib.request.</code><code class="descname">AbstractDigestAuthHandler</code><span class="sig-paren">(</span><em>password_mgr=None</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.AbstractDigestAuthHandler" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">urllib.request.</code><code class="sig-name descname">AbstractDigestAuthHandler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">password_mgr</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.AbstractDigestAuthHandler" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is a mixin class that helps with HTTP authentication, both to the remote
 host and to a proxy. <em>password_mgr</em>, if given, should be something that is
 compatible with <a class="reference internal" href="#urllib.request.HTTPPasswordMgr" title="urllib.request.HTTPPasswordMgr"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTTPPasswordMgr</span></code></a>; refer to section
@@ -465,9 +552,9 @@ compatible with <a class="reference internal" href="#urllib.request.HTTPPassword
 supported.</p>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="urllib.request.HTTPDigestAuthHandler">
-<em class="property">class </em><code class="descclassname">urllib.request.</code><code class="descname">HTTPDigestAuthHandler</code><span class="sig-paren">(</span><em>password_mgr=None</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPDigestAuthHandler" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">urllib.request.</code><code class="sig-name descname">HTTPDigestAuthHandler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">password_mgr</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPDigestAuthHandler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Handle authentication with the remote host. <em>password_mgr</em>, if given, should
 be something that is compatible with <a class="reference internal" href="#urllib.request.HTTPPasswordMgr" title="urllib.request.HTTPPasswordMgr"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTTPPasswordMgr</span></code></a>; refer to
 section <a class="reference internal" href="#http-password-mgr"><span class="std std-ref">HTTPPasswordMgr Objects</span></a> for information on the interface that must
@@ -482,24 +569,24 @@ Digest or Basic.</p>
 </div>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="urllib.request.ProxyDigestAuthHandler">
-<em class="property">class </em><code class="descclassname">urllib.request.</code><code class="descname">ProxyDigestAuthHandler</code><span class="sig-paren">(</span><em>password_mgr=None</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.ProxyDigestAuthHandler" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">urllib.request.</code><code class="sig-name descname">ProxyDigestAuthHandler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">password_mgr</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.ProxyDigestAuthHandler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Handle authentication with the proxy. <em>password_mgr</em>, if given, should be
 something that is compatible with <a class="reference internal" href="#urllib.request.HTTPPasswordMgr" title="urllib.request.HTTPPasswordMgr"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTTPPasswordMgr</span></code></a>; refer to section
 <a class="reference internal" href="#http-password-mgr"><span class="std std-ref">HTTPPasswordMgr Objects</span></a> for information on the interface that must be
 supported.</p>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="urllib.request.HTTPHandler">
-<em class="property">class </em><code class="descclassname">urllib.request.</code><code class="descname">HTTPHandler</code><a class="headerlink" href="#urllib.request.HTTPHandler" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">urllib.request.</code><code class="sig-name descname">HTTPHandler</code><a class="headerlink" href="#urllib.request.HTTPHandler" title="Permalink to this definition">¶</a></dt>
 <dd><p>A class to handle opening of HTTP URLs.</p>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="urllib.request.HTTPSHandler">
-<em class="property">class </em><code class="descclassname">urllib.request.</code><code class="descname">HTTPSHandler</code><span class="sig-paren">(</span><em>debuglevel=0</em>, <em>context=None</em>, <em>check_hostname=None</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPSHandler" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">urllib.request.</code><code class="sig-name descname">HTTPSHandler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">debuglevel</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">context</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">check_hostname</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPSHandler" title="Permalink to this definition">¶</a></dt>
 <dd><p>A class to handle opening of HTTPS URLs.  <em>context</em> and <em>check_hostname</em>
 have the same meaning as in <a class="reference internal" href="http.client.html#http.client.HTTPSConnection" title="http.client.HTTPSConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">http.client.HTTPSConnection</span></code></a>.</p>
 <div class="versionchanged">
@@ -507,42 +594,42 @@ have the same meaning as in <a class="reference internal" href="http.client.html
 </div>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="urllib.request.FileHandler">
-<em class="property">class </em><code class="descclassname">urllib.request.</code><code class="descname">FileHandler</code><a class="headerlink" href="#urllib.request.FileHandler" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">urllib.request.</code><code class="sig-name descname">FileHandler</code><a class="headerlink" href="#urllib.request.FileHandler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Open local files.</p>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="urllib.request.DataHandler">
-<em class="property">class </em><code class="descclassname">urllib.request.</code><code class="descname">DataHandler</code><a class="headerlink" href="#urllib.request.DataHandler" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">urllib.request.</code><code class="sig-name descname">DataHandler</code><a class="headerlink" href="#urllib.request.DataHandler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Open data URLs.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 3.4.</span></p>
 </div>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="urllib.request.FTPHandler">
-<em class="property">class </em><code class="descclassname">urllib.request.</code><code class="descname">FTPHandler</code><a class="headerlink" href="#urllib.request.FTPHandler" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">urllib.request.</code><code class="sig-name descname">FTPHandler</code><a class="headerlink" href="#urllib.request.FTPHandler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Open FTP URLs.</p>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="urllib.request.CacheFTPHandler">
-<em class="property">class </em><code class="descclassname">urllib.request.</code><code class="descname">CacheFTPHandler</code><a class="headerlink" href="#urllib.request.CacheFTPHandler" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">urllib.request.</code><code class="sig-name descname">CacheFTPHandler</code><a class="headerlink" href="#urllib.request.CacheFTPHandler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Open FTP URLs, keeping a cache of open FTP connections to minimize delays.</p>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="urllib.request.UnknownHandler">
-<em class="property">class </em><code class="descclassname">urllib.request.</code><code class="descname">UnknownHandler</code><a class="headerlink" href="#urllib.request.UnknownHandler" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">urllib.request.</code><code class="sig-name descname">UnknownHandler</code><a class="headerlink" href="#urllib.request.UnknownHandler" title="Permalink to this definition">¶</a></dt>
 <dd><p>A catch-all class to handle unknown URLs.</p>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="urllib.request.HTTPErrorProcessor">
-<em class="property">class </em><code class="descclassname">urllib.request.</code><code class="descname">HTTPErrorProcessor</code><a class="headerlink" href="#urllib.request.HTTPErrorProcessor" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">urllib.request.</code><code class="sig-name descname">HTTPErrorProcessor</code><a class="headerlink" href="#urllib.request.HTTPErrorProcessor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Process HTTP error responses.</p>
 </dd></dl>
 
@@ -552,9 +639,9 @@ have the same meaning as in <a class="reference internal" href="http.client.html
 and so all may be overridden in subclasses.  It also defines several
 public attributes that can be used by clients to inspect the parsed
 request.</p>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="urllib.request.Request.full_url">
-<code class="descclassname">Request.</code><code class="descname">full_url</code><a class="headerlink" href="#urllib.request.Request.full_url" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Request.</code><code class="sig-name descname">full_url</code><a class="headerlink" href="#urllib.request.Request.full_url" title="Permalink to this definition">¶</a></dt>
 <dd><p>The original URL passed to the constructor.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.4.</span></p>
@@ -564,35 +651,35 @@ request.</p>
 fragment, if it was present.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="urllib.request.Request.type">
-<code class="descclassname">Request.</code><code class="descname">type</code><a class="headerlink" href="#urllib.request.Request.type" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Request.</code><code class="sig-name descname">type</code><a class="headerlink" href="#urllib.request.Request.type" title="Permalink to this definition">¶</a></dt>
 <dd><p>The URI scheme.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="urllib.request.Request.host">
-<code class="descclassname">Request.</code><code class="descname">host</code><a class="headerlink" href="#urllib.request.Request.host" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Request.</code><code class="sig-name descname">host</code><a class="headerlink" href="#urllib.request.Request.host" title="Permalink to this definition">¶</a></dt>
 <dd><p>The URI authority, typically a host, but may also contain a port
 separated by a colon.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="urllib.request.Request.origin_req_host">
-<code class="descclassname">Request.</code><code class="descname">origin_req_host</code><a class="headerlink" href="#urllib.request.Request.origin_req_host" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Request.</code><code class="sig-name descname">origin_req_host</code><a class="headerlink" href="#urllib.request.Request.origin_req_host" title="Permalink to this definition">¶</a></dt>
 <dd><p>The original host for the request, without port.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="urllib.request.Request.selector">
-<code class="descclassname">Request.</code><code class="descname">selector</code><a class="headerlink" href="#urllib.request.Request.selector" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Request.</code><code class="sig-name descname">selector</code><a class="headerlink" href="#urllib.request.Request.selector" title="Permalink to this definition">¶</a></dt>
 <dd><p>The URI path.  If the <a class="reference internal" href="#urllib.request.Request" title="urllib.request.Request"><code class="xref py py-class docutils literal notranslate"><span class="pre">Request</span></code></a> uses a proxy, then selector
 will be the full URL that is passed to the proxy.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="urllib.request.Request.data">
-<code class="descclassname">Request.</code><code class="descname">data</code><a class="headerlink" href="#urllib.request.Request.data" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Request.</code><code class="sig-name descname">data</code><a class="headerlink" href="#urllib.request.Request.data" title="Permalink to this definition">¶</a></dt>
 <dd><p>The entity body for the request, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if not specified.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.4: </span>Changing value of <a class="reference internal" href="#urllib.request.Request.data" title="urllib.request.Request.data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Request.data</span></code></a> now deletes “Content-Length”
@@ -600,16 +687,16 @@ header if it was previously set or calculated.</p>
 </div>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="urllib.request.Request.unverifiable">
-<code class="descclassname">Request.</code><code class="descname">unverifiable</code><a class="headerlink" href="#urllib.request.Request.unverifiable" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Request.</code><code class="sig-name descname">unverifiable</code><a class="headerlink" href="#urllib.request.Request.unverifiable" title="Permalink to this definition">¶</a></dt>
 <dd><p>boolean, indicates whether the request is unverifiable as defined
 by <span class="target" id="index-5"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc2965.html"><strong>RFC 2965</strong></a>.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="urllib.request.Request.method">
-<code class="descclassname">Request.</code><code class="descname">method</code><a class="headerlink" href="#urllib.request.Request.method" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Request.</code><code class="sig-name descname">method</code><a class="headerlink" href="#urllib.request.Request.method" title="Permalink to this definition">¶</a></dt>
 <dd><p>The HTTP request method to use.  By default its value is <a class="reference internal" href="constants.html#None" title="None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a>,
 which means that <a class="reference internal" href="#urllib.request.Request.get_method" title="urllib.request.Request.get_method"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_method()</span></code></a> will do its normal computation
 of the method to be used.  Its value can be set (thus overriding the default
@@ -626,9 +713,9 @@ be set via the constructor argument.</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.Request.get_method">
-<code class="descclassname">Request.</code><code class="descname">get_method</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.Request.get_method" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Request.</code><code class="sig-name descname">get_method</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.Request.get_method" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a string indicating the HTTP request method.  If
 <a class="reference internal" href="#urllib.request.Request.method" title="urllib.request.Request.method"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Request.method</span></code></a> is not <code class="docutils literal notranslate"><span class="pre">None</span></code>, return its value, otherwise return
 <code class="docutils literal notranslate"><span class="pre">'GET'</span></code> if <a class="reference internal" href="#urllib.request.Request.data" title="urllib.request.Request.data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Request.data</span></code></a> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, or <code class="docutils literal notranslate"><span class="pre">'POST'</span></code> if it’s not.
@@ -638,9 +725,9 @@ This is only meaningful for HTTP requests.</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.Request.add_header">
-<code class="descclassname">Request.</code><code class="descname">add_header</code><span class="sig-paren">(</span><em>key</em>, <em>val</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.Request.add_header" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Request.</code><code class="sig-name descname">add_header</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">key</span></em>, <em class="sig-param"><span class="n">val</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.Request.add_header" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add another header to the request.  Headers are currently ignored by all
 handlers except HTTP handlers, where they are added to the list of headers sent
 to the server.  Note that there cannot be more than one header with the same
@@ -650,22 +737,22 @@ meaning when used more than once have a (header-specific) way of gaining the
 same functionality using only one header.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.Request.add_unredirected_header">
-<code class="descclassname">Request.</code><code class="descname">add_unredirected_header</code><span class="sig-paren">(</span><em>key</em>, <em>header</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.Request.add_unredirected_header" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Request.</code><code class="sig-name descname">add_unredirected_header</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">key</span></em>, <em class="sig-param"><span class="n">header</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.Request.add_unredirected_header" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a header that will not be added to a redirected request.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.Request.has_header">
-<code class="descclassname">Request.</code><code class="descname">has_header</code><span class="sig-paren">(</span><em>header</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.Request.has_header" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Request.</code><code class="sig-name descname">has_header</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">header</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.Request.has_header" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether the instance has the named header (checks both regular and
 unredirected).</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.Request.remove_header">
-<code class="descclassname">Request.</code><code class="descname">remove_header</code><span class="sig-paren">(</span><em>header</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.Request.remove_header" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Request.</code><code class="sig-name descname">remove_header</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">header</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.Request.remove_header" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove named header from the request instance (both from regular and
 unredirected headers).</p>
 <div class="versionadded">
@@ -673,9 +760,9 @@ unredirected headers).</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.Request.get_full_url">
-<code class="descclassname">Request.</code><code class="descname">get_full_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.Request.get_full_url" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Request.</code><code class="sig-name descname">get_full_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.Request.get_full_url" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the URL given in the constructor.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.4.</span></p>
@@ -683,24 +770,24 @@ unredirected headers).</p>
 <p>Returns <a class="reference internal" href="#urllib.request.Request.full_url" title="urllib.request.Request.full_url"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Request.full_url</span></code></a></p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.Request.set_proxy">
-<code class="descclassname">Request.</code><code class="descname">set_proxy</code><span class="sig-paren">(</span><em>host</em>, <em>type</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.Request.set_proxy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Request.</code><code class="sig-name descname">set_proxy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">host</span></em>, <em class="sig-param"><span class="n">type</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.Request.set_proxy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prepare the request by connecting to a proxy server. The <em>host</em> and <em>type</em> will
 replace those of the instance, and the instance’s selector will be the original
 URL given in the constructor.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.Request.get_header">
-<code class="descclassname">Request.</code><code class="descname">get_header</code><span class="sig-paren">(</span><em>header_name</em>, <em>default=None</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.Request.get_header" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Request.</code><code class="sig-name descname">get_header</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">header_name</span></em>, <em class="sig-param"><span class="n">default</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.Request.get_header" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the value of the given header. If the header is not present, return
 the default value.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.Request.header_items">
-<code class="descclassname">Request.</code><code class="descname">header_items</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.Request.header_items" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Request.</code><code class="sig-name descname">header_items</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.Request.header_items" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of tuples (header_name, header_value) of the Request headers.</p>
 </dd></dl>
 
@@ -713,9 +800,9 @@ since 3.3 have been removed.</p>
 <div class="section" id="openerdirector-objects">
 <span id="opener-director-objects"></span><h2>OpenerDirector Objects<a class="headerlink" href="#openerdirector-objects" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="#urllib.request.OpenerDirector" title="urllib.request.OpenerDirector"><code class="xref py py-class docutils literal notranslate"><span class="pre">OpenerDirector</span></code></a> instances have the following methods:</p>
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.OpenerDirector.add_handler">
-<code class="descclassname">OpenerDirector.</code><code class="descname">add_handler</code><span class="sig-paren">(</span><em>handler</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.OpenerDirector.add_handler" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">OpenerDirector.</code><code class="sig-name descname">add_handler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">handler</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.OpenerDirector.add_handler" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>handler</em> should be an instance of <a class="reference internal" href="#urllib.request.BaseHandler" title="urllib.request.BaseHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseHandler</span></code></a>.  The following methods
 are searched, and added to the possible chains (note that HTTP errors are a
 special case).  Note that, in the following, <em>protocol</em> should be replaced
@@ -745,9 +832,9 @@ post-process <em>protocol</em> responses.</p>
 </ul>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.OpenerDirector.open">
-<code class="descclassname">OpenerDirector.</code><code class="descname">open</code><span class="sig-paren">(</span><em>url</em>, <em>data=None</em><span class="optional">[</span>, <em>timeout</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.OpenerDirector.open" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">OpenerDirector.</code><code class="sig-name descname">open</code><span class="sig-paren">(</span><em class="sig-param">url</em>, <em class="sig-param">data=None</em><span class="optional">[</span>, <em class="sig-param">timeout</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.OpenerDirector.open" title="Permalink to this definition">¶</a></dt>
 <dd><p>Open the given <em>url</em> (which can be a request object or a string), optionally
 passing the given <em>data</em>. Arguments, return values and exceptions raised are
 the same as those of <a class="reference internal" href="#urllib.request.urlopen" title="urllib.request.urlopen"><code class="xref py py-func docutils literal notranslate"><span class="pre">urlopen()</span></code></a> (which simply calls the <a class="reference internal" href="functions.html#open" title="open"><code class="xref py py-meth docutils literal notranslate"><span class="pre">open()</span></code></a>
@@ -755,12 +842,12 @@ method on the currently installed global <a class="reference internal" href="#ur
 optional <em>timeout</em> parameter specifies a timeout in seconds for blocking
 operations like the connection attempt (if not specified, the global default
 timeout setting will be used). The timeout feature actually works only for
-HTTP, HTTPS and FTP connections).</p>
+HTTP, HTTPS and FTP connections.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.OpenerDirector.error">
-<code class="descclassname">OpenerDirector.</code><code class="descname">error</code><span class="sig-paren">(</span><em>proto</em>, <em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.OpenerDirector.error" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">OpenerDirector.</code><code class="sig-name descname">error</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">proto</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.OpenerDirector.error" title="Permalink to this definition">¶</a></dt>
 <dd><p>Handle an error of the given protocol.  This will call the registered error
 handlers for the given protocol with the given arguments (which are protocol
 specific).  The HTTP protocol is a special case which uses the HTTP response
@@ -797,15 +884,15 @@ method called to post-process the response.</p></li>
 <p><a class="reference internal" href="#urllib.request.BaseHandler" title="urllib.request.BaseHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseHandler</span></code></a> objects provide a couple of methods that are directly
 useful, and others that are meant to be used by derived classes.  These are
 intended for direct use:</p>
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.BaseHandler.add_parent">
-<code class="descclassname">BaseHandler.</code><code class="descname">add_parent</code><span class="sig-paren">(</span><em>director</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.BaseHandler.add_parent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">BaseHandler.</code><code class="sig-name descname">add_parent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">director</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.BaseHandler.add_parent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a director as parent.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.BaseHandler.close">
-<code class="descclassname">BaseHandler.</code><code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.BaseHandler.close" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">BaseHandler.</code><code class="sig-name descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.BaseHandler.close" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove any parents.</p>
 </dd></dl>
 
@@ -817,16 +904,16 @@ intended for direct use:</p>
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">&lt;protocol&gt;_request()</span></code> or <code class="xref py py-meth docutils literal notranslate"><span class="pre">&lt;protocol&gt;_response()</span></code> methods are named
 <code class="xref py py-class docutils literal notranslate"><span class="pre">*Processor</span></code>; all others are named <code class="xref py py-class docutils literal notranslate"><span class="pre">*Handler</span></code>.</p>
 </div>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="urllib.request.BaseHandler.parent">
-<code class="descclassname">BaseHandler.</code><code class="descname">parent</code><a class="headerlink" href="#urllib.request.BaseHandler.parent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">BaseHandler.</code><code class="sig-name descname">parent</code><a class="headerlink" href="#urllib.request.BaseHandler.parent" title="Permalink to this definition">¶</a></dt>
 <dd><p>A valid <a class="reference internal" href="#urllib.request.OpenerDirector" title="urllib.request.OpenerDirector"><code class="xref py py-class docutils literal notranslate"><span class="pre">OpenerDirector</span></code></a>, which can be used to open using a different
 protocol, or handle errors.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.BaseHandler.default_open">
-<code class="descclassname">BaseHandler.</code><code class="descname">default_open</code><span class="sig-paren">(</span><em>req</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.BaseHandler.default_open" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">BaseHandler.</code><code class="sig-name descname">default_open</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">req</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.BaseHandler.default_open" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method is <em>not</em> defined in <a class="reference internal" href="#urllib.request.BaseHandler" title="urllib.request.BaseHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseHandler</span></code></a>, but subclasses should
 define it if they want to catch all URLs.</p>
 <p>This method, if implemented, will be called by the parent
@@ -838,18 +925,18 @@ thing happens (for example, <a class="reference internal" href="exceptions.html#
 <p>This method will be called before any protocol-specific open method.</p>
 </dd></dl>
 
-<span class="target" id="protocol-open"></span><dl class="method">
+<span class="target" id="protocol-open"></span><dl class="py method">
 <dt>
-<code class="descname">BaseHandler.&lt;protocol&gt;_open(req)</code></dt>
+<code class="sig-name descname">BaseHandler.&lt;protocol&gt;_open(req)</code></dt>
 <dd><p>This method is <em>not</em> defined in <a class="reference internal" href="#urllib.request.BaseHandler" title="urllib.request.BaseHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseHandler</span></code></a>, but subclasses should
 define it if they want to handle URLs with the given protocol.</p>
 <p>This method, if defined, will be called by the parent <a class="reference internal" href="#urllib.request.OpenerDirector" title="urllib.request.OpenerDirector"><code class="xref py py-class docutils literal notranslate"><span class="pre">OpenerDirector</span></code></a>.
 Return values should be the same as for  <code class="xref py py-meth docutils literal notranslate"><span class="pre">default_open()</span></code>.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.BaseHandler.unknown_open">
-<code class="descclassname">BaseHandler.</code><code class="descname">unknown_open</code><span class="sig-paren">(</span><em>req</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.BaseHandler.unknown_open" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">BaseHandler.</code><code class="sig-name descname">unknown_open</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">req</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.BaseHandler.unknown_open" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method is <em>not</em> defined in <a class="reference internal" href="#urllib.request.BaseHandler" title="urllib.request.BaseHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseHandler</span></code></a>, but subclasses should
 define it if they want to catch all URLs with no specific registered handler to
 open it.</p>
@@ -858,9 +945,9 @@ open it.</p>
 <a class="reference internal" href="#urllib.request.BaseHandler.default_open" title="urllib.request.BaseHandler.default_open"><code class="xref py py-meth docutils literal notranslate"><span class="pre">default_open()</span></code></a>.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.BaseHandler.http_error_default">
-<code class="descclassname">BaseHandler.</code><code class="descname">http_error_default</code><span class="sig-paren">(</span><em>req</em>, <em>fp</em>, <em>code</em>, <em>msg</em>, <em>hdrs</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.BaseHandler.http_error_default" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">BaseHandler.</code><code class="sig-name descname">http_error_default</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">req</span></em>, <em class="sig-param"><span class="n">fp</span></em>, <em class="sig-param"><span class="n">code</span></em>, <em class="sig-param"><span class="n">msg</span></em>, <em class="sig-param"><span class="n">hdrs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.BaseHandler.http_error_default" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method is <em>not</em> defined in <a class="reference internal" href="#urllib.request.BaseHandler" title="urllib.request.BaseHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseHandler</span></code></a>, but subclasses should
 override it if they intend to provide a catch-all for otherwise unhandled HTTP
 errors.  It will be called automatically by the  <a class="reference internal" href="#urllib.request.OpenerDirector" title="urllib.request.OpenerDirector"><code class="xref py py-class docutils literal notranslate"><span class="pre">OpenerDirector</span></code></a> getting
@@ -873,9 +960,9 @@ object with the headers of the error.</p>
 <a class="reference internal" href="#urllib.request.urlopen" title="urllib.request.urlopen"><code class="xref py py-func docutils literal notranslate"><span class="pre">urlopen()</span></code></a>.</p>
 </dd></dl>
 
-<span class="target" id="http-error-nnn"></span><dl class="method">
+<span class="target" id="http-error-nnn"></span><dl class="py method">
 <dt>
-<code class="descname">BaseHandler.http_error_&lt;nnn&gt;(req, fp, code, msg, hdrs)</code></dt>
+<code class="sig-name descname">BaseHandler.http_error_&lt;nnn&gt;(req, fp, code, msg, hdrs)</code></dt>
 <dd><p><em>nnn</em> should be a three-digit HTTP error code.  This method is also not defined
 in <a class="reference internal" href="#urllib.request.BaseHandler" title="urllib.request.BaseHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseHandler</span></code></a>, but will be called, if it exists, on an instance of a
 subclass, when an HTTP error with code <em>nnn</em> occurs.</p>
@@ -884,9 +971,9 @@ subclass, when an HTTP error with code <em>nnn</em> occurs.</p>
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">http_error_default()</span></code>.</p>
 </dd></dl>
 
-<span class="target" id="protocol-request"></span><dl class="method">
+<span class="target" id="protocol-request"></span><dl class="py method">
 <dt>
-<code class="descname">BaseHandler.&lt;protocol&gt;_request(req)</code></dt>
+<code class="sig-name descname">BaseHandler.&lt;protocol&gt;_request(req)</code></dt>
 <dd><p>This method is <em>not</em> defined in <a class="reference internal" href="#urllib.request.BaseHandler" title="urllib.request.BaseHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseHandler</span></code></a>, but subclasses should
 define it if they want to pre-process requests of the given protocol.</p>
 <p>This method, if defined, will be called by the parent <a class="reference internal" href="#urllib.request.OpenerDirector" title="urllib.request.OpenerDirector"><code class="xref py py-class docutils literal notranslate"><span class="pre">OpenerDirector</span></code></a>.
@@ -894,9 +981,9 @@ define it if they want to pre-process requests of the given protocol.</p>
 <a class="reference internal" href="#urllib.request.Request" title="urllib.request.Request"><code class="xref py py-class docutils literal notranslate"><span class="pre">Request</span></code></a> object.</p>
 </dd></dl>
 
-<span class="target" id="protocol-response"></span><dl class="method">
+<span class="target" id="protocol-response"></span><dl class="py method">
 <dt>
-<code class="descname">BaseHandler.&lt;protocol&gt;_response(req, response)</code></dt>
+<code class="sig-name descname">BaseHandler.&lt;protocol&gt;_response(req, response)</code></dt>
 <dd><p>This method is <em>not</em> defined in <a class="reference internal" href="#urllib.request.BaseHandler" title="urllib.request.BaseHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseHandler</span></code></a>, but subclasses should
 define it if they want to post-process responses of the given protocol.</p>
 <p>This method, if defined, will be called by the parent <a class="reference internal" href="#urllib.request.OpenerDirector" title="urllib.request.OpenerDirector"><code class="xref py py-class docutils literal notranslate"><span class="pre">OpenerDirector</span></code></a>.
@@ -918,9 +1005,9 @@ details of the precise meanings of the various redirection codes.</p>
 HTTPRedirectHandler is presented with a redirected URL which is not an HTTP,
 HTTPS or FTP URL.</p>
 </div>
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.HTTPRedirectHandler.redirect_request">
-<code class="descclassname">HTTPRedirectHandler.</code><code class="descname">redirect_request</code><span class="sig-paren">(</span><em>req</em>, <em>fp</em>, <em>code</em>, <em>msg</em>, <em>hdrs</em>, <em>newurl</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPRedirectHandler.redirect_request" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">HTTPRedirectHandler.</code><code class="sig-name descname">redirect_request</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">req</span></em>, <em class="sig-param"><span class="n">fp</span></em>, <em class="sig-param"><span class="n">code</span></em>, <em class="sig-param"><span class="n">msg</span></em>, <em class="sig-param"><span class="n">hdrs</span></em>, <em class="sig-param"><span class="n">newurl</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPRedirectHandler.redirect_request" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a <a class="reference internal" href="#urllib.request.Request" title="urllib.request.Request"><code class="xref py py-class docutils literal notranslate"><span class="pre">Request</span></code></a> or <code class="docutils literal notranslate"><span class="pre">None</span></code> in response to a redirect. This is called
 by the default implementations of the <code class="xref py py-meth docutils literal notranslate"><span class="pre">http_error_30*()</span></code> methods when a
 redirection is received from the server.  If a redirection should take place,
@@ -938,28 +1025,28 @@ do allow automatic redirection of these responses, changing the POST to a
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.HTTPRedirectHandler.http_error_301">
-<code class="descclassname">HTTPRedirectHandler.</code><code class="descname">http_error_301</code><span class="sig-paren">(</span><em>req</em>, <em>fp</em>, <em>code</em>, <em>msg</em>, <em>hdrs</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPRedirectHandler.http_error_301" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">HTTPRedirectHandler.</code><code class="sig-name descname">http_error_301</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">req</span></em>, <em class="sig-param"><span class="n">fp</span></em>, <em class="sig-param"><span class="n">code</span></em>, <em class="sig-param"><span class="n">msg</span></em>, <em class="sig-param"><span class="n">hdrs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPRedirectHandler.http_error_301" title="Permalink to this definition">¶</a></dt>
 <dd><p>Redirect to the <code class="docutils literal notranslate"><span class="pre">Location:</span></code> or <code class="docutils literal notranslate"><span class="pre">URI:</span></code> URL.  This method is called by the
 parent <a class="reference internal" href="#urllib.request.OpenerDirector" title="urllib.request.OpenerDirector"><code class="xref py py-class docutils literal notranslate"><span class="pre">OpenerDirector</span></code></a> when getting an HTTP ‘moved permanently’ response.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.HTTPRedirectHandler.http_error_302">
-<code class="descclassname">HTTPRedirectHandler.</code><code class="descname">http_error_302</code><span class="sig-paren">(</span><em>req</em>, <em>fp</em>, <em>code</em>, <em>msg</em>, <em>hdrs</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPRedirectHandler.http_error_302" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">HTTPRedirectHandler.</code><code class="sig-name descname">http_error_302</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">req</span></em>, <em class="sig-param"><span class="n">fp</span></em>, <em class="sig-param"><span class="n">code</span></em>, <em class="sig-param"><span class="n">msg</span></em>, <em class="sig-param"><span class="n">hdrs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPRedirectHandler.http_error_302" title="Permalink to this definition">¶</a></dt>
 <dd><p>The same as <a class="reference internal" href="#urllib.request.HTTPRedirectHandler.http_error_301" title="urllib.request.HTTPRedirectHandler.http_error_301"><code class="xref py py-meth docutils literal notranslate"><span class="pre">http_error_301()</span></code></a>, but called for the ‘found’ response.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.HTTPRedirectHandler.http_error_303">
-<code class="descclassname">HTTPRedirectHandler.</code><code class="descname">http_error_303</code><span class="sig-paren">(</span><em>req</em>, <em>fp</em>, <em>code</em>, <em>msg</em>, <em>hdrs</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPRedirectHandler.http_error_303" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">HTTPRedirectHandler.</code><code class="sig-name descname">http_error_303</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">req</span></em>, <em class="sig-param"><span class="n">fp</span></em>, <em class="sig-param"><span class="n">code</span></em>, <em class="sig-param"><span class="n">msg</span></em>, <em class="sig-param"><span class="n">hdrs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPRedirectHandler.http_error_303" title="Permalink to this definition">¶</a></dt>
 <dd><p>The same as <a class="reference internal" href="#urllib.request.HTTPRedirectHandler.http_error_301" title="urllib.request.HTTPRedirectHandler.http_error_301"><code class="xref py py-meth docutils literal notranslate"><span class="pre">http_error_301()</span></code></a>, but called for the ‘see other’ response.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.HTTPRedirectHandler.http_error_307">
-<code class="descclassname">HTTPRedirectHandler.</code><code class="descname">http_error_307</code><span class="sig-paren">(</span><em>req</em>, <em>fp</em>, <em>code</em>, <em>msg</em>, <em>hdrs</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPRedirectHandler.http_error_307" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">HTTPRedirectHandler.</code><code class="sig-name descname">http_error_307</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">req</span></em>, <em class="sig-param"><span class="n">fp</span></em>, <em class="sig-param"><span class="n">code</span></em>, <em class="sig-param"><span class="n">msg</span></em>, <em class="sig-param"><span class="n">hdrs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPRedirectHandler.http_error_307" title="Permalink to this definition">¶</a></dt>
 <dd><p>The same as <a class="reference internal" href="#urllib.request.HTTPRedirectHandler.http_error_301" title="urllib.request.HTTPRedirectHandler.http_error_301"><code class="xref py py-meth docutils literal notranslate"><span class="pre">http_error_301()</span></code></a>, but called for the ‘temporary redirect’
 response.</p>
 </dd></dl>
@@ -968,18 +1055,18 @@ response.</p>
 <div class="section" id="httpcookieprocessor-objects">
 <span id="http-cookie-processor"></span><h2>HTTPCookieProcessor Objects<a class="headerlink" href="#httpcookieprocessor-objects" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="#urllib.request.HTTPCookieProcessor" title="urllib.request.HTTPCookieProcessor"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTTPCookieProcessor</span></code></a> instances have one attribute:</p>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="urllib.request.HTTPCookieProcessor.cookiejar">
-<code class="descclassname">HTTPCookieProcessor.</code><code class="descname">cookiejar</code><a class="headerlink" href="#urllib.request.HTTPCookieProcessor.cookiejar" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">HTTPCookieProcessor.</code><code class="sig-name descname">cookiejar</code><a class="headerlink" href="#urllib.request.HTTPCookieProcessor.cookiejar" title="Permalink to this definition">¶</a></dt>
 <dd><p>The <a class="reference internal" href="http.cookiejar.html#http.cookiejar.CookieJar" title="http.cookiejar.CookieJar"><code class="xref py py-class docutils literal notranslate"><span class="pre">http.cookiejar.CookieJar</span></code></a> in which cookies are stored.</p>
 </dd></dl>
 
 </div>
 <div class="section" id="proxyhandler-objects">
 <span id="proxy-handler"></span><h2>ProxyHandler Objects<a class="headerlink" href="#proxyhandler-objects" title="Permalink to this headline">¶</a></h2>
-<dl class="method">
+<dl class="py method">
 <dt>
-<code class="descname">ProxyHandler.&lt;protocol&gt;_open(request)</code></dt>
+<code class="sig-name descname">ProxyHandler.&lt;protocol&gt;_open(request)</code></dt>
 <dd><p>The <a class="reference internal" href="#urllib.request.ProxyHandler" title="urllib.request.ProxyHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProxyHandler</span></code></a> will have a method <code class="xref py py-meth docutils literal notranslate"><span class="pre">&lt;protocol&gt;_open()</span></code> for every
 <em>protocol</em> which has a proxy in the <em>proxies</em> dictionary given in the
 constructor.  The method will modify requests to go through the proxy, by
@@ -992,18 +1079,18 @@ actually execute the protocol.</p>
 <span id="http-password-mgr"></span><h2>HTTPPasswordMgr Objects<a class="headerlink" href="#httppasswordmgr-objects" title="Permalink to this headline">¶</a></h2>
 <p>These methods are available on <a class="reference internal" href="#urllib.request.HTTPPasswordMgr" title="urllib.request.HTTPPasswordMgr"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTTPPasswordMgr</span></code></a> and
 <a class="reference internal" href="#urllib.request.HTTPPasswordMgrWithDefaultRealm" title="urllib.request.HTTPPasswordMgrWithDefaultRealm"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTTPPasswordMgrWithDefaultRealm</span></code></a> objects.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.HTTPPasswordMgr.add_password">
-<code class="descclassname">HTTPPasswordMgr.</code><code class="descname">add_password</code><span class="sig-paren">(</span><em>realm</em>, <em>uri</em>, <em>user</em>, <em>passwd</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPPasswordMgr.add_password" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">HTTPPasswordMgr.</code><code class="sig-name descname">add_password</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">realm</span></em>, <em class="sig-param"><span class="n">uri</span></em>, <em class="sig-param"><span class="n">user</span></em>, <em class="sig-param"><span class="n">passwd</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPPasswordMgr.add_password" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>uri</em> can be either a single URI, or a sequence of URIs. <em>realm</em>, <em>user</em> and
 <em>passwd</em> must be strings. This causes <code class="docutils literal notranslate"><span class="pre">(user,</span> <span class="pre">passwd)</span></code> to be used as
 authentication tokens when authentication for <em>realm</em> and a super-URI of any of
 the given URIs is given.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.HTTPPasswordMgr.find_user_password">
-<code class="descclassname">HTTPPasswordMgr.</code><code class="descname">find_user_password</code><span class="sig-paren">(</span><em>realm</em>, <em>authuri</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPPasswordMgr.find_user_password" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">HTTPPasswordMgr.</code><code class="sig-name descname">find_user_password</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">realm</span></em>, <em class="sig-param"><span class="n">authuri</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPPasswordMgr.find_user_password" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get user/password for given realm and URI, if any.  This method will return
 <code class="docutils literal notranslate"><span class="pre">(None,</span> <span class="pre">None)</span></code> if there is no matching user/password.</p>
 <p>For <a class="reference internal" href="#urllib.request.HTTPPasswordMgrWithDefaultRealm" title="urllib.request.HTTPPasswordMgrWithDefaultRealm"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTTPPasswordMgrWithDefaultRealm</span></code></a> objects, the realm <code class="docutils literal notranslate"><span class="pre">None</span></code> will be
@@ -1015,31 +1102,31 @@ searched if the given <em>realm</em> has no matching user/password.</p>
 <span id="http-password-mgr-with-prior-auth"></span><h2>HTTPPasswordMgrWithPriorAuth Objects<a class="headerlink" href="#httppasswordmgrwithpriorauth-objects" title="Permalink to this headline">¶</a></h2>
 <p>This password manager extends <a class="reference internal" href="#urllib.request.HTTPPasswordMgrWithDefaultRealm" title="urllib.request.HTTPPasswordMgrWithDefaultRealm"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTTPPasswordMgrWithDefaultRealm</span></code></a> to support
 tracking URIs for which authentication credentials should always be sent.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.HTTPPasswordMgrWithPriorAuth.add_password">
-<code class="descclassname">HTTPPasswordMgrWithPriorAuth.</code><code class="descname">add_password</code><span class="sig-paren">(</span><em>realm</em>, <em>uri</em>, <em>user</em>, <em>passwd</em>, <em>is_authenticated=False</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPPasswordMgrWithPriorAuth.add_password" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">HTTPPasswordMgrWithPriorAuth.</code><code class="sig-name descname">add_password</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">realm</span></em>, <em class="sig-param"><span class="n">uri</span></em>, <em class="sig-param"><span class="n">user</span></em>, <em class="sig-param"><span class="n">passwd</span></em>, <em class="sig-param"><span class="n">is_authenticated</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPPasswordMgrWithPriorAuth.add_password" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>realm</em>, <em>uri</em>, <em>user</em>, <em>passwd</em> are as for
 <a class="reference internal" href="#urllib.request.HTTPPasswordMgr.add_password" title="urllib.request.HTTPPasswordMgr.add_password"><code class="xref py py-meth docutils literal notranslate"><span class="pre">HTTPPasswordMgr.add_password()</span></code></a>.  <em>is_authenticated</em> sets the initial
 value of the <code class="docutils literal notranslate"><span class="pre">is_authenticated</span></code> flag for the given URI or list of URIs.
 If <em>is_authenticated</em> is specified as <code class="docutils literal notranslate"><span class="pre">True</span></code>, <em>realm</em> is ignored.</p>
 </dd></dl>
 
-<dl class="method">
-<dt>
-<code class="descclassname">HTTPPasswordMgr.</code><code class="descname">find_user_password</code><span class="sig-paren">(</span><em>realm</em>, <em>authuri</em><span class="sig-paren">)</span></dt>
+<dl class="py method">
+<dt id="urllib.request.HTTPPasswordMgrWithPriorAuth.find_user_password">
+<code class="sig-prename descclassname">HTTPPasswordMgrWithPriorAuth.</code><code class="sig-name descname">find_user_password</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">realm</span></em>, <em class="sig-param"><span class="n">authuri</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPPasswordMgrWithPriorAuth.find_user_password" title="Permalink to this definition">¶</a></dt>
 <dd><p>Same as for <a class="reference internal" href="#urllib.request.HTTPPasswordMgrWithDefaultRealm" title="urllib.request.HTTPPasswordMgrWithDefaultRealm"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTTPPasswordMgrWithDefaultRealm</span></code></a> objects</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.HTTPPasswordMgrWithPriorAuth.update_authenticated">
-<code class="descclassname">HTTPPasswordMgrWithPriorAuth.</code><code class="descname">update_authenticated</code><span class="sig-paren">(</span><em>self</em>, <em>uri</em>, <em>is_authenticated=False</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPPasswordMgrWithPriorAuth.update_authenticated" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">HTTPPasswordMgrWithPriorAuth.</code><code class="sig-name descname">update_authenticated</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">uri</span></em>, <em class="sig-param"><span class="n">is_authenticated</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPPasswordMgrWithPriorAuth.update_authenticated" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update the <code class="docutils literal notranslate"><span class="pre">is_authenticated</span></code> flag for the given <em>uri</em> or list
 of URIs.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.HTTPPasswordMgrWithPriorAuth.is_authenticated">
-<code class="descclassname">HTTPPasswordMgrWithPriorAuth.</code><code class="descname">is_authenticated</code><span class="sig-paren">(</span><em>self</em>, <em>authuri</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPPasswordMgrWithPriorAuth.is_authenticated" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">HTTPPasswordMgrWithPriorAuth.</code><code class="sig-name descname">is_authenticated</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">authuri</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPPasswordMgrWithPriorAuth.is_authenticated" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the current state of the <code class="docutils literal notranslate"><span class="pre">is_authenticated</span></code> flag for
 the given URI.</p>
 </dd></dl>
@@ -1047,9 +1134,9 @@ the given URI.</p>
 </div>
 <div class="section" id="abstractbasicauthhandler-objects">
 <span id="abstract-basic-auth-handler"></span><h2>AbstractBasicAuthHandler Objects<a class="headerlink" href="#abstractbasicauthhandler-objects" title="Permalink to this headline">¶</a></h2>
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.AbstractBasicAuthHandler.http_error_auth_reqed">
-<code class="descclassname">AbstractBasicAuthHandler.</code><code class="descname">http_error_auth_reqed</code><span class="sig-paren">(</span><em>authreq</em>, <em>host</em>, <em>req</em>, <em>headers</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.AbstractBasicAuthHandler.http_error_auth_reqed" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">AbstractBasicAuthHandler.</code><code class="sig-name descname">http_error_auth_reqed</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">authreq</span></em>, <em class="sig-param"><span class="n">host</span></em>, <em class="sig-param"><span class="n">req</span></em>, <em class="sig-param"><span class="n">headers</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.AbstractBasicAuthHandler.http_error_auth_reqed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Handle an authentication request by getting a user/password pair, and re-trying
 the request.  <em>authreq</em> should be the name of the header where the information
 about the realm is included in the request, <em>host</em> specifies the URL and path to
@@ -1064,27 +1151,27 @@ authority must not contain a userinfo component (so, <code class="docutils liter
 </div>
 <div class="section" id="httpbasicauthhandler-objects">
 <span id="http-basic-auth-handler"></span><h2>HTTPBasicAuthHandler Objects<a class="headerlink" href="#httpbasicauthhandler-objects" title="Permalink to this headline">¶</a></h2>
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.HTTPBasicAuthHandler.http_error_401">
-<code class="descclassname">HTTPBasicAuthHandler.</code><code class="descname">http_error_401</code><span class="sig-paren">(</span><em>req</em>, <em>fp</em>, <em>code</em>, <em>msg</em>, <em>hdrs</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPBasicAuthHandler.http_error_401" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">HTTPBasicAuthHandler.</code><code class="sig-name descname">http_error_401</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">req</span></em>, <em class="sig-param"><span class="n">fp</span></em>, <em class="sig-param"><span class="n">code</span></em>, <em class="sig-param"><span class="n">msg</span></em>, <em class="sig-param"><span class="n">hdrs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPBasicAuthHandler.http_error_401" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retry the request with authentication information, if available.</p>
 </dd></dl>
 
 </div>
 <div class="section" id="proxybasicauthhandler-objects">
 <span id="proxy-basic-auth-handler"></span><h2>ProxyBasicAuthHandler Objects<a class="headerlink" href="#proxybasicauthhandler-objects" title="Permalink to this headline">¶</a></h2>
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.ProxyBasicAuthHandler.http_error_407">
-<code class="descclassname">ProxyBasicAuthHandler.</code><code class="descname">http_error_407</code><span class="sig-paren">(</span><em>req</em>, <em>fp</em>, <em>code</em>, <em>msg</em>, <em>hdrs</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.ProxyBasicAuthHandler.http_error_407" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ProxyBasicAuthHandler.</code><code class="sig-name descname">http_error_407</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">req</span></em>, <em class="sig-param"><span class="n">fp</span></em>, <em class="sig-param"><span class="n">code</span></em>, <em class="sig-param"><span class="n">msg</span></em>, <em class="sig-param"><span class="n">hdrs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.ProxyBasicAuthHandler.http_error_407" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retry the request with authentication information, if available.</p>
 </dd></dl>
 
 </div>
 <div class="section" id="abstractdigestauthhandler-objects">
 <span id="abstract-digest-auth-handler"></span><h2>AbstractDigestAuthHandler Objects<a class="headerlink" href="#abstractdigestauthhandler-objects" title="Permalink to this headline">¶</a></h2>
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.AbstractDigestAuthHandler.http_error_auth_reqed">
-<code class="descclassname">AbstractDigestAuthHandler.</code><code class="descname">http_error_auth_reqed</code><span class="sig-paren">(</span><em>authreq</em>, <em>host</em>, <em>req</em>, <em>headers</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.AbstractDigestAuthHandler.http_error_auth_reqed" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">AbstractDigestAuthHandler.</code><code class="sig-name descname">http_error_auth_reqed</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">authreq</span></em>, <em class="sig-param"><span class="n">host</span></em>, <em class="sig-param"><span class="n">req</span></em>, <em class="sig-param"><span class="n">headers</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.AbstractDigestAuthHandler.http_error_auth_reqed" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>authreq</em> should be the name of the header where the information about the realm
 is included in the request, <em>host</em> should be the host to authenticate to, <em>req</em>
 should be the (failed) <a class="reference internal" href="#urllib.request.Request" title="urllib.request.Request"><code class="xref py py-class docutils literal notranslate"><span class="pre">Request</span></code></a> object, and <em>headers</em> should be the
@@ -1094,27 +1181,27 @@ error headers.</p>
 </div>
 <div class="section" id="httpdigestauthhandler-objects">
 <span id="http-digest-auth-handler"></span><h2>HTTPDigestAuthHandler Objects<a class="headerlink" href="#httpdigestauthhandler-objects" title="Permalink to this headline">¶</a></h2>
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.HTTPDigestAuthHandler.http_error_401">
-<code class="descclassname">HTTPDigestAuthHandler.</code><code class="descname">http_error_401</code><span class="sig-paren">(</span><em>req</em>, <em>fp</em>, <em>code</em>, <em>msg</em>, <em>hdrs</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPDigestAuthHandler.http_error_401" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">HTTPDigestAuthHandler.</code><code class="sig-name descname">http_error_401</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">req</span></em>, <em class="sig-param"><span class="n">fp</span></em>, <em class="sig-param"><span class="n">code</span></em>, <em class="sig-param"><span class="n">msg</span></em>, <em class="sig-param"><span class="n">hdrs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPDigestAuthHandler.http_error_401" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retry the request with authentication information, if available.</p>
 </dd></dl>
 
 </div>
 <div class="section" id="proxydigestauthhandler-objects">
 <span id="proxy-digest-auth-handler"></span><h2>ProxyDigestAuthHandler Objects<a class="headerlink" href="#proxydigestauthhandler-objects" title="Permalink to this headline">¶</a></h2>
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.ProxyDigestAuthHandler.http_error_407">
-<code class="descclassname">ProxyDigestAuthHandler.</code><code class="descname">http_error_407</code><span class="sig-paren">(</span><em>req</em>, <em>fp</em>, <em>code</em>, <em>msg</em>, <em>hdrs</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.ProxyDigestAuthHandler.http_error_407" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ProxyDigestAuthHandler.</code><code class="sig-name descname">http_error_407</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">req</span></em>, <em class="sig-param"><span class="n">fp</span></em>, <em class="sig-param"><span class="n">code</span></em>, <em class="sig-param"><span class="n">msg</span></em>, <em class="sig-param"><span class="n">hdrs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.ProxyDigestAuthHandler.http_error_407" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retry the request with authentication information, if available.</p>
 </dd></dl>
 
 </div>
 <div class="section" id="httphandler-objects">
 <span id="http-handler-objects"></span><h2>HTTPHandler Objects<a class="headerlink" href="#httphandler-objects" title="Permalink to this headline">¶</a></h2>
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.HTTPHandler.http_open">
-<code class="descclassname">HTTPHandler.</code><code class="descname">http_open</code><span class="sig-paren">(</span><em>req</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPHandler.http_open" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">HTTPHandler.</code><code class="sig-name descname">http_open</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">req</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPHandler.http_open" title="Permalink to this definition">¶</a></dt>
 <dd><p>Send an HTTP request, which can be either GET or POST, depending on
 <code class="docutils literal notranslate"><span class="pre">req.has_data()</span></code>.</p>
 </dd></dl>
@@ -1122,9 +1209,9 @@ error headers.</p>
 </div>
 <div class="section" id="httpshandler-objects">
 <span id="https-handler-objects"></span><h2>HTTPSHandler Objects<a class="headerlink" href="#httpshandler-objects" title="Permalink to this headline">¶</a></h2>
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.HTTPSHandler.https_open">
-<code class="descclassname">HTTPSHandler.</code><code class="descname">https_open</code><span class="sig-paren">(</span><em>req</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPSHandler.https_open" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">HTTPSHandler.</code><code class="sig-name descname">https_open</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">req</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPSHandler.https_open" title="Permalink to this definition">¶</a></dt>
 <dd><p>Send an HTTPS request, which can be either GET or POST, depending on
 <code class="docutils literal notranslate"><span class="pre">req.has_data()</span></code>.</p>
 </dd></dl>
@@ -1132,9 +1219,9 @@ error headers.</p>
 </div>
 <div class="section" id="filehandler-objects">
 <span id="file-handler-objects"></span><h2>FileHandler Objects<a class="headerlink" href="#filehandler-objects" title="Permalink to this headline">¶</a></h2>
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.FileHandler.file_open">
-<code class="descclassname">FileHandler.</code><code class="descname">file_open</code><span class="sig-paren">(</span><em>req</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.FileHandler.file_open" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">FileHandler.</code><code class="sig-name descname">file_open</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">req</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.FileHandler.file_open" title="Permalink to this definition">¶</a></dt>
 <dd><p>Open the file locally, if there is no host name, or the host name is
 <code class="docutils literal notranslate"><span class="pre">'localhost'</span></code>.</p>
 <div class="versionchanged">
@@ -1146,9 +1233,9 @@ hostname is given, an <a class="reference internal" href="urllib.error.html#urll
 </div>
 <div class="section" id="datahandler-objects">
 <span id="data-handler-objects"></span><h2>DataHandler Objects<a class="headerlink" href="#datahandler-objects" title="Permalink to this headline">¶</a></h2>
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.DataHandler.data_open">
-<code class="descclassname">DataHandler.</code><code class="descname">data_open</code><span class="sig-paren">(</span><em>req</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.DataHandler.data_open" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">DataHandler.</code><code class="sig-name descname">data_open</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">req</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.DataHandler.data_open" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read a data URL. This kind of URL contains the content encoded in the URL
 itself. The data URL syntax is specified in <span class="target" id="index-8"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc2397.html"><strong>RFC 2397</strong></a>. This implementation
 ignores white spaces in base64 encoded data URLs so the URL may be wrapped
@@ -1160,9 +1247,9 @@ implementation will raise an <a class="reference internal" href="exceptions.html
 </div>
 <div class="section" id="ftphandler-objects">
 <span id="ftp-handler-objects"></span><h2>FTPHandler Objects<a class="headerlink" href="#ftphandler-objects" title="Permalink to this headline">¶</a></h2>
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.FTPHandler.ftp_open">
-<code class="descclassname">FTPHandler.</code><code class="descname">ftp_open</code><span class="sig-paren">(</span><em>req</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.FTPHandler.ftp_open" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">FTPHandler.</code><code class="sig-name descname">ftp_open</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">req</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.FTPHandler.ftp_open" title="Permalink to this definition">¶</a></dt>
 <dd><p>Open the FTP file indicated by <em>req</em>. The login is always done with empty
 username and password.</p>
 </dd></dl>
@@ -1172,33 +1259,33 @@ username and password.</p>
 <span id="cacheftp-handler-objects"></span><h2>CacheFTPHandler Objects<a class="headerlink" href="#cacheftphandler-objects" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="#urllib.request.CacheFTPHandler" title="urllib.request.CacheFTPHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">CacheFTPHandler</span></code></a> objects are <a class="reference internal" href="#urllib.request.FTPHandler" title="urllib.request.FTPHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">FTPHandler</span></code></a> objects with the
 following additional methods:</p>
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.CacheFTPHandler.setTimeout">
-<code class="descclassname">CacheFTPHandler.</code><code class="descname">setTimeout</code><span class="sig-paren">(</span><em>t</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.CacheFTPHandler.setTimeout" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">CacheFTPHandler.</code><code class="sig-name descname">setTimeout</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">t</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.CacheFTPHandler.setTimeout" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set timeout of connections to <em>t</em> seconds.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.CacheFTPHandler.setMaxConns">
-<code class="descclassname">CacheFTPHandler.</code><code class="descname">setMaxConns</code><span class="sig-paren">(</span><em>m</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.CacheFTPHandler.setMaxConns" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">CacheFTPHandler.</code><code class="sig-name descname">setMaxConns</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">m</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.CacheFTPHandler.setMaxConns" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set maximum number of cached connections to <em>m</em>.</p>
 </dd></dl>
 
 </div>
 <div class="section" id="unknownhandler-objects">
 <span id="unknown-handler-objects"></span><h2>UnknownHandler Objects<a class="headerlink" href="#unknownhandler-objects" title="Permalink to this headline">¶</a></h2>
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.UnknownHandler.unknown_open">
-<code class="descclassname">UnknownHandler.</code><code class="descname">unknown_open</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.UnknownHandler.unknown_open" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">UnknownHandler.</code><code class="sig-name descname">unknown_open</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.UnknownHandler.unknown_open" title="Permalink to this definition">¶</a></dt>
 <dd><p>Raise a <a class="reference internal" href="urllib.error.html#urllib.error.URLError" title="urllib.error.URLError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">URLError</span></code></a> exception.</p>
 </dd></dl>
 
 </div>
 <div class="section" id="httperrorprocessor-objects">
 <span id="http-error-processor-objects"></span><h2>HTTPErrorProcessor Objects<a class="headerlink" href="#httperrorprocessor-objects" title="Permalink to this headline">¶</a></h2>
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.HTTPErrorProcessor.http_response">
-<code class="descclassname">HTTPErrorProcessor.</code><code class="descname">http_response</code><span class="sig-paren">(</span><em>request</em>, <em>response</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPErrorProcessor.http_response" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">HTTPErrorProcessor.</code><code class="sig-name descname">http_response</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="n">response</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPErrorProcessor.http_response" title="Permalink to this definition">¶</a></dt>
 <dd><p>Process HTTP error responses.</p>
 <p>For 200 error codes, the response object is returned immediately.</p>
 <p>For non-200 error codes, this simply passes the job on to the
@@ -1207,9 +1294,9 @@ Eventually, <a class="reference internal" href="#urllib.request.HTTPDefaultError
 <a class="reference internal" href="urllib.error.html#urllib.error.HTTPError" title="urllib.error.HTTPError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">HTTPError</span></code></a> if no other handler handles the error.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.HTTPErrorProcessor.https_response">
-<code class="descclassname">HTTPErrorProcessor.</code><code class="descname">https_response</code><span class="sig-paren">(</span><em>request</em>, <em>response</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPErrorProcessor.https_response" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">HTTPErrorProcessor.</code><code class="sig-name descname">https_response</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="n">response</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.HTTPErrorProcessor.https_response" title="Permalink to this definition">¶</a></dt>
 <dd><p>Process HTTPS error responses.</p>
 <p>The behavior is same as <a class="reference internal" href="#urllib.request.HTTPErrorProcessor.http_response" title="urllib.request.HTTPErrorProcessor.http_response"><code class="xref py py-meth docutils literal notranslate"><span class="pre">http_response()</span></code></a>.</p>
 </dd></dl>
@@ -1280,7 +1367,7 @@ when the Python installation supports SSL.</p>
 <p>Here is an example of doing a <code class="docutils literal notranslate"><span class="pre">PUT</span></code> request using <a class="reference internal" href="#urllib.request.Request" title="urllib.request.Request"><code class="xref py py-class docutils literal notranslate"><span class="pre">Request</span></code></a>:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib.request</span>
 <span class="n">DATA</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;some data&#39;</span>
-<span class="n">req</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;http://localhost:8080&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">DATA</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;PUT&#39;</span><span class="p">)</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;http://localhost:8080&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">DATA</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;PUT&#39;</span><span class="p">)</span>
 <span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="k">pass</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
@@ -1386,9 +1473,9 @@ environment settings:</p>
 <p>The following functions and classes are ported from the Python 2 module
 <code class="docutils literal notranslate"><span class="pre">urllib</span></code> (as opposed to <code class="docutils literal notranslate"><span class="pre">urllib2</span></code>).  They might become deprecated at
 some point in the future.</p>
-<dl class="function">
+<dl class="py function">
 <dt id="urllib.request.urlretrieve">
-<code class="descclassname">urllib.request.</code><code class="descname">urlretrieve</code><span class="sig-paren">(</span><em>url</em>, <em>filename=None</em>, <em>reporthook=None</em>, <em>data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.urlretrieve" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">urllib.request.</code><code class="sig-name descname">urlretrieve</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em>, <em class="sig-param"><span class="n">filename</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">reporthook</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">data</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.urlretrieve" title="Permalink to this definition">¶</a></dt>
 <dd><p>Copy a network object denoted by a URL to a local file. If the URL
 points to a local file, the object will not be copied unless filename is supplied.
 Return a tuple <code class="docutils literal notranslate"><span class="pre">(filename,</span> <span class="pre">headers)</span></code> where <em>filename</em> is the
@@ -1429,16 +1516,16 @@ of the data it has downloaded, and just returns it.  In this case you just have
 to assume that the download was successful.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="urllib.request.urlcleanup">
-<code class="descclassname">urllib.request.</code><code class="descname">urlcleanup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.urlcleanup" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">urllib.request.</code><code class="sig-name descname">urlcleanup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.urlcleanup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cleans up temporary files that may have been left behind by previous
 calls to <a class="reference internal" href="#urllib.request.urlretrieve" title="urllib.request.urlretrieve"><code class="xref py py-func docutils literal notranslate"><span class="pre">urlretrieve()</span></code></a>.</p>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="urllib.request.URLopener">
-<em class="property">class </em><code class="descclassname">urllib.request.</code><code class="descname">URLopener</code><span class="sig-paren">(</span><em>proxies=None</em>, <em>**x509</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.URLopener" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">urllib.request.</code><code class="sig-name descname">URLopener</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">proxies</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">x509</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.URLopener" title="Permalink to this definition">¶</a></dt>
 <dd><div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 3.3.</span></p>
 </div>
@@ -1460,9 +1547,9 @@ authentication of the client when using the <code class="file docutils literal n
 both are needed to support client authentication.</p>
 <p><a class="reference internal" href="#urllib.request.URLopener" title="urllib.request.URLopener"><code class="xref py py-class docutils literal notranslate"><span class="pre">URLopener</span></code></a> objects will raise an <a class="reference internal" href="exceptions.html#OSError" title="OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a> exception if the server
 returns an error code.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.URLopener.open">
-<code class="descname">open</code><span class="sig-paren">(</span><em>fullurl</em>, <em>data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.URLopener.open" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">open</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fullurl</span></em>, <em class="sig-param"><span class="n">data</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.URLopener.open" title="Permalink to this definition">¶</a></dt>
 <dd><p>Open <em>fullurl</em> using the appropriate protocol.  This method sets up cache and
 proxy information, then calls the appropriate open method with its input
 arguments.  If the scheme is not recognized, <a class="reference internal" href="#urllib.request.URLopener.open_unknown" title="urllib.request.URLopener.open_unknown"><code class="xref py py-meth docutils literal notranslate"><span class="pre">open_unknown()</span></code></a> is called.
@@ -1471,15 +1558,15 @@ The <em>data</em> argument has the same meaning as the <em>data</em> argument of
 <p>This method always quotes <em>fullurl</em> using <a class="reference internal" href="urllib.parse.html#urllib.parse.quote" title="urllib.parse.quote"><code class="xref py py-func docutils literal notranslate"><span class="pre">quote()</span></code></a>.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.URLopener.open_unknown">
-<code class="descname">open_unknown</code><span class="sig-paren">(</span><em>fullurl</em>, <em>data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.URLopener.open_unknown" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">open_unknown</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fullurl</span></em>, <em class="sig-param"><span class="n">data</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.URLopener.open_unknown" title="Permalink to this definition">¶</a></dt>
 <dd><p>Overridable interface to open unknown URL types.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.URLopener.retrieve">
-<code class="descname">retrieve</code><span class="sig-paren">(</span><em>url</em>, <em>filename=None</em>, <em>reporthook=None</em>, <em>data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.URLopener.retrieve" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">retrieve</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em>, <em class="sig-param"><span class="n">filename</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">reporthook</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">data</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.URLopener.retrieve" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieves the contents of <em>url</em> and places it in <em>filename</em>.  The return value
 is a tuple consisting of a local filename and either an
 <a class="reference internal" href="email.compat32-message.html#email.message.Message" title="email.message.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">email.message.Message</span></code></a> object containing the response headers (for remote
@@ -1499,9 +1586,9 @@ is <code class="docutils literal notranslate"><span class="pre">GET</span></code
 <a class="reference internal" href="urllib.parse.html#urllib.parse.urlencode" title="urllib.parse.urlencode"><code class="xref py py-func docutils literal notranslate"><span class="pre">urllib.parse.urlencode()</span></code></a> function.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="urllib.request.URLopener.version">
-<code class="descname">version</code><a class="headerlink" href="#urllib.request.URLopener.version" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">version</code><a class="headerlink" href="#urllib.request.URLopener.version" title="Permalink to this definition">¶</a></dt>
 <dd><p>Variable that specifies the user agent of the opener object.  To get
 <a class="reference internal" href="urllib.html#module-urllib" title="urllib"><code class="xref py py-mod docutils literal notranslate"><span class="pre">urllib</span></code></a> to tell servers that it is a particular user agent, set this in a
 subclass as a class variable or in the constructor before calling the base
@@ -1510,9 +1597,9 @@ constructor.</p>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="urllib.request.FancyURLopener">
-<em class="property">class </em><code class="descclassname">urllib.request.</code><code class="descname">FancyURLopener</code><span class="sig-paren">(</span><em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.FancyURLopener" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">urllib.request.</code><code class="sig-name descname">FancyURLopener</code><span class="sig-paren">(</span><em class="sig-param">...</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.FancyURLopener" title="Permalink to this definition">¶</a></dt>
 <dd><div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 3.3.</span></p>
 </div>
@@ -1541,9 +1628,9 @@ override this method to support more appropriate behavior if needed.</p>
 </div>
 <p>The <a class="reference internal" href="#urllib.request.FancyURLopener" title="urllib.request.FancyURLopener"><code class="xref py py-class docutils literal notranslate"><span class="pre">FancyURLopener</span></code></a> class offers one additional method that should be
 overloaded to provide the appropriate behavior:</p>
-<dl class="method">
+<dl class="py method">
 <dt id="urllib.request.FancyURLopener.prompt_user_passwd">
-<code class="descname">prompt_user_passwd</code><span class="sig-paren">(</span><em>host</em>, <em>realm</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.FancyURLopener.prompt_user_passwd" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">prompt_user_passwd</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">host</span></em>, <em class="sig-param"><span class="n">realm</span></em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.FancyURLopener.prompt_user_passwd" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return information needed to authenticate the user at the given host in the
 specified security realm.  The return value should be a tuple, <code class="docutils literal notranslate"><span class="pre">(user,</span>
 <span class="pre">password)</span></code>, which can be used for basic authentication.</p>
@@ -1574,7 +1661,7 @@ file can’t be opened, the URL is re-interpreted using the FTP protocol.  This
 can sometimes cause confusing error messages.</p></li>
 <li><p>The <a class="reference internal" href="#urllib.request.urlopen" title="urllib.request.urlopen"><code class="xref py py-func docutils literal notranslate"><span class="pre">urlopen()</span></code></a> and <a class="reference internal" href="#urllib.request.urlretrieve" title="urllib.request.urlretrieve"><code class="xref py py-func docutils literal notranslate"><span class="pre">urlretrieve()</span></code></a> functions can cause arbitrarily
 long delays while waiting for a network connection to be set up.  This means
-that it is difficult to build an interactive Web client using these functions
+that it is difficult to build an interactive web client using these functions
 without using threads.</p>
 </li>
 <li id="index-12"><p>The data returned by <a class="reference internal" href="#urllib.request.urlopen" title="urllib.request.urlopen"><code class="xref py py-func docutils literal notranslate"><span class="pre">urlopen()</span></code></a> or <a class="reference internal" href="#urllib.request.urlretrieve" title="urllib.request.urlretrieve"><code class="xref py py-func docutils literal notranslate"><span class="pre">urlretrieve()</span></code></a> is the raw data
@@ -1603,14 +1690,71 @@ using the <a class="reference internal" href="ftplib.html#module-ftplib" title="
 <div class="section" id="module-urllib.response">
 <span id="urllib-response-response-classes-used-by-urllib"></span><h1><a class="reference internal" href="#module-urllib.response" title="urllib.response: Response classes used by urllib."><code class="xref py py-mod docutils literal notranslate"><span class="pre">urllib.response</span></code></a> — Response classes used by urllib<a class="headerlink" href="#module-urllib.response" title="Permalink to this headline">¶</a></h1>
 <p>The <a class="reference internal" href="#module-urllib.response" title="urllib.response: Response classes used by urllib."><code class="xref py py-mod docutils literal notranslate"><span class="pre">urllib.response</span></code></a> module defines functions and classes which define a
-minimal file like interface, including <code class="docutils literal notranslate"><span class="pre">read()</span></code> and <code class="docutils literal notranslate"><span class="pre">readline()</span></code>. The
-typical response object is an addinfourl instance, which defines an <code class="docutils literal notranslate"><span class="pre">info()</span></code>
-method and that returns headers and a <code class="docutils literal notranslate"><span class="pre">geturl()</span></code> method that returns the url.
-Functions defined by this module are used internally by the
-<a class="reference internal" href="#module-urllib.request" title="urllib.request: Extensible library for opening URLs."><code class="xref py py-mod docutils literal notranslate"><span class="pre">urllib.request</span></code></a> module.</p>
+minimal file-like interface, including <code class="docutils literal notranslate"><span class="pre">read()</span></code> and <code class="docutils literal notranslate"><span class="pre">readline()</span></code>.
+Functions defined by this module are used internally by the <a class="reference internal" href="#module-urllib.request" title="urllib.request: Extensible library for opening URLs."><code class="xref py py-mod docutils literal notranslate"><span class="pre">urllib.request</span></code></a> module.
+The typical response object is a <a class="reference internal" href="#urllib.response.addinfourl" title="urllib.response.addinfourl"><code class="xref py py-class docutils literal notranslate"><span class="pre">urllib.response.addinfourl</span></code></a> instance:</p>
+<dl class="py class">
+<dt id="urllib.response.addinfourl">
+<em class="property">class </em><code class="sig-prename descclassname">urllib.response.</code><code class="sig-name descname">addinfourl</code><a class="headerlink" href="#urllib.response.addinfourl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt id="urllib.response.addinfourl.url">
+<code class="sig-name descname">url</code><a class="headerlink" href="#urllib.response.addinfourl.url" title="Permalink to this definition">¶</a></dt>
+<dd><p>URL of the resource retrieved, commonly used to determine if a redirect was followed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="urllib.response.addinfourl.headers">
+<code class="sig-name descname">headers</code><a class="headerlink" href="#urllib.response.addinfourl.headers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the headers of the response in the form of an <a class="reference internal" href="email.message.html#email.message.EmailMessage" title="email.message.EmailMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">EmailMessage</span></code></a> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="urllib.response.addinfourl.status">
+<code class="sig-name descname">status</code><a class="headerlink" href="#urllib.response.addinfourl.status" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified added">New in version 3.9.</span></p>
+</div>
+<p>Status code returned by server.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="urllib.response.addinfourl.geturl">
+<code class="sig-name descname">geturl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#urllib.response.addinfourl.geturl" title="Permalink to this definition">¶</a></dt>
+<dd><div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 3.9: </span>Deprecated in favor of <a class="reference internal" href="#urllib.response.addinfourl.url" title="urllib.response.addinfourl.url"><code class="xref py py-attr docutils literal notranslate"><span class="pre">url</span></code></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="urllib.response.addinfourl.info">
+<code class="sig-name descname">info</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#urllib.response.addinfourl.info" title="Permalink to this definition">¶</a></dt>
+<dd><div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 3.9: </span>Deprecated in favor of <a class="reference internal" href="#urllib.response.addinfourl.headers" title="urllib.response.addinfourl.headers"><code class="xref py py-attr docutils literal notranslate"><span class="pre">headers</span></code></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="urllib.response.addinfourl.code">
+<code class="sig-name descname">code</code><a class="headerlink" href="#urllib.response.addinfourl.code" title="Permalink to this definition">¶</a></dt>
+<dd><div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 3.9: </span>Deprecated in favor of <a class="reference internal" href="#urllib.response.addinfourl.status" title="urllib.response.addinfourl.status"><code class="xref py py-attr docutils literal notranslate"><span class="pre">status</span></code></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="urllib.response.addinfourl.getstatus">
+<code class="sig-name descname">getstatus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#urllib.response.addinfourl.getstatus" title="Permalink to this definition">¶</a></dt>
+<dd><div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 3.9: </span>Deprecated in favor of <a class="reference internal" href="#urllib.response.addinfourl.status" title="urllib.response.addinfourl.status"><code class="xref py py-attr docutils literal notranslate"><span class="pre">status</span></code></a>.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -1660,7 +1804,7 @@ Functions defined by this module are used internally by the
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a Bug</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.7/Doc/library/urllib.request.rst"
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/library/urllib.request.rst"
             rel="nofollow">Show Source
         </a>
       </li>
@@ -1685,44 +1829,59 @@ Functions defined by this module are used internally by the
         <li class="right" >
           <a href="urllib.html" title="urllib — URL handling modules"
              >previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="internet.html" >Internet Protocols and Support</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">urllib.request</span></code> — Extensible library for opening URLs</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">Copyright</a> 2001-2019, Python Software Foundation.
+    &copy; <a href="../copyright.html">Copyright</a> 2001-2021, Python Software Foundation.
     <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
     The Python Software Foundation is a non-profit corporation.
-    <a href="https://www.python.org/psf/donations/">Please donate.</a>
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
     <br />
-    Last updated on Jun 19, 2019.
-    <a href="../bugs.html">Found a bug</a>?
+
+    Last updated on Nov 06, 2021.
+    <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.0.1.
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
     </div>
 
   </body>

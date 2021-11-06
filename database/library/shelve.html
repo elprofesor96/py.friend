@@ -1,23 +1,25 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>shelve — Python object persistence &#8212; Python 3.7.3 documentation</title>
-    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>shelve — Python object persistence &#8212; Python 3.10.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../_static/pydoctheme.css?2021.11.1" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     
-    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Python 3.7.3 documentation"
+          title="Search within Python 3.10.0 documentation"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -25,13 +27,11 @@
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="next" title="marshal — Internal Python object serialization" href="marshal.html" />
     <link rel="prev" title="copyreg — Register pickle support functions" href="copyreg.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
     <link rel="canonical" href="https://docs.python.org/3/library/shelve.html" />
     
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../_static/switchers.js"></script>
+      
     
-    
+
     
     <style>
       @media only screen {
@@ -40,9 +40,65 @@
         }
       }
     </style>
- 
+<link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
 
-  </head><body>
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://www.python.org/" class="nav-logo">
+             <img src="../_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">shelve</span></code> — Python object persistence</a><ul>
+<li><a class="reference internal" href="#restrictions">Restrictions</a></li>
+<li><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="copyreg.html"
+                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">copyreg</span></code> — Register <code class="xref py py-mod docutils literal notranslate"><span class="pre">pickle</span></code> support functions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="marshal.html"
+                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">marshal</span></code> — Internal Python object serialization</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">Report a Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/library/shelve.rst"
+            rel="nofollow">Show Source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
   
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -59,32 +115,37 @@
         <li class="right" >
           <a href="copyreg.html" title="copyreg — Register pickle support functions"
              accesskey="P">previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="persistence.html" accesskey="U">Data Persistence</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">shelve</span></code> — Python object persistence</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>    
 
@@ -95,23 +156,24 @@
             
   <div class="section" id="module-shelve">
 <span id="shelve-python-object-persistence"></span><h1><a class="reference internal" href="#module-shelve" title="shelve: Python object persistence."><code class="xref py py-mod docutils literal notranslate"><span class="pre">shelve</span></code></a> — Python object persistence<a class="headerlink" href="#module-shelve" title="Permalink to this headline">¶</a></h1>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.7/Lib/shelve.py">Lib/shelve.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.10/Lib/shelve.py">Lib/shelve.py</a></p>
 <hr class="docutils" id="index-0" />
 <p>A “shelf” is a persistent, dictionary-like object.  The difference with “dbm”
 databases is that the values (not the keys!) in a shelf can be essentially
 arbitrary Python objects — anything that the <a class="reference internal" href="pickle.html#module-pickle" title="pickle: Convert Python objects to streams of bytes and back."><code class="xref py py-mod docutils literal notranslate"><span class="pre">pickle</span></code></a> module can handle.
 This includes most class instances, recursive data types, and objects containing
 lots of shared  sub-objects.  The keys are ordinary strings.</p>
-<dl class="function">
+<dl class="py function">
 <dt id="shelve.open">
-<code class="descclassname">shelve.</code><code class="descname">open</code><span class="sig-paren">(</span><em>filename</em>, <em>flag='c'</em>, <em>protocol=None</em>, <em>writeback=False</em><span class="sig-paren">)</span><a class="headerlink" href="#shelve.open" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">shelve.</code><code class="sig-name descname">open</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">flag</span><span class="o">=</span><span class="default_value">'c'</span></em>, <em class="sig-param"><span class="n">protocol</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">writeback</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#shelve.open" title="Permalink to this definition">¶</a></dt>
 <dd><p>Open a persistent dictionary.  The filename specified is the base filename for
 the underlying database.  As a side-effect, an extension may be added to the
 filename and more than one file may be created.  By default, the underlying
 database file is opened for reading and writing.  The optional <em>flag</em> parameter
 has the same interpretation as the <em>flag</em> parameter of <a class="reference internal" href="dbm.html#dbm.open" title="dbm.open"><code class="xref py py-func docutils literal notranslate"><span class="pre">dbm.open()</span></code></a>.</p>
-<p>By default, version 3 pickles are used to serialize values.  The version of the
-pickle protocol can be specified with the <em>protocol</em> parameter.</p>
+<p>By default, pickles created with <a class="reference internal" href="pickle.html#pickle.DEFAULT_PROTOCOL" title="pickle.DEFAULT_PROTOCOL"><code class="xref py py-data docutils literal notranslate"><span class="pre">pickle.DEFAULT_PROTOCOL</span></code></a> are used
+to serialize values.  The version of the pickle protocol can be specified
+with the <em>protocol</em> parameter.</p>
 <p>Because of Python semantics, a shelf cannot know when a mutable
 persistent-dictionary entry is modified.  By default modified objects are
 written <em>only</em> when assigned to the shelf (see <a class="reference internal" href="#shelve-example"><span class="std std-ref">Example</span></a>).  If the
@@ -123,6 +185,10 @@ vast amounts of memory for the cache, and it can make the close operation
 very slow since all accessed entries are written back (there is no way to
 determine which accessed entries are mutable, nor which ones were actually
 mutated).</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.10: </span><a class="reference internal" href="pickle.html#pickle.DEFAULT_PROTOCOL" title="pickle.DEFAULT_PROTOCOL"><code class="xref py py-data docutils literal notranslate"><span class="pre">pickle.DEFAULT_PROTOCOL</span></code></a> is now used as the default pickle
+protocol.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Do not rely on the shelf being closed automatically; always call
@@ -135,27 +201,28 @@ use <a class="reference internal" href="#shelve.open" title="shelve.open"><code 
 </div>
 </dd></dl>
 
-<div class="admonition warning">
+<div class="admonition warning" id="shelve-security">
 <p class="admonition-title">Warning</p>
 <p>Because the <a class="reference internal" href="#module-shelve" title="shelve: Python object persistence."><code class="xref py py-mod docutils literal notranslate"><span class="pre">shelve</span></code></a> module is backed by <a class="reference internal" href="pickle.html#module-pickle" title="pickle: Convert Python objects to streams of bytes and back."><code class="xref py py-mod docutils literal notranslate"><span class="pre">pickle</span></code></a>, it is insecure
 to load a shelf from an untrusted source.  Like with pickle, loading a shelf
 can execute arbitrary code.</p>
 </div>
-<p>Shelf objects support all methods supported by dictionaries.  This eases the
+<p>Shelf objects support most of methods and operations supported by dictionaries
+(except copying, constructors and operators <code class="docutils literal notranslate"><span class="pre">|</span></code> and <code class="docutils literal notranslate"><span class="pre">|=</span></code>).  This eases the
 transition from dictionary based scripts to those requiring persistent storage.</p>
 <p>Two additional methods are supported:</p>
-<dl class="method">
+<dl class="py method">
 <dt id="shelve.Shelf.sync">
-<code class="descclassname">Shelf.</code><code class="descname">sync</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#shelve.Shelf.sync" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Shelf.</code><code class="sig-name descname">sync</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#shelve.Shelf.sync" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write back all entries in the cache if the shelf was opened with <em>writeback</em>
 set to <a class="reference internal" href="constants.html#True" title="True"><code class="xref py py-const docutils literal notranslate"><span class="pre">True</span></code></a>.  Also empty the cache and synchronize the persistent
 dictionary on disk, if feasible.  This is called automatically when the shelf
 is closed with <a class="reference internal" href="#shelve.Shelf.close" title="shelve.Shelf.close"><code class="xref py py-meth docutils literal notranslate"><span class="pre">close()</span></code></a>.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="shelve.Shelf.close">
-<code class="descclassname">Shelf.</code><code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#shelve.Shelf.close" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Shelf.</code><code class="sig-name descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#shelve.Shelf.close" title="Permalink to this definition">¶</a></dt>
 <dd><p>Synchronize and close the persistent <em>dict</em> object.  Operations on a closed
 shelf will fail with a <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a>.</p>
 </dd></dl>
@@ -185,14 +252,15 @@ reading or writing.  Unix file locking can be used to solve this, but this
 differs across Unix versions and requires knowledge about the database
 implementation used.</p></li>
 </ul>
-<dl class="class">
+<dl class="py class">
 <dt id="shelve.Shelf">
-<em class="property">class </em><code class="descclassname">shelve.</code><code class="descname">Shelf</code><span class="sig-paren">(</span><em>dict</em>, <em>protocol=None</em>, <em>writeback=False</em>, <em>keyencoding='utf-8'</em><span class="sig-paren">)</span><a class="headerlink" href="#shelve.Shelf" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">shelve.</code><code class="sig-name descname">Shelf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dict</span></em>, <em class="sig-param"><span class="n">protocol</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">writeback</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">keyencoding</span><span class="o">=</span><span class="default_value">'utf-8'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#shelve.Shelf" title="Permalink to this definition">¶</a></dt>
 <dd><p>A subclass of <a class="reference internal" href="collections.abc.html#collections.abc.MutableMapping" title="collections.abc.MutableMapping"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.abc.MutableMapping</span></code></a> which stores pickled
 values in the <em>dict</em> object.</p>
-<p>By default, version 3 pickles are used to serialize values.  The version of the
-pickle protocol can be specified with the <em>protocol</em> parameter. See the
-<a class="reference internal" href="pickle.html#module-pickle" title="pickle: Convert Python objects to streams of bytes and back."><code class="xref py py-mod docutils literal notranslate"><span class="pre">pickle</span></code></a> documentation for a discussion of the pickle protocols.</p>
+<p>By default, pickles created with <a class="reference internal" href="pickle.html#pickle.DEFAULT_PROTOCOL" title="pickle.DEFAULT_PROTOCOL"><code class="xref py py-data docutils literal notranslate"><span class="pre">pickle.DEFAULT_PROTOCOL</span></code></a> are used
+to serialize values.  The version of the pickle protocol can be specified
+with the <em>protocol</em> parameter.  See the <a class="reference internal" href="pickle.html#module-pickle" title="pickle: Convert Python objects to streams of bytes and back."><code class="xref py py-mod docutils literal notranslate"><span class="pre">pickle</span></code></a> documentation for a
+discussion of the pickle protocols.</p>
 <p>If the <em>writeback</em> parameter is <code class="docutils literal notranslate"><span class="pre">True</span></code>, the object will hold a cache of all
 entries accessed and write them back to the <em>dict</em> at sync and close times.
 This allows natural operations on mutable entries, but can consume much more
@@ -208,11 +276,15 @@ UTF-8.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.4: </span>Added context manager support.</p>
 </div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.10: </span><a class="reference internal" href="pickle.html#pickle.DEFAULT_PROTOCOL" title="pickle.DEFAULT_PROTOCOL"><code class="xref py py-data docutils literal notranslate"><span class="pre">pickle.DEFAULT_PROTOCOL</span></code></a> is now used as the default pickle
+protocol.</p>
+</div>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="shelve.BsdDbShelf">
-<em class="property">class </em><code class="descclassname">shelve.</code><code class="descname">BsdDbShelf</code><span class="sig-paren">(</span><em>dict</em>, <em>protocol=None</em>, <em>writeback=False</em>, <em>keyencoding='utf-8'</em><span class="sig-paren">)</span><a class="headerlink" href="#shelve.BsdDbShelf" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">shelve.</code><code class="sig-name descname">BsdDbShelf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dict</span></em>, <em class="sig-param"><span class="n">protocol</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">writeback</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">keyencoding</span><span class="o">=</span><span class="default_value">'utf-8'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#shelve.BsdDbShelf" title="Permalink to this definition">¶</a></dt>
 <dd><p>A subclass of <a class="reference internal" href="#shelve.Shelf" title="shelve.Shelf"><code class="xref py py-class docutils literal notranslate"><span class="pre">Shelf</span></code></a> which exposes <code class="xref py py-meth docutils literal notranslate"><span class="pre">first()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">next()</span></code>,
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">previous()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">last()</span></code> and <code class="xref py py-meth docutils literal notranslate"><span class="pre">set_location()</span></code> which are available
 in the third-party <code class="xref py py-mod docutils literal notranslate"><span class="pre">bsddb</span></code> module from <a class="reference external" href="https://www.jcea.es/programacion/pybsddb.htm">pybsddb</a> but not in other database
@@ -223,9 +295,9 @@ optional <em>protocol</em>, <em>writeback</em>, and <em>keyencoding</em> paramet
 interpretation as for the <a class="reference internal" href="#shelve.Shelf" title="shelve.Shelf"><code class="xref py py-class docutils literal notranslate"><span class="pre">Shelf</span></code></a> class.</p>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="shelve.DbfilenameShelf">
-<em class="property">class </em><code class="descclassname">shelve.</code><code class="descname">DbfilenameShelf</code><span class="sig-paren">(</span><em>filename</em>, <em>flag='c'</em>, <em>protocol=None</em>, <em>writeback=False</em><span class="sig-paren">)</span><a class="headerlink" href="#shelve.DbfilenameShelf" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">shelve.</code><code class="sig-name descname">DbfilenameShelf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">flag</span><span class="o">=</span><span class="default_value">'c'</span></em>, <em class="sig-param"><span class="n">protocol</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">writeback</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#shelve.DbfilenameShelf" title="Permalink to this definition">¶</a></dt>
 <dd><p>A subclass of <a class="reference internal" href="#shelve.Shelf" title="shelve.Shelf"><code class="xref py py-class docutils literal notranslate"><span class="pre">Shelf</span></code></a> which accepts a <em>filename</em> instead of a dict-like
 object.  The underlying file will be opened using <a class="reference internal" href="dbm.html#dbm.open" title="dbm.open"><code class="xref py py-func docutils literal notranslate"><span class="pre">dbm.open()</span></code></a>.  By
 default, the file will be created and opened for both read and write.  The
@@ -283,6 +355,7 @@ object):</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -308,7 +381,7 @@ object):</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a Bug</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.7/Doc/library/shelve.rst"
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/library/shelve.rst"
             rel="nofollow">Show Source
         </a>
       </li>
@@ -333,44 +406,59 @@ object):</p>
         <li class="right" >
           <a href="copyreg.html" title="copyreg — Register pickle support functions"
              >previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="persistence.html" >Data Persistence</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">shelve</span></code> — Python object persistence</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">Copyright</a> 2001-2019, Python Software Foundation.
+    &copy; <a href="../copyright.html">Copyright</a> 2001-2021, Python Software Foundation.
     <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
     The Python Software Foundation is a non-profit corporation.
-    <a href="https://www.python.org/psf/donations/">Please donate.</a>
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
     <br />
-    Last updated on Jun 19, 2019.
-    <a href="../bugs.html">Found a bug</a>?
+
+    Last updated on Nov 06, 2021.
+    <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.0.1.
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
     </div>
 
   </body>

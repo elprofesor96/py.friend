@@ -1,23 +1,25 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>Porting Python 2 Code to Python 3 &#8212; Python 3.7.3 documentation</title>
-    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Porting Python 2 Code to Python 3 &#8212; Python 3.10.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../_static/pydoctheme.css?2021.11.1" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     
-    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Python 3.7.3 documentation"
+          title="Search within Python 3.10.0 documentation"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -25,13 +27,11 @@
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="next" title="Porting Extension Modules to Python 3" href="cporting.html" />
     <link rel="prev" title="Python HOWTOs" href="index.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
     <link rel="canonical" href="https://docs.python.org/3/howto/pyporting.html" />
     
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../_static/switchers.js"></script>
+      
     
-    
+
     
     <style>
       @media only screen {
@@ -40,9 +40,82 @@
         }
       }
     </style>
- 
+<link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
 
-  </head><body>
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://www.python.org/" class="nav-logo">
+             <img src="../_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Porting Python 2 Code to Python 3</a><ul>
+<li><a class="reference internal" href="#the-short-explanation">The Short Explanation</a></li>
+<li><a class="reference internal" href="#details">Details</a><ul>
+<li><a class="reference internal" href="#drop-support-for-python-2-6-and-older">Drop support for Python 2.6 and older</a></li>
+<li><a class="reference internal" href="#make-sure-you-specify-the-proper-version-support-in-your-setup-py-file">Make sure you specify the proper version support in your <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file</a></li>
+<li><a class="reference internal" href="#have-good-test-coverage">Have good test coverage</a></li>
+<li><a class="reference internal" href="#learn-the-differences-between-python-2-3">Learn the differences between Python 2 &amp; 3</a></li>
+<li><a class="reference internal" href="#update-your-code">Update your code</a><ul>
+<li><a class="reference internal" href="#division">Division</a></li>
+<li><a class="reference internal" href="#text-versus-binary-data">Text versus binary data</a></li>
+<li><a class="reference internal" href="#use-feature-detection-instead-of-version-detection">Use feature detection instead of version detection</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#prevent-compatibility-regressions">Prevent compatibility regressions</a></li>
+<li><a class="reference internal" href="#check-which-dependencies-block-your-transition">Check which dependencies block your transition</a></li>
+<li><a class="reference internal" href="#update-your-setup-py-file-to-denote-python-3-compatibility">Update your <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file to denote Python 3 compatibility</a></li>
+<li><a class="reference internal" href="#use-continuous-integration-to-stay-compatible">Use continuous integration to stay compatible</a></li>
+<li><a class="reference internal" href="#consider-using-optional-static-type-checking">Consider using optional static type checking</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Python HOWTOs</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="cporting.html"
+                        title="next chapter">Porting Extension Modules to Python 3</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">Report a Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/howto/pyporting.rst"
+            rel="nofollow">Show Source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
   
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -59,31 +132,36 @@
         <li class="right" >
           <a href="index.html" title="Python HOWTOs"
              accesskey="P">previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Python HOWTOs</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href="">Porting Python 2 Code to Python 3</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>    
 
@@ -100,7 +178,7 @@
 </dd>
 </dl>
 <div class="topic">
-<p class="topic-title first">Abstract</p>
+<p class="topic-title">Abstract</p>
 <p>With Python 3 being the future of Python while Python 2 is still in active
 use, it is good to have your project available for both major releases of
 Python. This guide is meant to help you figure out how best to support both
@@ -110,8 +188,7 @@ please see <a class="reference internal" href="cporting.html#cporting-howto"><sp
 <p>If you would like to read one core Python developer’s take on why Python 3
 came into existence, you can read Nick Coghlan’s <a class="reference external" href="https://ncoghlan-devs-python-notes.readthedocs.io/en/latest/python3/questions_and_answers.html">Python 3 Q &amp; A</a> or
 Brett Cannon’s <a class="reference external" href="https://snarky.ca/why-python-3-exists">Why Python 3 exists</a>.</p>
-<p>For help with porting, you can email the <a class="reference external" href="https://mail.python.org/mailman/listinfo/python-porting">python-porting</a> mailing list with
-questions.</p>
+<p>For help with porting, you can view the archived <a class="reference external" href="https://mail.python.org/pipermail/python-porting/">python-porting</a> mailing list.</p>
 </div>
 <div class="section" id="the-short-explanation">
 <h2>The Short Explanation<a class="headerlink" href="#the-short-explanation" title="Permalink to this headline">¶</a></h2>
@@ -120,20 +197,27 @@ are:</p>
 <ol class="arabic simple">
 <li><p>Only worry about supporting Python 2.7</p></li>
 <li><p>Make sure you have good test coverage (<a class="reference external" href="https://pypi.org/project/coverage">coverage.py</a> can help;
-<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">coverage</span></code>)</p></li>
+<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">coverage</span></code>)</p></li>
 <li><p>Learn the differences between Python 2 &amp; 3</p></li>
-<li><p>Use <a class="reference external" href="http://python-future.org/automatic_conversion.html">Futurize</a> (or <a class="reference external" href="https://python-modernize.readthedocs.io/">Modernize</a>) to update your code (e.g. <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">future</span></code>)</p></li>
+<li><p>Use <a class="reference external" href="http://python-future.org/automatic_conversion.html">Futurize</a> (or <a class="reference external" href="https://python-modernize.readthedocs.io/">Modernize</a>) to update your code (e.g. <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">future</span></code>)</p></li>
 <li><p>Use <a class="reference external" href="https://pypi.org/project/pylint">Pylint</a> to help make sure you don’t regress on your Python 3 support
-(<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pylint</span></code>)</p></li>
+(<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pylint</span></code>)</p></li>
 <li><p>Use <a class="reference external" href="https://pypi.org/project/caniusepython3">caniusepython3</a> to find out which of your dependencies are blocking your
-use of Python 3 (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">caniusepython3</span></code>)</p></li>
+use of Python 3 (<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">caniusepython3</span></code>)</p></li>
 <li><p>Once your dependencies are no longer blocking you, use continuous integration
 to make sure you stay compatible with Python 2 &amp; 3 (<a class="reference external" href="https://pypi.org/project/tox">tox</a> can help test
-against multiple versions of Python; <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">tox</span></code>)</p></li>
+against multiple versions of Python; <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">tox</span></code>)</p></li>
 <li><p>Consider using optional static type checking to make sure your type usage
 works in both Python 2 &amp; 3 (e.g. use <a class="reference external" href="http://mypy-lang.org/">mypy</a> to check your typing under both
-Python 2 &amp; Python 3).</p></li>
+Python 2 &amp; Python 3; <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">mypy</span></code>).</p></li>
 </ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note: Using <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span></code> guarantees that the <code class="docutils literal notranslate"><span class="pre">pip</span></code> you invoke
+is the one installed for the Python currently in use, whether it be
+a system-wide <code class="docutils literal notranslate"><span class="pre">pip</span></code> or one installed within a
+<a class="reference internal" href="../tutorial/venv.html#tut-venv"><span class="std std-ref">virtual environment</span></a>.</p>
+</div>
 </div>
 <div class="section" id="details">
 <h2>Details<a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
@@ -154,7 +238,7 @@ your code to support Python 2 &amp; 3 simultaneously.</p>
 <p>While you can make Python 2.5 work with Python 3, it is <strong>much</strong> easier if you
 only have to work with Python 2.7. If dropping Python 2.5 is not an
 option then the <a class="reference external" href="https://pypi.org/project/six">six</a> project can help you support Python 2.5 &amp; 3 simultaneously
-(<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">six</span></code>). Do realize, though, that nearly all the projects listed
+(<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">six</span></code>). Do realize, though, that nearly all the projects listed
 in this HOWTO will not be available to you.</p>
 <p>If you are able to skip Python 2.5 and older, then the required changes
 to your code should continue to look and feel like idiomatic Python code. At
@@ -194,7 +278,7 @@ coverage). If you don’t already have a tool to measure test coverage then
 Python 3! But to fully understand how your code is going to change and what
 you want to look out for while you code, you will want to learn what changes
 Python 3 makes in terms of Python 2. Typically the two best ways of doing that
-is reading the <a class="reference external" href="https://docs.python.org/3/whatsnew/index.html">“What’s New”</a> doc for each release of Python 3 and the
+is reading the <a class="reference internal" href="../whatsnew/index.html#whatsnew-index"><span class="std std-ref">“What’s New”</span></a> doc for each release of Python 3 and the
 <a class="reference external" href="http://python3porting.com/">Porting to Python 3</a> book (which is free online). There is also a handy
 <a class="reference external" href="http://python-future.org/compatible_idioms.html">cheat sheet</a> from the Python-Future project.</p>
 </div>
@@ -279,7 +363,7 @@ table lists the <strong>unique</strong> methods of each data type across Python 
 either Python 2 or 3, but it can’t be used by the textual data type consistently
 between Python 2 and 3 because <code class="docutils literal notranslate"><span class="pre">str</span></code> in Python 3 doesn’t have the method). Do
 note that as of Python 3.5 the <code class="docutils literal notranslate"><span class="pre">__mod__</span></code> method was added to the bytes type.</p>
-<table class="docutils align-center">
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 53%" />
 <col style="width: 47%" />
@@ -370,16 +454,16 @@ of whether the version of Python you’re running under supports what you need.
 If for some reason that doesn’t work then you should make the version check be
 against Python 2 and not Python 3. To help explain this, let’s look at an
 example.</p>
-<p>Let’s pretend that you need access to a feature of <a class="reference external" href="https://docs.python.org/3/library/importlib.html#module-importlib">importlib</a> that
+<p>Let’s pretend that you need access to a feature of <a class="reference internal" href="../library/importlib.html#module-importlib" title="importlib: The implementation of the import machinery."><code class="xref py py-mod docutils literal notranslate"><span class="pre">importlib</span></code></a> that
 is available in Python’s standard library since Python 3.3 and available for
 Python 2 through <a class="reference external" href="https://pypi.org/project/importlib2">importlib2</a> on PyPI. You might be tempted to write code to
-access e.g. the <code class="docutils literal notranslate"><span class="pre">importlib.abc</span></code> module by doing the following:</p>
+access e.g. the <a class="reference internal" href="../library/importlib.html#module-importlib.abc" title="importlib.abc: Abstract base classes related to import"><code class="xref py py-mod docutils literal notranslate"><span class="pre">importlib.abc</span></code></a> module by doing the following:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">importlib</span> <span class="k">import</span> <span class="n">abc</span>
+    <span class="kn">from</span> <span class="nn">importlib</span> <span class="kn">import</span> <span class="n">abc</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">importlib2</span> <span class="k">import</span> <span class="n">abc</span>
+    <span class="kn">from</span> <span class="nn">importlib2</span> <span class="kn">import</span> <span class="n">abc</span>
 </pre></div>
 </div>
 <p>The problem with this code is what happens when Python 4 comes out? It would
@@ -389,18 +473,18 @@ Python 2:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">importlib</span> <span class="k">import</span> <span class="n">abc</span>
+    <span class="kn">from</span> <span class="nn">importlib</span> <span class="kn">import</span> <span class="n">abc</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">importlib2</span> <span class="k">import</span> <span class="n">abc</span>
+    <span class="kn">from</span> <span class="nn">importlib2</span> <span class="kn">import</span> <span class="n">abc</span>
 </pre></div>
 </div>
 <p>The best solution, though, is to do no version detection at all and instead rely
 on feature detection. That avoids any potential issues of getting the version
 detection wrong and helps keep you future-compatible:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">importlib</span> <span class="k">import</span> <span class="n">abc</span>
+    <span class="kn">from</span> <span class="nn">importlib</span> <span class="kn">import</span> <span class="n">abc</span>
 <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">importlib2</span> <span class="k">import</span> <span class="n">abc</span>
+    <span class="kn">from</span> <span class="nn">importlib2</span> <span class="kn">import</span> <span class="n">abc</span>
 </pre></div>
 </div>
 </div>
@@ -413,9 +497,9 @@ Python 3. This is especially true if you have a dependency which is blocking you
 from actually running under Python 3 at the moment.</p>
 <p>To help with staying compatible, any new modules you create should have
 at least the following block of code at the top of it:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">absolute_import</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
 </pre></div>
 </div>
 <p>You can also run Python 2 with the <code class="docutils literal notranslate"><span class="pre">-3</span></code> flag to be warned about various
@@ -484,6 +568,7 @@ to make sure everything functions as expected in both versions of Python.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -526,7 +611,7 @@ to make sure everything functions as expected in both versions of Python.</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a Bug</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.7/Doc/howto/pyporting.rst"
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/howto/pyporting.rst"
             rel="nofollow">Show Source
         </a>
       </li>
@@ -551,43 +636,58 @@ to make sure everything functions as expected in both versions of Python.</p>
         <li class="right" >
           <a href="index.html" title="Python HOWTOs"
              >previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python HOWTOs</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href="">Porting Python 2 Code to Python 3</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">Copyright</a> 2001-2019, Python Software Foundation.
+    &copy; <a href="../copyright.html">Copyright</a> 2001-2021, Python Software Foundation.
     <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
     The Python Software Foundation is a non-profit corporation.
-    <a href="https://www.python.org/psf/donations/">Please donate.</a>
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
     <br />
-    Last updated on Jun 19, 2019.
-    <a href="../bugs.html">Found a bug</a>?
+
+    Last updated on Nov 06, 2021.
+    <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.0.1.
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
     </div>
 
   </body>

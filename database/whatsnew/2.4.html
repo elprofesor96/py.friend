@@ -1,23 +1,25 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>What’s New in Python 2.4 &#8212; Python 3.7.3 documentation</title>
-    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What’s New in Python 2.4 &#8212; Python 3.10.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../_static/pydoctheme.css?2021.11.1" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     
-    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Python 3.7.3 documentation"
+          title="Search within Python 3.10.0 documentation"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -25,13 +27,11 @@
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="next" title="What’s New in Python 2.3" href="2.3.html" />
     <link rel="prev" title="What’s New in Python 2.5" href="2.5.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
     <link rel="canonical" href="https://docs.python.org/3/whatsnew/2.4.html" />
     
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../_static/switchers.js"></script>
+      
     
-    
+
     
     <style>
       @media only screen {
@@ -40,9 +40,93 @@
         }
       }
     </style>
- 
+<link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
 
-  </head><body>
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://www.python.org/" class="nav-logo">
+             <img src="../_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">What’s New in Python 2.4</a><ul>
+<li><a class="reference internal" href="#pep-218-built-in-set-objects">PEP 218: Built-In Set Objects</a></li>
+<li><a class="reference internal" href="#pep-237-unifying-long-integers-and-integers">PEP 237: Unifying Long Integers and Integers</a></li>
+<li><a class="reference internal" href="#pep-289-generator-expressions">PEP 289: Generator Expressions</a></li>
+<li><a class="reference internal" href="#pep-292-simpler-string-substitutions">PEP 292: Simpler String Substitutions</a></li>
+<li><a class="reference internal" href="#pep-318-decorators-for-functions-and-methods">PEP 318: Decorators for Functions and Methods</a></li>
+<li><a class="reference internal" href="#pep-322-reverse-iteration">PEP 322: Reverse Iteration</a></li>
+<li><a class="reference internal" href="#pep-324-new-subprocess-module">PEP 324: New subprocess Module</a></li>
+<li><a class="reference internal" href="#pep-327-decimal-data-type">PEP 327: Decimal Data Type</a><ul>
+<li><a class="reference internal" href="#why-is-decimal-needed">Why is Decimal needed?</a></li>
+<li><a class="reference internal" href="#the-decimal-type">The <code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code> type</a></li>
+<li><a class="reference internal" href="#the-context-type">The <code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code> type</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pep-328-multi-line-imports">PEP 328: Multi-line Imports</a></li>
+<li><a class="reference internal" href="#pep-331-locale-independent-float-string-conversions">PEP 331: Locale-Independent Float/String Conversions</a></li>
+<li><a class="reference internal" href="#other-language-changes">Other Language Changes</a><ul>
+<li><a class="reference internal" href="#optimizations">Optimizations</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#new-improved-and-deprecated-modules">New, Improved, and Deprecated Modules</a><ul>
+<li><a class="reference internal" href="#cookielib">cookielib</a></li>
+<li><a class="reference internal" href="#doctest">doctest</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#build-and-c-api-changes">Build and C API Changes</a><ul>
+<li><a class="reference internal" href="#port-specific-changes">Port-Specific Changes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#porting-to-python-2-4">Porting to Python 2.4</a></li>
+<li><a class="reference internal" href="#acknowledgements">Acknowledgements</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="2.5.html"
+                        title="previous chapter">What’s New in Python 2.5</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="2.3.html"
+                        title="next chapter">What’s New in Python 2.3</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">Report a Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/whatsnew/2.4.rst"
+            rel="nofollow">Show Source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
   
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -59,31 +143,36 @@
         <li class="right" >
           <a href="2.5.html" title="What’s New in Python 2.5"
              accesskey="P">previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">What’s New in Python</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href="">What’s New in Python 2.4</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>    
 
@@ -507,7 +596,7 @@ others.</p>
 <div class="section" id="pep-327-decimal-data-type">
 <h2>PEP 327: Decimal Data Type<a class="headerlink" href="#pep-327-decimal-data-type" title="Permalink to this headline">¶</a></h2>
 <p>Python has always supported floating-point (FP) numbers, based on the underlying
-C <code class="xref c c-type docutils literal notranslate"><span class="pre">double</span></code> type, as a data type.  However, while most programming
+C <span class="xref c c-texpr">double</span> type, as a data type.  However, while most programming
 languages provide a floating-point type, many people (even programmers) are
 unaware that floating-point numbers don’t represent certain decimal fractions
 accurately.  The new <code class="xref py py-class docutils literal notranslate"><span class="pre">Decimal</span></code> type can represent these fractions
@@ -530,7 +619,7 @@ The number 5 has the same sign and mantissa, but the exponent is 2 because the
 mantissa is multiplied by 4 (2 to the power of the exponent 2); 1.25 * 4 equals
 5.</p>
 <p>Modern systems usually provide floating-point support that conforms to a
-standard called IEEE 754.  C’s <code class="xref c c-type docutils literal notranslate"><span class="pre">double</span></code> type is usually implemented as a
+standard called IEEE 754.  C’s <span class="xref c c-texpr">double</span> type is usually implemented as a
 64-bit IEEE 754 number, which uses 52 bits of space for the mantissa.  This
 means that numbers can only be specified to 52 bits of precision.  If you’re
 trying to represent numbers whose expansion repeats endlessly, the expansion is
@@ -717,7 +806,7 @@ import many names from a module.  In a <code class="docutils literal notranslate
 <em>names</em> is a sequence of names separated by commas.  If the sequence is  very
 long, you can either write multiple imports from the same module, or you can use
 backslashes to escape the line endings like this:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">SimpleXMLRPCServer</span> <span class="k">import</span> <span class="n">SimpleXMLRPCServer</span><span class="p">,</span>\
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">SimpleXMLRPCServer</span> <span class="kn">import</span> <span class="n">SimpleXMLRPCServer</span><span class="p">,</span>\
             <span class="n">SimpleXMLRPCRequestHandler</span><span class="p">,</span>\
             <span class="n">CGIXMLRPCRequestHandler</span><span class="p">,</span>\
             <span class="n">resolve_dotted_attribute</span>
@@ -726,7 +815,7 @@ backslashes to escape the line endings like this:</p>
 <p>The syntactic change in Python 2.4 simply allows putting the names within
 parentheses.  Python ignores newlines within a parenthesized expression, so the
 backslashes are no longer needed:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">SimpleXMLRPCServer</span> <span class="k">import</span> <span class="p">(</span><span class="n">SimpleXMLRPCServer</span><span class="p">,</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">SimpleXMLRPCServer</span> <span class="kn">import</span> <span class="p">(</span><span class="n">SimpleXMLRPCServer</span><span class="p">,</span>
                                 <span class="n">SimpleXMLRPCRequestHandler</span><span class="p">,</span>
                                 <span class="n">CGIXMLRPCRequestHandler</span><span class="p">,</span>
                                 <span class="n">resolve_dotted_attribute</span><span class="p">)</span>
@@ -759,9 +848,9 @@ numbers in the current locale.</p>
 API that perform ASCII-only conversions, ignoring the locale setting:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">PyOS_ascii_strtod(str,</span> <span class="pre">ptr)</span></code>  and <code class="docutils literal notranslate"><span class="pre">PyOS_ascii_atof(str,</span> <span class="pre">ptr)</span></code>
-both convert a string to a C <code class="xref c c-type docutils literal notranslate"><span class="pre">double</span></code>.</p></li>
+both convert a string to a C <span class="xref c c-texpr">double</span>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">PyOS_ascii_formatd(buffer,</span> <span class="pre">buf_len,</span> <span class="pre">format,</span> <span class="pre">d)</span></code> converts a
-<code class="xref c c-type docutils literal notranslate"><span class="pre">double</span></code> to an ASCII string.</p></li>
+<span class="xref c c-texpr">double</span> to an ASCII string.</p></li>
 </ul>
 <p>The code for these functions came from the GLib library
 (<a class="reference external" href="https://developer.gnome.org/glib/stable/">https://developer.gnome.org/glib/stable/</a>), whose developers kindly
@@ -823,7 +912,7 @@ comparison keys.  The following example sorts a list case-insensitively:</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">L</span>
 <span class="go">[&#39;A&#39;, &#39;b&#39;, &#39;c&#39;, &#39;D&#39;]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Old-fashioned way</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="nb">cmp</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="nb">cmp</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="n">y</span><span class="o">.</span><span class="n">lower</span><span class="p">()))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">cmp</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">cmp</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="n">y</span><span class="o">.</span><span class="n">lower</span><span class="p">()))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">L</span>
 <span class="go">[&#39;A&#39;, &#39;b&#39;, &#39;c&#39;, &#39;D&#39;]</span>
 </pre></div>
@@ -927,7 +1016,7 @@ also optimized and no longer converts its argument into a temporary list before
 extending the base list.  (Contributed by Raymond Hettinger.)</p></li>
 <li><p><a class="reference internal" href="../library/stdtypes.html#list" title="list"><code class="xref py py-func docutils literal notranslate"><span class="pre">list()</span></code></a>, <a class="reference internal" href="../library/stdtypes.html#tuple" title="tuple"><code class="xref py py-func docutils literal notranslate"><span class="pre">tuple()</span></code></a>, <a class="reference internal" href="../library/functions.html#map" title="map"><code class="xref py py-func docutils literal notranslate"><span class="pre">map()</span></code></a>, <a class="reference internal" href="../library/functions.html#filter" title="filter"><code class="xref py py-func docutils literal notranslate"><span class="pre">filter()</span></code></a>, and <a class="reference internal" href="../library/functions.html#zip" title="zip"><code class="xref py py-func docutils literal notranslate"><span class="pre">zip()</span></code></a> now
 run several times faster with non-sequence arguments that supply a
-<a class="reference internal" href="../reference/datamodel.html#object.__len__" title="object.__len__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__len__()</span></code></a> method.  (Contributed by Raymond Hettinger.)</p></li>
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">__len__()</span></code> method.  (Contributed by Raymond Hettinger.)</p></li>
 <li><p>The methods <code class="xref py py-meth docutils literal notranslate"><span class="pre">list.__getitem__()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">dict.__getitem__()</span></code>, and
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">dict.__contains__()</span></code> are now implemented as <code class="xref py py-class docutils literal notranslate"><span class="pre">method_descriptor</span></code>
 objects rather than <code class="xref py py-class docutils literal notranslate"><span class="pre">wrapper_descriptor</span></code> objects.  This form of  access
@@ -964,7 +1053,7 @@ complete list of changes, or look through the CVS logs for all the details.</p>
 <li><p>The <a class="reference internal" href="../library/asyncore.html#module-asyncore" title="asyncore: A base class for developing asynchronous socket handling services."><code class="xref py py-mod docutils literal notranslate"><span class="pre">asyncore</span></code></a> module’s <code class="xref py py-func docutils literal notranslate"><span class="pre">loop()</span></code> function now has a <em>count</em> parameter
 that lets you perform a limited number of passes through the polling loop.  The
 default is still to loop forever.</p></li>
-<li><p>The <a class="reference internal" href="../library/base64.html#module-base64" title="base64: RFC 3548: Base16, Base32, Base64 Data Encodings; Base85 and Ascii85"><code class="xref py py-mod docutils literal notranslate"><span class="pre">base64</span></code></a> module now has more complete <span class="target" id="index-18"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc3548.html"><strong>RFC 3548</strong></a> support for Base64,
+<li><p>The <a class="reference internal" href="../library/base64.html#module-base64" title="base64: RFC 4648: Base16, Base32, Base64 Data Encodings; Base85 and Ascii85"><code class="xref py py-mod docutils literal notranslate"><span class="pre">base64</span></code></a> module now has more complete <span class="target" id="index-18"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc3548.html"><strong>RFC 3548</strong></a> support for Base64,
 Base32, and Base16 encoding and decoding, including optional case folding and
 optional alternative alphabets. (Contributed by Barry Warsaw.)</p></li>
 <li><p>The <a class="reference internal" href="../library/bisect.html#module-bisect" title="bisect: Array bisection algorithms for binary searching."><code class="xref py py-mod docutils literal notranslate"><span class="pre">bisect</span></code></a> module now has an underlying C implementation for improved
@@ -991,7 +1080,7 @@ previous ones left off.  (Implemented by Walter Dörwald.)</p></li>
 datatypes.  Currently it contains just one type, <code class="xref py py-class docutils literal notranslate"><span class="pre">deque</span></code>, a double-ended
 queue that supports efficiently adding and removing elements from either
 end:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">deque</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">deque</span><span class="p">(</span><span class="s1">&#39;ghi&#39;</span><span class="p">)</span>        <span class="c1"># make a new deque with three items</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;j&#39;</span><span class="p">)</span>           <span class="c1"># add a new entry to the right side</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="o">.</span><span class="n">appendleft</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>       <span class="c1"># add a new entry to the left side</span>
@@ -1364,7 +1453,7 @@ Differences (unified diff with -expected +actual):
 <li><p>Three new convenience macros were added for common return values from
 extension functions: <a class="reference internal" href="../c-api/none.html#c.Py_RETURN_NONE" title="Py_RETURN_NONE"><code class="xref c c-macro docutils literal notranslate"><span class="pre">Py_RETURN_NONE</span></code></a>, <a class="reference internal" href="../c-api/bool.html#c.Py_RETURN_TRUE" title="Py_RETURN_TRUE"><code class="xref c c-macro docutils literal notranslate"><span class="pre">Py_RETURN_TRUE</span></code></a>, and
 <a class="reference internal" href="../c-api/bool.html#c.Py_RETURN_FALSE" title="Py_RETURN_FALSE"><code class="xref c c-macro docutils literal notranslate"><span class="pre">Py_RETURN_FALSE</span></code></a>. (Contributed by Brett Cannon.)</p></li>
-<li><p>Another new macro, <code class="xref c c-macro docutils literal notranslate"><span class="pre">Py_CLEAR(obj)</span></code>,  decreases the reference count of
+<li><p>Another new macro, <span class="xref c c-texpr"><a class="reference internal" href="../c-api/refcounting.html#c.Py_CLEAR" title="Py_CLEAR">Py_CLEAR</a>(obj)</span>,  decreases the reference count of
 <em>obj</em> and sets <em>obj</em> to the null pointer.  (Contributed by Jim Fulton.)</p></li>
 <li><p>A new function, <code class="docutils literal notranslate"><span class="pre">PyTuple_Pack(N,</span> <span class="pre">obj1,</span> <span class="pre">obj2,</span> <span class="pre">...,</span> <span class="pre">objN)</span></code>, constructs
 tuples from a variable length argument list of Python objects.  (Contributed by
@@ -1372,7 +1461,7 @@ Raymond Hettinger.)</p></li>
 <li><p>A new function, <code class="docutils literal notranslate"><span class="pre">PyDict_Contains(d,</span> <span class="pre">k)</span></code>, implements fast dictionary
 lookups without masking exceptions raised during the look-up process.
 (Contributed by Raymond Hettinger.)</p></li>
-<li><p>The <code class="xref c c-macro docutils literal notranslate"><span class="pre">Py_IS_NAN(X)</span></code> macro returns 1 if  its float or double argument
+<li><p>The <span class="xref c c-texpr">Py_IS_NAN(X)</span> macro returns 1 if  its float or double argument
 <em>X</em> is a NaN.   (Contributed by Tim Peters.)</p></li>
 <li><p>C code can avoid unnecessary locking by using the new
 <a class="reference internal" href="../c-api/init.html#c.PyEval_ThreadsInitialized" title="PyEval_ThreadsInitialized"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyEval_ThreadsInitialized()</span></code></a> function to tell  if any thread operations
@@ -1449,6 +1538,7 @@ Fredrik Lundh, Sean Reifschneider, Sadruddin Rejeb.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -1502,7 +1592,7 @@ Fredrik Lundh, Sean Reifschneider, Sadruddin Rejeb.</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a Bug</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.7/Doc/whatsnew/2.4.rst"
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/whatsnew/2.4.rst"
             rel="nofollow">Show Source
         </a>
       </li>
@@ -1527,43 +1617,58 @@ Fredrik Lundh, Sean Reifschneider, Sadruddin Rejeb.</p>
         <li class="right" >
           <a href="2.5.html" title="What’s New in Python 2.5"
              >previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >What’s New in Python</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href="">What’s New in Python 2.4</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">Copyright</a> 2001-2019, Python Software Foundation.
+    &copy; <a href="../copyright.html">Copyright</a> 2001-2021, Python Software Foundation.
     <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
     The Python Software Foundation is a non-profit corporation.
-    <a href="https://www.python.org/psf/donations/">Please donate.</a>
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
     <br />
-    Last updated on Jun 19, 2019.
-    <a href="../bugs.html">Found a bug</a>?
+
+    Last updated on Nov 06, 2021.
+    <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.0.1.
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
     </div>
 
   </body>

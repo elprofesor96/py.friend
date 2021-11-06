@@ -1,23 +1,25 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>heapq — Heap queue algorithm &#8212; Python 3.7.3 documentation</title>
-    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>heapq — Heap queue algorithm &#8212; Python 3.10.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../_static/pydoctheme.css?2021.11.1" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     
-    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Python 3.7.3 documentation"
+          title="Search within Python 3.10.0 documentation"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -25,13 +27,11 @@
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="next" title="bisect — Array bisection algorithm" href="bisect.html" />
     <link rel="prev" title="collections.abc — Abstract Base Classes for Containers" href="collections.abc.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
     <link rel="canonical" href="https://docs.python.org/3/library/heapq.html" />
     
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../_static/switchers.js"></script>
+      
     
-    
+
     
     <style>
       @media only screen {
@@ -40,9 +40,66 @@
         }
       }
     </style>
- 
+<link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
 
-  </head><body>
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://www.python.org/" class="nav-logo">
+             <img src="../_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">heapq</span></code> — Heap queue algorithm</a><ul>
+<li><a class="reference internal" href="#basic-examples">Basic Examples</a></li>
+<li><a class="reference internal" href="#priority-queue-implementation-notes">Priority Queue Implementation Notes</a></li>
+<li><a class="reference internal" href="#theory">Theory</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="collections.abc.html"
+                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">collections.abc</span></code> — Abstract Base Classes for Containers</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bisect.html"
+                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bisect</span></code> — Array bisection algorithm</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">Report a Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/library/heapq.rst"
+            rel="nofollow">Show Source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
   
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -59,32 +116,37 @@
         <li class="right" >
           <a href="collections.abc.html" title="collections.abc — Abstract Base Classes for Containers"
              accesskey="P">previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="datatypes.html" accesskey="U">Data Types</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">heapq</span></code> — Heap queue algorithm</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>    
 
@@ -95,7 +157,7 @@
             
   <div class="section" id="module-heapq">
 <span id="heapq-heap-queue-algorithm"></span><h1><a class="reference internal" href="#module-heapq" title="heapq: Heap queue algorithm (a.k.a. priority queue)."><code class="xref py py-mod docutils literal notranslate"><span class="pre">heapq</span></code></a> — Heap queue algorithm<a class="headerlink" href="#module-heapq" title="Permalink to this headline">¶</a></h1>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.7/Lib/heapq.py">Lib/heapq.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.10/Lib/heapq.py">Lib/heapq.py</a></p>
 <hr class="docutils" />
 <p>This module provides an implementation of the heap queue algorithm, also known
 as the priority queue algorithm.</p>
@@ -117,37 +179,37 @@ heap invariant!</p>
 <p>To create a heap, use a list initialized to <code class="docutils literal notranslate"><span class="pre">[]</span></code>, or you can transform a
 populated list into a heap via function <a class="reference internal" href="#heapq.heapify" title="heapq.heapify"><code class="xref py py-func docutils literal notranslate"><span class="pre">heapify()</span></code></a>.</p>
 <p>The following functions are provided:</p>
-<dl class="function">
+<dl class="py function">
 <dt id="heapq.heappush">
-<code class="descclassname">heapq.</code><code class="descname">heappush</code><span class="sig-paren">(</span><em>heap</em>, <em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#heapq.heappush" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">heapq.</code><code class="sig-name descname">heappush</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">heap</span></em>, <em class="sig-param"><span class="n">item</span></em><span class="sig-paren">)</span><a class="headerlink" href="#heapq.heappush" title="Permalink to this definition">¶</a></dt>
 <dd><p>Push the value <em>item</em> onto the <em>heap</em>, maintaining the heap invariant.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="heapq.heappop">
-<code class="descclassname">heapq.</code><code class="descname">heappop</code><span class="sig-paren">(</span><em>heap</em><span class="sig-paren">)</span><a class="headerlink" href="#heapq.heappop" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">heapq.</code><code class="sig-name descname">heappop</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">heap</span></em><span class="sig-paren">)</span><a class="headerlink" href="#heapq.heappop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Pop and return the smallest item from the <em>heap</em>, maintaining the heap
 invariant.  If the heap is empty, <a class="reference internal" href="exceptions.html#IndexError" title="IndexError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IndexError</span></code></a> is raised.  To access the
 smallest item without popping it, use <code class="docutils literal notranslate"><span class="pre">heap[0]</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="heapq.heappushpop">
-<code class="descclassname">heapq.</code><code class="descname">heappushpop</code><span class="sig-paren">(</span><em>heap</em>, <em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#heapq.heappushpop" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">heapq.</code><code class="sig-name descname">heappushpop</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">heap</span></em>, <em class="sig-param"><span class="n">item</span></em><span class="sig-paren">)</span><a class="headerlink" href="#heapq.heappushpop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Push <em>item</em> on the heap, then pop and return the smallest item from the
 <em>heap</em>.  The combined action runs more efficiently than <a class="reference internal" href="#heapq.heappush" title="heapq.heappush"><code class="xref py py-func docutils literal notranslate"><span class="pre">heappush()</span></code></a>
 followed by a separate call to <a class="reference internal" href="#heapq.heappop" title="heapq.heappop"><code class="xref py py-func docutils literal notranslate"><span class="pre">heappop()</span></code></a>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="heapq.heapify">
-<code class="descclassname">heapq.</code><code class="descname">heapify</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#heapq.heapify" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">heapq.</code><code class="sig-name descname">heapify</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#heapq.heapify" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transform list <em>x</em> into a heap, in-place, in linear time.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="heapq.heapreplace">
-<code class="descclassname">heapq.</code><code class="descname">heapreplace</code><span class="sig-paren">(</span><em>heap</em>, <em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#heapq.heapreplace" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">heapq.</code><code class="sig-name descname">heapreplace</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">heap</span></em>, <em class="sig-param"><span class="n">item</span></em><span class="sig-paren">)</span><a class="headerlink" href="#heapq.heapreplace" title="Permalink to this definition">¶</a></dt>
 <dd><p>Pop and return the smallest item from the <em>heap</em>, and also push the new <em>item</em>.
 The heap size doesn’t change. If the heap is empty, <a class="reference internal" href="exceptions.html#IndexError" title="IndexError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IndexError</span></code></a> is raised.</p>
 <p>This one step operation is more efficient than a <a class="reference internal" href="#heapq.heappop" title="heapq.heappop"><code class="xref py py-func docutils literal notranslate"><span class="pre">heappop()</span></code></a> followed by
@@ -161,9 +223,9 @@ on the heap.</p>
 </dd></dl>
 
 <p>The module also offers three general purpose functions based on heaps.</p>
-<dl class="function">
+<dl class="py function">
 <dt id="heapq.merge">
-<code class="descclassname">heapq.</code><code class="descname">merge</code><span class="sig-paren">(</span><em>*iterables</em>, <em>key=None</em>, <em>reverse=False</em><span class="sig-paren">)</span><a class="headerlink" href="#heapq.merge" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">heapq.</code><code class="sig-name descname">merge</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">iterables</span></em>, <em class="sig-param"><span class="n">key</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">reverse</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#heapq.merge" title="Permalink to this definition">¶</a></dt>
 <dd><p>Merge multiple sorted inputs into a single sorted output (for example, merge
 timestamped entries from multiple log files).  Returns an <a class="reference internal" href="../glossary.html#term-iterator"><span class="xref std std-term">iterator</span></a>
 over the sorted values.</p>
@@ -183,9 +245,9 @@ be sorted from largest to smallest.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="heapq.nlargest">
-<code class="descclassname">heapq.</code><code class="descname">nlargest</code><span class="sig-paren">(</span><em>n</em>, <em>iterable</em>, <em>key=None</em><span class="sig-paren">)</span><a class="headerlink" href="#heapq.nlargest" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">heapq.</code><code class="sig-name descname">nlargest</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em>, <em class="sig-param"><span class="n">iterable</span></em>, <em class="sig-param"><span class="n">key</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#heapq.nlargest" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list with the <em>n</em> largest elements from the dataset defined by
 <em>iterable</em>.  <em>key</em>, if provided, specifies a function of one argument that is
 used to extract a comparison key from each element in <em>iterable</em> (for example,
@@ -193,9 +255,9 @@ used to extract a comparison key from each element in <em>iterable</em> (for exa
 <span class="pre">reverse=True)[:n]</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="heapq.nsmallest">
-<code class="descclassname">heapq.</code><code class="descname">nsmallest</code><span class="sig-paren">(</span><em>n</em>, <em>iterable</em>, <em>key=None</em><span class="sig-paren">)</span><a class="headerlink" href="#heapq.nsmallest" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">heapq.</code><code class="sig-name descname">nsmallest</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em>, <em class="sig-param"><span class="n">iterable</span></em>, <em class="sig-param"><span class="n">key</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#heapq.nsmallest" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list with the <em>n</em> smallest elements from the dataset defined by
 <em>iterable</em>.  <em>key</em>, if provided, specifies a function of one argument that is
 used to extract a comparison key from each element in <em>iterable</em> (for example,
@@ -257,8 +319,8 @@ they were added. And since no two entry counts are the same, the tuple
 comparison will never attempt to directly compare two tasks.</p>
 <p>Another solution to the problem of non-comparable tasks is to create a wrapper
 class that ignores the task item and only compares the priority field:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="k">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="k">import</span> <span class="n">Any</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
 
 <span class="nd">@dataclass</span><span class="p">(</span><span class="n">order</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">class</span> <span class="nc">PrioritizedItem</span><span class="p">:</span>
@@ -384,6 +446,7 @@ always been a Great Art! :-)</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -410,7 +473,7 @@ always been a Great Art! :-)</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a Bug</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.7/Doc/library/heapq.rst"
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/library/heapq.rst"
             rel="nofollow">Show Source
         </a>
       </li>
@@ -435,44 +498,59 @@ always been a Great Art! :-)</p>
         <li class="right" >
           <a href="collections.abc.html" title="collections.abc — Abstract Base Classes for Containers"
              >previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="datatypes.html" >Data Types</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">heapq</span></code> — Heap queue algorithm</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">Copyright</a> 2001-2019, Python Software Foundation.
+    &copy; <a href="../copyright.html">Copyright</a> 2001-2021, Python Software Foundation.
     <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
     The Python Software Foundation is a non-profit corporation.
-    <a href="https://www.python.org/psf/donations/">Please donate.</a>
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
     <br />
-    Last updated on Jun 19, 2019.
-    <a href="../bugs.html">Found a bug</a>?
+
+    Last updated on Nov 06, 2021.
+    <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.0.1.
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
     </div>
 
   </body>

@@ -1,23 +1,25 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>re — Regular expression operations &#8212; Python 3.7.3 documentation</title>
-    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>re — Regular expression operations &#8212; Python 3.10.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../_static/pydoctheme.css?2021.11.1" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     
-    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Python 3.7.3 documentation"
+          title="Search within Python 3.10.0 documentation"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -25,13 +27,11 @@
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="next" title="difflib — Helpers for computing deltas" href="difflib.html" />
     <link rel="prev" title="string — Common string operations" href="string.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
     <link rel="canonical" href="https://docs.python.org/3/library/re.html" />
     
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../_static/switchers.js"></script>
+      
     
-    
+
     
     <style>
       @media only screen {
@@ -40,9 +40,79 @@
         }
       }
     </style>
- 
+<link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
 
-  </head><body>
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://www.python.org/" class="nav-logo">
+             <img src="../_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">re</span></code> — Regular expression operations</a><ul>
+<li><a class="reference internal" href="#regular-expression-syntax">Regular Expression Syntax</a></li>
+<li><a class="reference internal" href="#module-contents">Module Contents</a></li>
+<li><a class="reference internal" href="#regular-expression-objects">Regular Expression Objects</a></li>
+<li><a class="reference internal" href="#match-objects">Match Objects</a></li>
+<li><a class="reference internal" href="#regular-expression-examples">Regular Expression Examples</a><ul>
+<li><a class="reference internal" href="#checking-for-a-pair">Checking for a Pair</a></li>
+<li><a class="reference internal" href="#simulating-scanf">Simulating scanf()</a></li>
+<li><a class="reference internal" href="#search-vs-match">search() vs. match()</a></li>
+<li><a class="reference internal" href="#making-a-phonebook">Making a Phonebook</a></li>
+<li><a class="reference internal" href="#text-munging">Text Munging</a></li>
+<li><a class="reference internal" href="#finding-all-adverbs">Finding all Adverbs</a></li>
+<li><a class="reference internal" href="#finding-all-adverbs-and-their-positions">Finding all Adverbs and their Positions</a></li>
+<li><a class="reference internal" href="#raw-string-notation">Raw String Notation</a></li>
+<li><a class="reference internal" href="#writing-a-tokenizer">Writing a Tokenizer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="string.html"
+                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">string</span></code> — Common string operations</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="difflib.html"
+                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">difflib</span></code> — Helpers for computing deltas</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">Report a Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/library/re.rst"
+            rel="nofollow">Show Source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
   
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -59,32 +129,37 @@
         <li class="right" >
           <a href="string.html" title="string — Common string operations"
              accesskey="P">previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="text.html" accesskey="U">Text Processing Services</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">re</span></code> — Regular expression operations</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>    
 
@@ -95,7 +170,7 @@
             
   <div class="section" id="module-re">
 <span id="re-regular-expression-operations"></span><h1><a class="reference internal" href="#module-re" title="re: Regular expression operations."><code class="xref py py-mod docutils literal notranslate"><span class="pre">re</span></code></a> — Regular expression operations<a class="headerlink" href="#module-re" title="Permalink to this headline">¶</a></h1>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.7/Lib/re.py">Lib/re.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.10/Lib/re.py">Lib/re.py</a></p>
 <hr class="docutils" />
 <p>This module provides regular expression matching operations similar to
 those found in Perl.</p>
@@ -112,7 +187,10 @@ character for the same purpose in string literals; for example, to match
 a literal backslash, one might have to write <code class="docutils literal notranslate"><span class="pre">'\\\\'</span></code> as the pattern
 string, because the regular expression must be <code class="docutils literal notranslate"><span class="pre">\\</span></code>, and each
 backslash must be expressed as <code class="docutils literal notranslate"><span class="pre">\\</span></code> inside a regular Python string
-literal.</p>
+literal. Also, please note that any invalid escape sequences in Python’s
+usage of the backslash in string literals now generate a <a class="reference internal" href="exceptions.html#DeprecationWarning" title="DeprecationWarning"><code class="xref py py-exc docutils literal notranslate"><span class="pre">DeprecationWarning</span></code></a>
+and in the future this will become a <a class="reference internal" href="exceptions.html#SyntaxError" title="SyntaxError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SyntaxError</span></code></a>. This behaviour
+will happen even if it is a valid escape sequence for a regular expression.</p>
 <p>The solution is to use Python’s raw string notation for regular expression
 patterns; backslashes are not handled in any special way in a string literal
 prefixed with <code class="docutils literal notranslate"><span class="pre">'r'</span></code>.  So <code class="docutils literal notranslate"><span class="pre">r&quot;\n&quot;</span></code> is a two-character string containing
@@ -373,7 +451,7 @@ the group were not named.</p>
 <p>Named groups can be referenced in three contexts.  If the pattern is
 <code class="docutils literal notranslate"><span class="pre">(?P&lt;quote&gt;['&quot;]).*?(?P=quote)</span></code> (i.e. matching a string quoted with either
 single or double quotes):</p>
-<table class="docutils align-center">
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 53%" />
 <col style="width: 47%" />
@@ -442,14 +520,14 @@ The contained pattern must only match strings of some fixed length, meaning that
 patterns which start with positive lookbehind assertions will not match at the
 beginning of the string being searched; you will most likely want to use the
 <a class="reference internal" href="#re.search" title="re.search"><code class="xref py py-func docutils literal notranslate"><span class="pre">search()</span></code></a> function rather than the <a class="reference internal" href="#re.match" title="re.match"><code class="xref py py-func docutils literal notranslate"><span class="pre">match()</span></code></a> function:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">re</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">re</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;(?&lt;=abc)def&#39;</span><span class="p">,</span> <span class="s1">&#39;abcdef&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="go">&#39;def&#39;</span>
 </pre></div>
 </div>
 <p>This example looks for a word following a hyphen:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(?&lt;=-)\w+&#39;</span><span class="p">,</span> <span class="s1">&#39;spam-egg&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(?&lt;=-)\w+&#39;</span><span class="p">,</span> <span class="s1">&#39;spam-egg&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="go">&#39;egg&#39;</span>
 </pre></div>
@@ -574,8 +652,8 @@ and the underscore.</p>
 <dt><code class="docutils literal notranslate"><span class="pre">\W</span></code></dt><dd><p>Matches any character which is not a word character. This is
 the opposite of <code class="docutils literal notranslate"><span class="pre">\w</span></code>. If the <a class="reference internal" href="#re.ASCII" title="re.ASCII"><code class="xref py py-const docutils literal notranslate"><span class="pre">ASCII</span></code></a> flag is used this
 becomes the equivalent of <code class="docutils literal notranslate"><span class="pre">[^a-zA-Z0-9_]</span></code>.  If the <a class="reference internal" href="#re.LOCALE" title="re.LOCALE"><code class="xref py py-const docutils literal notranslate"><span class="pre">LOCALE</span></code></a> flag is
-used, matches characters considered alphanumeric in the current locale
-and the underscore.</p>
+used, matches characters which are neither alphanumeric in the current locale
+nor the underscore.</p>
 </dd>
 </dl>
 <dl class="simple" id="index-34">
@@ -585,13 +663,13 @@ and the underscore.</p>
 <p id="index-35">Most of the standard escapes supported by Python string literals are also
 accepted by the regular expression parser:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span>\<span class="n">a</span>      \<span class="n">b</span>      \<span class="n">f</span>      \<span class="n">n</span>
-\<span class="n">r</span>      \<span class="n">t</span>      \<span class="n">u</span>      \<span class="n">U</span>
-\<span class="n">v</span>      \<span class="n">x</span>      \\
+\<span class="n">N</span>      \<span class="n">r</span>      \<span class="n">t</span>      \<span class="n">u</span>
+\<span class="n">U</span>      \<span class="n">v</span>      \<span class="n">x</span>      \\
 </pre></div>
 </div>
 <p>(Note that <code class="docutils literal notranslate"><span class="pre">\b</span></code> is used to represent word boundaries, and means “backspace”
 only inside character classes.)</p>
-<p><code class="docutils literal notranslate"><span class="pre">'\u'</span></code> and <code class="docutils literal notranslate"><span class="pre">'\U'</span></code> escape sequences are only recognized in Unicode
+<p><code class="docutils literal notranslate"><span class="pre">'\u'</span></code>, <code class="docutils literal notranslate"><span class="pre">'\U'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'\N'</span></code> escape sequences are only recognized in Unicode
 patterns.  In bytes patterns they are errors.  Unknown escapes of ASCII
 letters are reserved for future use and treated as errors.</p>
 <p>Octal escapes are included in a limited form.  If the first digit is a 0, or if
@@ -604,6 +682,10 @@ three digits in length.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.6: </span>Unknown escapes consisting of <code class="docutils literal notranslate"><span class="pre">'\'</span></code> and an ASCII letter now are errors.</p>
 </div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.8: </span>The <code class="docutils literal notranslate"><span class="pre">'\N{name}'</span></code> escape sequence has been added. As in string literals,
+it expands to the named Unicode character (e.g. <code class="docutils literal notranslate"><span class="pre">'\N{EM</span> <span class="pre">DASH}'</span></code>).</p>
+</div>
 </div>
 <div class="section" id="module-contents">
 <span id="contents-of-module-re"></span><h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
@@ -615,9 +697,9 @@ form.</p>
 <p><span class="versionmodified changed">Changed in version 3.6: </span>Flag constants are now instances of <code class="xref py py-class docutils literal notranslate"><span class="pre">RegexFlag</span></code>, which is a subclass of
 <a class="reference internal" href="enum.html#enum.IntFlag" title="enum.IntFlag"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.IntFlag</span></code></a>.</p>
 </div>
-<dl class="function">
+<dl class="py function">
 <dt id="re.compile">
-<code class="descclassname">re.</code><code class="descname">compile</code><span class="sig-paren">(</span><em>pattern</em>, <em>flags=0</em><span class="sig-paren">)</span><a class="headerlink" href="#re.compile" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">re.</code><code class="sig-name descname">compile</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pattern</span></em>, <em class="sig-param"><span class="n">flags</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#re.compile" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compile a regular expression pattern into a <a class="reference internal" href="#re-objects"><span class="std std-ref">regular expression object</span></a>, which can be used for matching using its
 <a class="reference internal" href="#re.Pattern.match" title="re.Pattern.match"><code class="xref py py-func docutils literal notranslate"><span class="pre">match()</span></code></a>, <a class="reference internal" href="#re.Pattern.search" title="re.Pattern.search"><code class="xref py py-func docutils literal notranslate"><span class="pre">search()</span></code></a> and other methods, described
 below.</p>
@@ -645,11 +727,11 @@ about compiling regular expressions.</p>
 </div>
 </dd></dl>
 
-<dl class="data">
+<dl class="py data">
 <dt id="re.A">
-<code class="descclassname">re.</code><code class="descname">A</code><a class="headerlink" href="#re.A" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">re.</code><code class="sig-name descname">A</code><a class="headerlink" href="#re.A" title="Permalink to this definition">¶</a></dt>
 <dt id="re.ASCII">
-<code class="descclassname">re.</code><code class="descname">ASCII</code><a class="headerlink" href="#re.ASCII" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">re.</code><code class="sig-name descname">ASCII</code><a class="headerlink" href="#re.ASCII" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make <code class="docutils literal notranslate"><span class="pre">\w</span></code>, <code class="docutils literal notranslate"><span class="pre">\W</span></code>, <code class="docutils literal notranslate"><span class="pre">\b</span></code>, <code class="docutils literal notranslate"><span class="pre">\B</span></code>, <code class="docutils literal notranslate"><span class="pre">\d</span></code>, <code class="docutils literal notranslate"><span class="pre">\D</span></code>, <code class="docutils literal notranslate"><span class="pre">\s</span></code> and <code class="docutils literal notranslate"><span class="pre">\S</span></code>
 perform ASCII-only matching instead of full Unicode matching.  This is only
 meaningful for Unicode patterns, and is ignored for byte patterns.
@@ -661,18 +743,18 @@ matches are Unicode by default for strings (and Unicode matching
 isn’t allowed for bytes).</p>
 </dd></dl>
 
-<dl class="data">
+<dl class="py data">
 <dt id="re.DEBUG">
-<code class="descclassname">re.</code><code class="descname">DEBUG</code><a class="headerlink" href="#re.DEBUG" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">re.</code><code class="sig-name descname">DEBUG</code><a class="headerlink" href="#re.DEBUG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Display debug information about compiled expression.
 No corresponding inline flag.</p>
 </dd></dl>
 
-<dl class="data">
+<dl class="py data">
 <dt id="re.I">
-<code class="descclassname">re.</code><code class="descname">I</code><a class="headerlink" href="#re.I" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">re.</code><code class="sig-name descname">I</code><a class="headerlink" href="#re.I" title="Permalink to this definition">¶</a></dt>
 <dt id="re.IGNORECASE">
-<code class="descclassname">re.</code><code class="descname">IGNORECASE</code><a class="headerlink" href="#re.IGNORECASE" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">re.</code><code class="sig-name descname">IGNORECASE</code><a class="headerlink" href="#re.IGNORECASE" title="Permalink to this definition">¶</a></dt>
 <dd><p>Perform case-insensitive matching; expressions like <code class="docutils literal notranslate"><span class="pre">[A-Z]</span></code> will also
 match lowercase letters.  Full Unicode matching (such as <code class="docutils literal notranslate"><span class="pre">Ü</span></code> matching
 <code class="docutils literal notranslate"><span class="pre">ü</span></code>) also works unless the <a class="reference internal" href="#re.ASCII" title="re.ASCII"><code class="xref py py-const docutils literal notranslate"><span class="pre">re.ASCII</span></code></a> flag is used to disable
@@ -688,11 +770,11 @@ If the <a class="reference internal" href="#re.ASCII" title="re.ASCII"><code cla
 and ‘A’ to ‘Z’ are matched.</p>
 </dd></dl>
 
-<dl class="data">
+<dl class="py data">
 <dt id="re.L">
-<code class="descclassname">re.</code><code class="descname">L</code><a class="headerlink" href="#re.L" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">re.</code><code class="sig-name descname">L</code><a class="headerlink" href="#re.L" title="Permalink to this definition">¶</a></dt>
 <dt id="re.LOCALE">
-<code class="descclassname">re.</code><code class="descname">LOCALE</code><a class="headerlink" href="#re.LOCALE" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">re.</code><code class="sig-name descname">LOCALE</code><a class="headerlink" href="#re.LOCALE" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make <code class="docutils literal notranslate"><span class="pre">\w</span></code>, <code class="docutils literal notranslate"><span class="pre">\W</span></code>, <code class="docutils literal notranslate"><span class="pre">\b</span></code>, <code class="docutils literal notranslate"><span class="pre">\B</span></code> and case-insensitive matching
 dependent on the current locale.  This flag can be used only with bytes
 patterns.  The use of this flag is discouraged as the locale mechanism
@@ -712,11 +794,11 @@ matching time affects the result of matching.</p>
 </div>
 </dd></dl>
 
-<dl class="data">
+<dl class="py data">
 <dt id="re.M">
-<code class="descclassname">re.</code><code class="descname">M</code><a class="headerlink" href="#re.M" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">re.</code><code class="sig-name descname">M</code><a class="headerlink" href="#re.M" title="Permalink to this definition">¶</a></dt>
 <dt id="re.MULTILINE">
-<code class="descclassname">re.</code><code class="descname">MULTILINE</code><a class="headerlink" href="#re.MULTILINE" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">re.</code><code class="sig-name descname">MULTILINE</code><a class="headerlink" href="#re.MULTILINE" title="Permalink to this definition">¶</a></dt>
 <dd><p>When specified, the pattern character <code class="docutils literal notranslate"><span class="pre">'^'</span></code> matches at the beginning of the
 string and at the beginning of each line (immediately following each newline);
 and the pattern character <code class="docutils literal notranslate"><span class="pre">'$'</span></code> matches at the end of the string and at the
@@ -726,21 +808,21 @@ string and immediately before the newline (if any) at the end of the string.
 Corresponds to the inline flag <code class="docutils literal notranslate"><span class="pre">(?m)</span></code>.</p>
 </dd></dl>
 
-<dl class="data">
+<dl class="py data">
 <dt id="re.S">
-<code class="descclassname">re.</code><code class="descname">S</code><a class="headerlink" href="#re.S" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">re.</code><code class="sig-name descname">S</code><a class="headerlink" href="#re.S" title="Permalink to this definition">¶</a></dt>
 <dt id="re.DOTALL">
-<code class="descclassname">re.</code><code class="descname">DOTALL</code><a class="headerlink" href="#re.DOTALL" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">re.</code><code class="sig-name descname">DOTALL</code><a class="headerlink" href="#re.DOTALL" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make the <code class="docutils literal notranslate"><span class="pre">'.'</span></code> special character match any character at all, including a
 newline; without this flag, <code class="docutils literal notranslate"><span class="pre">'.'</span></code> will match anything <em>except</em> a newline.
 Corresponds to the inline flag <code class="docutils literal notranslate"><span class="pre">(?s)</span></code>.</p>
 </dd></dl>
 
-<dl class="data">
+<dl class="py data">
 <dt id="re.X">
-<code class="descclassname">re.</code><code class="descname">X</code><a class="headerlink" href="#re.X" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">re.</code><code class="sig-name descname">X</code><a class="headerlink" href="#re.X" title="Permalink to this definition">¶</a></dt>
 <dt id="re.VERBOSE">
-<code class="descclassname">re.</code><code class="descname">VERBOSE</code><a class="headerlink" href="#re.VERBOSE" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">re.</code><code class="sig-name descname">VERBOSE</code><a class="headerlink" href="#re.VERBOSE" title="Permalink to this definition">¶</a></dt>
 <dd><p id="index-36">This flag allows you to write regular expressions that look nicer and are
 more readable by allowing you to visually separate logical sections of the
 pattern and add comments. Whitespace within the pattern is ignored, except
@@ -760,18 +842,18 @@ decimal number are functionally equal:</p>
 <p>Corresponds to the inline flag <code class="docutils literal notranslate"><span class="pre">(?x)</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="re.search">
-<code class="descclassname">re.</code><code class="descname">search</code><span class="sig-paren">(</span><em>pattern</em>, <em>string</em>, <em>flags=0</em><span class="sig-paren">)</span><a class="headerlink" href="#re.search" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">re.</code><code class="sig-name descname">search</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pattern</span></em>, <em class="sig-param"><span class="n">string</span></em>, <em class="sig-param"><span class="n">flags</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#re.search" title="Permalink to this definition">¶</a></dt>
 <dd><p>Scan through <em>string</em> looking for the first location where the regular expression
 <em>pattern</em> produces a match, and return a corresponding <a class="reference internal" href="#match-objects"><span class="std std-ref">match object</span></a>.  Return <code class="docutils literal notranslate"><span class="pre">None</span></code> if no position in the string matches the
 pattern; note that this is different from finding a zero-length match at some
 point in the string.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="re.match">
-<code class="descclassname">re.</code><code class="descname">match</code><span class="sig-paren">(</span><em>pattern</em>, <em>string</em>, <em>flags=0</em><span class="sig-paren">)</span><a class="headerlink" href="#re.match" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">re.</code><code class="sig-name descname">match</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pattern</span></em>, <em class="sig-param"><span class="n">string</span></em>, <em class="sig-param"><span class="n">flags</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#re.match" title="Permalink to this definition">¶</a></dt>
 <dd><p>If zero or more characters at the beginning of <em>string</em> match the regular
 expression <em>pattern</em>, return a corresponding <a class="reference internal" href="#match-objects"><span class="std std-ref">match object</span></a>.  Return <code class="docutils literal notranslate"><span class="pre">None</span></code> if the string does not match the pattern;
 note that this is different from a zero-length match.</p>
@@ -781,9 +863,9 @@ at the beginning of the string and not at the beginning of each line.</p>
 instead (see also <a class="reference internal" href="#search-vs-match"><span class="std std-ref">search() vs. match()</span></a>).</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="re.fullmatch">
-<code class="descclassname">re.</code><code class="descname">fullmatch</code><span class="sig-paren">(</span><em>pattern</em>, <em>string</em>, <em>flags=0</em><span class="sig-paren">)</span><a class="headerlink" href="#re.fullmatch" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">re.</code><code class="sig-name descname">fullmatch</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pattern</span></em>, <em class="sig-param"><span class="n">string</span></em>, <em class="sig-param"><span class="n">flags</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#re.fullmatch" title="Permalink to this definition">¶</a></dt>
 <dd><p>If the whole <em>string</em> matches the regular expression <em>pattern</em>, return a
 corresponding <a class="reference internal" href="#match-objects"><span class="std std-ref">match object</span></a>.  Return <code class="docutils literal notranslate"><span class="pre">None</span></code> if the
 string does not match the pattern; note that this is different from a
@@ -793,9 +875,9 @@ zero-length match.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="re.split">
-<code class="descclassname">re.</code><code class="descname">split</code><span class="sig-paren">(</span><em>pattern</em>, <em>string</em>, <em>maxsplit=0</em>, <em>flags=0</em><span class="sig-paren">)</span><a class="headerlink" href="#re.split" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">re.</code><code class="sig-name descname">split</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pattern</span></em>, <em class="sig-param"><span class="n">string</span></em>, <em class="sig-param"><span class="n">maxsplit</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">flags</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#re.split" title="Permalink to this definition">¶</a></dt>
 <dd><p>Split <em>string</em> by the occurrences of <em>pattern</em>.  If capturing parentheses are
 used in <em>pattern</em>, then the text of all groups in the pattern are also returned
 as part of the resulting list. If <em>maxsplit</em> is nonzero, at most <em>maxsplit</em>
@@ -822,7 +904,7 @@ the end of the string:</p>
 indices within the result list.</p>
 <p>Empty matches for the pattern split the string only when not adjacent
 to a previous empty match.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\b&#39;</span><span class="p">,</span> <span class="s1">&#39;Words, words, words.&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\b&#39;</span><span class="p">,</span> <span class="s1">&#39;Words, words, words.&#39;</span><span class="p">)</span>
 <span class="go">[&#39;&#39;, &#39;Words&#39;, &#39;, &#39;, &#39;words&#39;, &#39;, &#39;, &#39;words&#39;, &#39;.&#39;]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\W*&#39;</span><span class="p">,</span> <span class="s1">&#39;...words...&#39;</span><span class="p">)</span>
 <span class="go">[&#39;&#39;, &#39;&#39;, &#39;w&#39;, &#39;o&#39;, &#39;r&#39;, &#39;d&#39;, &#39;s&#39;, &#39;&#39;, &#39;&#39;]</span>
@@ -838,22 +920,32 @@ to a previous empty match.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="re.findall">
-<code class="descclassname">re.</code><code class="descname">findall</code><span class="sig-paren">(</span><em>pattern</em>, <em>string</em>, <em>flags=0</em><span class="sig-paren">)</span><a class="headerlink" href="#re.findall" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">re.</code><code class="sig-name descname">findall</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pattern</span></em>, <em class="sig-param"><span class="n">string</span></em>, <em class="sig-param"><span class="n">flags</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#re.findall" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return all non-overlapping matches of <em>pattern</em> in <em>string</em>, as a list of
-strings.  The <em>string</em> is scanned left-to-right, and matches are returned in
-the order found.  If one or more groups are present in the pattern, return a
-list of groups; this will be a list of tuples if the pattern has more than
-one group.  Empty matches are included in the result.</p>
+strings or tuples.  The <em>string</em> is scanned left-to-right, and matches
+are returned in the order found.  Empty matches are included in the result.</p>
+<p>The result depends on the number of capturing groups in the pattern.
+If there are no groups, return a list of strings matching the whole
+pattern.  If there is exactly one group, return a list of strings
+matching that group.  If multiple groups are present, return a list
+of tuples of strings matching the groups.  Non-capturing groups do not
+affect the form of the result.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\bf[a-z]*&#39;</span><span class="p">,</span> <span class="s1">&#39;which foot or hand fell fastest&#39;</span><span class="p">)</span>
+<span class="go">[&#39;foot&#39;, &#39;fell&#39;, &#39;fastest&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(\w+)=(\d+)&#39;</span><span class="p">,</span> <span class="s1">&#39;set width=20 and height=10&#39;</span><span class="p">)</span>
+<span class="go">[(&#39;width&#39;, &#39;20&#39;), (&#39;height&#39;, &#39;10&#39;)]</span>
+</pre></div>
+</div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.7: </span>Non-empty matches can now start just after a previous empty match.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="re.finditer">
-<code class="descclassname">re.</code><code class="descname">finditer</code><span class="sig-paren">(</span><em>pattern</em>, <em>string</em>, <em>flags=0</em><span class="sig-paren">)</span><a class="headerlink" href="#re.finditer" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">re.</code><code class="sig-name descname">finditer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pattern</span></em>, <em class="sig-param"><span class="n">string</span></em>, <em class="sig-param"><span class="n">flags</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#re.finditer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return an <a class="reference internal" href="../glossary.html#term-iterator"><span class="xref std std-term">iterator</span></a> yielding <a class="reference internal" href="#match-objects"><span class="std std-ref">match objects</span></a> over
 all non-overlapping matches for the RE <em>pattern</em> in <em>string</em>.  The <em>string</em>
 is scanned left-to-right, and matches are returned in the order found.  Empty
@@ -863,9 +955,9 @@ matches are included in the result.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="re.sub">
-<code class="descclassname">re.</code><code class="descname">sub</code><span class="sig-paren">(</span><em>pattern</em>, <em>repl</em>, <em>string</em>, <em>count=0</em>, <em>flags=0</em><span class="sig-paren">)</span><a class="headerlink" href="#re.sub" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">re.</code><code class="sig-name descname">sub</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pattern</span></em>, <em class="sig-param"><span class="n">repl</span></em>, <em class="sig-param"><span class="n">string</span></em>, <em class="sig-param"><span class="n">count</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">flags</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#re.sub" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the string obtained by replacing the leftmost non-overlapping occurrences
 of <em>pattern</em> in <em>string</em> by the replacement <em>repl</em>.  If the pattern isn’t found,
 <em>string</em> is returned unchanged.  <em>repl</em> can be a string or a function; if it is
@@ -929,9 +1021,9 @@ non-empty match.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="re.subn">
-<code class="descclassname">re.</code><code class="descname">subn</code><span class="sig-paren">(</span><em>pattern</em>, <em>repl</em>, <em>string</em>, <em>count=0</em>, <em>flags=0</em><span class="sig-paren">)</span><a class="headerlink" href="#re.subn" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">re.</code><code class="sig-name descname">subn</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pattern</span></em>, <em class="sig-param"><span class="n">repl</span></em>, <em class="sig-param"><span class="n">string</span></em>, <em class="sig-param"><span class="n">count</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">flags</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#re.subn" title="Permalink to this definition">¶</a></dt>
 <dd><p>Perform the same operation as <a class="reference internal" href="#re.sub" title="re.sub"><code class="xref py py-func docutils literal notranslate"><span class="pre">sub()</span></code></a>, but return a tuple <code class="docutils literal notranslate"><span class="pre">(new_string,</span>
 <span class="pre">number_of_subs_made)</span></code>.</p>
 <div class="versionchanged">
@@ -942,14 +1034,14 @@ non-empty match.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="re.escape">
-<code class="descclassname">re.</code><code class="descname">escape</code><span class="sig-paren">(</span><em>pattern</em><span class="sig-paren">)</span><a class="headerlink" href="#re.escape" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">re.</code><code class="sig-name descname">escape</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pattern</span></em><span class="sig-paren">)</span><a class="headerlink" href="#re.escape" title="Permalink to this definition">¶</a></dt>
 <dd><p>Escape special characters in <em>pattern</em>.
 This is useful if you want to match an arbitrary literal string that may
 have regular expression metacharacters in it.  For example:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="s1">&#39;python.exe&#39;</span><span class="p">))</span>
-<span class="go">python\.exe</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="s1">&#39;https://www.python.org&#39;</span><span class="p">))</span>
+<span class="go">https://www\.python\.org</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">legal_chars</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">ascii_lowercase</span> <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="n">digits</span> <span class="o">+</span> <span class="s2">&quot;!#$%&amp;&#39;*+-.^_`|~:&quot;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;[</span><span class="si">%s</span><span class="s1">]+&#39;</span> <span class="o">%</span> <span class="n">re</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">legal_chars</span><span class="p">))</span>
@@ -960,7 +1052,7 @@ have regular expression metacharacters in it.  For example:</p>
 <span class="go">/|\-|\+|\*\*|\*</span>
 </pre></div>
 </div>
-<p>This functions must not be used for the replacement string in <a class="reference internal" href="#re.sub" title="re.sub"><code class="xref py py-func docutils literal notranslate"><span class="pre">sub()</span></code></a>
+<p>This function must not be used for the replacement string in <a class="reference internal" href="#re.sub" title="re.sub"><code class="xref py py-func docutils literal notranslate"><span class="pre">sub()</span></code></a>
 and <a class="reference internal" href="#re.subn" title="re.subn"><code class="xref py py-func docutils literal notranslate"><span class="pre">subn()</span></code></a>, only backslashes should be escaped.  For example:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">digits_re</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\d+&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sample</span> <span class="o">=</span> <span class="s1">&#39;/usr/sbin/sendmail - 0 errors, 12 warnings&#39;</span>
@@ -973,51 +1065,53 @@ and <a class="reference internal" href="#re.subn" title="re.subn"><code class="x
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.7: </span>Only characters that can have special meaning in a regular expression
-are escaped.</p>
+are escaped. As a result, <code class="docutils literal notranslate"><span class="pre">'!'</span></code>, <code class="docutils literal notranslate"><span class="pre">'&quot;'</span></code>, <code class="docutils literal notranslate"><span class="pre">'%'</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;'&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">','</span></code>,
+<code class="docutils literal notranslate"><span class="pre">'/'</span></code>, <code class="docutils literal notranslate"><span class="pre">':'</span></code>, <code class="docutils literal notranslate"><span class="pre">';'</span></code>, <code class="docutils literal notranslate"><span class="pre">'&lt;'</span></code>, <code class="docutils literal notranslate"><span class="pre">'='</span></code>, <code class="docutils literal notranslate"><span class="pre">'&gt;'</span></code>, <code class="docutils literal notranslate"><span class="pre">'&#64;'</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">&quot;`&quot;</span></code> are no longer escaped.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="re.purge">
-<code class="descclassname">re.</code><code class="descname">purge</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#re.purge" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">re.</code><code class="sig-name descname">purge</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#re.purge" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clear the regular expression cache.</p>
 </dd></dl>
 
-<dl class="exception">
+<dl class="py exception">
 <dt id="re.error">
-<em class="property">exception </em><code class="descclassname">re.</code><code class="descname">error</code><span class="sig-paren">(</span><em>msg</em>, <em>pattern=None</em>, <em>pos=None</em><span class="sig-paren">)</span><a class="headerlink" href="#re.error" title="Permalink to this definition">¶</a></dt>
+<em class="property">exception </em><code class="sig-prename descclassname">re.</code><code class="sig-name descname">error</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">msg</span></em>, <em class="sig-param"><span class="n">pattern</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">pos</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#re.error" title="Permalink to this definition">¶</a></dt>
 <dd><p>Exception raised when a string passed to one of the functions here is not a
 valid regular expression (for example, it might contain unmatched parentheses)
 or when some other error occurs during compilation or matching.  It is never an
 error if a string contains no match for a pattern.  The error instance has
 the following additional attributes:</p>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="re.error.msg">
-<code class="descname">msg</code><a class="headerlink" href="#re.error.msg" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">msg</code><a class="headerlink" href="#re.error.msg" title="Permalink to this definition">¶</a></dt>
 <dd><p>The unformatted error message.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="re.error.pattern">
-<code class="descname">pattern</code><a class="headerlink" href="#re.error.pattern" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">pattern</code><a class="headerlink" href="#re.error.pattern" title="Permalink to this definition">¶</a></dt>
 <dd><p>The regular expression pattern.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="re.error.pos">
-<code class="descname">pos</code><a class="headerlink" href="#re.error.pos" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">pos</code><a class="headerlink" href="#re.error.pos" title="Permalink to this definition">¶</a></dt>
 <dd><p>The index in <em>pattern</em> where compilation failed (may be <code class="docutils literal notranslate"><span class="pre">None</span></code>).</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="re.error.lineno">
-<code class="descname">lineno</code><a class="headerlink" href="#re.error.lineno" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">lineno</code><a class="headerlink" href="#re.error.lineno" title="Permalink to this definition">¶</a></dt>
 <dd><p>The line corresponding to <em>pos</em> (may be <code class="docutils literal notranslate"><span class="pre">None</span></code>).</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="re.error.colno">
-<code class="descname">colno</code><a class="headerlink" href="#re.error.colno" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">colno</code><a class="headerlink" href="#re.error.colno" title="Permalink to this definition">¶</a></dt>
 <dd><p>The column corresponding to <em>pos</em> (may be <code class="docutils literal notranslate"><span class="pre">None</span></code>).</p>
 </dd></dl>
 
@@ -1031,9 +1125,9 @@ the following additional attributes:</p>
 <span id="re-objects"></span><h2>Regular Expression Objects<a class="headerlink" href="#regular-expression-objects" title="Permalink to this headline">¶</a></h2>
 <p>Compiled regular expression objects support the following methods and
 attributes:</p>
-<dl class="method">
+<dl class="py method">
 <dt id="re.Pattern.search">
-<code class="descclassname">Pattern.</code><code class="descname">search</code><span class="sig-paren">(</span><em>string</em><span class="optional">[</span>, <em>pos</em><span class="optional">[</span>, <em>endpos</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#re.Pattern.search" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Pattern.</code><code class="sig-name descname">search</code><span class="sig-paren">(</span><em class="sig-param">string</em><span class="optional">[</span>, <em class="sig-param">pos</em><span class="optional">[</span>, <em class="sig-param">endpos</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#re.Pattern.search" title="Permalink to this definition">¶</a></dt>
 <dd><p>Scan through <em>string</em> looking for the first location where this regular
 expression produces a match, and return a corresponding <a class="reference internal" href="#match-objects"><span class="std std-ref">match object</span></a>.  Return <code class="docutils literal notranslate"><span class="pre">None</span></code> if no position in the string matches the
 pattern; note that this is different from finding a zero-length match at some
@@ -1057,9 +1151,9 @@ expression object, <code class="docutils literal notranslate"><span class="pre">
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="re.Pattern.match">
-<code class="descclassname">Pattern.</code><code class="descname">match</code><span class="sig-paren">(</span><em>string</em><span class="optional">[</span>, <em>pos</em><span class="optional">[</span>, <em>endpos</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#re.Pattern.match" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Pattern.</code><code class="sig-name descname">match</code><span class="sig-paren">(</span><em class="sig-param">string</em><span class="optional">[</span>, <em class="sig-param">pos</em><span class="optional">[</span>, <em class="sig-param">endpos</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#re.Pattern.match" title="Permalink to this definition">¶</a></dt>
 <dd><p>If zero or more characters at the <em>beginning</em> of <em>string</em> match this regular
 expression, return a corresponding <a class="reference internal" href="#match-objects"><span class="std std-ref">match object</span></a>.
 Return <code class="docutils literal notranslate"><span class="pre">None</span></code> if the string does not match the pattern; note that this is
@@ -1076,9 +1170,9 @@ different from a zero-length match.</p>
 <a class="reference internal" href="#re.Pattern.search" title="re.Pattern.search"><code class="xref py py-meth docutils literal notranslate"><span class="pre">search()</span></code></a> instead (see also <a class="reference internal" href="#search-vs-match"><span class="std std-ref">search() vs. match()</span></a>).</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="re.Pattern.fullmatch">
-<code class="descclassname">Pattern.</code><code class="descname">fullmatch</code><span class="sig-paren">(</span><em>string</em><span class="optional">[</span>, <em>pos</em><span class="optional">[</span>, <em>endpos</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#re.Pattern.fullmatch" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Pattern.</code><code class="sig-name descname">fullmatch</code><span class="sig-paren">(</span><em class="sig-param">string</em><span class="optional">[</span>, <em class="sig-param">pos</em><span class="optional">[</span>, <em class="sig-param">endpos</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#re.Pattern.fullmatch" title="Permalink to this definition">¶</a></dt>
 <dd><p>If the whole <em>string</em> matches this regular expression, return a corresponding
 <a class="reference internal" href="#match-objects"><span class="std std-ref">match object</span></a>.  Return <code class="docutils literal notranslate"><span class="pre">None</span></code> if the string does not
 match the pattern; note that this is different from a zero-length match.</p>
@@ -1096,65 +1190,65 @@ match the pattern; note that this is different from a zero-length match.</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="re.Pattern.split">
-<code class="descclassname">Pattern.</code><code class="descname">split</code><span class="sig-paren">(</span><em>string</em>, <em>maxsplit=0</em><span class="sig-paren">)</span><a class="headerlink" href="#re.Pattern.split" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Pattern.</code><code class="sig-name descname">split</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">string</span></em>, <em class="sig-param"><span class="n">maxsplit</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#re.Pattern.split" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identical to the <a class="reference internal" href="#re.split" title="re.split"><code class="xref py py-func docutils literal notranslate"><span class="pre">split()</span></code></a> function, using the compiled pattern.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="re.Pattern.findall">
-<code class="descclassname">Pattern.</code><code class="descname">findall</code><span class="sig-paren">(</span><em>string</em><span class="optional">[</span>, <em>pos</em><span class="optional">[</span>, <em>endpos</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#re.Pattern.findall" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Pattern.</code><code class="sig-name descname">findall</code><span class="sig-paren">(</span><em class="sig-param">string</em><span class="optional">[</span>, <em class="sig-param">pos</em><span class="optional">[</span>, <em class="sig-param">endpos</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#re.Pattern.findall" title="Permalink to this definition">¶</a></dt>
 <dd><p>Similar to the <a class="reference internal" href="#re.findall" title="re.findall"><code class="xref py py-func docutils literal notranslate"><span class="pre">findall()</span></code></a> function, using the compiled pattern, but
 also accepts optional <em>pos</em> and <em>endpos</em> parameters that limit the search
 region like for <a class="reference internal" href="#re.search" title="re.search"><code class="xref py py-meth docutils literal notranslate"><span class="pre">search()</span></code></a>.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="re.Pattern.finditer">
-<code class="descclassname">Pattern.</code><code class="descname">finditer</code><span class="sig-paren">(</span><em>string</em><span class="optional">[</span>, <em>pos</em><span class="optional">[</span>, <em>endpos</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#re.Pattern.finditer" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Pattern.</code><code class="sig-name descname">finditer</code><span class="sig-paren">(</span><em class="sig-param">string</em><span class="optional">[</span>, <em class="sig-param">pos</em><span class="optional">[</span>, <em class="sig-param">endpos</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#re.Pattern.finditer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Similar to the <a class="reference internal" href="#re.finditer" title="re.finditer"><code class="xref py py-func docutils literal notranslate"><span class="pre">finditer()</span></code></a> function, using the compiled pattern, but
 also accepts optional <em>pos</em> and <em>endpos</em> parameters that limit the search
 region like for <a class="reference internal" href="#re.search" title="re.search"><code class="xref py py-meth docutils literal notranslate"><span class="pre">search()</span></code></a>.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="re.Pattern.sub">
-<code class="descclassname">Pattern.</code><code class="descname">sub</code><span class="sig-paren">(</span><em>repl</em>, <em>string</em>, <em>count=0</em><span class="sig-paren">)</span><a class="headerlink" href="#re.Pattern.sub" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Pattern.</code><code class="sig-name descname">sub</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">repl</span></em>, <em class="sig-param"><span class="n">string</span></em>, <em class="sig-param"><span class="n">count</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#re.Pattern.sub" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identical to the <a class="reference internal" href="#re.sub" title="re.sub"><code class="xref py py-func docutils literal notranslate"><span class="pre">sub()</span></code></a> function, using the compiled pattern.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="re.Pattern.subn">
-<code class="descclassname">Pattern.</code><code class="descname">subn</code><span class="sig-paren">(</span><em>repl</em>, <em>string</em>, <em>count=0</em><span class="sig-paren">)</span><a class="headerlink" href="#re.Pattern.subn" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Pattern.</code><code class="sig-name descname">subn</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">repl</span></em>, <em class="sig-param"><span class="n">string</span></em>, <em class="sig-param"><span class="n">count</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#re.Pattern.subn" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identical to the <a class="reference internal" href="#re.subn" title="re.subn"><code class="xref py py-func docutils literal notranslate"><span class="pre">subn()</span></code></a> function, using the compiled pattern.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="re.Pattern.flags">
-<code class="descclassname">Pattern.</code><code class="descname">flags</code><a class="headerlink" href="#re.Pattern.flags" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Pattern.</code><code class="sig-name descname">flags</code><a class="headerlink" href="#re.Pattern.flags" title="Permalink to this definition">¶</a></dt>
 <dd><p>The regex matching flags.  This is a combination of the flags given to
 <a class="reference internal" href="#re.compile" title="re.compile"><code class="xref py py-func docutils literal notranslate"><span class="pre">compile()</span></code></a>, any <code class="docutils literal notranslate"><span class="pre">(?...)</span></code> inline flags in the pattern, and implicit
 flags such as <code class="xref py py-data docutils literal notranslate"><span class="pre">UNICODE</span></code> if the pattern is a Unicode string.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="re.Pattern.groups">
-<code class="descclassname">Pattern.</code><code class="descname">groups</code><a class="headerlink" href="#re.Pattern.groups" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Pattern.</code><code class="sig-name descname">groups</code><a class="headerlink" href="#re.Pattern.groups" title="Permalink to this definition">¶</a></dt>
 <dd><p>The number of capturing groups in the pattern.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="re.Pattern.groupindex">
-<code class="descclassname">Pattern.</code><code class="descname">groupindex</code><a class="headerlink" href="#re.Pattern.groupindex" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Pattern.</code><code class="sig-name descname">groupindex</code><a class="headerlink" href="#re.Pattern.groupindex" title="Permalink to this definition">¶</a></dt>
 <dd><p>A dictionary mapping any symbolic group names defined by <code class="docutils literal notranslate"><span class="pre">(?P&lt;id&gt;)</span></code> to group
 numbers.  The dictionary is empty if no symbolic groups were used in the
 pattern.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="re.Pattern.pattern">
-<code class="descclassname">Pattern.</code><code class="descname">pattern</code><a class="headerlink" href="#re.Pattern.pattern" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Pattern.</code><code class="sig-name descname">pattern</code><a class="headerlink" href="#re.Pattern.pattern" title="Permalink to this definition">¶</a></dt>
 <dd><p>The pattern string from which the pattern object was compiled.</p>
 </dd></dl>
 
@@ -1175,9 +1269,9 @@ when there is no match, you can test whether there was a match with a simple
 </pre></div>
 </div>
 <p>Match objects support the following methods and attributes:</p>
-<dl class="method">
+<dl class="py method">
 <dt id="re.Match.expand">
-<code class="descclassname">Match.</code><code class="descname">expand</code><span class="sig-paren">(</span><em>template</em><span class="sig-paren">)</span><a class="headerlink" href="#re.Match.expand" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Match.</code><code class="sig-name descname">expand</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">template</span></em><span class="sig-paren">)</span><a class="headerlink" href="#re.Match.expand" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the string obtained by doing backslash substitution on the template
 string <em>template</em>, as done by the <a class="reference internal" href="#re.Pattern.sub" title="re.Pattern.sub"><code class="xref py py-meth docutils literal notranslate"><span class="pre">sub()</span></code></a> method.
 Escapes such as <code class="docutils literal notranslate"><span class="pre">\n</span></code> are converted to the appropriate characters,
@@ -1189,9 +1283,9 @@ corresponding group.</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="re.Match.group">
-<code class="descclassname">Match.</code><code class="descname">group</code><span class="sig-paren">(</span><span class="optional">[</span><em>group1</em>, <em>...</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#re.Match.group" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Match.</code><code class="sig-name descname">group</code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param">group1</em>, <em class="sig-param">...</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#re.Match.group" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns one or more subgroups of the match.  If there is a single argument, the
 result is a single string; if there are multiple arguments, the result is a
 tuple with one item per argument. Without arguments, <em>group1</em> defaults to zero
@@ -1241,9 +1335,9 @@ exception is raised.</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="re.Match.__getitem__">
-<code class="descclassname">Match.</code><code class="descname">__getitem__</code><span class="sig-paren">(</span><em>g</em><span class="sig-paren">)</span><a class="headerlink" href="#re.Match.__getitem__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Match.</code><code class="sig-name descname">__getitem__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">g</span></em><span class="sig-paren">)</span><a class="headerlink" href="#re.Match.__getitem__" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is identical to <code class="docutils literal notranslate"><span class="pre">m.group(g)</span></code>.  This allows easier access to
 an individual group from a match:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(\w+) (\w+)&quot;</span><span class="p">,</span> <span class="s2">&quot;Isaac Newton, physicist&quot;</span><span class="p">)</span>
@@ -1260,9 +1354,9 @@ an individual group from a match:</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="re.Match.groups">
-<code class="descclassname">Match.</code><code class="descname">groups</code><span class="sig-paren">(</span><em>default=None</em><span class="sig-paren">)</span><a class="headerlink" href="#re.Match.groups" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Match.</code><code class="sig-name descname">groups</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">default</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#re.Match.groups" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a tuple containing all the subgroups of the match, from 1 up to however
 many groups are in the pattern.  The <em>default</em> argument is used for groups that
 did not participate in the match; it defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
@@ -1284,9 +1378,9 @@ the <em>default</em> argument is given:</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="re.Match.groupdict">
-<code class="descclassname">Match.</code><code class="descname">groupdict</code><span class="sig-paren">(</span><em>default=None</em><span class="sig-paren">)</span><a class="headerlink" href="#re.Match.groupdict" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Match.</code><code class="sig-name descname">groupdict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">default</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#re.Match.groupdict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a dictionary containing all the <em>named</em> subgroups of the match, keyed by
 the subgroup name.  The <em>default</em> argument is used for groups that did not
 participate in the match; it defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.  For example:</p>
@@ -1297,11 +1391,11 @@ participate in the match; it defaults to <code class="docutils literal notransla
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="re.Match.start">
-<code class="descclassname">Match.</code><code class="descname">start</code><span class="sig-paren">(</span><span class="optional">[</span><em>group</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#re.Match.start" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Match.</code><code class="sig-name descname">start</code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param">group</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#re.Match.start" title="Permalink to this definition">¶</a></dt>
 <dt id="re.Match.end">
-<code class="descclassname">Match.</code><code class="descname">end</code><span class="sig-paren">(</span><span class="optional">[</span><em>group</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#re.Match.end" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Match.</code><code class="sig-name descname">end</code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param">group</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#re.Match.end" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the indices of the start and end of the substring matched by <em>group</em>;
 <em>group</em> defaults to zero (meaning the whole matched substring). Return <code class="docutils literal notranslate"><span class="pre">-1</span></code> if
 <em>group</em> exists but did not contribute to the match.  For a match object <em>m</em>, and
@@ -1323,33 +1417,33 @@ null string.  For example, after <code class="docutils literal notranslate"><spa
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="re.Match.span">
-<code class="descclassname">Match.</code><code class="descname">span</code><span class="sig-paren">(</span><span class="optional">[</span><em>group</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#re.Match.span" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Match.</code><code class="sig-name descname">span</code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param">group</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#re.Match.span" title="Permalink to this definition">¶</a></dt>
 <dd><p>For a match <em>m</em>, return the 2-tuple <code class="docutils literal notranslate"><span class="pre">(m.start(group),</span> <span class="pre">m.end(group))</span></code>. Note
 that if <em>group</em> did not contribute to the match, this is <code class="docutils literal notranslate"><span class="pre">(-1,</span> <span class="pre">-1)</span></code>.
 <em>group</em> defaults to zero, the entire match.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="re.Match.pos">
-<code class="descclassname">Match.</code><code class="descname">pos</code><a class="headerlink" href="#re.Match.pos" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Match.</code><code class="sig-name descname">pos</code><a class="headerlink" href="#re.Match.pos" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of <em>pos</em> which was passed to the <a class="reference internal" href="#re.Pattern.search" title="re.Pattern.search"><code class="xref py py-meth docutils literal notranslate"><span class="pre">search()</span></code></a> or
 <a class="reference internal" href="#re.Pattern.match" title="re.Pattern.match"><code class="xref py py-meth docutils literal notranslate"><span class="pre">match()</span></code></a> method of a <a class="reference internal" href="#re-objects"><span class="std std-ref">regex object</span></a>.  This is
 the index into the string at which the RE engine started looking for a match.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="re.Match.endpos">
-<code class="descclassname">Match.</code><code class="descname">endpos</code><a class="headerlink" href="#re.Match.endpos" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Match.</code><code class="sig-name descname">endpos</code><a class="headerlink" href="#re.Match.endpos" title="Permalink to this definition">¶</a></dt>
 <dd><p>The value of <em>endpos</em> which was passed to the <a class="reference internal" href="#re.Pattern.search" title="re.Pattern.search"><code class="xref py py-meth docutils literal notranslate"><span class="pre">search()</span></code></a> or
 <a class="reference internal" href="#re.Pattern.match" title="re.Pattern.match"><code class="xref py py-meth docutils literal notranslate"><span class="pre">match()</span></code></a> method of a <a class="reference internal" href="#re-objects"><span class="std std-ref">regex object</span></a>.  This is
 the index into the string beyond which the RE engine will not go.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="re.Match.lastindex">
-<code class="descclassname">Match.</code><code class="descname">lastindex</code><a class="headerlink" href="#re.Match.lastindex" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Match.</code><code class="sig-name descname">lastindex</code><a class="headerlink" href="#re.Match.lastindex" title="Permalink to this definition">¶</a></dt>
 <dd><p>The integer index of the last matched capturing group, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if no group
 was matched at all. For example, the expressions <code class="docutils literal notranslate"><span class="pre">(a)b</span></code>, <code class="docutils literal notranslate"><span class="pre">((a)(b))</span></code>, and
 <code class="docutils literal notranslate"><span class="pre">((ab))</span></code> will have <code class="docutils literal notranslate"><span class="pre">lastindex</span> <span class="pre">==</span> <span class="pre">1</span></code> if applied to the string <code class="docutils literal notranslate"><span class="pre">'ab'</span></code>, while
@@ -1357,23 +1451,23 @@ the expression <code class="docutils literal notranslate"><span class="pre">(a)(
 string.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="re.Match.lastgroup">
-<code class="descclassname">Match.</code><code class="descname">lastgroup</code><a class="headerlink" href="#re.Match.lastgroup" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Match.</code><code class="sig-name descname">lastgroup</code><a class="headerlink" href="#re.Match.lastgroup" title="Permalink to this definition">¶</a></dt>
 <dd><p>The name of the last matched capturing group, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if the group didn’t
 have a name, or if no group was matched at all.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="re.Match.re">
-<code class="descclassname">Match.</code><code class="descname">re</code><a class="headerlink" href="#re.Match.re" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Match.</code><code class="sig-name descname">re</code><a class="headerlink" href="#re.Match.re" title="Permalink to this definition">¶</a></dt>
 <dd><p>The <a class="reference internal" href="#re-objects"><span class="std std-ref">regular expression object</span></a> whose <a class="reference internal" href="#re.Pattern.match" title="re.Pattern.match"><code class="xref py py-meth docutils literal notranslate"><span class="pre">match()</span></code></a> or
 <a class="reference internal" href="#re.Pattern.search" title="re.Pattern.search"><code class="xref py py-meth docutils literal notranslate"><span class="pre">search()</span></code></a> method produced this match instance.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="re.Match.string">
-<code class="descclassname">Match.</code><code class="descname">string</code><a class="headerlink" href="#re.Match.string" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Match.</code><code class="sig-name descname">string</code><a class="headerlink" href="#re.Match.string" title="Permalink to this definition">¶</a></dt>
 <dd><p>The string passed to <a class="reference internal" href="#re.Pattern.match" title="re.Pattern.match"><code class="xref py py-meth docutils literal notranslate"><span class="pre">match()</span></code></a> or <a class="reference internal" href="#re.Pattern.search" title="re.Pattern.search"><code class="xref py py-meth docutils literal notranslate"><span class="pre">search()</span></code></a>.</p>
 </dd></dl>
 
@@ -1420,7 +1514,8 @@ To match this with a regular expression, one could use backreferences as such:</
 </div>
 <p>To find out what card the pair consists of, one could use the
 <a class="reference internal" href="#re.Match.group" title="re.Match.group"><code class="xref py py-meth docutils literal notranslate"><span class="pre">group()</span></code></a> method of the match object in the following manner:</p>
-<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pair</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;717ak&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pair</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;.*(.).*\1&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pair</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;717ak&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="go">&#39;7&#39;</span>
 
 <span class="go"># Error because re.match() returns None, which doesn&#39;t have a group() method:</span>
@@ -1442,7 +1537,7 @@ expressions are generally more powerful, though also more verbose, than
 <code class="xref c c-func docutils literal notranslate"><span class="pre">scanf()</span></code> format strings.  The table below offers some more-or-less
 equivalent mappings between <code class="xref c c-func docutils literal notranslate"><span class="pre">scanf()</span></code> format tokens and regular
 expressions.</p>
-<table class="docutils align-center">
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 42%" />
 <col style="width: 58%" />
@@ -1531,8 +1626,8 @@ method is invaluable for converting textual data into data structures that can b
 easily read and modified by Python as demonstrated in the following example that
 creates a phonebook.</p>
 <p>First, here is the input.  Normally it may come from a file, here we are using
-triple-quoted string syntax:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Ross McFluff: 834.345.1254 155 Elm Street</span>
+triple-quoted string syntax</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Ross McFluff: 834.345.1254 155 Elm Street</span>
 <span class="gp">...</span><span class="s2"></span>
 <span class="gp">... </span><span class="s2">Ronald Heathmore: 892.345.3428 436 Finley Avenue</span>
 <span class="gp">... </span><span class="s2">Frank Burger: 925.541.7625 662 South Dogwood Way</span>
@@ -1597,7 +1692,7 @@ one as <a class="reference internal" href="#re.search" title="re.search"><code c
 find all of the adverbs in some text, they might use <a class="reference internal" href="#re.findall" title="re.findall"><code class="xref py py-func docutils literal notranslate"><span class="pre">findall()</span></code></a> in
 the following manner:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;He was carefully disguised but captured quickly by police.&quot;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\w+ly&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\w+ly\b&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 <span class="go">[&#39;carefully&#39;, &#39;quickly&#39;]</span>
 </pre></div>
 </div>
@@ -1609,7 +1704,7 @@ text, <a class="reference internal" href="#re.finditer" title="re.finditer"><cod
 a writer wanted to find all of the adverbs <em>and their positions</em> in
 some text, they would use <a class="reference internal" href="#re.finditer" title="re.finditer"><code class="xref py py-func docutils literal notranslate"><span class="pre">finditer()</span></code></a> in the following manner:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;He was carefully disguised but captured quickly by police.&quot;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\w+ly&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\w+ly\b&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%02d</span><span class="s1">-</span><span class="si">%02d</span><span class="s1">: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">start</span><span class="p">(),</span> <span class="n">m</span><span class="o">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)))</span>
 <span class="go">07-16: carefully</span>
 <span class="go">40-47: quickly</span>
@@ -1647,10 +1742,14 @@ step in writing a compiler or interpreter.</p>
 <p>The text categories are specified with regular expressions.  The technique is
 to combine those into a single master regular expression and to loop over
 successive matches:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">collections</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NamedTuple</span>
 <span class="kn">import</span> <span class="nn">re</span>
 
-<span class="n">Token</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Token&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="s1">&#39;column&#39;</span><span class="p">])</span>
+<span class="k">class</span> <span class="nc">Token</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+    <span class="nb">type</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">value</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">line</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">column</span><span class="p">:</span> <span class="nb">int</span>
 
 <span class="k">def</span> <span class="nf">tokenize</span><span class="p">(</span><span class="n">code</span><span class="p">):</span>
     <span class="n">keywords</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;IF&#39;</span><span class="p">,</span> <span class="s1">&#39;THEN&#39;</span><span class="p">,</span> <span class="s1">&#39;ENDIF&#39;</span><span class="p">,</span> <span class="s1">&#39;FOR&#39;</span><span class="p">,</span> <span class="s1">&#39;NEXT&#39;</span><span class="p">,</span> <span class="s1">&#39;GOSUB&#39;</span><span class="p">,</span> <span class="s1">&#39;RETURN&#39;</span><span class="p">}</span>
@@ -1682,7 +1781,7 @@ successive matches:</p>
         <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;SKIP&#39;</span><span class="p">:</span>
             <span class="k">continue</span>
         <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;MISMATCH&#39;</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;</span><span class="si">{value!r}</span><span class="s1"> unexpected on line </span><span class="si">{line_num}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">value</span><span class="si">!r}</span><span class="s1"> unexpected on line </span><span class="si">{</span><span class="n">line_num</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
         <span class="k">yield</span> <span class="n">Token</span><span class="p">(</span><span class="n">kind</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">line_num</span><span class="p">,</span> <span class="n">column</span><span class="p">)</span>
 
 <span class="n">statements</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
@@ -1731,6 +1830,7 @@ great detail.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -1770,7 +1870,7 @@ great detail.</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a Bug</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.7/Doc/library/re.rst"
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/library/re.rst"
             rel="nofollow">Show Source
         </a>
       </li>
@@ -1795,44 +1895,59 @@ great detail.</p>
         <li class="right" >
           <a href="string.html" title="string — Common string operations"
              >previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="text.html" >Text Processing Services</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">re</span></code> — Regular expression operations</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">Copyright</a> 2001-2019, Python Software Foundation.
+    &copy; <a href="../copyright.html">Copyright</a> 2001-2021, Python Software Foundation.
     <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
     The Python Software Foundation is a non-profit corporation.
-    <a href="https://www.python.org/psf/donations/">Please donate.</a>
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
     <br />
-    Last updated on Jun 19, 2019.
-    <a href="../bugs.html">Found a bug</a>?
+
+    Last updated on Nov 06, 2021.
+    <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.0.1.
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
     </div>
 
   </body>

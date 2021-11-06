@@ -1,23 +1,25 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>Argparse Tutorial &#8212; Python 3.7.3 documentation</title>
-    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Argparse Tutorial &#8212; Python 3.10.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../_static/pydoctheme.css?2021.11.1" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     
-    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Python 3.7.3 documentation"
+          title="Search within Python 3.10.0 documentation"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -25,13 +27,11 @@
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="next" title="An introduction to the ipaddress module" href="ipaddress.html" />
     <link rel="prev" title="HOWTO Fetch Internet Resources Using The urllib Package" href="urllib2.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
     <link rel="canonical" href="https://docs.python.org/3/howto/argparse.html" />
     
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../_static/switchers.js"></script>
+      
     
-    
+
     
     <style>
       @media only screen {
@@ -40,9 +40,76 @@
         }
       }
     </style>
- 
+<link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
 
-  </head><body>
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://www.python.org/" class="nav-logo">
+             <img src="../_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Argparse Tutorial</a><ul>
+<li><a class="reference internal" href="#concepts">Concepts</a></li>
+<li><a class="reference internal" href="#the-basics">The basics</a></li>
+<li><a class="reference internal" href="#introducing-positional-arguments">Introducing Positional arguments</a></li>
+<li><a class="reference internal" href="#introducing-optional-arguments">Introducing Optional arguments</a><ul>
+<li><a class="reference internal" href="#short-options">Short options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#combining-positional-and-optional-arguments">Combining Positional and Optional arguments</a></li>
+<li><a class="reference internal" href="#getting-a-little-more-advanced">Getting a little more advanced</a><ul>
+<li><a class="reference internal" href="#conflicting-options">Conflicting options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="urllib2.html"
+                        title="previous chapter">HOWTO Fetch Internet Resources Using The urllib Package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ipaddress.html"
+                        title="next chapter">An introduction to the ipaddress module</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">Report a Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/howto/argparse.rst"
+            rel="nofollow">Show Source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
   
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -59,31 +126,36 @@
         <li class="right" >
           <a href="urllib2.html" title="HOWTO Fetch Internet Resources Using The urllib Package"
              accesskey="P">previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Python HOWTOs</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href="">Argparse Tutorial</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>    
 
@@ -164,7 +236,7 @@ how it works simply by reading its help text.</p></li>
 <span class="gp">$</span> python3 prog.py --help
 <span class="go">usage: prog.py [-h]</span>
 
-<span class="go">optional arguments:</span>
+<span class="go">options:</span>
 <span class="go">  -h, --help  show this help message and exit</span>
 <span class="gp">$</span> python3 prog.py --verbose
 <span class="go">usage: prog.py [-h]</span>
@@ -206,7 +278,7 @@ also for free.</p></li>
 <span class="go">positional arguments:</span>
 <span class="go">  echo</span>
 
-<span class="go">optional arguments:</span>
+<span class="go">options:</span>
 <span class="go">  -h, --help  show this help message and exit</span>
 <span class="gp">$</span> python3 prog.py foo
 <span class="go">foo</span>
@@ -243,7 +315,7 @@ by reading the source code. So, let’s make it a bit more useful:</p>
 <span class="go">positional arguments:</span>
 <span class="go">  echo        echo the string you use here</span>
 
-<span class="go">optional arguments:</span>
+<span class="go">options:</span>
 <span class="go">  -h, --help  show this help message and exit</span>
 </pre></div>
 </div>
@@ -304,7 +376,7 @@ have a look on how to add optional ones:</p>
 <span class="gp">$</span> python3 prog.py --help
 <span class="go">usage: prog.py [-h] [--verbosity VERBOSITY]</span>
 
-<span class="go">optional arguments:</span>
+<span class="go">options:</span>
 <span class="go">  -h, --help            show this help message and exit</span>
 <span class="go">  --verbosity VERBOSITY</span>
 <span class="go">                        increase output verbosity</span>
@@ -347,7 +419,7 @@ Let’s modify the code accordingly:</p>
 <span class="gp">$</span> python3 prog.py --help
 <span class="go">usage: prog.py [-h] [--verbose]</span>
 
-<span class="go">optional arguments:</span>
+<span class="go">options:</span>
 <span class="go">  -h, --help  show this help message and exit</span>
 <span class="go">  --verbose   increase output verbosity</span>
 </pre></div>
@@ -384,7 +456,7 @@ versions of the options. It’s quite simple:</p>
 <span class="gp">$</span> python3 prog.py --help
 <span class="go">usage: prog.py [-h] [-v]</span>
 
-<span class="go">optional arguments:</span>
+<span class="go">options:</span>
 <span class="go">  -h, --help     show this help message and exit</span>
 <span class="go">  -v, --verbose  increase output verbosity</span>
 </pre></div>
@@ -404,7 +476,7 @@ versions of the options. It’s quite simple:</p>
 <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 <span class="n">answer</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">square</span><span class="o">**</span><span class="mi">2</span>
 <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;the square of </span><span class="si">{}</span><span class="s2"> equals </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">square</span><span class="p">,</span> <span class="n">answer</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;the square of </span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">square</span><span class="si">}</span><span class="s2"> equals </span><span class="si">{</span><span class="n">answer</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
 </pre></div>
@@ -436,9 +508,9 @@ multiple verbosity values, and actually get to use them:</p>
 <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 <span class="n">answer</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">square</span><span class="o">**</span><span class="mi">2</span>
 <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">verbosity</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;the square of </span><span class="si">{}</span><span class="s2"> equals </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">square</span><span class="p">,</span> <span class="n">answer</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;the square of </span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">square</span><span class="si">}</span><span class="s2"> equals </span><span class="si">{</span><span class="n">answer</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">verbosity</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">^2 == </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">square</span><span class="p">,</span> <span class="n">answer</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">square</span><span class="si">}</span><span class="s2">^2 == </span><span class="si">{</span><span class="n">answer</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
 </pre></div>
@@ -468,9 +540,9 @@ Let’s fix it by restricting the values the <code class="docutils literal notra
 <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 <span class="n">answer</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">square</span><span class="o">**</span><span class="mi">2</span>
 <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">verbosity</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;the square of </span><span class="si">{}</span><span class="s2"> equals </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">square</span><span class="p">,</span> <span class="n">answer</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;the square of </span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">square</span><span class="si">}</span><span class="s2"> equals </span><span class="si">{</span><span class="n">answer</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">verbosity</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">^2 == </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">square</span><span class="p">,</span> <span class="n">answer</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">square</span><span class="si">}</span><span class="s2">^2 == </span><span class="si">{</span><span class="n">answer</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
 </pre></div>
@@ -485,7 +557,7 @@ Let’s fix it by restricting the values the <code class="docutils literal notra
 <span class="go">positional arguments:</span>
 <span class="go">  square                display a square of a given number</span>
 
-<span class="go">optional arguments:</span>
+<span class="go">options:</span>
 <span class="go">  -h, --help            show this help message and exit</span>
 <span class="go">  -v {0,1,2}, --verbosity {0,1,2}</span>
 <span class="go">                        increase output verbosity</span>
@@ -505,15 +577,15 @@ verbosity argument (check the output of <code class="docutils literal notranslat
 <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 <span class="n">answer</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">square</span><span class="o">**</span><span class="mi">2</span>
 <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">verbosity</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;the square of </span><span class="si">{}</span><span class="s2"> equals </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">square</span><span class="p">,</span> <span class="n">answer</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;the square of </span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">square</span><span class="si">}</span><span class="s2"> equals </span><span class="si">{</span><span class="n">answer</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">verbosity</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">^2 == </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">square</span><span class="p">,</span> <span class="n">answer</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">square</span><span class="si">}</span><span class="s2">^2 == </span><span class="si">{</span><span class="n">answer</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>We have introduced another action, “count”,
-to count the number of occurrences of a specific optional arguments:</p>
+to count the number of occurrences of specific options.</p>
 <div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> python3 prog.py <span class="m">4</span>
 <span class="go">16</span>
 <span class="gp">$</span> python3 prog.py <span class="m">4</span> -v
@@ -531,7 +603,7 @@ to count the number of occurrences of a specific optional arguments:</p>
 <span class="go">positional arguments:</span>
 <span class="go">  square           display a square of a given number</span>
 
-<span class="go">optional arguments:</span>
+<span class="go">options:</span>
 <span class="go">  -h, --help       show this help message and exit</span>
 <span class="go">  -v, --verbosity  increase output verbosity</span>
 <span class="gp">$</span> python3 prog.py <span class="m">4</span> -vvv
@@ -565,9 +637,9 @@ our script (e.g. via the <code class="docutils literal notranslate"><span class=
 
 <span class="c1"># bugfix: replace == with &gt;=</span>
 <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">verbosity</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;the square of </span><span class="si">{}</span><span class="s2"> equals </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">square</span><span class="p">,</span> <span class="n">answer</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;the square of </span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">square</span><span class="si">}</span><span class="s2"> equals </span><span class="si">{</span><span class="n">answer</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">verbosity</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">^2 == </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">square</span><span class="p">,</span> <span class="n">answer</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">square</span><span class="si">}</span><span class="s2">^2 == </span><span class="si">{</span><span class="n">answer</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
 </pre></div>
@@ -599,9 +671,9 @@ That is, we want any value &gt;= 2 to be as verbose as possible.</p></li>
 <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 <span class="n">answer</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">square</span><span class="o">**</span><span class="mi">2</span>
 <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">verbosity</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;the square of </span><span class="si">{}</span><span class="s2"> equals </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">square</span><span class="p">,</span> <span class="n">answer</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;the square of </span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">square</span><span class="si">}</span><span class="s2"> equals </span><span class="si">{</span><span class="n">answer</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">verbosity</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">^2 == </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">square</span><span class="p">,</span> <span class="n">answer</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">square</span><span class="si">}</span><span class="s2">^2 == </span><span class="si">{</span><span class="n">answer</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
 </pre></div>
@@ -634,9 +706,9 @@ not just squares:</p>
 <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 <span class="n">answer</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">x</span><span class="o">**</span><span class="n">args</span><span class="o">.</span><span class="n">y</span>
 <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">verbosity</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> to the power </span><span class="si">{}</span><span class="s2"> equals </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">answer</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">x</span><span class="si">}</span><span class="s2"> to the power </span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">y</span><span class="si">}</span><span class="s2"> equals </span><span class="si">{</span><span class="n">answer</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">verbosity</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">^</span><span class="si">{}</span><span class="s2"> == </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">answer</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">x</span><span class="si">}</span><span class="s2">^</span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">y</span><span class="si">}</span><span class="s2"> == </span><span class="si">{</span><span class="n">answer</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
 </pre></div>
@@ -652,7 +724,7 @@ not just squares:</p>
 <span class="go">  x                the base</span>
 <span class="go">  y                the exponent</span>
 
-<span class="go">optional arguments:</span>
+<span class="go">options:</span>
 <span class="go">  -h, --help       show this help message and exit</span>
 <span class="go">  -v, --verbosity</span>
 <span class="gp">$</span> python3 prog.py <span class="m">4</span> <span class="m">2</span> -v
@@ -670,9 +742,9 @@ to display <em>more</em> text instead:</p>
 <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 <span class="n">answer</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">x</span><span class="o">**</span><span class="n">args</span><span class="o">.</span><span class="n">y</span>
 <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">verbosity</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Running &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Running &#39;</span><span class="si">{</span><span class="vm">__file__</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">verbosity</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">^</span><span class="si">{}</span><span class="s2"> == &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">y</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">x</span><span class="si">}</span><span class="s2">^</span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">y</span><span class="si">}</span><span class="s2"> == &quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -709,9 +781,9 @@ which will be the opposite of the <code class="docutils literal notranslate"><sp
 <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">quiet</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> to the power </span><span class="si">{}</span><span class="s2"> equals </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">answer</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">x</span><span class="si">}</span><span class="s2"> to the power </span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">y</span><span class="si">}</span><span class="s2"> equals </span><span class="si">{</span><span class="n">answer</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">^</span><span class="si">{}</span><span class="s2"> == </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">answer</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">x</span><span class="si">}</span><span class="s2">^</span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">y</span><span class="si">}</span><span class="s2"> == </span><span class="si">{</span><span class="n">answer</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Our program is now simpler, and we’ve lost some functionality for the sake of
@@ -766,7 +838,7 @@ but not both at the same time:</p>
 <span class="go">  x              the base</span>
 <span class="go">  y              the exponent</span>
 
-<span class="go">optional arguments:</span>
+<span class="go">options:</span>
 <span class="go">  -h, --help     show this help message and exit</span>
 <span class="go">  -v, --verbose</span>
 <span class="go">  -q, --quiet</span>
@@ -784,6 +856,7 @@ without feeling overwhelmed.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -820,7 +893,7 @@ without feeling overwhelmed.</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a Bug</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.7/Doc/howto/argparse.rst"
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/howto/argparse.rst"
             rel="nofollow">Show Source
         </a>
       </li>
@@ -845,43 +918,58 @@ without feeling overwhelmed.</p>
         <li class="right" >
           <a href="urllib2.html" title="HOWTO Fetch Internet Resources Using The urllib Package"
              >previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python HOWTOs</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href="">Argparse Tutorial</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">Copyright</a> 2001-2019, Python Software Foundation.
+    &copy; <a href="../copyright.html">Copyright</a> 2001-2021, Python Software Foundation.
     <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
     The Python Software Foundation is a non-profit corporation.
-    <a href="https://www.python.org/psf/donations/">Please donate.</a>
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
     <br />
-    Last updated on Jun 19, 2019.
-    <a href="../bugs.html">Found a bug</a>?
+
+    Last updated on Nov 06, 2021.
+    <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.0.1.
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
     </div>
 
   </body>

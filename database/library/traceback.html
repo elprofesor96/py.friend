@@ -1,23 +1,25 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>traceback — Print or retrieve a stack traceback &#8212; Python 3.7.3 documentation</title>
-    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>traceback — Print or retrieve a stack traceback &#8212; Python 3.10.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../_static/pydoctheme.css?2021.11.1" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     
-    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Python 3.7.3 documentation"
+          title="Search within Python 3.10.0 documentation"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -25,13 +27,11 @@
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="next" title="__future__ — Future statement definitions" href="__future__.html" />
     <link rel="prev" title="atexit — Exit handlers" href="atexit.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
     <link rel="canonical" href="https://docs.python.org/3/library/traceback.html" />
     
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../_static/switchers.js"></script>
+      
     
-    
+
     
     <style>
       @media only screen {
@@ -40,9 +40,67 @@
         }
       }
     </style>
- 
+<link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
 
-  </head><body>
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://www.python.org/" class="nav-logo">
+             <img src="../_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">traceback</span></code> — Print or retrieve a stack traceback</a><ul>
+<li><a class="reference internal" href="#tracebackexception-objects"><code class="xref py py-class docutils literal notranslate"><span class="pre">TracebackException</span></code> Objects</a></li>
+<li><a class="reference internal" href="#stacksummary-objects"><code class="xref py py-class docutils literal notranslate"><span class="pre">StackSummary</span></code> Objects</a></li>
+<li><a class="reference internal" href="#framesummary-objects"><code class="xref py py-class docutils literal notranslate"><span class="pre">FrameSummary</span></code> Objects</a></li>
+<li><a class="reference internal" href="#traceback-examples">Traceback Examples</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="atexit.html"
+                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">atexit</span></code> — Exit handlers</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="__future__.html"
+                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">__future__</span></code> — Future statement definitions</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">Report a Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/library/traceback.rst"
+            rel="nofollow">Show Source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
   
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -59,32 +117,37 @@
         <li class="right" >
           <a href="atexit.html" title="atexit — Exit handlers"
              accesskey="P">previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="python.html" accesskey="U">Python Runtime Services</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">traceback</span></code> — Print or retrieve a stack traceback</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>    
 
@@ -95,7 +158,7 @@
             
   <div class="section" id="module-traceback">
 <span id="traceback-print-or-retrieve-a-stack-traceback"></span><h1><a class="reference internal" href="#module-traceback" title="traceback: Print or retrieve a stack traceback."><code class="xref py py-mod docutils literal notranslate"><span class="pre">traceback</span></code></a> — Print or retrieve a stack traceback<a class="headerlink" href="#module-traceback" title="Permalink to this headline">¶</a></h1>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.7/Lib/traceback.py">Lib/traceback.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.10/Lib/traceback.py">Lib/traceback.py</a></p>
 <hr class="docutils" />
 <p>This module provides a standard interface to extract, format and print stack
 traces of Python programs.  It exactly mimics the behavior of the Python
@@ -106,9 +169,9 @@ interpreter.</p>
 the <a class="reference internal" href="sys.html#sys.last_traceback" title="sys.last_traceback"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.last_traceback</span></code></a> variable and returned as the third item from
 <a class="reference internal" href="sys.html#sys.exc_info" title="sys.exc_info"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys.exc_info()</span></code></a>.</p>
 <p>The module defines the following functions:</p>
-<dl class="function">
+<dl class="py function">
 <dt id="traceback.print_tb">
-<code class="descclassname">traceback.</code><code class="descname">print_tb</code><span class="sig-paren">(</span><em>tb</em>, <em>limit=None</em>, <em>file=None</em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.print_tb" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">traceback.</code><code class="sig-name descname">print_tb</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tb</span></em>, <em class="sig-param"><span class="n">limit</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">file</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.print_tb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Print up to <em>limit</em> stack trace entries from traceback object <em>tb</em> (starting
 from the caller’s frame) if <em>limit</em> is positive.  Otherwise, print the last
 <code class="docutils literal notranslate"><span class="pre">abs(limit)</span></code> entries.  If <em>limit</em> is omitted or <code class="docutils literal notranslate"><span class="pre">None</span></code>, all entries are
@@ -120,22 +183,25 @@ receive the output.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="traceback.print_exception">
-<code class="descclassname">traceback.</code><code class="descname">print_exception</code><span class="sig-paren">(</span><em>etype</em>, <em>value</em>, <em>tb</em>, <em>limit=None</em>, <em>file=None</em>, <em>chain=True</em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.print_exception" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">traceback.</code><code class="sig-name descname">print_exception</code><span class="sig-paren">(</span><em class="sig-param">exc</em>, <em class="sig-param">/</em>, <span class="optional">[</span><em class="sig-param">value</em>, <em class="sig-param">tb</em>, <span class="optional">]</span><em class="sig-param">limit=None</em>, <em class="sig-param">file=None</em>, <em class="sig-param">chain=True</em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.print_exception" title="Permalink to this definition">¶</a></dt>
 <dd><p>Print exception information and stack trace entries from traceback object
 <em>tb</em> to <em>file</em>. This differs from <a class="reference internal" href="#traceback.print_tb" title="traceback.print_tb"><code class="xref py py-func docutils literal notranslate"><span class="pre">print_tb()</span></code></a> in the following
 ways:</p>
 <ul class="simple">
 <li><p>if <em>tb</em> is not <code class="docutils literal notranslate"><span class="pre">None</span></code>, it prints a header <code class="docutils literal notranslate"><span class="pre">Traceback</span> <span class="pre">(most</span> <span class="pre">recent</span>
 <span class="pre">call</span> <span class="pre">last):</span></code></p></li>
-<li><p>it prints the exception <em>etype</em> and <em>value</em> after the stack trace</p></li>
+<li><p>it prints the exception type and <em>value</em> after the stack trace</p></li>
 </ul>
 <ul class="simple" id="index-1">
 <li><p>if <em>type(value)</em> is <a class="reference internal" href="exceptions.html#SyntaxError" title="SyntaxError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SyntaxError</span></code></a> and <em>value</em> has the appropriate
 format, it prints the line where the syntax error occurred with a caret
 indicating the approximate position of the error.</p></li>
 </ul>
+<p>Since Python 3.10, instead of passing <em>value</em> and <em>tb</em>, an exception object
+can be passed as the first argument. If <em>value</em> and <em>tb</em> are provided, the
+first argument is ignored in order to provide backwards compatibility.</p>
 <p>The optional <em>limit</em> argument has the same meaning as for <a class="reference internal" href="#traceback.print_tb" title="traceback.print_tb"><code class="xref py py-func docutils literal notranslate"><span class="pre">print_tb()</span></code></a>.
 If <em>chain</em> is true (the default), then chained exceptions (the
 <code class="xref py py-attr docutils literal notranslate"><span class="pre">__cause__</span></code> or <code class="xref py py-attr docutils literal notranslate"><span class="pre">__context__</span></code> attributes of the exception) will be
@@ -144,27 +210,31 @@ exception.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.5: </span>The <em>etype</em> argument is ignored and inferred from the type of <em>value</em>.</p>
 </div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.10: </span>The <em>etype</em> parameter has been renamed to <em>exc</em> and is now
+positional-only.</p>
+</div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="traceback.print_exc">
-<code class="descclassname">traceback.</code><code class="descname">print_exc</code><span class="sig-paren">(</span><em>limit=None</em>, <em>file=None</em>, <em>chain=True</em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.print_exc" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">traceback.</code><code class="sig-name descname">print_exc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">limit</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">file</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">chain</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.print_exc" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is a shorthand for <code class="docutils literal notranslate"><span class="pre">print_exception(*sys.exc_info(),</span> <span class="pre">limit,</span> <span class="pre">file,</span>
 <span class="pre">chain)</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="traceback.print_last">
-<code class="descclassname">traceback.</code><code class="descname">print_last</code><span class="sig-paren">(</span><em>limit=None</em>, <em>file=None</em>, <em>chain=True</em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.print_last" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">traceback.</code><code class="sig-name descname">print_last</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">limit</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">file</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">chain</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.print_last" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is a shorthand for <code class="docutils literal notranslate"><span class="pre">print_exception(sys.last_type,</span> <span class="pre">sys.last_value,</span>
 <span class="pre">sys.last_traceback,</span> <span class="pre">limit,</span> <span class="pre">file,</span> <span class="pre">chain)</span></code>.  In general it will work only
 after an exception has reached an interactive prompt (see
 <a class="reference internal" href="sys.html#sys.last_type" title="sys.last_type"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.last_type</span></code></a>).</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="traceback.print_stack">
-<code class="descclassname">traceback.</code><code class="descname">print_stack</code><span class="sig-paren">(</span><em>f=None</em>, <em>limit=None</em>, <em>file=None</em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.print_stack" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">traceback.</code><code class="sig-name descname">print_stack</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">limit</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">file</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.print_stack" title="Permalink to this definition">¶</a></dt>
 <dd><p>Print up to <em>limit</em> stack trace entries (starting from the invocation
 point) if <em>limit</em> is positive.  Otherwise, print the last <code class="docutils literal notranslate"><span class="pre">abs(limit)</span></code>
 entries.  If <em>limit</em> is omitted or <code class="docutils literal notranslate"><span class="pre">None</span></code>, all entries are printed.
@@ -176,9 +246,9 @@ to start.  The optional <em>file</em> argument has the same meaning as for
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="traceback.extract_tb">
-<code class="descclassname">traceback.</code><code class="descname">extract_tb</code><span class="sig-paren">(</span><em>tb</em>, <em>limit=None</em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.extract_tb" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">traceback.</code><code class="sig-name descname">extract_tb</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tb</span></em>, <em class="sig-param"><span class="n">limit</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.extract_tb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a <a class="reference internal" href="#traceback.StackSummary" title="traceback.StackSummary"><code class="xref py py-class docutils literal notranslate"><span class="pre">StackSummary</span></code></a> object representing a list of “pre-processed”
 stack trace entries extracted from the traceback object <em>tb</em>.  It is useful
 for alternate formatting of stack traces.  The optional <em>limit</em> argument has
@@ -191,17 +261,17 @@ information that is usually printed for a stack trace.  The
 whitespace stripped; if the source is not available it is <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="traceback.extract_stack">
-<code class="descclassname">traceback.</code><code class="descname">extract_stack</code><span class="sig-paren">(</span><em>f=None</em>, <em>limit=None</em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.extract_stack" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">traceback.</code><code class="sig-name descname">extract_stack</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">limit</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.extract_stack" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract the raw traceback from the current stack frame.  The return value has
 the same format as for <a class="reference internal" href="#traceback.extract_tb" title="traceback.extract_tb"><code class="xref py py-func docutils literal notranslate"><span class="pre">extract_tb()</span></code></a>.  The optional <em>f</em> and <em>limit</em>
 arguments have the same meaning as for <a class="reference internal" href="#traceback.print_stack" title="traceback.print_stack"><code class="xref py py-func docutils literal notranslate"><span class="pre">print_stack()</span></code></a>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="traceback.format_list">
-<code class="descclassname">traceback.</code><code class="descname">format_list</code><span class="sig-paren">(</span><em>extracted_list</em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.format_list" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">traceback.</code><code class="sig-name descname">format_list</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">extracted_list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.format_list" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given a list of tuples or <a class="reference internal" href="#traceback.FrameSummary" title="traceback.FrameSummary"><code class="xref py py-class docutils literal notranslate"><span class="pre">FrameSummary</span></code></a> objects as returned by
 <a class="reference internal" href="#traceback.extract_tb" title="traceback.extract_tb"><code class="xref py py-func docutils literal notranslate"><span class="pre">extract_tb()</span></code></a> or <a class="reference internal" href="#traceback.extract_stack" title="traceback.extract_stack"><code class="xref py py-func docutils literal notranslate"><span class="pre">extract_stack()</span></code></a>, return a list of strings ready
 for printing.  Each string in the resulting list corresponds to the item with
@@ -210,21 +280,28 @@ strings may contain internal newlines as well, for those items whose source
 text line is not <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="traceback.format_exception_only">
-<code class="descclassname">traceback.</code><code class="descname">format_exception_only</code><span class="sig-paren">(</span><em>etype</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.format_exception_only" title="Permalink to this definition">¶</a></dt>
-<dd><p>Format the exception part of a traceback.  The arguments are the exception
-type and value such as given by <code class="docutils literal notranslate"><span class="pre">sys.last_type</span></code> and <code class="docutils literal notranslate"><span class="pre">sys.last_value</span></code>.
-The return value is a list of strings, each ending in a newline.  Normally,
-the list contains a single string; however, for <a class="reference internal" href="exceptions.html#SyntaxError" title="SyntaxError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SyntaxError</span></code></a>
-exceptions, it contains several lines that (when printed) display detailed
-information about where the syntax error occurred.  The message indicating
-which exception occurred is the always last string in the list.</p>
+<code class="sig-prename descclassname">traceback.</code><code class="sig-name descname">format_exception_only</code><span class="sig-paren">(</span><em class="sig-param">exc</em>, <em class="sig-param">/</em><span class="optional">[</span>, <em class="sig-param">value</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#traceback.format_exception_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Format the exception part of a traceback using an exception value such as
+given by <code class="docutils literal notranslate"><span class="pre">sys.last_value</span></code>.  The return value is a list of strings, each
+ending in a newline.  Normally, the list contains a single string; however,
+for <a class="reference internal" href="exceptions.html#SyntaxError" title="SyntaxError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SyntaxError</span></code></a> exceptions, it contains several lines that (when
+printed) display detailed information about where the syntax error occurred.
+The message indicating which exception occurred is the always last string in
+the list.</p>
+<p>Since Python 3.10, instead of passing <em>value</em>, an exception object
+can be passed as the first argument.  If <em>value</em> is provided, the first
+argument is ignored in order to provide backwards compatibility.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.10: </span>The <em>etype</em> parameter has been renamed to <em>exc</em> and is now
+positional-only.</p>
+</div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="traceback.format_exception">
-<code class="descclassname">traceback.</code><code class="descname">format_exception</code><span class="sig-paren">(</span><em>etype</em>, <em>value</em>, <em>tb</em>, <em>limit=None</em>, <em>chain=True</em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.format_exception" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">traceback.</code><code class="sig-name descname">format_exception</code><span class="sig-paren">(</span><em class="sig-param">exc</em>, <em class="sig-param">/</em>, <span class="optional">[</span><em class="sig-param">value</em>, <em class="sig-param">tb</em>, <span class="optional">]</span><em class="sig-param">limit=None</em>, <em class="sig-param">chain=True</em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.format_exception" title="Permalink to this definition">¶</a></dt>
 <dd><p>Format a stack trace and the exception information.  The arguments  have the
 same meaning as the corresponding arguments to <a class="reference internal" href="#traceback.print_exception" title="traceback.print_exception"><code class="xref py py-func docutils literal notranslate"><span class="pre">print_exception()</span></code></a>.  The
 return value is a list of strings, each ending in a newline and some
@@ -233,30 +310,34 @@ exactly the same text is printed as does <a class="reference internal" href="#tr
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.5: </span>The <em>etype</em> argument is ignored and inferred from the type of <em>value</em>.</p>
 </div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.10: </span>This function’s behavior and signature were modified to match
+<a class="reference internal" href="#traceback.print_exception" title="traceback.print_exception"><code class="xref py py-func docutils literal notranslate"><span class="pre">print_exception()</span></code></a>.</p>
+</div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="traceback.format_exc">
-<code class="descclassname">traceback.</code><code class="descname">format_exc</code><span class="sig-paren">(</span><em>limit=None</em>, <em>chain=True</em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.format_exc" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">traceback.</code><code class="sig-name descname">format_exc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">limit</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">chain</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.format_exc" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is like <code class="docutils literal notranslate"><span class="pre">print_exc(limit)</span></code> but returns a string instead of printing to
 a file.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="traceback.format_tb">
-<code class="descclassname">traceback.</code><code class="descname">format_tb</code><span class="sig-paren">(</span><em>tb</em>, <em>limit=None</em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.format_tb" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">traceback.</code><code class="sig-name descname">format_tb</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tb</span></em>, <em class="sig-param"><span class="n">limit</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.format_tb" title="Permalink to this definition">¶</a></dt>
 <dd><p>A shorthand for <code class="docutils literal notranslate"><span class="pre">format_list(extract_tb(tb,</span> <span class="pre">limit))</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="traceback.format_stack">
-<code class="descclassname">traceback.</code><code class="descname">format_stack</code><span class="sig-paren">(</span><em>f=None</em>, <em>limit=None</em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.format_stack" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">traceback.</code><code class="sig-name descname">format_stack</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">limit</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.format_stack" title="Permalink to this definition">¶</a></dt>
 <dd><p>A shorthand for <code class="docutils literal notranslate"><span class="pre">format_list(extract_stack(f,</span> <span class="pre">limit))</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="traceback.clear_frames">
-<code class="descclassname">traceback.</code><code class="descname">clear_frames</code><span class="sig-paren">(</span><em>tb</em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.clear_frames" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">traceback.</code><code class="sig-name descname">clear_frames</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tb</span></em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.clear_frames" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clears the local variables of all the stack frames in a traceback <em>tb</em>
 by calling the <code class="xref py py-meth docutils literal notranslate"><span class="pre">clear()</span></code> method of each frame object.</p>
 <div class="versionadded">
@@ -264,9 +345,9 @@ by calling the <code class="xref py py-meth docutils literal notranslate"><span 
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="traceback.walk_stack">
-<code class="descclassname">traceback.</code><code class="descname">walk_stack</code><span class="sig-paren">(</span><em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.walk_stack" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">traceback.</code><code class="sig-name descname">walk_stack</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.walk_stack" title="Permalink to this definition">¶</a></dt>
 <dd><p>Walk a stack following <code class="docutils literal notranslate"><span class="pre">f.f_back</span></code> from the given frame, yielding the frame
 and line number for each frame. If <em>f</em> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, the current stack is
 used. This helper is used with <a class="reference internal" href="#traceback.StackSummary.extract" title="traceback.StackSummary.extract"><code class="xref py py-meth docutils literal notranslate"><span class="pre">StackSummary.extract()</span></code></a>.</p>
@@ -275,9 +356,9 @@ used. This helper is used with <a class="reference internal" href="#traceback.St
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="traceback.walk_tb">
-<code class="descclassname">traceback.</code><code class="descname">walk_tb</code><span class="sig-paren">(</span><em>tb</em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.walk_tb" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">traceback.</code><code class="sig-name descname">walk_tb</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tb</span></em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.walk_tb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Walk a traceback following <code class="docutils literal notranslate"><span class="pre">tb_next</span></code> yielding the frame and line number
 for each frame. This helper is used with <a class="reference internal" href="#traceback.StackSummary.extract" title="traceback.StackSummary.extract"><code class="xref py py-meth docutils literal notranslate"><span class="pre">StackSummary.extract()</span></code></a>.</p>
 <div class="versionadded">
@@ -293,83 +374,87 @@ for each frame. This helper is used with <a class="reference internal" href="#tr
 </div>
 <p><a class="reference internal" href="#traceback.TracebackException" title="traceback.TracebackException"><code class="xref py py-class docutils literal notranslate"><span class="pre">TracebackException</span></code></a> objects are created from actual exceptions to
 capture data for later printing in a lightweight fashion.</p>
-<dl class="class">
+<dl class="py class">
 <dt id="traceback.TracebackException">
-<em class="property">class </em><code class="descclassname">traceback.</code><code class="descname">TracebackException</code><span class="sig-paren">(</span><em>exc_type</em>, <em>exc_value</em>, <em>exc_traceback</em>, <em>*</em>, <em>limit=None</em>, <em>lookup_lines=True</em>, <em>capture_locals=False</em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.TracebackException" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">traceback.</code><code class="sig-name descname">TracebackException</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">exc_type</span></em>, <em class="sig-param"><span class="n">exc_value</span></em>, <em class="sig-param"><span class="n">exc_traceback</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">limit</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lookup_lines</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">capture_locals</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">compact</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.TracebackException" title="Permalink to this definition">¶</a></dt>
 <dd><p>Capture an exception for later rendering. <em>limit</em>, <em>lookup_lines</em> and
 <em>capture_locals</em> are as for the <a class="reference internal" href="#traceback.StackSummary" title="traceback.StackSummary"><code class="xref py py-class docutils literal notranslate"><span class="pre">StackSummary</span></code></a> class.</p>
+<p>If <em>compact</em> is true, only data that is required by <a class="reference internal" href="#traceback.TracebackException" title="traceback.TracebackException"><code class="xref py py-class docutils literal notranslate"><span class="pre">TracebackException</span></code></a>’s
+<code class="docutils literal notranslate"><span class="pre">format</span></code> method is saved in the class attributes. In particular, the
+<code class="docutils literal notranslate"><span class="pre">__context__</span></code> field is calculated only if <code class="docutils literal notranslate"><span class="pre">__cause__</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code> and
+<code class="docutils literal notranslate"><span class="pre">__suppress_context__</span></code> is false.</p>
 <p>Note that when locals are captured, they are also shown in the traceback.</p>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="traceback.TracebackException.__cause__">
-<code class="descname">__cause__</code><a class="headerlink" href="#traceback.TracebackException.__cause__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__cause__</code><a class="headerlink" href="#traceback.TracebackException.__cause__" title="Permalink to this definition">¶</a></dt>
 <dd><p>A <a class="reference internal" href="#traceback.TracebackException" title="traceback.TracebackException"><code class="xref py py-class docutils literal notranslate"><span class="pre">TracebackException</span></code></a> of the original <code class="docutils literal notranslate"><span class="pre">__cause__</span></code>.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="traceback.TracebackException.__context__">
-<code class="descname">__context__</code><a class="headerlink" href="#traceback.TracebackException.__context__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__context__</code><a class="headerlink" href="#traceback.TracebackException.__context__" title="Permalink to this definition">¶</a></dt>
 <dd><p>A <a class="reference internal" href="#traceback.TracebackException" title="traceback.TracebackException"><code class="xref py py-class docutils literal notranslate"><span class="pre">TracebackException</span></code></a> of the original <code class="docutils literal notranslate"><span class="pre">__context__</span></code>.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="traceback.TracebackException.__suppress_context__">
-<code class="descname">__suppress_context__</code><a class="headerlink" href="#traceback.TracebackException.__suppress_context__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__suppress_context__</code><a class="headerlink" href="#traceback.TracebackException.__suppress_context__" title="Permalink to this definition">¶</a></dt>
 <dd><p>The <code class="docutils literal notranslate"><span class="pre">__suppress_context__</span></code> value from the original exception.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="traceback.TracebackException.stack">
-<code class="descname">stack</code><a class="headerlink" href="#traceback.TracebackException.stack" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">stack</code><a class="headerlink" href="#traceback.TracebackException.stack" title="Permalink to this definition">¶</a></dt>
 <dd><p>A <a class="reference internal" href="#traceback.StackSummary" title="traceback.StackSummary"><code class="xref py py-class docutils literal notranslate"><span class="pre">StackSummary</span></code></a> representing the traceback.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="traceback.TracebackException.exc_type">
-<code class="descname">exc_type</code><a class="headerlink" href="#traceback.TracebackException.exc_type" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">exc_type</code><a class="headerlink" href="#traceback.TracebackException.exc_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>The class of the original traceback.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="traceback.TracebackException.filename">
-<code class="descname">filename</code><a class="headerlink" href="#traceback.TracebackException.filename" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">filename</code><a class="headerlink" href="#traceback.TracebackException.filename" title="Permalink to this definition">¶</a></dt>
 <dd><p>For syntax errors - the file name where the error occurred.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="traceback.TracebackException.lineno">
-<code class="descname">lineno</code><a class="headerlink" href="#traceback.TracebackException.lineno" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">lineno</code><a class="headerlink" href="#traceback.TracebackException.lineno" title="Permalink to this definition">¶</a></dt>
 <dd><p>For syntax errors - the line number where the error occurred.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="traceback.TracebackException.text">
-<code class="descname">text</code><a class="headerlink" href="#traceback.TracebackException.text" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">text</code><a class="headerlink" href="#traceback.TracebackException.text" title="Permalink to this definition">¶</a></dt>
 <dd><p>For syntax errors - the text where the error occurred.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="traceback.TracebackException.offset">
-<code class="descname">offset</code><a class="headerlink" href="#traceback.TracebackException.offset" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">offset</code><a class="headerlink" href="#traceback.TracebackException.offset" title="Permalink to this definition">¶</a></dt>
 <dd><p>For syntax errors - the offset into the text where the error occurred.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="traceback.TracebackException.msg">
-<code class="descname">msg</code><a class="headerlink" href="#traceback.TracebackException.msg" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">msg</code><a class="headerlink" href="#traceback.TracebackException.msg" title="Permalink to this definition">¶</a></dt>
 <dd><p>For syntax errors - the compiler error message.</p>
 </dd></dl>
 
-<dl class="classmethod">
+<dl class="py method">
 <dt id="traceback.TracebackException.from_exception">
-<em class="property">classmethod </em><code class="descname">from_exception</code><span class="sig-paren">(</span><em>exc</em>, <em>*</em>, <em>limit=None</em>, <em>lookup_lines=True</em>, <em>capture_locals=False</em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.TracebackException.from_exception" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">from_exception</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">exc</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">limit</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lookup_lines</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">capture_locals</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.TracebackException.from_exception" title="Permalink to this definition">¶</a></dt>
 <dd><p>Capture an exception for later rendering. <em>limit</em>, <em>lookup_lines</em> and
 <em>capture_locals</em> are as for the <a class="reference internal" href="#traceback.StackSummary" title="traceback.StackSummary"><code class="xref py py-class docutils literal notranslate"><span class="pre">StackSummary</span></code></a> class.</p>
 <p>Note that when locals are captured, they are also shown in the traceback.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="traceback.TracebackException.format">
-<code class="descname">format</code><span class="sig-paren">(</span><em>*</em>, <em>chain=True</em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.TracebackException.format" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">format</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">chain</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.TracebackException.format" title="Permalink to this definition">¶</a></dt>
 <dd><p>Format the exception.</p>
 <p>If <em>chain</em> is not <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">__cause__</span></code> and <code class="docutils literal notranslate"><span class="pre">__context__</span></code> will not
 be formatted.</p>
@@ -380,9 +465,9 @@ is a wrapper around this method which just prints the lines to a file.</p>
 string in the output.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="traceback.TracebackException.format_exception_only">
-<code class="descname">format_exception_only</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#traceback.TracebackException.format_exception_only" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">format_exception_only</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#traceback.TracebackException.format_exception_only" title="Permalink to this definition">¶</a></dt>
 <dd><p>Format the exception part of the traceback.</p>
 <p>The return value is a generator of strings, each ending in a newline.</p>
 <p>Normally, the generator emits a single string; however, for
@@ -393,6 +478,9 @@ error occurred.</p>
 string in the output.</p>
 </dd></dl>
 
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.10: </span>Added the <em>compact</em> parameter.</p>
+</div>
 </dd></dl>
 
 </div>
@@ -402,12 +490,12 @@ string in the output.</p>
 <p><span class="versionmodified added">New in version 3.5.</span></p>
 </div>
 <p><a class="reference internal" href="#traceback.StackSummary" title="traceback.StackSummary"><code class="xref py py-class docutils literal notranslate"><span class="pre">StackSummary</span></code></a> objects represent a call stack ready for formatting.</p>
-<dl class="class">
+<dl class="py class">
 <dt id="traceback.StackSummary">
-<em class="property">class </em><code class="descclassname">traceback.</code><code class="descname">StackSummary</code><a class="headerlink" href="#traceback.StackSummary" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="classmethod">
+<em class="property">class </em><code class="sig-prename descclassname">traceback.</code><code class="sig-name descname">StackSummary</code><a class="headerlink" href="#traceback.StackSummary" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
 <dt id="traceback.StackSummary.extract">
-<em class="property">classmethod </em><code class="descname">extract</code><span class="sig-paren">(</span><em>frame_gen</em>, <em>*</em>, <em>limit=None</em>, <em>lookup_lines=True</em>, <em>capture_locals=False</em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.StackSummary.extract" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">extract</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">frame_gen</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">limit</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lookup_lines</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">capture_locals</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.StackSummary.extract" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct a <a class="reference internal" href="#traceback.StackSummary" title="traceback.StackSummary"><code class="xref py py-class docutils literal notranslate"><span class="pre">StackSummary</span></code></a> object from a frame generator (such as
 is returned by <a class="reference internal" href="#traceback.walk_stack" title="traceback.walk_stack"><code class="xref py py-func docutils literal notranslate"><span class="pre">walk_stack()</span></code></a> or
 <a class="reference internal" href="#traceback.walk_tb" title="traceback.walk_tb"><code class="xref py py-func docutils literal notranslate"><span class="pre">walk_tb()</span></code></a>).</p>
@@ -420,17 +508,17 @@ local variables in each <a class="reference internal" href="#traceback.FrameSumm
 representations.</p>
 </dd></dl>
 
-<dl class="classmethod">
+<dl class="py method">
 <dt id="traceback.StackSummary.from_list">
-<em class="property">classmethod </em><code class="descname">from_list</code><span class="sig-paren">(</span><em>a_list</em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.StackSummary.from_list" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">from_list</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a_list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.StackSummary.from_list" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct a <a class="reference internal" href="#traceback.StackSummary" title="traceback.StackSummary"><code class="xref py py-class docutils literal notranslate"><span class="pre">StackSummary</span></code></a> object from a supplied list of
 <a class="reference internal" href="#traceback.FrameSummary" title="traceback.FrameSummary"><code class="xref py py-class docutils literal notranslate"><span class="pre">FrameSummary</span></code></a> objects or old-style list of tuples.  Each tuple
 should be a 4-tuple with filename, lineno, name, line as the elements.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="traceback.StackSummary.format">
-<code class="descname">format</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#traceback.StackSummary.format" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">format</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#traceback.StackSummary.format" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a list of strings ready for printing.  Each string in the
 resulting list corresponds to a single frame from the stack.
 Each string ends in a newline; the strings may contain internal
@@ -452,9 +540,9 @@ number of further repetitions.</p>
 <p><span class="versionmodified added">New in version 3.5.</span></p>
 </div>
 <p><a class="reference internal" href="#traceback.FrameSummary" title="traceback.FrameSummary"><code class="xref py py-class docutils literal notranslate"><span class="pre">FrameSummary</span></code></a> objects represent a single frame in a traceback.</p>
-<dl class="class">
+<dl class="py class">
 <dt id="traceback.FrameSummary">
-<em class="property">class </em><code class="descclassname">traceback.</code><code class="descname">FrameSummary</code><span class="sig-paren">(</span><em>filename</em>, <em>lineno</em>, <em>name</em>, <em>lookup_line=True</em>, <em>locals=None</em>, <em>line=None</em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.FrameSummary" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">traceback.</code><code class="sig-name descname">FrameSummary</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">lineno</span></em>, <em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">lookup_line</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">locals</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">line</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#traceback.FrameSummary" title="Permalink to this definition">¶</a></dt>
 <dd><p>Represent a single frame in the traceback or stack that is being formatted
 or printed. It may optionally have a stringified version of the frames
 locals included in it. If <em>lookup_line</em> is <code class="docutils literal notranslate"><span class="pre">False</span></code>, the source code is not
@@ -605,6 +693,7 @@ IndexError: tuple index out of range
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -632,7 +721,7 @@ IndexError: tuple index out of range
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a Bug</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.7/Doc/library/traceback.rst"
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/library/traceback.rst"
             rel="nofollow">Show Source
         </a>
       </li>
@@ -657,44 +746,59 @@ IndexError: tuple index out of range
         <li class="right" >
           <a href="atexit.html" title="atexit — Exit handlers"
              >previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="python.html" >Python Runtime Services</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">traceback</span></code> — Print or retrieve a stack traceback</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">Copyright</a> 2001-2019, Python Software Foundation.
+    &copy; <a href="../copyright.html">Copyright</a> 2001-2021, Python Software Foundation.
     <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
     The Python Software Foundation is a non-profit corporation.
-    <a href="https://www.python.org/psf/donations/">Please donate.</a>
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
     <br />
-    Last updated on Jun 19, 2019.
-    <a href="../bugs.html">Found a bug</a>?
+
+    Last updated on Nov 06, 2021.
+    <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.0.1.
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
     </div>
 
   </body>

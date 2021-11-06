@@ -1,23 +1,25 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>What’s New In Python 3.0 &#8212; Python 3.7.3 documentation</title>
-    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What’s New In Python 3.0 &#8212; Python 3.10.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../_static/pydoctheme.css?2021.11.1" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     
-    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Python 3.7.3 documentation"
+          title="Search within Python 3.10.0 documentation"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -25,13 +27,11 @@
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="next" title="What’s New in Python 2.7" href="2.7.html" />
     <link rel="prev" title="What’s New In Python 3.1" href="3.1.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
     <link rel="canonical" href="https://docs.python.org/3/whatsnew/3.0.html" />
     
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../_static/switchers.js"></script>
+      
     
-    
+
     
     <style>
       @media only screen {
@@ -40,9 +40,89 @@
         }
       }
     </style>
- 
+<link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
 
-  </head><body>
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://www.python.org/" class="nav-logo">
+             <img src="../_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">What’s New In Python 3.0</a><ul>
+<li><a class="reference internal" href="#common-stumbling-blocks">Common Stumbling Blocks</a><ul>
+<li><a class="reference internal" href="#print-is-a-function">Print Is A Function</a></li>
+<li><a class="reference internal" href="#views-and-iterators-instead-of-lists">Views And Iterators Instead Of Lists</a></li>
+<li><a class="reference internal" href="#ordering-comparisons">Ordering Comparisons</a></li>
+<li><a class="reference internal" href="#integers">Integers</a></li>
+<li><a class="reference internal" href="#text-vs-data-instead-of-unicode-vs-8-bit">Text Vs. Data Instead Of Unicode Vs. 8-bit</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#overview-of-syntax-changes">Overview Of Syntax Changes</a><ul>
+<li><a class="reference internal" href="#new-syntax">New Syntax</a></li>
+<li><a class="reference internal" href="#changed-syntax">Changed Syntax</a></li>
+<li><a class="reference internal" href="#removed-syntax">Removed Syntax</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#changes-already-present-in-python-2-6">Changes Already Present In Python 2.6</a></li>
+<li><a class="reference internal" href="#library-changes">Library Changes</a></li>
+<li><a class="reference internal" href="#pep-3101-a-new-approach-to-string-formatting"><strong>PEP 3101</strong>: A New Approach To String Formatting</a></li>
+<li><a class="reference internal" href="#changes-to-exceptions">Changes To Exceptions</a></li>
+<li><a class="reference internal" href="#miscellaneous-other-changes">Miscellaneous Other Changes</a><ul>
+<li><a class="reference internal" href="#operators-and-special-methods">Operators And Special Methods</a></li>
+<li><a class="reference internal" href="#builtins">Builtins</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#build-and-c-api-changes">Build and C API Changes</a></li>
+<li><a class="reference internal" href="#performance">Performance</a></li>
+<li><a class="reference internal" href="#porting-to-python-3-0">Porting To Python 3.0</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="3.1.html"
+                        title="previous chapter">What’s New In Python 3.1</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="2.7.html"
+                        title="next chapter">What’s New in Python 2.7</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">Report a Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/whatsnew/3.0.rst"
+            rel="nofollow">Show Source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
   
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -59,31 +139,36 @@
         <li class="right" >
           <a href="3.1.html" title="What’s New In Python 3.1"
              accesskey="P">previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">What’s New in Python</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href="">What’s New In Python 3.0</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>    
 
@@ -219,8 +304,8 @@ unequal to each other.</p></li>
 argument instead. N.B. the <em>key</em> and <em>reverse</em> arguments are now
 “keyword-only”.</p></li>
 <li><p>The <code class="xref py py-func docutils literal notranslate"><span class="pre">cmp()</span></code> function should be treated as gone, and the <code class="xref py py-meth docutils literal notranslate"><span class="pre">__cmp__()</span></code>
-special method is no longer supported.  Use <a class="reference internal" href="../reference/datamodel.html#object.__lt__" title="object.__lt__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__lt__()</span></code></a> for sorting,
-<a class="reference internal" href="../reference/datamodel.html#object.__eq__" title="object.__eq__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__eq__()</span></code></a> with <a class="reference internal" href="../reference/datamodel.html#object.__hash__" title="object.__hash__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__hash__()</span></code></a>, and other rich comparisons as needed.
+special method is no longer supported.  Use <code class="xref py py-meth docutils literal notranslate"><span class="pre">__lt__()</span></code> for sorting,
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">__eq__()</span></code> with <code class="xref py py-meth docutils literal notranslate"><span class="pre">__hash__()</span></code>, and other rich comparisons as needed.
 (If you really need the <code class="xref py py-func docutils literal notranslate"><span class="pre">cmp()</span></code> functionality, you could use the
 expression <code class="docutils literal notranslate"><span class="pre">(a</span> <span class="pre">&gt;</span> <span class="pre">b)</span> <span class="pre">-</span> <span class="pre">(a</span> <span class="pre">&lt;</span> <span class="pre">b)</span></code> as the equivalent for <code class="docutils literal notranslate"><span class="pre">cmp(a,</span> <span class="pre">b)</span></code>.)</p></li>
 </ul>
@@ -503,7 +588,7 @@ the encoding and decoding operations).</p></li>
 <li><p><a class="reference internal" href="2.6.html#pep-3118"><span class="std std-ref">PEP 3118: Revised Buffer Protocol</span></a>.  The old builtin <code class="xref py py-func docutils literal notranslate"><span class="pre">buffer()</span></code> is now really gone;
 the new builtin <a class="reference internal" href="../library/stdtypes.html#memoryview" title="memoryview"><code class="xref py py-func docutils literal notranslate"><span class="pre">memoryview()</span></code></a> provides (mostly) similar
 functionality.</p></li>
-<li><p><a class="reference internal" href="2.6.html#pep-3119"><span class="std std-ref">PEP 3119: Abstract Base Classes</span></a>.  The <a class="reference internal" href="../library/abc.html#module-abc" title="abc: Abstract base classes according to PEP 3119."><code class="xref py py-mod docutils literal notranslate"><span class="pre">abc</span></code></a> module and the ABCs defined in the
+<li><p><a class="reference internal" href="2.6.html#pep-3119"><span class="std std-ref">PEP 3119: Abstract Base Classes</span></a>.  The <a class="reference internal" href="../library/abc.html#module-abc" title="abc: Abstract base classes according to :pep:`3119`."><code class="xref py py-mod docutils literal notranslate"><span class="pre">abc</span></code></a> module and the ABCs defined in the
 <a class="reference internal" href="../library/collections.html#module-collections" title="collections: Container datatypes"><code class="xref py py-mod docutils literal notranslate"><span class="pre">collections</span></code></a> module plays a somewhat more prominent role in
 the language now, and built-in collection types like <a class="reference internal" href="../library/stdtypes.html#dict" title="dict"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>
 and <a class="reference internal" href="../library/stdtypes.html#list" title="list"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> conform to the <code class="xref py py-class docutils literal notranslate"><span class="pre">collections.MutableMapping</span></code>
@@ -538,7 +623,7 @@ release schedule.  However, the package is alive and well,
 externally maintained at <a class="reference external" href="https://www.jcea.es/programacion/pybsddb.htm">https://www.jcea.es/programacion/pybsddb.htm</a>.</p></li>
 <li><p>Some modules were renamed because their old name disobeyed
 <span class="target" id="index-21"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0008"><strong>PEP 8</strong></a>, or for various other reasons.  Here’s the list:</p>
-<table class="docutils align-center">
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -732,13 +817,13 @@ When referencing a method as a class attribute, you now get a plain
 function object.</p></li>
 <li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getslice__()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">__setslice__()</span></code> and <code class="xref py py-meth docutils literal notranslate"><span class="pre">__delslice__()</span></code>
 were killed.  The syntax <code class="docutils literal notranslate"><span class="pre">a[i:j]</span></code> now translates to
-<code class="docutils literal notranslate"><span class="pre">a.__getitem__(slice(i,</span> <span class="pre">j))</span></code> (or <a class="reference internal" href="../reference/datamodel.html#object.__setitem__" title="object.__setitem__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__setitem__()</span></code></a> or
-<a class="reference internal" href="../reference/datamodel.html#object.__delitem__" title="object.__delitem__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__delitem__()</span></code></a>, when used as an assignment or deletion target,
+<code class="docutils literal notranslate"><span class="pre">a.__getitem__(slice(i,</span> <span class="pre">j))</span></code> (or <code class="xref py py-meth docutils literal notranslate"><span class="pre">__setitem__()</span></code> or
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">__delitem__()</span></code>, when used as an assignment or deletion target,
 respectively).</p></li>
 <li><p><span class="target" id="index-30"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-3114"><strong>PEP 3114</strong></a>: the standard <a class="reference internal" href="../library/functions.html#next" title="next"><code class="xref py py-meth docutils literal notranslate"><span class="pre">next()</span></code></a> method has been renamed to
 <a class="reference internal" href="../library/stdtypes.html#iterator.__next__" title="iterator.__next__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a>.</p></li>
 <li><p>The <code class="xref py py-meth docutils literal notranslate"><span class="pre">__oct__()</span></code> and <code class="xref py py-meth docutils literal notranslate"><span class="pre">__hex__()</span></code> special methods are removed
-– <a class="reference internal" href="../library/functions.html#oct" title="oct"><code class="xref py py-func docutils literal notranslate"><span class="pre">oct()</span></code></a> and <a class="reference internal" href="../library/functions.html#hex" title="hex"><code class="xref py py-func docutils literal notranslate"><span class="pre">hex()</span></code></a> use <a class="reference internal" href="../reference/datamodel.html#object.__index__" title="object.__index__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__index__()</span></code></a> now to convert
+– <a class="reference internal" href="../library/functions.html#oct" title="oct"><code class="xref py py-func docutils literal notranslate"><span class="pre">oct()</span></code></a> and <a class="reference internal" href="../library/functions.html#hex" title="hex"><code class="xref py py-func docutils literal notranslate"><span class="pre">hex()</span></code></a> use <code class="xref py py-meth docutils literal notranslate"><span class="pre">__index__()</span></code> now to convert
 the argument to an integer.</p></li>
 <li><p>Removed support for <code class="xref py py-attr docutils literal notranslate"><span class="pre">__members__</span></code> and <code class="xref py py-attr docutils literal notranslate"><span class="pre">__methods__</span></code>.</p></li>
 <li><p>The function attributes named <code class="xref py py-attr docutils literal notranslate"><span class="pre">func_X</span></code> have been renamed to
@@ -750,7 +835,7 @@ attribute namespace for user-defined attributes.  To wit,
 <code class="xref py py-attr docutils literal notranslate"><span class="pre">__code__</span></code>, <code class="xref py py-attr docutils literal notranslate"><span class="pre">__defaults__</span></code>, <a class="reference internal" href="../library/stdtypes.html#object.__dict__" title="object.__dict__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__dict__</span></code></a>,
 <code class="xref py py-attr docutils literal notranslate"><span class="pre">__doc__</span></code>, <code class="xref py py-attr docutils literal notranslate"><span class="pre">__globals__</span></code>, <a class="reference internal" href="../library/stdtypes.html#definition.__name__" title="definition.__name__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__name__</span></code></a>,
 respectively.</p></li>
-<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">__nonzero__()</span></code> is now <a class="reference internal" href="../reference/datamodel.html#object.__bool__" title="object.__bool__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__bool__()</span></code></a>.</p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">__nonzero__()</span></code> is now <code class="xref py py-meth docutils literal notranslate"><span class="pre">__bool__()</span></code>.</p></li>
 </ul>
 </div>
 <div class="section" id="builtins">
@@ -858,6 +943,7 @@ source code.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -907,7 +993,7 @@ source code.</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a Bug</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.7/Doc/whatsnew/3.0.rst"
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/whatsnew/3.0.rst"
             rel="nofollow">Show Source
         </a>
       </li>
@@ -932,43 +1018,58 @@ source code.</p>
         <li class="right" >
           <a href="3.1.html" title="What’s New In Python 3.1"
              >previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >What’s New in Python</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href="">What’s New In Python 3.0</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">Copyright</a> 2001-2019, Python Software Foundation.
+    &copy; <a href="../copyright.html">Copyright</a> 2001-2021, Python Software Foundation.
     <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
     The Python Software Foundation is a non-profit corporation.
-    <a href="https://www.python.org/psf/donations/">Please donate.</a>
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
     <br />
-    Last updated on Jun 19, 2019.
-    <a href="../bugs.html">Found a bug</a>?
+
+    Last updated on Nov 06, 2021.
+    <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.0.1.
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
     </div>
 
   </body>

@@ -1,23 +1,25 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>3. An Informal Introduction to Python &#8212; Python 3.7.3 documentation</title>
-    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3. An Informal Introduction to Python &#8212; Python 3.10.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../_static/pydoctheme.css?2021.11.1" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     
-    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Python 3.7.3 documentation"
+          title="Search within Python 3.10.0 documentation"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -25,13 +27,11 @@
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="next" title="4. More Control Flow Tools" href="controlflow.html" />
     <link rel="prev" title="2. Using the Python Interpreter" href="interpreter.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
     <link rel="canonical" href="https://docs.python.org/3/tutorial/introduction.html" />
     
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../_static/switchers.js"></script>
+      
     
-    
+
     
     <style>
       @media only screen {
@@ -40,9 +40,70 @@
         }
       }
     </style>
- 
+<link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
 
-  </head><body>
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://www.python.org/" class="nav-logo">
+             <img src="../_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">3. An Informal Introduction to Python</a><ul>
+<li><a class="reference internal" href="#using-python-as-a-calculator">3.1. Using Python as a Calculator</a><ul>
+<li><a class="reference internal" href="#numbers">3.1.1. Numbers</a></li>
+<li><a class="reference internal" href="#strings">3.1.2. Strings</a></li>
+<li><a class="reference internal" href="#lists">3.1.3. Lists</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#first-steps-towards-programming">3.2. First Steps Towards Programming</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="interpreter.html"
+                        title="previous chapter"><span class="section-number">2. </span>Using the Python Interpreter</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="controlflow.html"
+                        title="next chapter"><span class="section-number">4. </span>More Control Flow Tools</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">Report a Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/tutorial/introduction.rst"
+            rel="nofollow">Show Source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
   
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -59,31 +120,36 @@
         <li class="right" >
           <a href="interpreter.html" title="2. Using the Python Interpreter"
              accesskey="P">previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">The Python Tutorial</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">3. </span>An Informal Introduction to Python</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>    
 
@@ -93,13 +159,17 @@
           <div class="body" role="main">
             
   <div class="section" id="an-informal-introduction-to-python">
-<span id="tut-informal"></span><h1>3. An Informal Introduction to Python<a class="headerlink" href="#an-informal-introduction-to-python" title="Permalink to this headline">¶</a></h1>
+<span id="tut-informal"></span><h1><span class="section-number">3. </span>An Informal Introduction to Python<a class="headerlink" href="#an-informal-introduction-to-python" title="Permalink to this headline">¶</a></h1>
 <p>In the following examples, input and output are distinguished by the presence or
-absence of prompts (<a class="reference internal" href="../glossary.html#term"><span class="xref std std-term">&gt;&gt;&gt;</span></a> and <a class="reference internal" href="../glossary.html#term-1"><span class="xref std std-term">…</span></a>): to repeat the example, you must type
+absence of prompts (<a class="reference internal" href="../glossary.html#term-0"><span class="xref std std-term">&gt;&gt;&gt;</span></a> and <a class="reference internal" href="../glossary.html#term-..."><span class="xref std std-term">…</span></a>): to repeat the example, you must type
 everything after the prompt, when the prompt appears; lines that do not begin
 with a prompt are output from the interpreter. Note that a secondary prompt on a
 line by itself in an example means you must type a blank line; this is used to
 end a multi-line command.</p>
+<p>You can toggle the display of prompts and output by clicking on <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code>
+in the upper-right corner of an example box.  If you hide the prompts
+and output for an example, then you can easily copy and paste the input
+lines into your interpreter.</p>
 <p id="index-0">Many of the examples in this manual, even those entered at the interactive
 prompt, include comments.  Comments in Python start with the hash character,
 <code class="docutils literal notranslate"><span class="pre">#</span></code>, and extend to the end of the physical line.  A comment may appear at the
@@ -115,11 +185,11 @@ be omitted when typing in examples.</p>
 </pre></div>
 </div>
 <div class="section" id="using-python-as-a-calculator">
-<span id="tut-calculator"></span><h2>3.1. Using Python as a Calculator<a class="headerlink" href="#using-python-as-a-calculator" title="Permalink to this headline">¶</a></h2>
+<span id="tut-calculator"></span><h2><span class="section-number">3.1. </span>Using Python as a Calculator<a class="headerlink" href="#using-python-as-a-calculator" title="Permalink to this headline">¶</a></h2>
 <p>Let’s try some simple Python commands.  Start the interpreter and wait for the
 primary prompt, <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code>.  (It shouldn’t take long.)</p>
 <div class="section" id="numbers">
-<span id="tut-numbers"></span><h3>3.1.1. Numbers<a class="headerlink" href="#numbers" title="Permalink to this headline">¶</a></h3>
+<span id="tut-numbers"></span><h3><span class="section-number">3.1.1. </span>Numbers<a class="headerlink" href="#numbers" title="Permalink to this headline">¶</a></h3>
 <p>The interpreter acts as a simple calculator: you can type an expression at it
 and it will write the value.  Expression syntax is straightforward: the
 operators <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">/</span></code> work just like in most other languages
@@ -148,7 +218,7 @@ operator; to calculate the remainder you can use <code class="docutils literal n
 <span class="go">5</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">17</span> <span class="o">%</span> <span class="mi">3</span>  <span class="c1"># the % operator returns the remainder of the division</span>
 <span class="go">2</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span>  <span class="c1"># result * divisor + remainder</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span>  <span class="c1"># floored quotient * divisor + remainder</span>
 <span class="go">17</span>
 </pre></div>
 </div>
@@ -204,7 +274,7 @@ and uses the <code class="docutils literal notranslate"><span class="pre">j</spa
 (e.g. <code class="docutils literal notranslate"><span class="pre">3+5j</span></code>).</p>
 </div>
 <div class="section" id="strings">
-<span id="tut-strings"></span><h3>3.1.2. Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h3>
+<span id="tut-strings"></span><h3><span class="section-number">3.1.2. </span>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h3>
 <p>Besides numbers, Python can also manipulate strings, which can be expressed
 in several ways.  They can be enclosed in single quotes (<code class="docutils literal notranslate"><span class="pre">'...'</span></code>) or
 double quotes (<code class="docutils literal notranslate"><span class="pre">&quot;...&quot;</span></code>) with the same result <a class="footnote-reference brackets" href="#id4" id="id2">2</a>.  <code class="docutils literal notranslate"><span class="pre">\</span></code> can be used
@@ -337,14 +407,6 @@ to obtain individual characters, <em>slicing</em> allows you to obtain substring
 <span class="go">&#39;tho&#39;</span>
 </pre></div>
 </div>
-<p>Note how the start is always included, and the end always excluded.  This
-makes sure that <code class="docutils literal notranslate"><span class="pre">s[:i]</span> <span class="pre">+</span> <span class="pre">s[i:]</span></code> is always equal to <code class="docutils literal notranslate"><span class="pre">s</span></code>:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">word</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">word</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
-<span class="go">&#39;Python&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">word</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="n">word</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span>
-<span class="go">&#39;Python&#39;</span>
-</pre></div>
-</div>
 <p>Slice indices have useful defaults; an omitted first index defaults to zero, an
 omitted second index defaults to the size of the string being sliced.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">word</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>   <span class="c1"># character from the beginning to position 2 (excluded)</span>
@@ -353,6 +415,14 @@ omitted second index defaults to the size of the string being sliced.</p>
 <span class="go">&#39;on&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span>  <span class="c1"># characters from the second-last (included) to the end</span>
 <span class="go">&#39;on&#39;</span>
+</pre></div>
+</div>
+<p>Note how the start is always included, and the end always excluded.  This
+makes sure that <code class="docutils literal notranslate"><span class="pre">s[:i]</span> <span class="pre">+</span> <span class="pre">s[i:]</span></code> is always equal to <code class="docutils literal notranslate"><span class="pre">s</span></code>:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">word</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">word</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+<span class="go">&#39;Python&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">word</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="n">word</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span>
+<span class="go">&#39;Python&#39;</span>
 </pre></div>
 </div>
 <p>One way to remember how slices work is to think of the indices as pointing
@@ -433,7 +503,7 @@ the left operand of the <code class="docutils literal notranslate"><span class="
 </div>
 </div>
 <div class="section" id="lists">
-<span id="tut-lists"></span><h3>3.1.3. Lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h3>
+<span id="tut-lists"></span><h3><span class="section-number">3.1.3. </span>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h3>
 <p>Python knows a number of <em>compound</em> data types, used to group together other
 values.  The most versatile is the <em>list</em>, which can be written as a list of
 comma-separated values (items) between square brackets.  Lists might contain
@@ -454,7 +524,8 @@ indexed and sliced:</p>
 </pre></div>
 </div>
 <p>All slice operations return a new list containing the requested elements.  This
-means that the following slice returns a new (shallow) copy of the list:</p>
+means that the following slice returns a
+<a class="reference internal" href="../library/copy.html#shallow-vs-deep-copy"><span class="std std-ref">shallow copy</span></a> of the list:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">squares</span><span class="p">[:]</span>
 <span class="go">[1, 4, 9, 16, 25]</span>
 </pre></div>
@@ -523,7 +594,7 @@ example:</p>
 </div>
 </div>
 <div class="section" id="first-steps-towards-programming">
-<span id="tut-firststeps"></span><h2>3.2. First Steps Towards Programming<a class="headerlink" href="#first-steps-towards-programming" title="Permalink to this headline">¶</a></h2>
+<span id="tut-firststeps"></span><h2><span class="section-number">3.2. </span>First Steps Towards Programming<a class="headerlink" href="#first-steps-towards-programming" title="Permalink to this headline">¶</a></h2>
 <p>Of course, we can use Python for more complicated tasks than adding two and two
 together.  For instance, we can write an initial sub-sequence of the
 <a class="reference external" href="https://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci series</a>
@@ -608,6 +679,7 @@ need to escape <code class="docutils literal notranslate"><span class="pre">&quo
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -629,16 +701,16 @@ need to escape <code class="docutils literal notranslate"><span class="pre">&quo
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="interpreter.html"
-                        title="previous chapter">2. Using the Python Interpreter</a></p>
+                        title="previous chapter"><span class="section-number">2. </span>Using the Python Interpreter</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="controlflow.html"
-                        title="next chapter">4. More Control Flow Tools</a></p>
+                        title="next chapter"><span class="section-number">4. </span>More Control Flow Tools</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a Bug</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.7/Doc/tutorial/introduction.rst"
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/tutorial/introduction.rst"
             rel="nofollow">Show Source
         </a>
       </li>
@@ -663,43 +735,58 @@ need to escape <code class="docutils literal notranslate"><span class="pre">&quo
         <li class="right" >
           <a href="interpreter.html" title="2. Using the Python Interpreter"
              >previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Tutorial</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">3. </span>An Informal Introduction to Python</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">Copyright</a> 2001-2019, Python Software Foundation.
+    &copy; <a href="../copyright.html">Copyright</a> 2001-2021, Python Software Foundation.
     <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
     The Python Software Foundation is a non-profit corporation.
-    <a href="https://www.python.org/psf/donations/">Please donate.</a>
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
     <br />
-    Last updated on Jun 19, 2019.
-    <a href="../bugs.html">Found a bug</a>?
+
+    Last updated on Nov 06, 2021.
+    <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.0.1.
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
     </div>
 
   </body>

@@ -1,23 +1,25 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>What’s New in Python 2.2 &#8212; Python 3.7.3 documentation</title>
-    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What’s New in Python 2.2 &#8212; Python 3.10.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../_static/pydoctheme.css?2021.11.1" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     
-    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Python 3.7.3 documentation"
+          title="Search within Python 3.10.0 documentation"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -25,13 +27,11 @@
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="next" title="What’s New in Python 2.1" href="2.1.html" />
     <link rel="prev" title="What’s New in Python 2.3" href="2.3.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
     <link rel="canonical" href="https://docs.python.org/3/whatsnew/2.2.html" />
     
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../_static/switchers.js"></script>
+      
     
-    
+
     
     <style>
       @media only screen {
@@ -40,9 +40,82 @@
         }
       }
     </style>
- 
+<link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
 
-  </head><body>
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://www.python.org/" class="nav-logo">
+             <img src="../_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">What’s New in Python 2.2</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#peps-252-and-253-type-and-class-changes">PEPs 252 and 253: Type and Class Changes</a><ul>
+<li><a class="reference internal" href="#old-and-new-classes">Old and New Classes</a></li>
+<li><a class="reference internal" href="#descriptors">Descriptors</a></li>
+<li><a class="reference internal" href="#multiple-inheritance-the-diamond-rule">Multiple Inheritance: The Diamond Rule</a></li>
+<li><a class="reference internal" href="#attribute-access">Attribute Access</a></li>
+<li><a class="reference internal" href="#related-links">Related Links</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pep-234-iterators">PEP 234: Iterators</a></li>
+<li><a class="reference internal" href="#pep-255-simple-generators">PEP 255: Simple Generators</a></li>
+<li><a class="reference internal" href="#pep-237-unifying-long-integers-and-integers">PEP 237: Unifying Long Integers and Integers</a></li>
+<li><a class="reference internal" href="#pep-238-changing-the-division-operator">PEP 238: Changing the Division Operator</a></li>
+<li><a class="reference internal" href="#unicode-changes">Unicode Changes</a></li>
+<li><a class="reference internal" href="#pep-227-nested-scopes">PEP 227: Nested Scopes</a></li>
+<li><a class="reference internal" href="#new-and-improved-modules">New and Improved Modules</a></li>
+<li><a class="reference internal" href="#interpreter-changes-and-fixes">Interpreter Changes and Fixes</a></li>
+<li><a class="reference internal" href="#other-changes-and-fixes">Other Changes and Fixes</a></li>
+<li><a class="reference internal" href="#acknowledgements">Acknowledgements</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="2.3.html"
+                        title="previous chapter">What’s New in Python 2.3</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="2.1.html"
+                        title="next chapter">What’s New in Python 2.1</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">Report a Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/whatsnew/2.2.rst"
+            rel="nofollow">Show Source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
   
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -59,31 +132,36 @@
         <li class="right" >
           <a href="2.3.html" title="What’s New in Python 2.3"
              accesskey="P">previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">What’s New in Python</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href="">What’s New in Python 2.2</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>    
 
@@ -124,7 +202,7 @@ that your code will continue to run unchanged, but the changes provide some
 amazing new capabilities. Before beginning this, the longest and most
 complicated section of this article, I’ll provide an overview of the changes and
 offer some comments.</p>
-<p>A long time ago I wrote a Web page listing flaws in Python’s design.  One of the
+<p>A long time ago I wrote a web page listing flaws in Python’s design.  One of the
 most significant flaws was that it’s impossible to subclass Python types
 implemented in C.  In particular, it’s not possible to subclass built-in types,
 so you can’t just subclass, say, lists in order to add a single useful method to
@@ -141,7 +219,7 @@ subclasses should work in every place that requires the original type.</p></li>
 instance methods available in previous versions of Python.</p></li>
 <li><p>It’s also possible to automatically call methods on accessing or setting an
 instance attribute by using a new mechanism called <em class="dfn">properties</em>.  Many uses
-of <a class="reference internal" href="../reference/datamodel.html#object.__getattr__" title="object.__getattr__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getattr__()</span></code></a> can be rewritten to use properties instead, making the
+of <code class="xref py py-meth docutils literal notranslate"><span class="pre">__getattr__()</span></code> can be rewritten to use properties instead, making the
 resulting code simpler and faster.  As a small side benefit, attributes can now
 have docstrings, too.</p></li>
 <li><p>The list of legal attributes for an instance can be limited to a particular
@@ -178,7 +256,7 @@ named <a class="reference internal" href="../library/functions.html#object" titl
 added so if no built-in type is suitable, you can just subclass
 <a class="reference internal" href="../library/functions.html#object" title="object"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a>:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span> <span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span> <span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="o">...</span>
     <span class="o">...</span>
 </pre></div>
@@ -220,7 +298,7 @@ conventions, such as defining <code class="xref py py-attr docutils literal notr
 attributes that were lists of names, but often the author of an extension type
 or a class wouldn’t bother to define them.  You could fall back on inspecting
 the <a class="reference internal" href="../library/stdtypes.html#object.__dict__" title="object.__dict__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__dict__</span></code></a> of an object, but when class inheritance or an arbitrary
-<a class="reference internal" href="../reference/datamodel.html#object.__getattr__" title="object.__getattr__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getattr__()</span></code></a> hook were in use this could still be inaccurate.</p>
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">__getattr__()</span></code> hook were in use this could still be inaccurate.</p>
 <p>The one big idea underlying the new class model is that an API for describing
 the attributes of an object using <em class="dfn">descriptors</em> has been formalized.
 Descriptors specify the value of an attribute, stating whether it’s a method or
@@ -271,7 +349,7 @@ does something novel.  For example, it would be possible to write a descriptor
 class that made it possible to write Eiffel-style preconditions and
 postconditions for a method.  A class that used this feature might be defined
 like this:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">eiffel</span> <span class="k">import</span> <span class="n">eiffelmethod</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">eiffel</span> <span class="kn">import</span> <span class="n">eiffelmethod</span>
 
 <span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">):</span>
@@ -358,7 +436,7 @@ often be useful.</p>
 <div class="section" id="attribute-access">
 <h3>Attribute Access<a class="headerlink" href="#attribute-access" title="Permalink to this headline">¶</a></h3>
 <p>A fair number of sophisticated Python classes define hooks for attribute access
-using <a class="reference internal" href="../reference/datamodel.html#object.__getattr__" title="object.__getattr__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getattr__()</span></code></a>; most commonly this is done for convenience, to make
+using <code class="xref py py-meth docutils literal notranslate"><span class="pre">__getattr__()</span></code>; most commonly this is done for convenience, to make
 code more readable by automatically mapping an attribute access such as
 <code class="docutils literal notranslate"><span class="pre">obj.parent</span></code> into a method call such as <code class="docutils literal notranslate"><span class="pre">obj.get_parent</span></code>.  Python 2.2 adds
 some new ways of controlling attribute access.</p>
@@ -368,15 +446,15 @@ is made to access <code class="docutils literal notranslate"><span class="pre">o
 instance’s dictionary.</p>
 <p>New-style classes also support a new method,
 <code class="docutils literal notranslate"><span class="pre">__getattribute__(attr_name)</span></code>.  The difference between the two methods is
-that <a class="reference internal" href="../reference/datamodel.html#object.__getattribute__" title="object.__getattribute__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getattribute__()</span></code></a> is <em>always</em> called whenever any attribute is
-accessed, while the old <a class="reference internal" href="../reference/datamodel.html#object.__getattr__" title="object.__getattr__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getattr__()</span></code></a> is only called if <code class="docutils literal notranslate"><span class="pre">foo</span></code> isn’t
+that <code class="xref py py-meth docutils literal notranslate"><span class="pre">__getattribute__()</span></code> is <em>always</em> called whenever any attribute is
+accessed, while the old <code class="xref py py-meth docutils literal notranslate"><span class="pre">__getattr__()</span></code> is only called if <code class="docutils literal notranslate"><span class="pre">foo</span></code> isn’t
 found in the instance’s dictionary.</p>
 <p>However, Python 2.2’s support for <em class="dfn">properties</em> will often be a simpler way
-to trap attribute references.  Writing a <a class="reference internal" href="../reference/datamodel.html#object.__getattr__" title="object.__getattr__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getattr__()</span></code></a> method is
+to trap attribute references.  Writing a <code class="xref py py-meth docutils literal notranslate"><span class="pre">__getattr__()</span></code> method is
 complicated because to avoid recursion you can’t use regular attribute accesses
 inside them, and instead have to mess around with the contents of
-<a class="reference internal" href="../library/stdtypes.html#object.__dict__" title="object.__dict__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__dict__</span></code></a>. <a class="reference internal" href="../reference/datamodel.html#object.__getattr__" title="object.__getattr__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getattr__()</span></code></a> methods also end up being called by Python
-when it checks for other methods such as <a class="reference internal" href="../reference/datamodel.html#object.__repr__" title="object.__repr__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__repr__()</span></code></a> or <code class="xref py py-meth docutils literal notranslate"><span class="pre">__coerce__()</span></code>,
+<a class="reference internal" href="../library/stdtypes.html#object.__dict__" title="object.__dict__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__dict__</span></code></a>. <code class="xref py py-meth docutils literal notranslate"><span class="pre">__getattr__()</span></code> methods also end up being called by Python
+when it checks for other methods such as <code class="xref py py-meth docutils literal notranslate"><span class="pre">__repr__()</span></code> or <code class="xref py py-meth docutils literal notranslate"><span class="pre">__coerce__()</span></code>,
 and so have to be written with this in mind. Finally, calling a function on
 every attribute access results in a sizable performance loss.</p>
 <p><a class="reference internal" href="../library/functions.html#property" title="property"><code class="xref py py-class docutils literal notranslate"><span class="pre">property</span></code></a> is a new built-in type that packages up three functions that
@@ -400,7 +478,7 @@ write:</p>
 </pre></div>
 </div>
 <p>That is certainly clearer and easier to write than a pair of
-<a class="reference internal" href="../reference/datamodel.html#object.__getattr__" title="object.__getattr__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getattr__()</span></code></a>/<a class="reference internal" href="../reference/datamodel.html#object.__setattr__" title="object.__setattr__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__setattr__()</span></code></a> methods that check for the <code class="xref py py-attr docutils literal notranslate"><span class="pre">size</span></code>
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">__getattr__()</span></code>/<code class="xref py py-meth docutils literal notranslate"><span class="pre">__setattr__()</span></code> methods that check for the <code class="xref py py-attr docutils literal notranslate"><span class="pre">size</span></code>
 attribute and handle it specially while retrieving all other attributes from the
 instance’s <a class="reference internal" href="../library/stdtypes.html#object.__dict__" title="object.__dict__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__dict__</span></code></a>.  Accesses to <code class="xref py py-attr docutils literal notranslate"><span class="pre">size</span></code> are also the only ones
 which have to perform the work of calling a function, so references to other
@@ -457,28 +535,28 @@ question to python-list or python-dev.</p>
 <p>Another significant addition to 2.2 is an iteration interface at both the C and
 Python levels.  Objects can define how they can be looped over by callers.</p>
 <p>In Python versions up to 2.1, the usual way to make <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">item</span> <span class="pre">in</span> <span class="pre">obj</span></code> work is
-to define a <a class="reference internal" href="../reference/datamodel.html#object.__getitem__" title="object.__getitem__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code></a> method that looks something like this:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+to define a <code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code> method that looks something like this:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
     <span class="k">return</span> <span class="o">&lt;</span><span class="nb">next</span> <span class="n">item</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p><a class="reference internal" href="../reference/datamodel.html#object.__getitem__" title="object.__getitem__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code></a> is more properly used to define an indexing operation on an
+<p><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code> is more properly used to define an indexing operation on an
 object so that you can write <code class="docutils literal notranslate"><span class="pre">obj[5]</span></code> to retrieve the sixth element.  It’s a
 bit misleading when you’re using this only to support <a class="reference internal" href="../reference/compound_stmts.html#for"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code></a> loops.
 Consider some file-like object that wants to be looped over; the <em>index</em>
 parameter is essentially meaningless, as the class probably assumes that a
-series of <a class="reference internal" href="../reference/datamodel.html#object.__getitem__" title="object.__getitem__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code></a> calls will be made with <em>index</em> incrementing by
-one each time.  In other words, the presence of the <a class="reference internal" href="../reference/datamodel.html#object.__getitem__" title="object.__getitem__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code></a> method
+series of <code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code> calls will be made with <em>index</em> incrementing by
+one each time.  In other words, the presence of the <code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code> method
 doesn’t mean that using <code class="docutils literal notranslate"><span class="pre">file[5]</span></code>  to randomly access the sixth element will
 work, though it really should.</p>
-<p>In Python 2.2, iteration can be implemented separately, and <a class="reference internal" href="../reference/datamodel.html#object.__getitem__" title="object.__getitem__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code></a>
+<p>In Python 2.2, iteration can be implemented separately, and <code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code>
 methods can be limited to classes that really do support random access.  The
 basic idea of iterators is  simple.  A new built-in function, <code class="docutils literal notranslate"><span class="pre">iter(obj)</span></code>
 or <code class="docutils literal notranslate"><span class="pre">iter(C,</span> <span class="pre">sentinel)</span></code>, is used to get an iterator. <code class="docutils literal notranslate"><span class="pre">iter(obj)</span></code> returns
 an iterator for the object <em>obj</em>, while <code class="docutils literal notranslate"><span class="pre">iter(C,</span> <span class="pre">sentinel)</span></code> returns an
 iterator that will invoke the callable object <em>C</em> until it returns <em>sentinel</em> to
 signal that the iterator is done.</p>
-<p>Python classes can define an <a class="reference internal" href="../reference/datamodel.html#object.__iter__" title="object.__iter__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a> method, which should create and
+<p>Python classes can define an <code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code> method, which should create and
 return a new iterator for the object; if the object is its own iterator, this
 method can just return <code class="docutils literal notranslate"><span class="pre">self</span></code>.  In particular, iterators will usually be their
 own iterators.  Extension types implemented in C can implement a <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_iter" title="PyTypeObject.tp_iter"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_iter</span></code></a>
@@ -508,7 +586,7 @@ there are no more values to be returned, calling <a class="reference internal" h
 <p>In 2.2, Python’s <a class="reference internal" href="../reference/compound_stmts.html#for"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code></a> statement no longer expects a sequence; it
 expects something for which <a class="reference internal" href="../library/functions.html#iter" title="iter"><code class="xref py py-func docutils literal notranslate"><span class="pre">iter()</span></code></a> will return an iterator. For backward
 compatibility and convenience, an iterator is automatically constructed for
-sequences that don’t implement <a class="reference internal" href="../reference/datamodel.html#object.__iter__" title="object.__iter__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a> or a <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_iter" title="PyTypeObject.tp_iter"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_iter</span></code></a> slot, so
+sequences that don’t implement <code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code> or a <a class="reference internal" href="../c-api/typeobj.html#c.PyTypeObject.tp_iter" title="PyTypeObject.tp_iter"><code class="xref c c-member docutils literal notranslate"><span class="pre">tp_iter</span></code></a> slot, so
 <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">[1,2,3]</span></code> will still work.  Wherever the Python interpreter loops
 over a sequence, it’s been changed to use the iterator protocol.  This means you
 can do things like this:</p>
@@ -656,8 +734,8 @@ Icon, every expression and function call behaves like a generator.  One example
 from “An Overview of the Icon Programming Language” at
 <a class="reference external" href="https://www.cs.arizona.edu/icon/docs/ipd266.htm">https://www.cs.arizona.edu/icon/docs/ipd266.htm</a> gives an idea of what this looks
 like:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="p">:</span><span class="o">=</span> <span class="s2">&quot;Store it in the neighboring harbor&quot;</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="p">:</span><span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="s2">&quot;or&quot;</span><span class="p">,</span> <span class="n">sentence</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="n">then</span> <span class="n">write</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">:=</span> <span class="s2">&quot;Store it in the neighboring harbor&quot;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">:=</span> <span class="n">find</span><span class="p">(</span><span class="s2">&quot;or&quot;</span><span class="p">,</span> <span class="n">sentence</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="n">then</span> <span class="n">write</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>In Icon the <code class="xref py py-func docutils literal notranslate"><span class="pre">find()</span></code> function returns the indexes at which the substring
@@ -757,7 +835,7 @@ also 0.0.</p>
 operator will be changed to return the result of true division, so <code class="docutils literal notranslate"><span class="pre">1/2</span></code> is
 0.5.  Without the <code class="docutils literal notranslate"><span class="pre">__future__</span></code> statement, <code class="docutils literal notranslate"><span class="pre">/</span></code> still means classic division.
 The default meaning of <code class="docutils literal notranslate"><span class="pre">/</span></code> will not change until Python 3.0.</p></li>
-<li><p>Classes can define methods called <a class="reference internal" href="../reference/datamodel.html#object.__truediv__" title="object.__truediv__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__truediv__()</span></code></a> and <a class="reference internal" href="../reference/datamodel.html#object.__floordiv__" title="object.__floordiv__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__floordiv__()</span></code></a>
+<li><p>Classes can define methods called <code class="xref py py-meth docutils literal notranslate"><span class="pre">__truediv__()</span></code> and <code class="xref py py-meth docutils literal notranslate"><span class="pre">__floordiv__()</span></code>
 to overload the two division operators.  At the C level, there are also slots in
 the <a class="reference internal" href="../c-api/typeobj.html#c.PyNumberMethods" title="PyNumberMethods"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyNumberMethods</span></code></a> structure so extension types can define the two
 operators.</p></li>
@@ -819,7 +897,7 @@ encoding, and compression with the <a class="reference internal" href="../librar
 </pre></div>
 </div>
 <p>To convert a class instance to Unicode, a <code class="xref py py-meth docutils literal notranslate"><span class="pre">__unicode__()</span></code> method can be
-defined by a class, analogous to <a class="reference internal" href="../reference/datamodel.html#object.__str__" title="object.__str__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__str__()</span></code></a>.</p>
+defined by a class, analogous to <code class="xref py py-meth docutils literal notranslate"><span class="pre">__str__()</span></code>.</p>
 <p><code class="xref py py-meth docutils literal notranslate"><span class="pre">encode()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">decode()</span></code>, and <code class="xref py py-meth docutils literal notranslate"><span class="pre">__unicode__()</span></code> were implemented by
 Marc-André Lemburg.  The changes to support using UCS-4 internally were
 implemented by Fredrik Lundh and Martin von Löwis.</p>
@@ -965,7 +1043,7 @@ output have been corrected.  (Contributed by Fred L. Drake, Jr. and Tim Peters.)
 <code class="xref std std-option docutils literal notranslate"><span class="pre">--enable-ipv6</span></code> option to Python’s configure script.  (Contributed by
 Jun-ichiro “itojun” Hagino.)</p></li>
 <li><p>Two new format characters were added to the <a class="reference internal" href="../library/struct.html#module-struct" title="struct: Interpret bytes as packed binary data."><code class="xref py py-mod docutils literal notranslate"><span class="pre">struct</span></code></a> module for 64-bit
-integers on platforms that support the C <code class="xref c c-type docutils literal notranslate"><span class="pre">long</span> <span class="pre">long</span></code> type.  <code class="docutils literal notranslate"><span class="pre">q</span></code> is for
+integers on platforms that support the C <span class="xref c c-texpr">long long</span> type.  <code class="docutils literal notranslate"><span class="pre">q</span></code> is for
 a signed 64-bit integer, and <code class="docutils literal notranslate"><span class="pre">Q</span></code> is for an unsigned one.  The value is
 returned in Python’s long integer type.  (Contributed by Tim Peters.)</p></li>
 <li><p>In the interpreter’s interactive mode, there’s a new built-in function
@@ -1069,7 +1147,7 @@ support on Windows described in the following section.)</p></li>
 <li><p>A different argument parsing function, <a class="reference internal" href="../c-api/arg.html#c.PyArg_UnpackTuple" title="PyArg_UnpackTuple"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyArg_UnpackTuple()</span></code></a>, has been
 added that’s simpler and presumably faster.  Instead of specifying a format
 string, the caller simply gives the minimum and maximum number of arguments
-expected, and a set of pointers to <a class="reference internal" href="../c-api/structures.html#c.PyObject" title="PyObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyObject*</span></code></a> variables that will be
+expected, and a set of pointers to <span class="xref c c-texpr"><a class="reference internal" href="../c-api/structures.html#c.PyObject" title="PyObject">PyObject</a>*</span> variables that will be
 filled in with argument values.</p></li>
 <li><p>Two new flags <a class="reference internal" href="../c-api/structures.html#METH_NOARGS" title="METH_NOARGS"><code class="xref py py-const docutils literal notranslate"><span class="pre">METH_NOARGS</span></code></a> and <a class="reference internal" href="../c-api/structures.html#METH_O" title="METH_O"><code class="xref py py-const docutils literal notranslate"><span class="pre">METH_O</span></code></a> are available in method
 definition tables to simplify implementation of methods with no arguments or a
@@ -1193,6 +1271,7 @@ Reinhardt, Neil Schemenauer, Guido van Rossum, Greg Ward, Edward Welbourne.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -1235,7 +1314,7 @@ Reinhardt, Neil Schemenauer, Guido van Rossum, Greg Ward, Edward Welbourne.</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a Bug</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.7/Doc/whatsnew/2.2.rst"
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/whatsnew/2.2.rst"
             rel="nofollow">Show Source
         </a>
       </li>
@@ -1260,43 +1339,58 @@ Reinhardt, Neil Schemenauer, Guido van Rossum, Greg Ward, Edward Welbourne.</p>
         <li class="right" >
           <a href="2.3.html" title="What’s New in Python 2.3"
              >previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >What’s New in Python</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href="">What’s New in Python 2.2</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">Copyright</a> 2001-2019, Python Software Foundation.
+    &copy; <a href="../copyright.html">Copyright</a> 2001-2021, Python Software Foundation.
     <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
     The Python Software Foundation is a non-profit corporation.
-    <a href="https://www.python.org/psf/donations/">Please donate.</a>
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
     <br />
-    Last updated on Jun 19, 2019.
-    <a href="../bugs.html">Found a bug</a>?
+
+    Last updated on Nov 06, 2021.
+    <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.0.1.
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
     </div>
 
   </body>

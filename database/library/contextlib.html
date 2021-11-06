@@ -1,23 +1,25 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>contextlib — Utilities for with-statement contexts &#8212; Python 3.7.3 documentation</title>
-    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>contextlib — Utilities for with-statement contexts &#8212; Python 3.10.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../_static/pydoctheme.css?2021.11.1" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     
-    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Python 3.7.3 documentation"
+          title="Search within Python 3.10.0 documentation"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -25,13 +27,11 @@
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="next" title="abc — Abstract Base Classes" href="abc.html" />
     <link rel="prev" title="dataclasses — Data Classes" href="dataclasses.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
     <link rel="canonical" href="https://docs.python.org/3/library/contextlib.html" />
     
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../_static/switchers.js"></script>
+      
     
-    
+
     
     <style>
       @media only screen {
@@ -40,9 +40,77 @@
         }
       }
     </style>
- 
+<link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
 
-  </head><body>
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://www.python.org/" class="nav-logo">
+             <img src="../_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">contextlib</span></code> — Utilities for <code class="xref std std-keyword docutils literal notranslate"><span class="pre">with</span></code>-statement contexts</a><ul>
+<li><a class="reference internal" href="#utilities">Utilities</a></li>
+<li><a class="reference internal" href="#examples-and-recipes">Examples and Recipes</a><ul>
+<li><a class="reference internal" href="#supporting-a-variable-number-of-context-managers">Supporting a variable number of context managers</a></li>
+<li><a class="reference internal" href="#catching-exceptions-from-enter-methods">Catching exceptions from <code class="docutils literal notranslate"><span class="pre">__enter__</span></code> methods</a></li>
+<li><a class="reference internal" href="#cleaning-up-in-an-enter-implementation">Cleaning up in an <code class="docutils literal notranslate"><span class="pre">__enter__</span></code> implementation</a></li>
+<li><a class="reference internal" href="#replacing-any-use-of-try-finally-and-flag-variables">Replacing any use of <code class="docutils literal notranslate"><span class="pre">try-finally</span></code> and flag variables</a></li>
+<li><a class="reference internal" href="#using-a-context-manager-as-a-function-decorator">Using a context manager as a function decorator</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#single-use-reusable-and-reentrant-context-managers">Single use, reusable and reentrant context managers</a><ul>
+<li><a class="reference internal" href="#reentrant-context-managers">Reentrant context managers</a></li>
+<li><a class="reference internal" href="#reusable-context-managers">Reusable context managers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="dataclasses.html"
+                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dataclasses</span></code> — Data Classes</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="abc.html"
+                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">abc</span></code> — Abstract Base Classes</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">Report a Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/library/contextlib.rst"
+            rel="nofollow">Show Source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
   
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -59,32 +127,37 @@
         <li class="right" >
           <a href="dataclasses.html" title="dataclasses — Data Classes"
              accesskey="P">previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="python.html" accesskey="U">Python Runtime Services</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">contextlib</span></code> — Utilities for <code class="xref std std-keyword docutils literal notranslate"><span class="pre">with</span></code>-statement contexts</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>    
 
@@ -95,7 +168,7 @@
             
   <div class="section" id="module-contextlib">
 <span id="contextlib-utilities-for-with-statement-contexts"></span><h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">contextlib</span></code> — Utilities for <code class="xref std std-keyword docutils literal notranslate"><span class="pre">with</span></code>-statement contexts<a class="headerlink" href="#module-contextlib" title="Permalink to this headline">¶</a></h1>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.7/Lib/contextlib.py">Lib/contextlib.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.10/Lib/contextlib.py">Lib/contextlib.py</a></p>
 <hr class="docutils" />
 <p>This module provides utilities for common tasks involving the <a class="reference internal" href="../reference/compound_stmts.html#with"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">with</span></code></a>
 statement. For more information see also <a class="reference internal" href="stdtypes.html#typecontextmanager"><span class="std std-ref">Context Manager Types</span></a> and
@@ -103,9 +176,9 @@ statement. For more information see also <a class="reference internal" href="std
 <div class="section" id="utilities">
 <h2>Utilities<a class="headerlink" href="#utilities" title="Permalink to this headline">¶</a></h2>
 <p>Functions and classes provided:</p>
-<dl class="class">
+<dl class="py class">
 <dt id="contextlib.AbstractContextManager">
-<em class="property">class </em><code class="descclassname">contextlib.</code><code class="descname">AbstractContextManager</code><a class="headerlink" href="#contextlib.AbstractContextManager" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">contextlib.</code><code class="sig-name descname">AbstractContextManager</code><a class="headerlink" href="#contextlib.AbstractContextManager" title="Permalink to this definition">¶</a></dt>
 <dd><p>An <a class="reference internal" href="../glossary.html#term-abstract-base-class"><span class="xref std std-term">abstract base class</span></a> for classes that implement
 <a class="reference internal" href="../reference/datamodel.html#object.__enter__" title="object.__enter__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">object.__enter__()</span></code></a> and <a class="reference internal" href="../reference/datamodel.html#object.__exit__" title="object.__exit__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">object.__exit__()</span></code></a>. A default
 implementation for <a class="reference internal" href="../reference/datamodel.html#object.__enter__" title="object.__enter__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">object.__enter__()</span></code></a> is provided which returns
@@ -116,9 +189,9 @@ returns <code class="docutils literal notranslate"><span class="pre">None</span>
 </div>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="contextlib.AbstractAsyncContextManager">
-<em class="property">class </em><code class="descclassname">contextlib.</code><code class="descname">AbstractAsyncContextManager</code><a class="headerlink" href="#contextlib.AbstractAsyncContextManager" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">contextlib.</code><code class="sig-name descname">AbstractAsyncContextManager</code><a class="headerlink" href="#contextlib.AbstractAsyncContextManager" title="Permalink to this definition">¶</a></dt>
 <dd><p>An <a class="reference internal" href="../glossary.html#term-abstract-base-class"><span class="xref std std-term">abstract base class</span></a> for classes that implement
 <a class="reference internal" href="../reference/datamodel.html#object.__aenter__" title="object.__aenter__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">object.__aenter__()</span></code></a> and <a class="reference internal" href="../reference/datamodel.html#object.__aexit__" title="object.__aexit__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">object.__aexit__()</span></code></a>. A default
 implementation for <a class="reference internal" href="../reference/datamodel.html#object.__aenter__" title="object.__aenter__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">object.__aenter__()</span></code></a> is provided which returns
@@ -130,18 +203,18 @@ returns <code class="docutils literal notranslate"><span class="pre">None</span>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="contextlib.contextmanager">
-<code class="descclassname">&#64;</code><code class="descclassname">contextlib.</code><code class="descname">contextmanager</code><a class="headerlink" href="#contextlib.contextmanager" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">&#64;</code><code class="sig-prename descclassname">contextlib.</code><code class="sig-name descname">contextmanager</code><a class="headerlink" href="#contextlib.contextmanager" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function is a <a class="reference internal" href="../glossary.html#term-decorator"><span class="xref std std-term">decorator</span></a> that can be used to define a factory
 function for <a class="reference internal" href="../reference/compound_stmts.html#with"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">with</span></code></a> statement context managers, without needing to
-create a class or separate <a class="reference internal" href="../reference/datamodel.html#object.__enter__" title="object.__enter__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__enter__()</span></code></a> and <a class="reference internal" href="../reference/datamodel.html#object.__exit__" title="object.__exit__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__exit__()</span></code></a> methods.</p>
+create a class or separate <code class="xref py py-meth docutils literal notranslate"><span class="pre">__enter__()</span></code> and <code class="xref py py-meth docutils literal notranslate"><span class="pre">__exit__()</span></code> methods.</p>
 <p>While many objects natively support use in with statements, sometimes a
 resource needs to be managed that isn’t a context manager in its own right,
 and doesn’t implement a <code class="docutils literal notranslate"><span class="pre">close()</span></code> method for use with <code class="docutils literal notranslate"><span class="pre">contextlib.closing</span></code></p>
 <p>An abstract example would be the following to ensure correct resource
 management:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="k">import</span> <span class="n">contextmanager</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
 
 <span class="nd">@contextmanager</span>
 <span class="k">def</span> <span class="nf">managed_resource</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
@@ -183,18 +256,19 @@ managers support multiple invocations in order to be used as decorators).</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="contextlib.asynccontextmanager">
-<code class="descclassname">&#64;</code><code class="descclassname">contextlib.</code><code class="descname">asynccontextmanager</code><a class="headerlink" href="#contextlib.asynccontextmanager" title="Permalink to this definition">¶</a></dt>
-<dd><p>Similar to <a class="reference internal" href="#contextlib.contextmanager" title="contextlib.contextmanager"><code class="xref py py-func docutils literal notranslate"><span class="pre">contextmanager()</span></code></a>, but creates an
+<code class="sig-prename descclassname">&#64;</code><code class="sig-prename descclassname">contextlib.</code><code class="sig-name descname">asynccontextmanager</code><a class="headerlink" href="#contextlib.asynccontextmanager" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Similar to <a class="reference internal" href="#contextlib.contextmanager" title="contextlib.contextmanager"><code class="xref py py-func docutils literal notranslate"><span class="pre">contextmanager()</span></code></a>, but creates an
 <a class="reference internal" href="../reference/datamodel.html#async-context-managers"><span class="std std-ref">asynchronous context manager</span></a>.</p>
 <p>This function is a <a class="reference internal" href="../glossary.html#term-decorator"><span class="xref std std-term">decorator</span></a> that can be used to define a factory
 function for <a class="reference internal" href="../reference/compound_stmts.html#async-with"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">async</span> <span class="pre">with</span></code></a> statement asynchronous context managers,
-without needing to create a class or separate <a class="reference internal" href="../reference/datamodel.html#object.__aenter__" title="object.__aenter__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__aenter__()</span></code></a> and
-<a class="reference internal" href="../reference/datamodel.html#object.__aexit__" title="object.__aexit__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__aexit__()</span></code></a> methods. It must be applied to an <a class="reference internal" href="../glossary.html#term-asynchronous-generator"><span class="xref std std-term">asynchronous
+without needing to create a class or separate <code class="xref py py-meth docutils literal notranslate"><span class="pre">__aenter__()</span></code> and
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">__aexit__()</span></code> methods. It must be applied to an <a class="reference internal" href="../glossary.html#term-asynchronous-generator"><span class="xref std std-term">asynchronous
 generator</span></a> function.</p>
 <p>A simple example:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="k">import</span> <span class="n">asynccontextmanager</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">asynccontextmanager</span>
 
 <span class="nd">@asynccontextmanager</span>
 <span class="k">async</span> <span class="k">def</span> <span class="nf">get_connection</span><span class="p">():</span>
@@ -212,14 +286,39 @@ generator</span></a> function.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 3.7.</span></p>
 </div>
+<p>Context managers defined with <a class="reference internal" href="#contextlib.asynccontextmanager" title="contextlib.asynccontextmanager"><code class="xref py py-func docutils literal notranslate"><span class="pre">asynccontextmanager()</span></code></a> can be used
+either as decorators or with <a class="reference internal" href="../reference/compound_stmts.html#async-with"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">async</span> <span class="pre">with</span></code></a> statements:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">timeit</span><span class="p">():</span>
+    <span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">yield</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;it took </span><span class="si">{</span><span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span> <span class="o">-</span> <span class="n">now</span><span class="si">}</span><span class="s1">s to run&#39;</span><span class="p">)</span>
+
+ <span class="nd">@timeit</span><span class="p">()</span>
+ <span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+     <span class="c1"># ... async code ...</span>
+</pre></div>
+</div>
+<p>When used as a decorator, a new generator instance is implicitly created on
+each function call. This allows the otherwise “one-shot” context managers
+created by <a class="reference internal" href="#contextlib.asynccontextmanager" title="contextlib.asynccontextmanager"><code class="xref py py-func docutils literal notranslate"><span class="pre">asynccontextmanager()</span></code></a> to meet the requirement that context
+managers support multiple invocations in order to be used as decorators.</p>
+</div></blockquote>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.10: </span>Async context managers created with <a class="reference internal" href="#contextlib.asynccontextmanager" title="contextlib.asynccontextmanager"><code class="xref py py-func docutils literal notranslate"><span class="pre">asynccontextmanager()</span></code></a> can
+be used as decorators.</p>
+</div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="contextlib.closing">
-<code class="descclassname">contextlib.</code><code class="descname">closing</code><span class="sig-paren">(</span><em>thing</em><span class="sig-paren">)</span><a class="headerlink" href="#contextlib.closing" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">contextlib.</code><code class="sig-name descname">closing</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">thing</span></em><span class="sig-paren">)</span><a class="headerlink" href="#contextlib.closing" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a context manager that closes <em>thing</em> upon completion of the block.  This
 is basically equivalent to:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="k">import</span> <span class="n">contextmanager</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
 
 <span class="nd">@contextmanager</span>
 <span class="k">def</span> <span class="nf">closing</span><span class="p">(</span><span class="n">thing</span><span class="p">):</span>
@@ -230,10 +329,10 @@ is basically equivalent to:</p>
 </pre></div>
 </div>
 <p>And lets you write code like this:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="k">import</span> <span class="n">closing</span>
-<span class="kn">from</span> <span class="nn">urllib.request</span> <span class="k">import</span> <span class="n">urlopen</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">closing</span>
+<span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
 
-<span class="k">with</span> <span class="n">closing</span><span class="p">(</span><span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;http://www.python.org&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="n">page</span><span class="p">:</span>
+<span class="k">with</span> <span class="n">closing</span><span class="p">(</span><span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;https://www.python.org&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="n">page</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">page</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 </pre></div>
@@ -242,9 +341,44 @@ is basically equivalent to:</p>
 <code class="docutils literal notranslate"><span class="pre">page.close()</span></code> will be called when the <a class="reference internal" href="../reference/compound_stmts.html#with"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">with</span></code></a> block is exited.</p>
 </dd></dl>
 
-<span class="target" id="simplifying-support-for-single-optional-context-managers"></span><dl class="function">
+<dl class="py class">
+<dt id="contextlib.aclosing">
+<em class="property">class </em><code class="sig-prename descclassname">contextlib.</code><code class="sig-name descname">aclosing</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">thing</span></em><span class="sig-paren">)</span><a class="headerlink" href="#contextlib.aclosing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an async context manager that calls the <code class="docutils literal notranslate"><span class="pre">aclose()</span></code> method of <em>thing</em>
+upon completion of the block.  This is basically equivalent to:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">asynccontextmanager</span>
+
+<span class="nd">@asynccontextmanager</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">aclosing</span><span class="p">(</span><span class="n">thing</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">thing</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="k">await</span> <span class="n">thing</span><span class="o">.</span><span class="n">aclose</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Significantly, <code class="docutils literal notranslate"><span class="pre">aclosing()</span></code> supports deterministic cleanup of async
+generators when they happen to exit early by <a class="reference internal" href="../reference/simple_stmts.html#break"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">break</span></code></a> or an
+exception.  For example:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">aclosing</span>
+
+<span class="k">async</span> <span class="k">with</span> <span class="n">aclosing</span><span class="p">(</span><span class="n">my_generator</span><span class="p">())</span> <span class="k">as</span> <span class="n">values</span><span class="p">:</span>
+    <span class="k">async</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="mi">42</span><span class="p">:</span>
+            <span class="k">break</span>
+</pre></div>
+</div>
+<p>This pattern ensures that the generator’s async exit code is executed in
+the same context as its iterations (so that exceptions and context
+variables work as expected, and the exit code isn’t run after the
+lifetime of some task it depends on).</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 3.10.</span></p>
+</div>
+</dd></dl>
+
+<span class="target" id="simplifying-support-for-single-optional-context-managers"></span><dl class="py function">
 <dt id="contextlib.nullcontext">
-<code class="descclassname">contextlib.</code><code class="descname">nullcontext</code><span class="sig-paren">(</span><em>enter_result=None</em><span class="sig-paren">)</span><a class="headerlink" href="#contextlib.nullcontext" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">contextlib.</code><code class="sig-name descname">nullcontext</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">enter_result</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#contextlib.nullcontext" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a context manager that returns <em>enter_result</em> from <code class="docutils literal notranslate"><span class="pre">__enter__</span></code>, but
 otherwise does nothing. It is intended to be used as a stand-in for an
 optional context manager, for example:</p>
@@ -272,23 +406,41 @@ optional context manager, for example:</p>
         <span class="c1"># Perform processing on the file</span>
 </pre></div>
 </div>
+<p>It can also be used as a stand-in for
+<a class="reference internal" href="../reference/datamodel.html#async-context-managers"><span class="std std-ref">asynchronous context managers</span></a>:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">async</span> <span class="k">def</span> <span class="nf">send_http</span><span class="p">(</span><span class="n">session</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+   <span class="k">if</span> <span class="ow">not</span> <span class="n">session</span><span class="p">:</span>
+       <span class="c1"># If no http session, create it with aiohttp</span>
+       <span class="n">cm</span> <span class="o">=</span> <span class="n">aiohttp</span><span class="o">.</span><span class="n">ClientSession</span><span class="p">()</span>
+   <span class="k">else</span><span class="p">:</span>
+       <span class="c1"># Caller is responsible for closing the session</span>
+       <span class="n">cm</span> <span class="o">=</span> <span class="n">nullcontext</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+
+   <span class="k">async</span> <span class="k">with</span> <span class="n">cm</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+       <span class="c1"># Send http requests with session</span>
+</pre></div>
+</div>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 3.7.</span></p>
 </div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.10: </span><a class="reference internal" href="../glossary.html#term-asynchronous-context-manager"><span class="xref std std-term">asynchronous context manager</span></a> support was added.</p>
+</div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="contextlib.suppress">
-<code class="descclassname">contextlib.</code><code class="descname">suppress</code><span class="sig-paren">(</span><em>*exceptions</em><span class="sig-paren">)</span><a class="headerlink" href="#contextlib.suppress" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">contextlib.</code><code class="sig-name descname">suppress</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">exceptions</span></em><span class="sig-paren">)</span><a class="headerlink" href="#contextlib.suppress" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a context manager that suppresses any of the specified exceptions
-if they occur in the body of a with statement and then resumes execution
-with the first statement following the end of the with statement.</p>
+if they occur in the body of a <code class="xref std std-keyword docutils literal notranslate"><span class="pre">with</span></code> statement and then
+resumes execution with the first statement following the end of the
+<code class="xref std std-keyword docutils literal notranslate"><span class="pre">with</span></code> statement.</p>
 <p>As with any other mechanism that completely suppresses exceptions, this
 context manager should be used only to cover very specific errors where
 silently continuing with program execution is known to be the right
 thing to do.</p>
 <p>For example:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="k">import</span> <span class="n">suppress</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">suppress</span>
 
 <span class="k">with</span> <span class="n">suppress</span><span class="p">(</span><span class="ne">FileNotFoundError</span><span class="p">):</span>
     <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;somefile.tmp&#39;</span><span class="p">)</span>
@@ -315,18 +467,19 @@ thing to do.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="contextlib.redirect_stdout">
-<code class="descclassname">contextlib.</code><code class="descname">redirect_stdout</code><span class="sig-paren">(</span><em>new_target</em><span class="sig-paren">)</span><a class="headerlink" href="#contextlib.redirect_stdout" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">contextlib.</code><code class="sig-name descname">redirect_stdout</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">new_target</span></em><span class="sig-paren">)</span><a class="headerlink" href="#contextlib.redirect_stdout" title="Permalink to this definition">¶</a></dt>
 <dd><p>Context manager for temporarily redirecting <a class="reference internal" href="sys.html#sys.stdout" title="sys.stdout"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.stdout</span></code></a> to
 another file or file-like object.</p>
 <p>This tool adds flexibility to existing functions or classes whose output
 is hardwired to stdout.</p>
 <p>For example, the output of <a class="reference internal" href="functions.html#help" title="help"><code class="xref py py-func docutils literal notranslate"><span class="pre">help()</span></code></a> normally is sent to <em>sys.stdout</em>.
 You can capture that output in a string by redirecting the output to an
-<a class="reference internal" href="io.html#io.StringIO" title="io.StringIO"><code class="xref py py-class docutils literal notranslate"><span class="pre">io.StringIO</span></code></a> object:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">()</span>
-<span class="k">with</span> <span class="n">redirect_stdout</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+<a class="reference internal" href="io.html#io.StringIO" title="io.StringIO"><code class="xref py py-class docutils literal notranslate"><span class="pre">io.StringIO</span></code></a> object. The replacement stream is returned from the
+<code class="docutils literal notranslate"><span class="pre">__enter__</span></code> method and so is available as the target of the
+<a class="reference internal" href="../reference/compound_stmts.html#with"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">with</span></code></a> statement:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">redirect_stdout</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">())</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">help</span><span class="p">(</span><span class="nb">pow</span><span class="p">)</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span>
 </pre></div>
@@ -353,9 +506,9 @@ However, it is still a useful approach for many utility scripts.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="contextlib.redirect_stderr">
-<code class="descclassname">contextlib.</code><code class="descname">redirect_stderr</code><span class="sig-paren">(</span><em>new_target</em><span class="sig-paren">)</span><a class="headerlink" href="#contextlib.redirect_stderr" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">contextlib.</code><code class="sig-name descname">redirect_stderr</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">new_target</span></em><span class="sig-paren">)</span><a class="headerlink" href="#contextlib.redirect_stderr" title="Permalink to this definition">¶</a></dt>
 <dd><p>Similar to <a class="reference internal" href="#contextlib.redirect_stdout" title="contextlib.redirect_stdout"><code class="xref py py-func docutils literal notranslate"><span class="pre">redirect_stdout()</span></code></a> but redirecting
 <a class="reference internal" href="sys.html#sys.stderr" title="sys.stderr"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.stderr</span></code></a> to another file or file-like object.</p>
 <p>This context manager is <a class="reference internal" href="#reentrant-cms"><span class="std std-ref">reentrant</span></a>.</p>
@@ -364,9 +517,9 @@ However, it is still a useful approach for many utility scripts.</p>
 </div>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="contextlib.ContextDecorator">
-<em class="property">class </em><code class="descclassname">contextlib.</code><code class="descname">ContextDecorator</code><a class="headerlink" href="#contextlib.ContextDecorator" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">contextlib.</code><code class="sig-name descname">ContextDecorator</code><a class="headerlink" href="#contextlib.ContextDecorator" title="Permalink to this definition">¶</a></dt>
 <dd><p>A base class that enables a context manager to also be used as a decorator.</p>
 <p>Context managers inheriting from <code class="docutils literal notranslate"><span class="pre">ContextDecorator</span></code> have to implement
 <code class="docutils literal notranslate"><span class="pre">__enter__</span></code> and <code class="docutils literal notranslate"><span class="pre">__exit__</span></code> as normal. <code class="docutils literal notranslate"><span class="pre">__exit__</span></code> retains its optional
@@ -374,14 +527,14 @@ exception handling even when used as a decorator.</p>
 <p><code class="docutils literal notranslate"><span class="pre">ContextDecorator</span></code> is used by <a class="reference internal" href="#contextlib.contextmanager" title="contextlib.contextmanager"><code class="xref py py-func docutils literal notranslate"><span class="pre">contextmanager()</span></code></a>, so you get this
 functionality automatically.</p>
 <p>Example of <code class="docutils literal notranslate"><span class="pre">ContextDecorator</span></code>:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="k">import</span> <span class="n">ContextDecorator</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">ContextDecorator</span>
 
 <span class="k">class</span> <span class="nc">mycontext</span><span class="p">(</span><span class="n">ContextDecorator</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Starting&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span>
 
-    <span class="k">def</span> <span class="nf">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">exc</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">exc</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Finishing&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="kc">False</span>
 
@@ -418,13 +571,13 @@ functionality automatically.</p>
 just a piece of it (and saving an indentation level is nice, too).</p>
 <p>Existing context managers that already have a base class can be extended by
 using <code class="docutils literal notranslate"><span class="pre">ContextDecorator</span></code> as a mixin class:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="k">import</span> <span class="n">ContextDecorator</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">ContextDecorator</span>
 
 <span class="k">class</span> <span class="nc">mycontext</span><span class="p">(</span><span class="n">ContextBaseClass</span><span class="p">,</span> <span class="n">ContextDecorator</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span>
 
-    <span class="k">def</span> <span class="nf">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">exc</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">exc</span><span class="p">):</span>
         <span class="k">return</span> <span class="kc">False</span>
 </pre></div>
 </div>
@@ -440,9 +593,50 @@ explicit <code class="xref std std-keyword docutils literal notranslate"><span c
 </div>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
+<dt id="contextlib.AsyncContextDecorator">
+<em class="property">class </em><code class="sig-prename descclassname">contextlib.</code><code class="sig-name descname">AsyncContextDecorator</code><a class="headerlink" href="#contextlib.AsyncContextDecorator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Similar to <a class="reference internal" href="#contextlib.ContextDecorator" title="contextlib.ContextDecorator"><code class="xref py py-class docutils literal notranslate"><span class="pre">ContextDecorator</span></code></a> but only for asynchronous functions.</p>
+<p>Example of <code class="docutils literal notranslate"><span class="pre">AsyncContextDecorator</span></code>:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">asyncio</span> <span class="kn">import</span> <span class="n">run</span>
+<span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">AsyncContextDecorator</span>
+
+<span class="k">class</span> <span class="nc">mycontext</span><span class="p">(</span><span class="n">AsyncContextDecorator</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="fm">__aenter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Starting&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="fm">__aexit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">exc</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Finishing&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nd">@mycontext</span><span class="p">()</span>
+<span class="o">...</span> <span class="k">async</span> <span class="k">def</span> <span class="nf">function</span><span class="p">():</span>
+<span class="o">...</span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The bit in the middle&#39;</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">run</span><span class="p">(</span><span class="n">function</span><span class="p">())</span>
+<span class="n">Starting</span>
+<span class="n">The</span> <span class="n">bit</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">middle</span>
+<span class="n">Finishing</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">async</span> <span class="k">def</span> <span class="nf">function</span><span class="p">():</span>
+<span class="o">...</span>    <span class="k">async</span> <span class="k">with</span> <span class="n">mycontext</span><span class="p">():</span>
+<span class="o">...</span>         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The bit in the middle&#39;</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">run</span><span class="p">(</span><span class="n">function</span><span class="p">())</span>
+<span class="n">Starting</span>
+<span class="n">The</span> <span class="n">bit</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">middle</span>
+<span class="n">Finishing</span>
+</pre></div>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 3.10.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py class">
 <dt id="contextlib.ExitStack">
-<em class="property">class </em><code class="descclassname">contextlib.</code><code class="descname">ExitStack</code><a class="headerlink" href="#contextlib.ExitStack" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">contextlib.</code><code class="sig-name descname">ExitStack</code><a class="headerlink" href="#contextlib.ExitStack" title="Permalink to this definition">¶</a></dt>
 <dd><p>A context manager that is designed to make it easy to programmatically
 combine other context managers and cleanup functions, especially those
 that are optional or otherwise driven by input data.</p>
@@ -475,35 +669,35 @@ stack in application specific ways.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 3.3.</span></p>
 </div>
-<dl class="method">
+<dl class="py method">
 <dt id="contextlib.ExitStack.enter_context">
-<code class="descname">enter_context</code><span class="sig-paren">(</span><em>cm</em><span class="sig-paren">)</span><a class="headerlink" href="#contextlib.ExitStack.enter_context" title="Permalink to this definition">¶</a></dt>
-<dd><p>Enters a new context manager and adds its <a class="reference internal" href="../reference/datamodel.html#object.__exit__" title="object.__exit__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__exit__()</span></code></a> method to
+<code class="sig-name descname">enter_context</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cm</span></em><span class="sig-paren">)</span><a class="headerlink" href="#contextlib.ExitStack.enter_context" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enters a new context manager and adds its <code class="xref py py-meth docutils literal notranslate"><span class="pre">__exit__()</span></code> method to
 the callback stack. The return value is the result of the context
-manager’s own <a class="reference internal" href="../reference/datamodel.html#object.__enter__" title="object.__enter__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__enter__()</span></code></a> method.</p>
+manager’s own <code class="xref py py-meth docutils literal notranslate"><span class="pre">__enter__()</span></code> method.</p>
 <p>These context managers may suppress exceptions just as they normally
 would if used directly as part of a <a class="reference internal" href="../reference/compound_stmts.html#with"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">with</span></code></a> statement.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="contextlib.ExitStack.push">
-<code class="descname">push</code><span class="sig-paren">(</span><em>exit</em><span class="sig-paren">)</span><a class="headerlink" href="#contextlib.ExitStack.push" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adds a context manager’s <a class="reference internal" href="../reference/datamodel.html#object.__exit__" title="object.__exit__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__exit__()</span></code></a> method to the callback stack.</p>
+<code class="sig-name descname">push</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">exit</span></em><span class="sig-paren">)</span><a class="headerlink" href="#contextlib.ExitStack.push" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a context manager’s <code class="xref py py-meth docutils literal notranslate"><span class="pre">__exit__()</span></code> method to the callback stack.</p>
 <p>As <code class="docutils literal notranslate"><span class="pre">__enter__</span></code> is <em>not</em> invoked, this method can be used to cover
-part of an <a class="reference internal" href="../reference/datamodel.html#object.__enter__" title="object.__enter__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__enter__()</span></code></a> implementation with a context manager’s own
-<a class="reference internal" href="../reference/datamodel.html#object.__exit__" title="object.__exit__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__exit__()</span></code></a> method.</p>
+part of an <code class="xref py py-meth docutils literal notranslate"><span class="pre">__enter__()</span></code> implementation with a context manager’s own
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">__exit__()</span></code> method.</p>
 <p>If passed an object that is not a context manager, this method assumes
 it is a callback with the same signature as a context manager’s
-<a class="reference internal" href="../reference/datamodel.html#object.__exit__" title="object.__exit__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__exit__()</span></code></a> method and adds it directly to the callback stack.</p>
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">__exit__()</span></code> method and adds it directly to the callback stack.</p>
 <p>By returning true values, these callbacks can suppress exceptions the
-same way context manager <a class="reference internal" href="../reference/datamodel.html#object.__exit__" title="object.__exit__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__exit__()</span></code></a> methods can.</p>
+same way context manager <code class="xref py py-meth docutils literal notranslate"><span class="pre">__exit__()</span></code> methods can.</p>
 <p>The passed in object is returned from the function, allowing this
 method to be used as a function decorator.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="contextlib.ExitStack.callback">
-<code class="descname">callback</code><span class="sig-paren">(</span><em>callback</em>, <em>*args</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#contextlib.ExitStack.callback" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">callback</code><span class="sig-paren">(</span><em class="sig-param">callback</em>, <em class="sig-param">/</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#contextlib.ExitStack.callback" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accepts an arbitrary callback function and arguments and adds it to
 the callback stack.</p>
 <p>Unlike the other methods, callbacks added this way cannot suppress
@@ -512,9 +706,9 @@ exceptions (as they are never passed the exception details).</p>
 method to be used as a function decorator.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="contextlib.ExitStack.pop_all">
-<code class="descname">pop_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#contextlib.ExitStack.pop_all" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">pop_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#contextlib.ExitStack.pop_all" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transfers the callback stack to a fresh <a class="reference internal" href="#contextlib.ExitStack" title="contextlib.ExitStack"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExitStack</span></code></a> instance
 and returns it. No callbacks are invoked by this operation - instead,
 they will now be invoked when the new stack is closed (either
@@ -533,9 +727,9 @@ operation as follows:</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="contextlib.ExitStack.close">
-<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#contextlib.ExitStack.close" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#contextlib.ExitStack.close" title="Permalink to this definition">¶</a></dt>
 <dd><p>Immediately unwinds the callback stack, invoking callbacks in the
 reverse order of registration. For any context managers and exit
 callbacks registered, the arguments passed in will indicate that no
@@ -544,38 +738,38 @@ exception occurred.</p>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="contextlib.AsyncExitStack">
-<em class="property">class </em><code class="descclassname">contextlib.</code><code class="descname">AsyncExitStack</code><a class="headerlink" href="#contextlib.AsyncExitStack" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">contextlib.</code><code class="sig-name descname">AsyncExitStack</code><a class="headerlink" href="#contextlib.AsyncExitStack" title="Permalink to this definition">¶</a></dt>
 <dd><p>An <a class="reference internal" href="../reference/datamodel.html#async-context-managers"><span class="std std-ref">asynchronous context manager</span></a>, similar
 to <a class="reference internal" href="#contextlib.ExitStack" title="contextlib.ExitStack"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExitStack</span></code></a>, that supports combining both synchronous and
 asynchronous context managers, as well as having coroutines for
 cleanup logic.</p>
 <p>The <code class="xref py py-meth docutils literal notranslate"><span class="pre">close()</span></code> method is not implemented, <a class="reference internal" href="#contextlib.AsyncExitStack.aclose" title="contextlib.AsyncExitStack.aclose"><code class="xref py py-meth docutils literal notranslate"><span class="pre">aclose()</span></code></a> must be used
 instead.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="contextlib.AsyncExitStack.enter_async_context">
-<code class="descname">enter_async_context</code><span class="sig-paren">(</span><em>cm</em><span class="sig-paren">)</span><a class="headerlink" href="#contextlib.AsyncExitStack.enter_async_context" title="Permalink to this definition">¶</a></dt>
+<em class="property">coroutine </em><code class="sig-name descname">enter_async_context</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cm</span></em><span class="sig-paren">)</span><a class="headerlink" href="#contextlib.AsyncExitStack.enter_async_context" title="Permalink to this definition">¶</a></dt>
 <dd><p>Similar to <code class="xref py py-meth docutils literal notranslate"><span class="pre">enter_context()</span></code> but expects an asynchronous context
 manager.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="contextlib.AsyncExitStack.push_async_exit">
-<code class="descname">push_async_exit</code><span class="sig-paren">(</span><em>exit</em><span class="sig-paren">)</span><a class="headerlink" href="#contextlib.AsyncExitStack.push_async_exit" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">push_async_exit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">exit</span></em><span class="sig-paren">)</span><a class="headerlink" href="#contextlib.AsyncExitStack.push_async_exit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Similar to <code class="xref py py-meth docutils literal notranslate"><span class="pre">push()</span></code> but expects either an asynchronous context manager
 or a coroutine function.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="contextlib.AsyncExitStack.push_async_callback">
-<code class="descname">push_async_callback</code><span class="sig-paren">(</span><em>callback</em>, <em>*args</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#contextlib.AsyncExitStack.push_async_callback" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">push_async_callback</code><span class="sig-paren">(</span><em class="sig-param">callback</em>, <em class="sig-param">/</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#contextlib.AsyncExitStack.push_async_callback" title="Permalink to this definition">¶</a></dt>
 <dd><p>Similar to <code class="xref py py-meth docutils literal notranslate"><span class="pre">callback()</span></code> but expects a coroutine function.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="contextlib.AsyncExitStack.aclose">
-<code class="descname">aclose</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#contextlib.AsyncExitStack.aclose" title="Permalink to this definition">¶</a></dt>
+<em class="property">coroutine </em><code class="sig-name descname">aclose</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#contextlib.AsyncExitStack.aclose" title="Permalink to this definition">¶</a></dt>
 <dd><p>Similar to <code class="xref py py-meth docutils literal notranslate"><span class="pre">close()</span></code> but properly handles awaitables.</p>
 </dd></dl>
 
@@ -648,15 +842,15 @@ easier to handle various situations that can’t be handled directly in a
 <h3>Cleaning up in an <code class="docutils literal notranslate"><span class="pre">__enter__</span></code> implementation<a class="headerlink" href="#cleaning-up-in-an-enter-implementation" title="Permalink to this headline">¶</a></h3>
 <p>As noted in the documentation of <a class="reference internal" href="#contextlib.ExitStack.push" title="contextlib.ExitStack.push"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ExitStack.push()</span></code></a>, this
 method can be useful in cleaning up an already allocated resource if later
-steps in the <a class="reference internal" href="../reference/datamodel.html#object.__enter__" title="object.__enter__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__enter__()</span></code></a> implementation fail.</p>
+steps in the <code class="xref py py-meth docutils literal notranslate"><span class="pre">__enter__()</span></code> implementation fail.</p>
 <p>Here’s an example of doing this for a context manager that accepts resource
 acquisition and release functions, along with an optional validation function,
 and maps them to the context management protocol:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="k">import</span> <span class="n">contextmanager</span><span class="p">,</span> <span class="n">AbstractContextManager</span><span class="p">,</span> <span class="n">ExitStack</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span><span class="p">,</span> <span class="n">AbstractContextManager</span><span class="p">,</span> <span class="n">ExitStack</span>
 
 <span class="k">class</span> <span class="nc">ResourceManager</span><span class="p">(</span><span class="n">AbstractContextManager</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">acquire_resource</span><span class="p">,</span> <span class="n">release_resource</span><span class="p">,</span> <span class="n">check_resource_ok</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">acquire_resource</span><span class="p">,</span> <span class="n">release_resource</span><span class="p">,</span> <span class="n">check_resource_ok</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">acquire_resource</span> <span class="o">=</span> <span class="n">acquire_resource</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">release_resource</span> <span class="o">=</span> <span class="n">release_resource</span>
         <span class="k">if</span> <span class="n">check_resource_ok</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -674,7 +868,7 @@ and maps them to the context management protocol:</p>
             <span class="c1"># back to our caller</span>
             <span class="n">stack</span><span class="o">.</span><span class="n">pop_all</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">resource</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">acquire_resource</span><span class="p">()</span>
         <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cleanup_on_error</span><span class="p">():</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_resource_ok</span><span class="p">(</span><span class="n">resource</span><span class="p">):</span>
@@ -682,7 +876,7 @@ and maps them to the context management protocol:</p>
                 <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">resource</span>
 
-    <span class="k">def</span> <span class="nf">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">exc_details</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">exc_details</span><span class="p">):</span>
         <span class="c1"># We don&#39;t need to duplicate any of our resource release logic</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">release_resource</span><span class="p">()</span>
 </pre></div>
@@ -710,7 +904,7 @@ up being separated by arbitrarily long sections of code.</p>
 <p><a class="reference internal" href="#contextlib.ExitStack" title="contextlib.ExitStack"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExitStack</span></code></a> makes it possible to instead register a callback for
 execution at the end of a <code class="docutils literal notranslate"><span class="pre">with</span></code> statement, and then later decide to skip
 executing that callback:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="k">import</span> <span class="n">ExitStack</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">ExitStack</span>
 
 <span class="k">with</span> <span class="n">ExitStack</span><span class="p">()</span> <span class="k">as</span> <span class="n">stack</span><span class="p">:</span>
     <span class="n">stack</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span><span class="n">cleanup_resources</span><span class="p">)</span>
@@ -723,11 +917,11 @@ executing that callback:</p>
 rather than requiring a separate flag variable.</p>
 <p>If a particular application uses this pattern a lot, it can be simplified
 even further by means of a small helper class:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="k">import</span> <span class="n">ExitStack</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">ExitStack</span>
 
 <span class="k">class</span> <span class="nc">Callback</span><span class="p">(</span><span class="n">ExitStack</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">Callback</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span><span class="n">callback</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">cancel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -743,7 +937,7 @@ even further by means of a small helper class:</p>
 function, then it is still possible to use the decorator form of
 <a class="reference internal" href="#contextlib.ExitStack.callback" title="contextlib.ExitStack.callback"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ExitStack.callback()</span></code></a> to declare the resource cleanup in
 advance:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="k">import</span> <span class="n">ExitStack</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">ExitStack</span>
 
 <span class="k">with</span> <span class="n">ExitStack</span><span class="p">()</span> <span class="k">as</span> <span class="n">stack</span><span class="p">:</span>
     <span class="nd">@stack</span><span class="o">.</span><span class="n">callback</span>
@@ -767,19 +961,19 @@ with a logger that can track the time of entry and time of exit.  Rather than
 writing both a function decorator and a context manager for the task,
 inheriting from <a class="reference internal" href="#contextlib.ContextDecorator" title="contextlib.ContextDecorator"><code class="xref py py-class docutils literal notranslate"><span class="pre">ContextDecorator</span></code></a> provides both capabilities in a
 single definition:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="k">import</span> <span class="n">ContextDecorator</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">ContextDecorator</span>
 <span class="kn">import</span> <span class="nn">logging</span>
 
 <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
 
 <span class="k">class</span> <span class="nc">track_entry_and_exit</span><span class="p">(</span><span class="n">ContextDecorator</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
 
-    <span class="k">def</span> <span class="nf">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Entering: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">):</span>
         <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Exiting: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -798,7 +992,7 @@ single definition:</p>
 </div>
 <p>Note that there is one additional limitation when using context managers
 as function decorators: there’s no way to access the return value of
-<a class="reference internal" href="../reference/datamodel.html#object.__enter__" title="object.__enter__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__enter__()</span></code></a>. If that value is needed, then it is still necessary to use
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">__enter__()</span></code>. If that value is needed, then it is still necessary to use
 an explicit <code class="docutils literal notranslate"><span class="pre">with</span></code> statement.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
@@ -826,7 +1020,7 @@ further IO operations using that file object.</p>
 <p>Context managers created using <a class="reference internal" href="#contextlib.contextmanager" title="contextlib.contextmanager"><code class="xref py py-func docutils literal notranslate"><span class="pre">contextmanager()</span></code></a> are also single use
 context managers, and will complain about the underlying generator failing
 to yield if an attempt is made to use them a second time:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="k">import</span> <span class="n">contextmanager</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nd">@contextmanager</span>
 <span class="gp">... </span><span class="k">def</span> <span class="nf">singleuse</span><span class="p">():</span>
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Before&quot;</span><span class="p">)</span>
@@ -856,8 +1050,8 @@ using the same context manager.</p>
 <p><a class="reference internal" href="threading.html#threading.RLock" title="threading.RLock"><code class="xref py py-class docutils literal notranslate"><span class="pre">threading.RLock</span></code></a> is an example of a reentrant context manager, as are
 <a class="reference internal" href="#contextlib.suppress" title="contextlib.suppress"><code class="xref py py-func docutils literal notranslate"><span class="pre">suppress()</span></code></a> and <a class="reference internal" href="#contextlib.redirect_stdout" title="contextlib.redirect_stdout"><code class="xref py py-func docutils literal notranslate"><span class="pre">redirect_stdout()</span></code></a>. Here’s a very simple example of
 reentrant use:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="k">import</span> <span class="n">redirect_stdout</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">io</span> <span class="k">import</span> <span class="n">StringIO</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">redirect_stdout</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">StringIO</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stream</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">write_to_stream</span> <span class="o">=</span> <span class="n">redirect_stdout</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">write_to_stream</span><span class="p">:</span>
@@ -895,7 +1089,7 @@ context manager (for a reentrant lock, it is necessary to use
 <a class="reference internal" href="#contextlib.ExitStack" title="contextlib.ExitStack"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExitStack</span></code></a>, as it invokes <em>all</em> currently registered callbacks
 when leaving any with statement, regardless of where those callbacks
 were added:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="k">import</span> <span class="n">ExitStack</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">ExitStack</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span> <span class="o">=</span> <span class="n">ExitStack</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">stack</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="n">stack</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="s2">&quot;Callback: from first context&quot;</span><span class="p">)</span>
@@ -928,7 +1122,7 @@ will cause the stack to be cleared at the end of the innermost with
 statement, which is unlikely to be desirable behaviour.</p>
 <p>Using separate <a class="reference internal" href="#contextlib.ExitStack" title="contextlib.ExitStack"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExitStack</span></code></a> instances instead of reusing a single
 instance avoids that problem:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="k">import</span> <span class="n">ExitStack</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">ExitStack</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">ExitStack</span><span class="p">()</span> <span class="k">as</span> <span class="n">outer_stack</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="n">outer_stack</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="s2">&quot;Callback: from outer context&quot;</span><span class="p">)</span>
 <span class="gp">... </span>    <span class="k">with</span> <span class="n">ExitStack</span><span class="p">()</span> <span class="k">as</span> <span class="n">inner_stack</span><span class="p">:</span>
@@ -947,6 +1141,7 @@ instance avoids that problem:</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -984,7 +1179,7 @@ instance avoids that problem:</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a Bug</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.7/Doc/library/contextlib.rst"
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/library/contextlib.rst"
             rel="nofollow">Show Source
         </a>
       </li>
@@ -1009,44 +1204,59 @@ instance avoids that problem:</p>
         <li class="right" >
           <a href="dataclasses.html" title="dataclasses — Data Classes"
              >previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="python.html" >Python Runtime Services</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">contextlib</span></code> — Utilities for <code class="xref std std-keyword docutils literal notranslate"><span class="pre">with</span></code>-statement contexts</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">Copyright</a> 2001-2019, Python Software Foundation.
+    &copy; <a href="../copyright.html">Copyright</a> 2001-2021, Python Software Foundation.
     <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
     The Python Software Foundation is a non-profit corporation.
-    <a href="https://www.python.org/psf/donations/">Please donate.</a>
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
     <br />
-    Last updated on Jun 19, 2019.
-    <a href="../bugs.html">Found a bug</a>?
+
+    Last updated on Nov 06, 2021.
+    <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.0.1.
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
     </div>
 
   </body>

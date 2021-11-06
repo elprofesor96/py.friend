@@ -8,7 +8,12 @@ def credit():
     | '__| | | | |/ _ \ '__|_  / (_) | '_ \ 
     | |  | |_| | |  __/ |   / / \__, | (_) |
     |_|   \__,_|_|\___|_|  /___|  /_/ \___/ 
-        """
+
+    [!] Don't forget to change /etc/pyfriend/pyfriend.conf
+    [!] Need to be python3 docs download link
+        
+
+"""
     return rulerzCredit
 
 def pyFriendMenuArguments():

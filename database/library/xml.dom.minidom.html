@@ -1,23 +1,25 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>xml.dom.minidom — Minimal DOM implementation &#8212; Python 3.7.3 documentation</title>
-    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>xml.dom.minidom — Minimal DOM implementation &#8212; Python 3.10.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../_static/pydoctheme.css?2021.11.1" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     
-    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Python 3.7.3 documentation"
+          title="Search within Python 3.10.0 documentation"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -25,13 +27,11 @@
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="next" title="xml.dom.pulldom — Support for building partial DOM trees" href="xml.dom.pulldom.html" />
     <link rel="prev" title="xml.dom — The Document Object Model API" href="xml.dom.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
     <link rel="canonical" href="https://docs.python.org/3/library/xml.dom.minidom.html" />
     
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../_static/switchers.js"></script>
+      
     
-    
+
     
     <style>
       @media only screen {
@@ -40,9 +40,66 @@
         }
       }
     </style>
- 
+<link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
 
-  </head><body>
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://www.python.org/" class="nav-logo">
+             <img src="../_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.dom.minidom</span></code> — Minimal DOM implementation</a><ul>
+<li><a class="reference internal" href="#dom-objects">DOM Objects</a></li>
+<li><a class="reference internal" href="#dom-example">DOM Example</a></li>
+<li><a class="reference internal" href="#minidom-and-the-dom-standard">minidom and the DOM standard</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="xml.dom.html"
+                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.dom</span></code> — The Document Object Model API</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="xml.dom.pulldom.html"
+                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.dom.pulldom</span></code> — Support for building partial DOM trees</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">Report a Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/library/xml.dom.minidom.rst"
+            rel="nofollow">Show Source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
   
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -59,32 +116,37 @@
         <li class="right" >
           <a href="xml.dom.html" title="xml.dom — The Document Object Model API"
              accesskey="P">previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="markup.html" accesskey="U">Structured Markup Processing Tools</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.dom.minidom</span></code> — Minimal DOM implementation</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>    
 
@@ -95,7 +157,7 @@
             
   <div class="section" id="module-xml.dom.minidom">
 <span id="xml-dom-minidom-minimal-dom-implementation"></span><h1><a class="reference internal" href="#module-xml.dom.minidom" title="xml.dom.minidom: Minimal Document Object Model (DOM) implementation."><code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.dom.minidom</span></code></a> — Minimal DOM implementation<a class="headerlink" href="#module-xml.dom.minidom" title="Permalink to this headline">¶</a></h1>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.7/Lib/xml/dom/minidom.py">Lib/xml/dom/minidom.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.10/Lib/xml/dom/minidom.py">Lib/xml/dom/minidom.py</a></p>
 <hr class="docutils" />
 <p><a class="reference internal" href="#module-xml.dom.minidom" title="xml.dom.minidom: Minimal Document Object Model (DOM) implementation."><code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.dom.minidom</span></code></a> is a minimal implementation of the Document Object
 Model interface, with an API similar to that in other languages.  It is intended
@@ -110,7 +172,7 @@ unauthenticated data see <a class="reference internal" href="xml.html#xml-vulner
 </div>
 <p>DOM applications typically start by parsing some XML into a DOM.  With
 <a class="reference internal" href="#module-xml.dom.minidom" title="xml.dom.minidom: Minimal Document Object Model (DOM) implementation."><code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.dom.minidom</span></code></a>, this is done through the parse functions:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">xml.dom.minidom</span> <span class="k">import</span> <span class="n">parse</span><span class="p">,</span> <span class="n">parseString</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">xml.dom.minidom</span> <span class="kn">import</span> <span class="n">parse</span><span class="p">,</span> <span class="n">parseString</span>
 
 <span class="n">dom1</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s1">&#39;c:</span><span class="se">\\</span><span class="s1">temp</span><span class="se">\\</span><span class="s1">mydata.xml&#39;</span><span class="p">)</span>  <span class="c1"># parse an XML file by name</span>
 
@@ -121,9 +183,9 @@ unauthenticated data see <a class="reference internal" href="xml.html#xml-vulner
 </pre></div>
 </div>
 <p>The <a class="reference internal" href="#xml.dom.minidom.parse" title="xml.dom.minidom.parse"><code class="xref py py-func docutils literal notranslate"><span class="pre">parse()</span></code></a> function can take either a filename or an open file object.</p>
-<dl class="function">
+<dl class="py function">
 <dt id="xml.dom.minidom.parse">
-<code class="descclassname">xml.dom.minidom.</code><code class="descname">parse</code><span class="sig-paren">(</span><em>filename_or_file</em>, <em>parser=None</em>, <em>bufsize=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.dom.minidom.parse" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">xml.dom.minidom.</code><code class="sig-name descname">parse</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename_or_file</span></em>, <em class="sig-param"><span class="n">parser</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">bufsize</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#xml.dom.minidom.parse" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a <code class="xref py py-class docutils literal notranslate"><span class="pre">Document</span></code> from the given input. <em>filename_or_file</em> may be
 either a file name, or a file-like object. <em>parser</em>, if given, must be a SAX2
 parser object. This function will change the document handler of the parser and
@@ -133,9 +195,9 @@ resolver) must have been done in advance.</p>
 
 <p>If you have XML in a string, you can use the <a class="reference internal" href="#xml.dom.minidom.parseString" title="xml.dom.minidom.parseString"><code class="xref py py-func docutils literal notranslate"><span class="pre">parseString()</span></code></a> function
 instead:</p>
-<dl class="function">
+<dl class="py function">
 <dt id="xml.dom.minidom.parseString">
-<code class="descclassname">xml.dom.minidom.</code><code class="descname">parseString</code><span class="sig-paren">(</span><em>string</em>, <em>parser=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.dom.minidom.parseString" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">xml.dom.minidom.</code><code class="sig-name descname">parseString</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">string</span></em>, <em class="sig-param"><span class="n">parser</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#xml.dom.minidom.parseString" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a <code class="xref py py-class docutils literal notranslate"><span class="pre">Document</span></code> that represents the <em>string</em>. This method creates an
 <a class="reference internal" href="io.html#io.StringIO" title="io.StringIO"><code class="xref py py-class docutils literal notranslate"><span class="pre">io.StringIO</span></code></a> object for the string and passes that on to <a class="reference internal" href="#xml.dom.minidom.parse" title="xml.dom.minidom.parse"><code class="xref py py-func docutils literal notranslate"><span class="pre">parse()</span></code></a>.</p>
 </dd></dl>
@@ -153,7 +215,7 @@ Implementation” object.  You can get this object either by calling the
 <code class="xref py py-func docutils literal notranslate"><span class="pre">getDOMImplementation()</span></code> function in the <a class="reference internal" href="xml.dom.html#module-xml.dom" title="xml.dom: Document Object Model API for Python."><code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.dom</span></code></a> package or the
 <a class="reference internal" href="#module-xml.dom.minidom" title="xml.dom.minidom: Minimal Document Object Model (DOM) implementation."><code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.dom.minidom</span></code></a> module.  Once you have a <code class="xref py py-class docutils literal notranslate"><span class="pre">Document</span></code>, you
 can add child nodes to it to populate the DOM:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">xml.dom.minidom</span> <span class="k">import</span> <span class="n">getDOMImplementation</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">xml.dom.minidom</span> <span class="kn">import</span> <span class="n">getDOMImplementation</span>
 
 <span class="n">impl</span> <span class="o">=</span> <span class="n">getDOMImplementation</span><span class="p">()</span>
 
@@ -190,9 +252,9 @@ eventually take care of the objects in the tree.</p>
 <p>The definition of the DOM API for Python is given as part of the <a class="reference internal" href="xml.dom.html#module-xml.dom" title="xml.dom: Document Object Model API for Python."><code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.dom</span></code></a>
 module documentation.  This section lists the differences between the API and
 <a class="reference internal" href="#module-xml.dom.minidom" title="xml.dom.minidom: Minimal Document Object Model (DOM) implementation."><code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.dom.minidom</span></code></a>.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="xml.dom.minidom.Node.unlink">
-<code class="descclassname">Node.</code><code class="descname">unlink</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xml.dom.minidom.Node.unlink" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Node.</code><code class="sig-name descname">unlink</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xml.dom.minidom.Node.unlink" title="Permalink to this definition">¶</a></dt>
 <dd><p>Break internal references within the DOM so that it will be garbage collected on
 versions of Python without cyclic GC.  Even when cyclic GC is available, using
 this can make large amounts of memory available sooner, so calling this on DOM
@@ -208,9 +270,9 @@ statement. The following code will automatically unlink <em>dom</em> when the
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="xml.dom.minidom.Node.writexml">
-<code class="descclassname">Node.</code><code class="descname">writexml</code><span class="sig-paren">(</span><em>writer</em>, <em>indent=&quot;&quot;</em>, <em>addindent=&quot;&quot;</em>, <em>newl=&quot;&quot;</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.dom.minidom.Node.writexml" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Node.</code><code class="sig-name descname">writexml</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">writer</span></em>, <em class="sig-param"><span class="n">indent</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">addindent</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">newl</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">encoding</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">standalone</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#xml.dom.minidom.Node.writexml" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write XML to the writer object.  The writer receives texts but not bytes as input,
 it should have a <code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code> method which matches that of the file object
 interface.  The <em>indent</em> parameter is the indentation of the current node.
@@ -219,11 +281,24 @@ of the current one.  The <em>newl</em> parameter specifies the string to use to
 terminate newlines.</p>
 <p>For the <code class="xref py py-class docutils literal notranslate"><span class="pre">Document</span></code> node, an additional keyword argument <em>encoding</em> can
 be used to specify the encoding field of the XML header.</p>
+<p>Similarly, explicitly stating the <em>standalone</em> argument causes the
+standalone document declarations to be added to the prologue of the XML
+document.
+If the value is set to <cite>True</cite>, <cite>standalone=”yes”</cite> is added,
+otherwise it is set to <cite>“no”</cite>.
+Not stating the argument will omit the declaration from the document.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.8: </span>The <a class="reference internal" href="#xml.dom.minidom.Node.writexml" title="xml.dom.minidom.Node.writexml"><code class="xref py py-meth docutils literal notranslate"><span class="pre">writexml()</span></code></a> method now preserves the attribute order specified
+by the user.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.9: </span>The <em>standalone</em> parameter was added.</p>
+</div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="xml.dom.minidom.Node.toxml">
-<code class="descclassname">Node.</code><code class="descname">toxml</code><span class="sig-paren">(</span><em>encoding=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.dom.minidom.Node.toxml" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Node.</code><code class="sig-name descname">toxml</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">encoding</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">standalone</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#xml.dom.minidom.Node.toxml" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a string or byte string containing the XML represented by
 the DOM node.</p>
 <p>With an explicit <em>encoding</em> <a class="footnote-reference brackets" href="#id3" id="id1">1</a> argument, the result is a byte
@@ -232,16 +307,32 @@ With no <em>encoding</em> argument, the result is a Unicode string, and the
 XML declaration in the resulting string does not specify an
 encoding. Encoding this string in an encoding other than UTF-8 is
 likely incorrect, since UTF-8 is the default encoding of XML.</p>
+<p>The <em>standalone</em> argument behaves exactly as in <a class="reference internal" href="#xml.dom.minidom.Node.writexml" title="xml.dom.minidom.Node.writexml"><code class="xref py py-meth docutils literal notranslate"><span class="pre">writexml()</span></code></a>.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.8: </span>The <a class="reference internal" href="#xml.dom.minidom.Node.toxml" title="xml.dom.minidom.Node.toxml"><code class="xref py py-meth docutils literal notranslate"><span class="pre">toxml()</span></code></a> method now preserves the attribute order specified
+by the user.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.9: </span>The <em>standalone</em> parameter was added.</p>
+</div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="xml.dom.minidom.Node.toprettyxml">
-<code class="descclassname">Node.</code><code class="descname">toprettyxml</code><span class="sig-paren">(</span><em>indent=&quot;\t&quot;</em>, <em>newl=&quot;\n&quot;</em>, <em>encoding=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.dom.minidom.Node.toprettyxml" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Node.</code><code class="sig-name descname">toprettyxml</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">indent</span><span class="o">=</span><span class="default_value">'\t'</span></em>, <em class="sig-param"><span class="n">newl</span><span class="o">=</span><span class="default_value">'\n'</span></em>, <em class="sig-param"><span class="n">encoding</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">standalone</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#xml.dom.minidom.Node.toprettyxml" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a pretty-printed version of the document. <em>indent</em> specifies the
 indentation string and defaults to a tabulator; <em>newl</em> specifies the string
 emitted at the end of each line and defaults to <code class="docutils literal notranslate"><span class="pre">\n</span></code>.</p>
 <p>The <em>encoding</em> argument behaves like the corresponding argument of
 <a class="reference internal" href="#xml.dom.minidom.Node.toxml" title="xml.dom.minidom.Node.toxml"><code class="xref py py-meth docutils literal notranslate"><span class="pre">toxml()</span></code></a>.</p>
+<p>The <em>standalone</em> argument behaves exactly as in <a class="reference internal" href="#xml.dom.minidom.Node.writexml" title="xml.dom.minidom.Node.writexml"><code class="xref py py-meth docutils literal notranslate"><span class="pre">writexml()</span></code></a>.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.8: </span>The <a class="reference internal" href="#xml.dom.minidom.Node.toprettyxml" title="xml.dom.minidom.Node.toprettyxml"><code class="xref py py-meth docutils literal notranslate"><span class="pre">toprettyxml()</span></code></a> method now preserves the attribute order specified
+by the user.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.9: </span>The <em>standalone</em> parameter was added.</p>
+</div>
 </dd></dl>
 
 </div>
@@ -373,6 +464,7 @@ and <a class="reference external" href="https://www.iana.org/assignments/charact
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -399,7 +491,7 @@ and <a class="reference external" href="https://www.iana.org/assignments/charact
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a Bug</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.7/Doc/library/xml.dom.minidom.rst"
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/library/xml.dom.minidom.rst"
             rel="nofollow">Show Source
         </a>
       </li>
@@ -424,44 +516,59 @@ and <a class="reference external" href="https://www.iana.org/assignments/charact
         <li class="right" >
           <a href="xml.dom.html" title="xml.dom — The Document Object Model API"
              >previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="markup.html" >Structured Markup Processing Tools</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.dom.minidom</span></code> — Minimal DOM implementation</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">Copyright</a> 2001-2019, Python Software Foundation.
+    &copy; <a href="../copyright.html">Copyright</a> 2001-2021, Python Software Foundation.
     <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
     The Python Software Foundation is a non-profit corporation.
-    <a href="https://www.python.org/psf/donations/">Please donate.</a>
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
     <br />
-    Last updated on Jun 19, 2019.
-    <a href="../bugs.html">Found a bug</a>?
+
+    Last updated on Nov 06, 2021.
+    <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.0.1.
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
     </div>
 
   </body>

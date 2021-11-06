@@ -1,23 +1,25 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>Logging HOWTO &#8212; Python 3.7.3 documentation</title>
-    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logging HOWTO &#8212; Python 3.10.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../_static/pydoctheme.css?2021.11.1" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     
-    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Python 3.7.3 documentation"
+          title="Search within Python 3.10.0 documentation"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -25,13 +27,11 @@
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="next" title="Logging Cookbook" href="logging-cookbook.html" />
     <link rel="prev" title="Functional Programming HOWTO" href="functional.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
     <link rel="canonical" href="https://docs.python.org/3/howto/logging.html" />
     
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../_static/switchers.js"></script>
+      
     
-    
+
     
     <style>
       @media only screen {
@@ -40,9 +40,92 @@
         }
       }
     </style>
- 
+<link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
 
-  </head><body>
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://www.python.org/" class="nav-logo">
+             <img src="../_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Logging HOWTO</a><ul>
+<li><a class="reference internal" href="#basic-logging-tutorial">Basic Logging Tutorial</a><ul>
+<li><a class="reference internal" href="#when-to-use-logging">When to use logging</a></li>
+<li><a class="reference internal" href="#a-simple-example">A simple example</a></li>
+<li><a class="reference internal" href="#logging-to-a-file">Logging to a file</a></li>
+<li><a class="reference internal" href="#logging-from-multiple-modules">Logging from multiple modules</a></li>
+<li><a class="reference internal" href="#logging-variable-data">Logging variable data</a></li>
+<li><a class="reference internal" href="#changing-the-format-of-displayed-messages">Changing the format of displayed messages</a></li>
+<li><a class="reference internal" href="#displaying-the-date-time-in-messages">Displaying the date/time in messages</a></li>
+<li><a class="reference internal" href="#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#advanced-logging-tutorial">Advanced Logging Tutorial</a><ul>
+<li><a class="reference internal" href="#logging-flow">Logging Flow</a></li>
+<li><a class="reference internal" href="#loggers">Loggers</a></li>
+<li><a class="reference internal" href="#handlers">Handlers</a></li>
+<li><a class="reference internal" href="#formatters">Formatters</a></li>
+<li><a class="reference internal" href="#configuring-logging">Configuring Logging</a></li>
+<li><a class="reference internal" href="#what-happens-if-no-configuration-is-provided">What happens if no configuration is provided</a></li>
+<li><a class="reference internal" href="#configuring-logging-for-a-library">Configuring Logging for a Library</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#logging-levels">Logging Levels</a><ul>
+<li><a class="reference internal" href="#custom-levels">Custom Levels</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#useful-handlers">Useful Handlers</a></li>
+<li><a class="reference internal" href="#exceptions-raised-during-logging">Exceptions raised during logging</a></li>
+<li><a class="reference internal" href="#using-arbitrary-objects-as-messages">Using arbitrary objects as messages</a></li>
+<li><a class="reference internal" href="#optimization">Optimization</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="functional.html"
+                        title="previous chapter">Functional Programming HOWTO</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="logging-cookbook.html"
+                        title="next chapter">Logging Cookbook</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">Report a Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/howto/logging.rst"
+            rel="nofollow">Show Source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
   
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -59,31 +142,36 @@
         <li class="right" >
           <a href="functional.html" title="Functional Programming HOWTO"
              accesskey="P">previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Python HOWTOs</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href="">Logging HOWTO</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>    
 
@@ -114,7 +202,7 @@ or <em>severity</em>.</p>
 are <a class="reference internal" href="../library/logging.html#logging.debug" title="logging.debug"><code class="xref py py-func docutils literal notranslate"><span class="pre">debug()</span></code></a>, <a class="reference internal" href="../library/logging.html#logging.info" title="logging.info"><code class="xref py py-func docutils literal notranslate"><span class="pre">info()</span></code></a>, <a class="reference internal" href="../library/logging.html#logging.warning" title="logging.warning"><code class="xref py py-func docutils literal notranslate"><span class="pre">warning()</span></code></a>, <a class="reference internal" href="../library/logging.html#logging.error" title="logging.error"><code class="xref py py-func docutils literal notranslate"><span class="pre">error()</span></code></a> and
 <a class="reference internal" href="../library/logging.html#logging.critical" title="logging.critical"><code class="xref py py-func docutils literal notranslate"><span class="pre">critical()</span></code></a>. To determine when to use logging, see the table below, which
 states, for each of a set of common tasks, the best tool to use for it.</p>
-<table class="docutils align-center">
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 49%" />
 <col style="width: 51%" />
@@ -170,7 +258,7 @@ and application domain</p></td>
 <p>The logging functions are named after the level or severity of the events
 they are used to track. The standard levels and their applicability are
 described below (in increasing order of severity):</p>
-<table class="docutils align-center">
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 24%" />
 <col style="width: 76%" />
@@ -237,17 +325,26 @@ formatting options will also be explained later.</p>
 look at that next. Be sure to try the following in a newly-started Python
 interpreter, and don’t just continue from the session described above:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
-<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;example.log&#39;</span><span class="p">,</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;example.log&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
 <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;This message should go to the log file&#39;</span><span class="p">)</span>
 <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;So should this&#39;</span><span class="p">)</span>
 <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;And this, too&#39;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;And non-ASCII stuff, too, like Øresund and Malmö&#39;</span><span class="p">)</span>
 </pre></div>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.9: </span>The <em>encoding</em> argument was added. In earlier Python versions, or if not
+specified, the encoding used is the default value used by <a class="reference internal" href="../library/functions.html#open" title="open"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a>. While
+not shown in the above example, an <em>errors</em> argument can also now be passed,
+which determines how encoding errors are handled. For available values and
+the default, see the documentation for <a class="reference internal" href="../library/functions.html#open" title="open"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a>.</p>
 </div>
 <p>And now if we open the file and look at what we have, we should find the log
 messages:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>DEBUG:root:This message should go to the log file
 INFO:root:So should this
 WARNING:root:And this, too
+ERROR:root:And non-ASCII stuff, too, like Øresund and Malmö
 </pre></div>
 </div>
 <p>This example also shows how you can set the logging level which acts as the
@@ -579,9 +676,9 @@ instantiate formatter classes, although you could likely subclass the formatter
 if your application needs special behavior.  The constructor takes three
 optional arguments – a message format string, a date format string and a style
 indicator.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="logging.logging.Formatter.__init__">
-<code class="descclassname">logging.Formatter.</code><code class="descname">__init__</code><span class="sig-paren">(</span><em>fmt=None</em>, <em>datefmt=None</em>, <em>style='%'</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.logging.Formatter.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">logging.Formatter.</code><code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fmt</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">datefmt</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">style</span><span class="o">=</span><span class="default_value">'%'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#logging.logging.Formatter.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>If there is no message format string, the default is to use the
@@ -711,7 +808,6 @@ the names of the objects:</p>
 
 <span class="k">[formatter_simpleFormatter]</span>
 <span class="na">format</span><span class="o">=</span><span class="s">%(asctime)s - %(name)s - %(levelname)s - %(message)s</span>
-<span class="na">datefmt</span><span class="o">=</span>
 </pre></div>
 </div>
 <p>The output is nearly identical to that of the non-config-file-based example:</p>
@@ -862,7 +958,7 @@ primarily of interest if you want to define your own levels, and need them to
 have specific values relative to the predefined levels. If you define a level
 with the same numeric value, it overwrites the predefined value; the predefined
 name is lost.</p>
-<table class="docutils align-center">
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 48%" />
 <col style="width: 52%" />
@@ -1066,10 +1162,10 @@ while the application is running (which is not all that common).</p>
 need more precise control over what logging information is collected. Here’s a
 list of things you can do to avoid processing during logging which you don’t
 need:</p>
-<table class="docutils align-center">
+<table class="docutils align-default">
 <colgroup>
-<col style="width: 54%" />
-<col style="width: 46%" />
+<col style="width: 51%" />
+<col style="width: 49%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>What you don’t want to collect</p></th>
@@ -1079,18 +1175,20 @@ need:</p>
 <tbody>
 <tr class="row-even"><td><p>Information about where calls were made from.</p></td>
 <td><p>Set <code class="docutils literal notranslate"><span class="pre">logging._srcfile</span></code> to <code class="docutils literal notranslate"><span class="pre">None</span></code>.
-This avoids calling
-<a class="reference internal" href="../library/sys.html#sys._getframe" title="sys._getframe"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys._getframe()</span></code></a>, which may help
-to speed up your code in environments
-like PyPy (which can’t speed up code
-that uses <a class="reference internal" href="../library/sys.html#sys._getframe" title="sys._getframe"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys._getframe()</span></code></a>), if
-and when PyPy supports Python 3.x.</p></td>
+This avoids calling <a class="reference internal" href="../library/sys.html#sys._getframe" title="sys._getframe"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys._getframe()</span></code></a>, which
+may help to speed up your code in environments
+like PyPy (which can’t speed up code that uses
+<a class="reference internal" href="../library/sys.html#sys._getframe" title="sys._getframe"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys._getframe()</span></code></a>).</p></td>
 </tr>
 <tr class="row-odd"><td><p>Threading information.</p></td>
-<td><p>Set <code class="docutils literal notranslate"><span class="pre">logging.logThreads</span></code> to <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></td>
+<td><p>Set <code class="docutils literal notranslate"><span class="pre">logging.logThreads</span></code> to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p>Process information.</p></td>
-<td><p>Set <code class="docutils literal notranslate"><span class="pre">logging.logProcesses</span></code> to <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></td>
+<tr class="row-even"><td><p>Current process ID (<a class="reference internal" href="../library/os.html#os.getpid" title="os.getpid"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.getpid()</span></code></a>)</p></td>
+<td><p>Set <code class="docutils literal notranslate"><span class="pre">logging.logProcesses</span></code> to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Current process name when using <code class="docutils literal notranslate"><span class="pre">multiprocessing</span></code>
+to manage multiple processes.</p></td>
+<td><p>Set <code class="docutils literal notranslate"><span class="pre">logging.logMultiprocessing</span></code> to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1113,6 +1211,7 @@ take up any memory.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -1165,7 +1264,7 @@ take up any memory.</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a Bug</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.7/Doc/howto/logging.rst"
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/howto/logging.rst"
             rel="nofollow">Show Source
         </a>
       </li>
@@ -1190,43 +1289,58 @@ take up any memory.</p>
         <li class="right" >
           <a href="functional.html" title="Functional Programming HOWTO"
              >previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python HOWTOs</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href="">Logging HOWTO</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">Copyright</a> 2001-2019, Python Software Foundation.
+    &copy; <a href="../copyright.html">Copyright</a> 2001-2021, Python Software Foundation.
     <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
     The Python Software Foundation is a non-profit corporation.
-    <a href="https://www.python.org/psf/donations/">Please donate.</a>
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
     <br />
-    Last updated on Jun 19, 2019.
-    <a href="../bugs.html">Found a bug</a>?
+
+    Last updated on Nov 06, 2021.
+    <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.0.1.
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
     </div>
 
   </body>

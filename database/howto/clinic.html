@@ -1,23 +1,25 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>Argument Clinic How-To &#8212; Python 3.7.3 documentation</title>
-    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Argument Clinic How-To &#8212; Python 3.10.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../_static/pydoctheme.css?2021.11.1" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     
-    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Python 3.7.3 documentation"
+          title="Search within Python 3.10.0 documentation"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -25,13 +27,11 @@
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="next" title="Instrumenting CPython with DTrace and SystemTap" href="instrumentation.html" />
     <link rel="prev" title="An introduction to the ipaddress module" href="ipaddress.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
     <link rel="canonical" href="https://docs.python.org/3/howto/clinic.html" />
     
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../_static/switchers.js"></script>
+      
     
-    
+
     
     <style>
       @media only screen {
@@ -40,9 +40,91 @@
         }
       }
     </style>
- 
+<link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
 
-  </head><body>
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://www.python.org/" class="nav-logo">
+             <img src="../_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Argument Clinic How-To</a><ul>
+<li><a class="reference internal" href="#the-goals-of-argument-clinic">The Goals Of Argument Clinic</a></li>
+<li><a class="reference internal" href="#basic-concepts-and-usage">Basic Concepts And Usage</a></li>
+<li><a class="reference internal" href="#converting-your-first-function">Converting Your First Function</a></li>
+<li><a class="reference internal" href="#advanced-topics">Advanced Topics</a><ul>
+<li><a class="reference internal" href="#symbolic-default-values">Symbolic default values</a></li>
+<li><a class="reference internal" href="#renaming-the-c-functions-and-variables-generated-by-argument-clinic">Renaming the C functions and variables generated by Argument Clinic</a></li>
+<li><a class="reference internal" href="#converting-functions-using-pyarg-unpacktuple">Converting functions using PyArg_UnpackTuple</a></li>
+<li><a class="reference internal" href="#optional-groups">Optional Groups</a></li>
+<li><a class="reference internal" href="#using-real-argument-clinic-converters-instead-of-legacy-converters">Using real Argument Clinic converters, instead of “legacy converters”</a></li>
+<li><a class="reference internal" href="#py-buffer">Py_buffer</a></li>
+<li><a class="reference internal" href="#advanced-converters">Advanced converters</a></li>
+<li><a class="reference internal" href="#parameter-default-values">Parameter default values</a></li>
+<li><a class="reference internal" href="#the-null-default-value">The <code class="docutils literal notranslate"><span class="pre">NULL</span></code> default value</a></li>
+<li><a class="reference internal" href="#expressions-specified-as-default-values">Expressions specified as default values</a></li>
+<li><a class="reference internal" href="#using-a-return-converter">Using a return converter</a></li>
+<li><a class="reference internal" href="#cloning-existing-functions">Cloning existing functions</a></li>
+<li><a class="reference internal" href="#calling-python-code">Calling Python code</a></li>
+<li><a class="reference internal" href="#using-a-self-converter">Using a “self converter”</a></li>
+<li><a class="reference internal" href="#using-a-defining-class-converter">Using a “defining class” converter</a></li>
+<li><a class="reference internal" href="#writing-a-custom-converter">Writing a custom converter</a></li>
+<li><a class="reference internal" href="#writing-a-custom-return-converter">Writing a custom return converter</a></li>
+<li><a class="reference internal" href="#meth-o-and-meth-noargs">METH_O and METH_NOARGS</a></li>
+<li><a class="reference internal" href="#tp-new-and-tp-init-functions">tp_new and tp_init functions</a></li>
+<li><a class="reference internal" href="#changing-and-redirecting-clinic-s-output">Changing and redirecting Clinic’s output</a></li>
+<li><a class="reference internal" href="#the-ifdef-trick">The #ifdef trick</a></li>
+<li><a class="reference internal" href="#using-argument-clinic-in-python-files">Using Argument Clinic in Python files</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ipaddress.html"
+                        title="previous chapter">An introduction to the ipaddress module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="instrumentation.html"
+                        title="next chapter">Instrumenting CPython with DTrace and SystemTap</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">Report a Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/howto/clinic.rst"
+            rel="nofollow">Show Source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
   
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -59,31 +141,36 @@
         <li class="right" >
           <a href="ipaddress.html" title="An introduction to the ipaddress module"
              accesskey="P">previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Python HOWTOs</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href="">Argument Clinic How-To</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>    
 
@@ -100,7 +187,7 @@
 </dd>
 </dl>
 <div class="topic">
-<p class="topic-title first">Abstract</p>
+<p class="topic-title">Abstract</p>
 <p>Argument Clinic is a preprocessor for CPython C files.
 Its purpose is to automate all the boilerplate involved
 with writing argument parsing code for “builtins”.
@@ -504,7 +591,7 @@ if the implementation used different names for these variables, fix it.</p>
 <p>Let’s reiterate, just because it’s kind of weird.  Your code should now
 look like this:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="n">return_type</span>
-<span class="nf">your_function_impl</span><span class="p">(...)</span>
+<span class="n">your_function_impl</span><span class="p">(...)</span>
 <span class="cm">/*[clinic end generated code: checksum=...]*/</span>
 <span class="p">{</span>
 <span class="p">...</span>
@@ -565,7 +652,7 @@ near to the implementation.)</p>
 replace the existing static <a class="reference internal" href="../c-api/structures.html#c.PyMethodDef" title="PyMethodDef"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyMethodDef</span></code></a> structure with the macro,
 <em>don’t</em> add a comma to the end.</p>
 <p>Sample:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="k">struct</span> <span class="n">PyMethodDef</span> <span class="n">Pickler_methods</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="k">struct</span> <span class="nc">PyMethodDef</span> <span class="n">Pickler_methods</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
     <span class="n">__PICKLE_PICKLER_DUMP_METHODDEF</span>
     <span class="n">__PICKLE_PICKLER_CLEAR_MEMO_METHODDEF</span>
     <span class="p">{</span><span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">}</span>                <span class="cm">/* sentinel */</span>
@@ -773,7 +860,7 @@ for how to use this.
 Specified as a string.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">annotation</span></code></dt><dd><p>The annotation value for this parameter.  Not currently supported,
-because PEP 8 mandates that the Python library may not use
+because <span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0008"><strong>PEP 8</strong></a> mandates that the Python library may not use
 annotations.</p>
 </dd>
 </dl>
@@ -823,7 +910,7 @@ least, not yet.)</p>
 <p>Below is a table showing the mapping of legacy converters into real
 Argument Clinic converters.  On the left is the legacy converter,
 on the right is the text you’d replace it with.</p>
-<table class="docutils align-center">
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -967,6 +1054,11 @@ converter:</p>
 <span class="cm">[clinic start generated code]*/</span>
 </pre></div>
 </div>
+<p>One advantage of real converters is that they’re more flexible than legacy
+converters.  For example, the <code class="docutils literal notranslate"><span class="pre">unsigned_int</span></code> converter (and all the
+<code class="docutils literal notranslate"><span class="pre">unsigned_</span></code> converters) can be specified without <code class="docutils literal notranslate"><span class="pre">bitwise=True</span></code>.  Their
+default behavior performs range checking on the value, and they won’t accept
+negative numbers.  You just can’t do that with a legacy converter!</p>
 <p>Argument Clinic will show you all the converters it has
 available.  For each converter it’ll show you all the parameters
 it accepts, along with the default value for each parameter.
@@ -1116,7 +1208,7 @@ DecodeFSDefault
 </pre></div>
 </div>
 <p>None of these take parameters.  For the first three, return -1 to indicate
-error.  For <code class="docutils literal notranslate"><span class="pre">DecodeFSDefault</span></code>, the return type is <code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span></code>; return a NULL
+error.  For <code class="docutils literal notranslate"><span class="pre">DecodeFSDefault</span></code>, the return type is <code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span></code>; return a <code class="docutils literal notranslate"><span class="pre">NULL</span></code>
 pointer to indicate an error.</p>
 <p>(There’s also an experimental <code class="docutils literal notranslate"><span class="pre">NoneType</span></code> converter, which lets you
 return <code class="docutils literal notranslate"><span class="pre">Py_None</span></code> on success or <code class="docutils literal notranslate"><span class="pre">NULL</span></code> on failure, without having
@@ -1235,6 +1327,60 @@ type for <code class="docutils literal notranslate"><span class="pre">self</span
 <span class="cm">[clinic start generated code]*/</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="using-a-defining-class-converter">
+<h3>Using a “defining class” converter<a class="headerlink" href="#using-a-defining-class-converter" title="Permalink to this headline">¶</a></h3>
+<p>Argument Clinic facilitates gaining access to the defining class of a method.
+This is useful for <a class="reference internal" href="../c-api/typeobj.html#heap-types"><span class="std std-ref">heap type</span></a> methods that need to fetch
+module level state.  Use <a class="reference internal" href="../c-api/type.html#c.PyType_FromModuleAndSpec" title="PyType_FromModuleAndSpec"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyType_FromModuleAndSpec()</span></code></a> to associate a new
+heap type with a module.  You can now use <a class="reference internal" href="../c-api/type.html#c.PyType_GetModuleState" title="PyType_GetModuleState"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyType_GetModuleState()</span></code></a> on
+the defining class to fetch the module state, for example from a module method.</p>
+<p>Example from <code class="docutils literal notranslate"><span class="pre">Modules/zlibmodule.c</span></code>.  First, <code class="docutils literal notranslate"><span class="pre">defining_class</span></code> is added to
+the clinic input:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/*[clinic input]</span>
+<span class="cm">zlib.Compress.compress</span>
+
+<span class="cm">  cls: defining_class</span>
+<span class="cm">  data: Py_buffer</span>
+<span class="cm">    Binary data to be compressed.</span>
+<span class="cm">  /</span>
+</pre></div>
+</div>
+<p>After running the Argument Clinic tool, the following function signature is
+generated:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/*[clinic start generated code]*/</span>
+<span class="k">static</span> <span class="n">PyObject</span> <span class="o">*</span>
+<span class="n">zlib_Compress_compress_impl</span><span class="p">(</span><span class="n">compobject</span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="n">PyTypeObject</span> <span class="o">*</span><span class="n">cls</span><span class="p">,</span>
+                            <span class="n">Py_buffer</span> <span class="o">*</span><span class="n">data</span><span class="p">)</span>
+<span class="cm">/*[clinic end generated code: output=6731b3f0ff357ca6 input=04d00f65ab01d260]*/</span>
+</pre></div>
+</div>
+<p>The following code can now use <code class="docutils literal notranslate"><span class="pre">PyType_GetModuleState(cls)</span></code> to fetch the
+module state:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">zlibstate</span> <span class="o">*</span><span class="n">state</span> <span class="o">=</span> <span class="n">PyType_GetModuleState</span><span class="p">(</span><span class="n">cls</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Each method may only have one argument using this converter, and it must appear
+after <code class="docutils literal notranslate"><span class="pre">self</span></code>, or, if <code class="docutils literal notranslate"><span class="pre">self</span></code> is not used, as the first argument.  The argument
+will be of type <code class="docutils literal notranslate"><span class="pre">PyTypeObject</span> <span class="pre">*</span></code>.  The argument will not appear in the
+<code class="docutils literal notranslate"><span class="pre">__text_signature__</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">defining_class</span></code> converter is not compatible with <code class="docutils literal notranslate"><span class="pre">__init__</span></code> and <code class="docutils literal notranslate"><span class="pre">__new__</span></code>
+methods, which cannot use the <code class="docutils literal notranslate"><span class="pre">METH_METHOD</span></code> convention.</p>
+<p>It is not possible to use <code class="docutils literal notranslate"><span class="pre">defining_class</span></code> with slot methods.  In order to
+fetch the module state from such methods, use <code class="docutils literal notranslate"><span class="pre">_PyType_GetModuleByDef</span></code> to
+look up the module and then <a class="reference internal" href="../c-api/module.html#c.PyModule_GetState" title="PyModule_GetState"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyModule_GetState()</span></code></a> to fetch the module
+state.  Example from the <code class="docutils literal notranslate"><span class="pre">setattro</span></code> slot method in
+<code class="docutils literal notranslate"><span class="pre">Modules/_threadmodule.c</span></code>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="kt">int</span>
+<span class="n">local_setattro</span><span class="p">(</span><span class="n">localobject</span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">name</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">v</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">PyObject</span> <span class="o">*</span><span class="n">module</span> <span class="o">=</span> <span class="n">_PyType_GetModuleByDef</span><span class="p">(</span><span class="n">Py_TYPE</span><span class="p">(</span><span class="n">self</span><span class="p">),</span> <span class="o">&amp;</span><span class="n">thread_module</span><span class="p">);</span>
+    <span class="n">thread_module_state</span> <span class="o">*</span><span class="n">state</span> <span class="o">=</span> <span class="n">get_thread_state</span><span class="p">(</span><span class="n">module</span><span class="p">);</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>See also <span class="target" id="index-1"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0573"><strong>PEP 573</strong></a>.</p>
 </div>
 <div class="section" id="writing-a-custom-converter">
 <h3>Writing a custom converter<a class="headerlink" href="#writing-a-custom-converter" title="Permalink to this headline">¶</a></h3>
@@ -1688,6 +1834,7 @@ blocks embedded in Python files look slightly different.  They look like this:</
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -1714,6 +1861,7 @@ blocks embedded in Python files look slightly different.  They look like this:</
 <li><a class="reference internal" href="#cloning-existing-functions">Cloning existing functions</a></li>
 <li><a class="reference internal" href="#calling-python-code">Calling Python code</a></li>
 <li><a class="reference internal" href="#using-a-self-converter">Using a “self converter”</a></li>
+<li><a class="reference internal" href="#using-a-defining-class-converter">Using a “defining class” converter</a></li>
 <li><a class="reference internal" href="#writing-a-custom-converter">Writing a custom converter</a></li>
 <li><a class="reference internal" href="#writing-a-custom-return-converter">Writing a custom return converter</a></li>
 <li><a class="reference internal" href="#meth-o-and-meth-noargs">METH_O and METH_NOARGS</a></li>
@@ -1738,7 +1886,7 @@ blocks embedded in Python files look slightly different.  They look like this:</
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a Bug</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.7/Doc/howto/clinic.rst"
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/howto/clinic.rst"
             rel="nofollow">Show Source
         </a>
       </li>
@@ -1763,43 +1911,58 @@ blocks embedded in Python files look slightly different.  They look like this:</
         <li class="right" >
           <a href="ipaddress.html" title="An introduction to the ipaddress module"
              >previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python HOWTOs</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href="">Argument Clinic How-To</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">Copyright</a> 2001-2019, Python Software Foundation.
+    &copy; <a href="../copyright.html">Copyright</a> 2001-2021, Python Software Foundation.
     <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
     The Python Software Foundation is a non-profit corporation.
-    <a href="https://www.python.org/psf/donations/">Please donate.</a>
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
     <br />
-    Last updated on Jun 19, 2019.
-    <a href="../bugs.html">Found a bug</a>?
+
+    Last updated on Nov 06, 2021.
+    <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.0.1.
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
     </div>
 
   </body>

@@ -1,36 +1,36 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>Installing Python Modules (Legacy version) &#8212; Python 3.7.3 documentation</title>
-    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Installing Python Modules (Legacy version) &#8212; Python 3.10.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../_static/pydoctheme.css?2021.11.1" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     
-    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Python 3.7.3 documentation"
+          title="Search within Python 3.10.0 documentation"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="prev" title="9. API Reference" href="../distutils/apiref.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
     <link rel="canonical" href="https://docs.python.org/3/install/index.html" />
     
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../_static/switchers.js"></script>
+      
     
-    
+
     
     <style>
       @media only screen {
@@ -39,9 +39,99 @@
         }
       }
     </style>
- 
+<link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
 
-  </head><body>
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://www.python.org/" class="nav-logo">
+             <img src="../_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Installing Python Modules (Legacy version)</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a><ul>
+<li><a class="reference internal" href="#distutils-based-source-distributions">Distutils based source distributions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#standard-build-and-install">Standard Build and Install</a><ul>
+<li><a class="reference internal" href="#platform-variations">Platform variations</a></li>
+<li><a class="reference internal" href="#splitting-the-job-up">Splitting the job up</a></li>
+<li><a class="reference internal" href="#how-building-works">How building works</a></li>
+<li><a class="reference internal" href="#how-installation-works">How installation works</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#alternate-installation">Alternate Installation</a><ul>
+<li><a class="reference internal" href="#alternate-installation-the-user-scheme">Alternate installation: the user scheme</a></li>
+<li><a class="reference internal" href="#alternate-installation-the-home-scheme">Alternate installation: the home scheme</a></li>
+<li><a class="reference internal" href="#alternate-installation-unix-the-prefix-scheme">Alternate installation: Unix (the prefix scheme)</a></li>
+<li><a class="reference internal" href="#alternate-installation-windows-the-prefix-scheme">Alternate installation: Windows (the prefix scheme)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#custom-installation">Custom Installation</a><ul>
+<li><a class="reference internal" href="#modifying-python-s-search-path">Modifying Python’s Search Path</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#distutils-configuration-files">Distutils Configuration Files</a><ul>
+<li><a class="reference internal" href="#location-and-names-of-config-files">Location and names of config files</a></li>
+<li><a class="reference internal" href="#syntax-of-config-files">Syntax of config files</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#building-extensions-tips-and-tricks">Building Extensions: Tips and Tricks</a><ul>
+<li><a class="reference internal" href="#tweaking-compiler-linker-flags">Tweaking compiler/linker flags</a></li>
+<li><a class="reference internal" href="#using-non-microsoft-compilers-on-windows">Using non-Microsoft compilers on Windows</a><ul>
+<li><a class="reference internal" href="#borland-codegear-c">Borland/CodeGear C++</a></li>
+<li><a class="reference internal" href="#gnu-c-cygwin-mingw">GNU C / Cygwin / MinGW</a><ul>
+<li><a class="reference internal" href="#older-versions-of-python-and-mingw">Older Versions of Python and MinGW</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../distutils/apiref.html"
+                        title="previous chapter"><span class="section-number">9. </span>API Reference</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">Report a Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/install/index.rst"
+            rel="nofollow">Show Source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
   
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -55,30 +145,35 @@
         <li class="right" >
           <a href="../distutils/apiref.html" title="9. API Reference"
              accesskey="P">previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
 
-    <li class="right">
-        
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
-    <div class="inline-search" style="display: none" role="search">
+        <li class="nav-item nav-item-this"><a href="">Installing Python Modules (Legacy version)</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>    
 
@@ -94,17 +189,27 @@
 <dd class="field-odd"><p>Greg Ward</p>
 </dd>
 </dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The entire <code class="docutils literal notranslate"><span class="pre">distutils</span></code> package has been deprecated and will be
+removed in Python 3.12. This documentation is retained as a
+reference only, and will be removed with the package. See the
+<a class="reference internal" href="../whatsnew/3.10.html#distutils-deprecated"><span class="std std-ref">What’s New</span></a> entry for more information.</p>
+</div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
-<dt><a class="reference internal" href="../installing/index.html#installing-index"><span class="std std-ref">Installing Python Modules</span></a></dt><dd><p>The up to date module installation documentations</p>
+<dt><a class="reference internal" href="../installing/index.html#installing-index"><span class="std std-ref">Installing Python Modules</span></a></dt><dd><p>The up to date module installation documentation. For regular Python
+usage, you almost certainly want that document rather than this one.</p>
 </dd>
 </dl>
 </div>
-<p>This document describes the Python Distribution Utilities (“Distutils”) from the
-end-user’s point-of-view, describing how to extend the capabilities of a
-standard Python installation by building and installing third-party Python
-modules and extensions.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This document is being retained solely until the <code class="docutils literal notranslate"><span class="pre">setuptools</span></code> documentation
+at <a class="reference external" href="https://setuptools.readthedocs.io/en/latest/setuptools.html">https://setuptools.readthedocs.io/en/latest/setuptools.html</a>
+independently covers all of the relevant information currently included here.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This guide only covers the basic tools for building and distributing
@@ -115,47 +220,20 @@ in the Python Packaging User Guide for more information.</p>
 </div>
 <div class="section" id="introduction">
 <span id="inst-intro"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>Although Python’s extensive standard library covers many programming needs,
-there often comes a time when you need to add some new functionality to your
-Python installation in the form of third-party modules.  This might be necessary
-to support your own programming, or to support an application that you want to
-use and that happens to be written in Python.</p>
-<p>In the past, there has been little support for adding third-party modules to an
-existing Python installation.  With the introduction of the Python Distribution
-Utilities (Distutils for short) in Python 2.0, this changed.</p>
-<p>This document is aimed primarily at the people who need to install third-party
-Python modules: end-users and system administrators who just need to get some
-Python application running, and existing Python programmers who want to add some
-new goodies to their toolbox.  You don’t need to know Python to read this
-document; there will be some brief forays into using Python’s interactive mode
-to explore your installation, but that’s it.  If you’re looking for information
-on how to distribute your own Python modules so that others may use them, see
-the <a class="reference internal" href="../distutils/index.html#distutils-index"><span class="std std-ref">Distributing Python Modules (Legacy version)</span></a> manual.  <a class="reference internal" href="../distutils/setupscript.html#debug-setup-script"><span class="std std-ref">Debugging the setup script</span></a> may also be of
-interest.</p>
-<div class="section" id="best-case-trivial-installation">
-<span id="inst-trivial-install"></span><h3>Best case: trivial installation<a class="headerlink" href="#best-case-trivial-installation" title="Permalink to this headline">¶</a></h3>
-<p>In the best case, someone will have prepared a special version of the module
-distribution you want to install that is targeted specifically at your platform
-and is installed just like any other software on your platform.  For example,
-the module developer might make an executable installer available for Windows
-users, an RPM package for users of RPM-based Linux systems (Red Hat, SuSE,
-Mandrake, and many others), a Debian package for users of Debian-based Linux
-systems, and so forth.</p>
-<p>In that case, you would download the installer appropriate to your platform and
-do the obvious thing with it: run it if it’s an executable installer, <code class="docutils literal notranslate"><span class="pre">rpm</span>
-<span class="pre">--install</span></code> it if it’s an RPM, etc.  You don’t need to run Python or a setup
-script, you don’t need to compile anything—you might not even need to read any
-instructions (although it’s always a good idea to do so anyway).</p>
-<p>Of course, things will not always be that easy.  You might be interested in a
-module distribution that doesn’t have an easy-to-use installer for your
-platform.  In that case, you’ll have to start with the source distribution
-released by the module’s author/maintainer.  Installing from a source
-distribution is not too hard, as long as the modules are packaged in the
-standard way.  The bulk of this document is about building and installing
-modules from standard source distributions.</p>
-</div>
-<div class="section" id="the-new-standard-distutils">
-<span id="inst-new-standard"></span><h3>The new standard: Distutils<a class="headerlink" href="#the-new-standard-distutils" title="Permalink to this headline">¶</a></h3>
+<p>In Python 2.0, the <code class="docutils literal notranslate"><span class="pre">distutils</span></code> API was first added to the standard library.
+This provided Linux distro maintainers with a standard way of converting
+Python projects into Linux distro packages, and system administrators with a
+standard way of installing them directly onto target systems.</p>
+<p>In the many years since Python 2.0 was released, tightly coupling the build
+system and package installer to the language runtime release cycle has turned
+out to be problematic, and it is now recommended that projects use the
+<code class="docutils literal notranslate"><span class="pre">pip</span></code> package installer and the <code class="docutils literal notranslate"><span class="pre">setuptools</span></code> build system, rather than
+using <code class="docutils literal notranslate"><span class="pre">distutils</span></code> directly.</p>
+<p>See <a class="reference internal" href="../installing/index.html#installing-index"><span class="std std-ref">Installing Python Modules</span></a> and <a class="reference internal" href="../distributing/index.html#distributing-index"><span class="std std-ref">Distributing Python Modules</span></a> for more details.</p>
+<p>This legacy documentation is being retained only until we’re confident that the
+<code class="docutils literal notranslate"><span class="pre">setuptools</span></code> documentation covers everything needed.</p>
+<div class="section" id="distutils-based-source-distributions">
+<span id="inst-new-standard"></span><h3>Distutils based source distributions<a class="headerlink" href="#distutils-based-source-distributions" title="Permalink to this headline">¶</a></h3>
 <p>If you download a module source distribution, you can tell pretty quickly if it
 was packaged and distributed in the standard way, i.e. using the Distutils.
 First, the distribution’s name and version number will be featured prominently
@@ -183,7 +261,7 @@ get out of this manual.</p>
 </div>
 <div class="section" id="standard-build-and-install">
 <span id="inst-standard-install"></span><h2>Standard Build and Install<a class="headerlink" href="#standard-build-and-install" title="Permalink to this headline">¶</a></h2>
-<p>As described in section <a class="reference internal" href="#inst-new-standard"><span class="std std-ref">The new standard: Distutils</span></a>, building and installing a module
+<p>As described in section <a class="reference internal" href="#inst-new-standard"><span class="std std-ref">Distutils based source distributions</span></a>, building and installing a module
 distribution using the Distutils is usually one simple command to run from a
 terminal:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python setup.py install
@@ -278,10 +356,10 @@ directory.</p>
 <p>If you don’t choose an installation directory—i.e., if you just run <code class="docutils literal notranslate"><span class="pre">setup.py</span>
 <span class="pre">install</span></code>—then the <strong class="command">install</strong> command installs to the standard
 location for third-party Python modules.  This location varies by platform and
-by how you built/installed Python itself.  On Unix (and Mac OS X, which is also
+by how you built/installed Python itself.  On Unix (and macOS, which is also
 Unix-based), it also depends on whether the module distribution being installed
 is pure Python or contains extensions (“non-pure”):</p>
-<table class="docutils align-center">
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 13%" />
 <col style="width: 42%" />
@@ -324,7 +402,7 @@ default <code class="file docutils literal notranslate"><em><span class="pre">pr
 </ol>
 <p><code class="file docutils literal notranslate"><em><span class="pre">prefix</span></em></code> and <code class="file docutils literal notranslate"><em><span class="pre">exec-prefix</span></em></code> stand for the directories that Python
 is installed to, and where it finds its libraries at run-time.  They are always
-the same under Windows, and very often the same under Unix and Mac OS X.  You
+the same under Windows, and very often the same under Unix and macOS.  You
 can find out what your Python installation uses for <code class="file docutils literal notranslate"><em><span class="pre">prefix</span></em></code> and
 <code class="file docutils literal notranslate"><em><span class="pre">exec-prefix</span></em></code> by running Python in interactive mode and typing a few
 simple commands. Under Unix, just type <code class="docutils literal notranslate"><span class="pre">python</span></code> at the shell prompt.  Under
@@ -387,8 +465,8 @@ install into it.  It is enabled with a simple option:</p>
 <p>Files will be installed into subdirectories of <a class="reference internal" href="../library/site.html#site.USER_BASE" title="site.USER_BASE"><code class="xref py py-data docutils literal notranslate"><span class="pre">site.USER_BASE</span></code></a> (written
 as <code class="file docutils literal notranslate"><em><span class="pre">userbase</span></em></code> hereafter).  This scheme installs pure Python modules and
 extension modules in the same location (also known as <a class="reference internal" href="../library/site.html#site.USER_SITE" title="site.USER_SITE"><code class="xref py py-data docutils literal notranslate"><span class="pre">site.USER_SITE</span></code></a>).
-Here are the values for UNIX, including Mac OS X:</p>
-<table class="docutils align-center">
+Here are the values for UNIX, including macOS:</p>
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -414,7 +492,7 @@ Here are the values for UNIX, including Mac OS X:</p>
 </tbody>
 </table>
 <p>And here are the values used on Windows:</p>
-<table class="docutils align-center">
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -473,7 +551,7 @@ to <a class="reference internal" href="#inst-search-path"><span class="std std-r
 <a class="reference internal" href="../library/sys.html#sys.path" title="sys.path"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a>.</p>
 <p>The <code class="xref std std-option docutils literal notranslate"><span class="pre">--home</span></code> option defines the installation base directory.  Files are
 installed to the following directories under the installation base as follows:</p>
-<table class="docutils align-center">
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -532,7 +610,7 @@ base, which is used for platform-specific files.  (Currently, this just means
 non-pure module distributions, but could be expanded to C libraries, binary
 executables, etc.)  If <code class="xref std std-option docutils literal notranslate"><span class="pre">--exec-prefix</span></code> is not supplied, it defaults to
 <code class="xref std std-option docutils literal notranslate"><span class="pre">--prefix</span></code>.  Files are installed as follows:</p>
-<table class="docutils align-center">
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 23%" />
 <col style="width: 77%" />
@@ -594,7 +672,7 @@ locations on Windows.</p>
 <code class="xref std std-option docutils literal notranslate"><span class="pre">--exec-prefix</span></code> option is not supported under Windows, which means that
 pure Python modules and extension modules are installed into the same location.
 Files are installed as follows:</p>
-<table class="docutils align-center">
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 21%" />
 <col style="width: 79%" />
@@ -631,7 +709,7 @@ case, you’re creating a <em>custom installation scheme</em>.</p>
 <p>To create a custom installation scheme, you start with one of the alternate
 schemes and override some of the installation directories used for the various
 types of files, using these options:</p>
-<table class="docutils align-center">
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 49%" />
 <col style="width: 51%" />
@@ -687,7 +765,7 @@ scripts will wind up in <code class="file docutils literal notranslate"><span cl
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python setup.py install --install-scripts=/usr/local/bin
 </pre></div>
 </div>
-<p>(This performs an installation using the “prefix scheme,” where the prefix is
+<p>(This performs an installation using the “prefix scheme”, where the prefix is
 whatever your Python interpreter was installed with— <code class="file docutils literal notranslate"><span class="pre">/usr/local/python</span></code>
 in this case.)</p>
 <p>If you maintain Python on Windows, you might want third-party modules to live in
@@ -811,7 +889,7 @@ directory containing the <code class="file docutils literal notranslate"><span c
 the <a class="reference internal" href="../library/site.html#module-site" title="site: Module responsible for site-specific configuration."><code class="xref py py-mod docutils literal notranslate"><span class="pre">site</span></code></a> module for more information.</p>
 <p>A slightly less convenient way is to edit the <code class="file docutils literal notranslate"><span class="pre">site.py</span></code> file in Python’s
 standard library, and modify <code class="docutils literal notranslate"><span class="pre">sys.path</span></code>.  <code class="file docutils literal notranslate"><span class="pre">site.py</span></code> is automatically
-imported when the Python interpreter is executed, unless the <a class="reference internal" href="../using/cmdline.html#id3"><code class="xref std std-option docutils literal notranslate"><span class="pre">-S</span></code></a> switch
+imported when the Python interpreter is executed, unless the <a class="reference internal" href="../using/cmdline.html#cmdoption-S"><code class="xref std std-option docutils literal notranslate"><span class="pre">-S</span></code></a> switch
 is supplied to suppress this behaviour.  So you could simply edit
 <code class="file docutils literal notranslate"><span class="pre">site.py</span></code> and add two lines to it:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
@@ -850,9 +928,9 @@ by “later” files.</p>
 <div class="section" id="location-and-names-of-config-files">
 <span id="inst-config-filenames"></span><h3>Location and names of config files<a class="headerlink" href="#location-and-names-of-config-files" title="Permalink to this headline">¶</a></h3>
 <p>The names and locations of the configuration files vary slightly across
-platforms.  On Unix and Mac OS X, the three configuration files (in the order
+platforms.  On Unix and macOS, the three configuration files (in the order
 they are processed) are:</p>
-<table class="docutils align-center">
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 18%" />
 <col style="width: 73%" />
@@ -880,7 +958,7 @@ they are processed) are:</p>
 </tbody>
 </table>
 <p>And on Windows, the configuration files are:</p>
-<table class="docutils align-center">
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 70%" />
@@ -1045,8 +1123,8 @@ be passed the <code class="xref std std-option docutils literal notranslate"><sp
 <code class="xref std std-option docutils literal notranslate"><span class="pre">-shared</span></code>.  If a compiler option requires an argument, you’ll have to
 supply multiple <code class="xref std std-option docutils literal notranslate"><span class="pre">-Xcompiler</span></code> options; for example, to pass <code class="docutils literal notranslate"><span class="pre">-x</span> <span class="pre">c++</span></code>
 the <code class="file docutils literal notranslate"><span class="pre">Setup</span></code> file would have to contain <code class="docutils literal notranslate"><span class="pre">-Xcompiler</span> <span class="pre">-x</span> <span class="pre">-Xcompiler</span> <span class="pre">c++</span></code>.</p>
-<p>Compiler flags can also be supplied through setting the <span class="target" id="index-9"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">CFLAGS</span></code>
-environment variable.  If set, the contents of <span class="target" id="index-10"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">CFLAGS</span></code> will be added to
+<p>Compiler flags can also be supplied through setting the <span class="target" id="index-9"></span><a class="reference internal" href="../using/configure.html#envvar-CFLAGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">CFLAGS</span></code></a>
+environment variable.  If set, the contents of <span class="target" id="index-10"></span><a class="reference internal" href="../using/configure.html#envvar-CFLAGS"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">CFLAGS</span></code></a> will be added to
 the compiler flags specified in the  <code class="file docutils literal notranslate"><span class="pre">Setup</span></code> file.</p>
 </div>
 <div class="section" id="using-non-microsoft-compilers-on-windows">
@@ -1056,7 +1134,7 @@ the compiler flags specified in the  <code class="file docutils literal notransl
 <p>This subsection describes the necessary steps to use Distutils with the Borland
 C++ compiler version 5.5.  First you have to know that Borland’s object file
 format (OMF) is different from the format used by the Python version you can
-download from the Python or ActiveState Web site.  (Python is built with
+download from the Python or ActiveState web site.  (Python is built with
 Microsoft Visual C++, which uses COFF as the object file format.) For this
 reason you have to convert Python’s library <code class="file docutils literal notranslate"><span class="pre">python25.lib</span></code> into the
 Borland format.  You can do this as follows:</p>
@@ -1154,8 +1232,7 @@ normal libraries do.</p>
 of the same name.</p>
 </dd>
 <dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p>Check <a class="reference external" href="https://www.sourceware.org/cygwin/">https://www.sourceware.org/cygwin/</a> and <a class="reference external" href="http://www.mingw.org/">http://www.mingw.org/</a> for more
-information</p>
+<dd><p>Check <a class="reference external" href="https://www.sourceware.org/cygwin/">https://www.sourceware.org/cygwin/</a> for more information</p>
 </dd>
 <dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
 <dd><p>Then you have no POSIX emulation available, but you also don’t need
@@ -1169,6 +1246,7 @@ information</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -1178,8 +1256,7 @@ information</p>
   <ul>
 <li><a class="reference internal" href="#">Installing Python Modules (Legacy version)</a><ul>
 <li><a class="reference internal" href="#introduction">Introduction</a><ul>
-<li><a class="reference internal" href="#best-case-trivial-installation">Best case: trivial installation</a></li>
-<li><a class="reference internal" href="#the-new-standard-distutils">The new standard: Distutils</a></li>
+<li><a class="reference internal" href="#distutils-based-source-distributions">Distutils based source distributions</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#standard-build-and-install">Standard Build and Install</a><ul>
@@ -1223,13 +1300,13 @@ information</p>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="../distutils/apiref.html"
-                        title="previous chapter">9. API Reference</a></p>
+                        title="previous chapter"><span class="section-number">9. </span>API Reference</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a Bug</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.7/Doc/install/index.rst"
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/install/index.rst"
             rel="nofollow">Show Source
         </a>
       </li>
@@ -1251,42 +1328,57 @@ information</p>
         <li class="right" >
           <a href="../distutils/apiref.html" title="9. API Reference"
              >previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
 
-    <li class="right">
-        
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
-    <div class="inline-search" style="display: none" role="search">
+        <li class="nav-item nav-item-this"><a href="">Installing Python Modules (Legacy version)</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">Copyright</a> 2001-2019, Python Software Foundation.
+    &copy; <a href="../copyright.html">Copyright</a> 2001-2021, Python Software Foundation.
     <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
     The Python Software Foundation is a non-profit corporation.
-    <a href="https://www.python.org/psf/donations/">Please donate.</a>
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
     <br />
-    Last updated on Jun 19, 2019.
-    <a href="../bugs.html">Found a bug</a>?
+
+    Last updated on Nov 06, 2021.
+    <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.0.1.
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
     </div>
 
   </body>

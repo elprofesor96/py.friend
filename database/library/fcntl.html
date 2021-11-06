@@ -1,23 +1,25 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>fcntl — The fcntl and ioctl system calls &#8212; Python 3.7.3 documentation</title>
-    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fcntl — The fcntl and ioctl system calls &#8212; Python 3.10.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../_static/pydoctheme.css?2021.11.1" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     
-    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Python 3.7.3 documentation"
+          title="Search within Python 3.10.0 documentation"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -25,13 +27,11 @@
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="next" title="pipes — Interface to shell pipelines" href="pipes.html" />
     <link rel="prev" title="pty — Pseudo-terminal utilities" href="pty.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
     <link rel="canonical" href="https://docs.python.org/3/library/fcntl.html" />
     
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../_static/switchers.js"></script>
+      
     
-    
+
     
     <style>
       @media only screen {
@@ -40,9 +40,56 @@
         }
       }
     </style>
- 
+<link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
 
-  </head><body>
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://www.python.org/" class="nav-logo">
+             <img src="../_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pty.html"
+                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pty</span></code> — Pseudo-terminal utilities</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pipes.html"
+                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pipes</span></code> — Interface to shell pipelines</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">Report a Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/library/fcntl.rst"
+            rel="nofollow">Show Source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
   
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -59,32 +106,37 @@
         <li class="right" >
           <a href="pty.html" title="pty — Pseudo-terminal utilities"
              accesskey="P">previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="unix.html" accesskey="U">Unix Specific Services</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">fcntl</span></code> — The <code class="docutils literal notranslate"><span class="pre">fcntl</span></code> and <code class="docutils literal notranslate"><span class="pre">ioctl</span></code> system calls</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>    
 
@@ -98,8 +150,8 @@
 <hr class="docutils" id="index-0" />
 <p>This module performs file control and I/O control on file descriptors. It is an
 interface to the <code class="xref c c-func docutils literal notranslate"><span class="pre">fcntl()</span></code> and <code class="xref c c-func docutils literal notranslate"><span class="pre">ioctl()</span></code> Unix routines.  For a
-complete description of these calls, see <em class="manpage">fcntl(2)</em> and
-<em class="manpage">ioctl(2)</em> Unix manual pages.</p>
+complete description of these calls, see <em class="manpage"><a class="manpage reference external" href="https://manpages.debian.org/fcntl(2)">fcntl(2)</a></em> and
+<em class="manpage"><a class="manpage reference external" href="https://manpages.debian.org/ioctl(2)">ioctl(2)</a></em> Unix manual pages.</p>
 <p>All functions in this module take a file descriptor <em>fd</em> as their first
 argument.  This can be an integer file descriptor, such as returned by
 <code class="docutils literal notranslate"><span class="pre">sys.stdin.fileno()</span></code>, or an <a class="reference internal" href="io.html#io.IOBase" title="io.IOBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">io.IOBase</span></code></a> object, such as <code class="docutils literal notranslate"><span class="pre">sys.stdin</span></code>
@@ -109,10 +161,26 @@ descriptor.</p>
 <p><span class="versionmodified changed">Changed in version 3.3: </span>Operations in this module used to raise an <a class="reference internal" href="exceptions.html#IOError" title="IOError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IOError</span></code></a> where they now
 raise an <a class="reference internal" href="exceptions.html#OSError" title="OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a>.</p>
 </div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.8: </span>The fcntl module now contains <code class="docutils literal notranslate"><span class="pre">F_ADD_SEALS</span></code>, <code class="docutils literal notranslate"><span class="pre">F_GET_SEALS</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">F_SEAL_*</span></code> constants for sealing of <a class="reference internal" href="os.html#os.memfd_create" title="os.memfd_create"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.memfd_create()</span></code></a> file
+descriptors.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.9: </span>On macOS, the fcntl module exposes the <code class="docutils literal notranslate"><span class="pre">F_GETPATH</span></code> constant, which obtains
+the path of a file from a file descriptor.
+On Linux(&gt;=3.15), the fcntl module exposes the <code class="docutils literal notranslate"><span class="pre">F_OFD_GETLK</span></code>, <code class="docutils literal notranslate"><span class="pre">F_OFD_SETLK</span></code>
+and <code class="docutils literal notranslate"><span class="pre">F_OFD_SETLKW</span></code> constants, which working with open file description locks.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.10: </span>On Linux &gt;= 2.6.11, the fcntl module exposes the <code class="docutils literal notranslate"><span class="pre">F_GETPIPE_SZ</span></code> and
+<code class="docutils literal notranslate"><span class="pre">F_SETPIPE_SZ</span></code> constants, which allow to check and modify a pipe’s size
+respectively.</p>
+</div>
 <p>The module defines the following functions:</p>
-<dl class="function">
+<dl class="py function">
 <dt id="fcntl.fcntl">
-<code class="descclassname">fcntl.</code><code class="descname">fcntl</code><span class="sig-paren">(</span><em>fd</em>, <em>cmd</em>, <em>arg=0</em><span class="sig-paren">)</span><a class="headerlink" href="#fcntl.fcntl" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">fcntl.</code><code class="sig-name descname">fcntl</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fd</span></em>, <em class="sig-param"><span class="n">cmd</span></em>, <em class="sig-param"><span class="n">arg</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#fcntl.fcntl" title="Permalink to this definition">¶</a></dt>
 <dd><p>Perform the operation <em>cmd</em> on file descriptor <em>fd</em> (file objects providing
 a <a class="reference internal" href="io.html#io.IOBase.fileno" title="io.IOBase.fileno"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fileno()</span></code></a> method are accepted as well).  The values used
 for <em>cmd</em> are operating system dependent, and are available as constants
@@ -130,11 +198,12 @@ in the buffer by the operating system is larger than 1024 bytes, this is
 most likely to result in a segmentation violation or a more subtle data
 corruption.</p>
 <p>If the <code class="xref c c-func docutils literal notranslate"><span class="pre">fcntl()</span></code> fails, an <a class="reference internal" href="exceptions.html#OSError" title="OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a> is raised.</p>
+<p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">fcntl.fcntl</span></code> with arguments <code class="docutils literal notranslate"><span class="pre">fd</span></code>, <code class="docutils literal notranslate"><span class="pre">cmd</span></code>, <code class="docutils literal notranslate"><span class="pre">arg</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="fcntl.ioctl">
-<code class="descclassname">fcntl.</code><code class="descname">ioctl</code><span class="sig-paren">(</span><em>fd</em>, <em>request</em>, <em>arg=0</em>, <em>mutate_flag=True</em><span class="sig-paren">)</span><a class="headerlink" href="#fcntl.ioctl" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">fcntl.</code><code class="sig-name descname">ioctl</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fd</span></em>, <em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="n">arg</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">mutate_flag</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#fcntl.ioctl" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function is identical to the <a class="reference internal" href="#fcntl.fcntl" title="fcntl.fcntl"><code class="xref py py-func docutils literal notranslate"><span class="pre">fcntl()</span></code></a> function, except
 that the argument handling is even more complicated.</p>
 <p>The <em>request</em> parameter is limited to values that can fit in 32-bits.
@@ -173,23 +242,26 @@ into the supplied buffer.</p>
 <span class="go">array(&#39;h&#39;, [13341])</span>
 </pre></div>
 </div>
+<p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">fcntl.ioctl</span></code> with arguments <code class="docutils literal notranslate"><span class="pre">fd</span></code>, <code class="docutils literal notranslate"><span class="pre">request</span></code>, <code class="docutils literal notranslate"><span class="pre">arg</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="fcntl.flock">
-<code class="descclassname">fcntl.</code><code class="descname">flock</code><span class="sig-paren">(</span><em>fd</em>, <em>operation</em><span class="sig-paren">)</span><a class="headerlink" href="#fcntl.flock" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">fcntl.</code><code class="sig-name descname">flock</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fd</span></em>, <em class="sig-param"><span class="n">operation</span></em><span class="sig-paren">)</span><a class="headerlink" href="#fcntl.flock" title="Permalink to this definition">¶</a></dt>
 <dd><p>Perform the lock operation <em>operation</em> on file descriptor <em>fd</em> (file objects providing
 a <a class="reference internal" href="io.html#io.IOBase.fileno" title="io.IOBase.fileno"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fileno()</span></code></a> method are accepted as well). See the Unix manual
-<em class="manpage">flock(2)</em> for details.  (On some systems, this function is emulated
+<em class="manpage"><a class="manpage reference external" href="https://manpages.debian.org/flock(2)">flock(2)</a></em> for details.  (On some systems, this function is emulated
 using <code class="xref c c-func docutils literal notranslate"><span class="pre">fcntl()</span></code>.)</p>
 <p>If the <code class="xref c c-func docutils literal notranslate"><span class="pre">flock()</span></code> fails, an <a class="reference internal" href="exceptions.html#OSError" title="OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a> exception is raised.</p>
+<p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">fcntl.flock</span></code> with arguments <code class="docutils literal notranslate"><span class="pre">fd</span></code>, <code class="docutils literal notranslate"><span class="pre">operation</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="fcntl.lockf">
-<code class="descclassname">fcntl.</code><code class="descname">lockf</code><span class="sig-paren">(</span><em>fd</em>, <em>cmd</em>, <em>len=0</em>, <em>start=0</em>, <em>whence=0</em><span class="sig-paren">)</span><a class="headerlink" href="#fcntl.lockf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">fcntl.</code><code class="sig-name descname">lockf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fd</span></em>, <em class="sig-param"><span class="n">cmd</span></em>, <em class="sig-param"><span class="n">len</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">start</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">whence</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#fcntl.lockf" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is essentially a wrapper around the <a class="reference internal" href="#fcntl.fcntl" title="fcntl.fcntl"><code class="xref py py-func docutils literal notranslate"><span class="pre">fcntl()</span></code></a> locking calls.
-<em>fd</em> is the file descriptor of the file to lock or unlock, and <em>cmd</em>
+<em>fd</em> is the file descriptor (file objects providing a <a class="reference internal" href="io.html#io.IOBase.fileno" title="io.IOBase.fileno"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fileno()</span></code></a>
+method are accepted as well) of the file to lock or unlock, and <em>cmd</em>
 is one of the following values:</p>
 <ul class="simple">
 <li><p><code class="xref py py-const docutils literal notranslate"><span class="pre">LOCK_UN</span></code> – unlock</p></li>
@@ -215,6 +287,7 @@ which the lock starts, relative to <em>whence</em>, and <em>whence</em> is as wi
 <p>The default for <em>start</em> is 0, which means to start at the beginning of the file.
 The default for <em>len</em> is 0 which means to lock to the end of the file.  The
 default for <em>whence</em> is also 0.</p>
+<p class="audit-hook">Raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a> <code class="docutils literal notranslate"><span class="pre">fcntl.lockf</span></code> with arguments <code class="docutils literal notranslate"><span class="pre">fd</span></code>, <code class="docutils literal notranslate"><span class="pre">cmd</span></code>, <code class="docutils literal notranslate"><span class="pre">len</span></code>, <code class="docutils literal notranslate"><span class="pre">start</span></code>, <code class="docutils literal notranslate"><span class="pre">whence</span></code>.</p>
 </dd></dl>
 
 <p>Examples (all on a SVR4 compliant system):</p>
@@ -244,6 +317,7 @@ functions.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -260,7 +334,7 @@ functions.</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a Bug</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.7/Doc/library/fcntl.rst"
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/library/fcntl.rst"
             rel="nofollow">Show Source
         </a>
       </li>
@@ -285,44 +359,59 @@ functions.</p>
         <li class="right" >
           <a href="pty.html" title="pty — Pseudo-terminal utilities"
              >previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="unix.html" >Unix Specific Services</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">fcntl</span></code> — The <code class="docutils literal notranslate"><span class="pre">fcntl</span></code> and <code class="docutils literal notranslate"><span class="pre">ioctl</span></code> system calls</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">Copyright</a> 2001-2019, Python Software Foundation.
+    &copy; <a href="../copyright.html">Copyright</a> 2001-2021, Python Software Foundation.
     <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
     The Python Software Foundation is a non-profit corporation.
-    <a href="https://www.python.org/psf/donations/">Please donate.</a>
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
     <br />
-    Last updated on Jun 19, 2019.
-    <a href="../bugs.html">Found a bug</a>?
+
+    Last updated on Nov 06, 2021.
+    <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.0.1.
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
     </div>
 
   </body>

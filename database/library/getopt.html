@@ -1,23 +1,25 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>getopt — C-style parser for command line options &#8212; Python 3.7.3 documentation</title>
-    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>getopt — C-style parser for command line options &#8212; Python 3.10.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../_static/pydoctheme.css?2021.11.1" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     
-    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Python 3.7.3 documentation"
+          title="Search within Python 3.10.0 documentation"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -25,13 +27,11 @@
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="next" title="logging — Logging facility for Python" href="logging.html" />
     <link rel="prev" title="argparse — Parser for command-line options, arguments and sub-commands" href="argparse.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
     <link rel="canonical" href="https://docs.python.org/3/library/getopt.html" />
     
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../_static/switchers.js"></script>
+      
     
-    
+
     
     <style>
       @media only screen {
@@ -40,9 +40,56 @@
         }
       }
     </style>
- 
+<link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
 
-  </head><body>
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://www.python.org/" class="nav-logo">
+             <img src="../_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="argparse.html"
+                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">argparse</span></code> — Parser for command-line options, arguments and sub-commands</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="logging.html"
+                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code> — Logging facility for Python</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">Report a Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/library/getopt.rst"
+            rel="nofollow">Show Source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
   
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -59,32 +106,37 @@
         <li class="right" >
           <a href="argparse.html" title="argparse — Parser for command-line options, arguments and sub-commands"
              accesskey="P">previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="allos.html" accesskey="U">Generic Operating System Services</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">getopt</span></code> — C-style parser for command line options</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>    
 
@@ -95,7 +147,7 @@
             
   <div class="section" id="module-getopt">
 <span id="getopt-c-style-parser-for-command-line-options"></span><h1><a class="reference internal" href="#module-getopt" title="getopt: Portable parser for command line options; support both short and long option names."><code class="xref py py-mod docutils literal notranslate"><span class="pre">getopt</span></code></a> — C-style parser for command line options<a class="headerlink" href="#module-getopt" title="Permalink to this headline">¶</a></h1>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.7/Lib/getopt.py">Lib/getopt.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.10/Lib/getopt.py">Lib/getopt.py</a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The <a class="reference internal" href="#module-getopt" title="getopt: Portable parser for command line options; support both short and long option names."><code class="xref py py-mod docutils literal notranslate"><span class="pre">getopt</span></code></a> module is a parser for command line options whose API is
@@ -112,9 +164,9 @@ options similar to those supported by GNU software may be used as well via an
 optional third argument.</p>
 <p>This module provides two functions and an
 exception:</p>
-<dl class="function">
+<dl class="py function">
 <dt id="getopt.getopt">
-<code class="descclassname">getopt.</code><code class="descname">getopt</code><span class="sig-paren">(</span><em>args</em>, <em>shortopts</em>, <em>longopts=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#getopt.getopt" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">getopt.</code><code class="sig-name descname">getopt</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">args</span></em>, <em class="sig-param"><span class="n">shortopts</span></em>, <em class="sig-param"><span class="n">longopts</span><span class="o">=</span><span class="default_value">[]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#getopt.getopt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parses command line options and parameter list.  <em>args</em> is the argument list to
 be parsed, without the leading reference to the running program. Typically, this
 means <code class="docutils literal notranslate"><span class="pre">sys.argv[1:]</span></code>. <em>shortopts</em> is the string of option letters that the
@@ -147,9 +199,9 @@ options occur in the list in the same order in which they were found, thus
 allowing multiple occurrences.  Long and short options may be mixed.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="getopt.gnu_getopt">
-<code class="descclassname">getopt.</code><code class="descname">gnu_getopt</code><span class="sig-paren">(</span><em>args</em>, <em>shortopts</em>, <em>longopts=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#getopt.gnu_getopt" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">getopt.</code><code class="sig-name descname">gnu_getopt</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">args</span></em>, <em class="sig-param"><span class="n">shortopts</span></em>, <em class="sig-param"><span class="n">longopts</span><span class="o">=</span><span class="default_value">[]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#getopt.gnu_getopt" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function works like <a class="reference internal" href="#module-getopt" title="getopt: Portable parser for command line options; support both short and long option names."><code class="xref py py-func docutils literal notranslate"><span class="pre">getopt()</span></code></a>, except that GNU style scanning mode is
 used by default. This means that option and non-option arguments may be
 intermixed. The <a class="reference internal" href="#module-getopt" title="getopt: Portable parser for command line options; support both short and long option names."><code class="xref py py-func docutils literal notranslate"><span class="pre">getopt()</span></code></a> function stops processing options as soon as a
@@ -159,9 +211,9 @@ variable <span class="target" id="index-0"></span><code class="xref std std-envv
 soon as a non-option argument is encountered.</p>
 </dd></dl>
 
-<dl class="exception">
+<dl class="py exception">
 <dt id="getopt.GetoptError">
-<em class="property">exception </em><code class="descclassname">getopt.</code><code class="descname">GetoptError</code><a class="headerlink" href="#getopt.GetoptError" title="Permalink to this definition">¶</a></dt>
+<em class="property">exception </em><code class="sig-prename descclassname">getopt.</code><code class="sig-name descname">GetoptError</code><a class="headerlink" href="#getopt.GetoptError" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is raised when an unrecognized option is found in the argument list or when
 an option requiring an argument is given none. The argument to the exception is
 a string indicating the cause of the error.  For long options, an argument given
@@ -171,14 +223,14 @@ related option; if there is no specific option to which the exception relates,
 <code class="xref py py-attr docutils literal notranslate"><span class="pre">opt</span></code> is an empty string.</p>
 </dd></dl>
 
-<dl class="exception">
+<dl class="py exception">
 <dt id="getopt.error">
-<em class="property">exception </em><code class="descclassname">getopt.</code><code class="descname">error</code><a class="headerlink" href="#getopt.error" title="Permalink to this definition">¶</a></dt>
+<em class="property">exception </em><code class="sig-prename descclassname">getopt.</code><code class="sig-name descname">error</code><a class="headerlink" href="#getopt.error" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for <a class="reference internal" href="#getopt.GetoptError" title="getopt.GetoptError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">GetoptError</span></code></a>; for backward compatibility.</p>
 </dd></dl>
 
 <p>An example using only Unix style options:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">getopt</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">getopt</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">args</span> <span class="o">=</span> <span class="s1">&#39;-a -b -cfoo -d bar a1 a2&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">args</span>
 <span class="go">[&#39;-a&#39;, &#39;-b&#39;, &#39;-cfoo&#39;, &#39;-d&#39;, &#39;bar&#39;, &#39;a1&#39;, &#39;a2&#39;]</span>
@@ -190,7 +242,7 @@ related option; if there is no specific option to which the exception relates,
 </pre></div>
 </div>
 <p>Using long option names is equally easy:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;--condition=foo --testing --output-file abc.def -x a1 a2&#39;</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;--condition=foo --testing --output-file abc.def -x a1 a2&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">args</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">args</span>
 <span class="go">[&#39;--condition=foo&#39;, &#39;--testing&#39;, &#39;--output-file&#39;, &#39;abc.def&#39;, &#39;-x&#39;, &#39;a1&#39;, &#39;a2&#39;]</span>
@@ -254,6 +306,7 @@ and more informative help and error messages by using the <a class="reference in
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -270,7 +323,7 @@ and more informative help and error messages by using the <a class="reference in
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a Bug</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.7/Doc/library/getopt.rst"
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/library/getopt.rst"
             rel="nofollow">Show Source
         </a>
       </li>
@@ -295,44 +348,59 @@ and more informative help and error messages by using the <a class="reference in
         <li class="right" >
           <a href="argparse.html" title="argparse — Parser for command-line options, arguments and sub-commands"
              >previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="allos.html" >Generic Operating System Services</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">getopt</span></code> — C-style parser for command line options</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">Copyright</a> 2001-2019, Python Software Foundation.
+    &copy; <a href="../copyright.html">Copyright</a> 2001-2021, Python Software Foundation.
     <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
     The Python Software Foundation is a non-profit corporation.
-    <a href="https://www.python.org/psf/donations/">Please donate.</a>
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
     <br />
-    Last updated on Jun 19, 2019.
-    <a href="../bugs.html">Found a bug</a>?
+
+    Last updated on Nov 06, 2021.
+    <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.0.1.
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
     </div>
 
   </body>

@@ -12,8 +12,8 @@ class PyFriendClass:
     def __init__(self):
         self.standardLibraries = stdlib_list()
         self.configFile = configparser.ConfigParser()
-        self.configFile.read("configuration.ini")
-        self.appPath = self.configFile["APP"].get("path")
+        self.configFile.read("pyfriend.conf")
+        self.appPath = "."
         self.docsUrl = self.configFile["APP"].get("python_url")
         self.downloadFileName = self.docsUrl.split("/")[-1]
 

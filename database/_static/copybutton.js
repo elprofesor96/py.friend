@@ -3,7 +3,10 @@ $(document).ready(function() {
      * the >>> and ... prompts and the output and thus make the code
      * copyable. */
     var div = $('.highlight-python .highlight,' +
-                '.highlight-python3 .highlight')
+                '.highlight-python3 .highlight,' +
+                '.highlight-pycon .highlight,' +
+                '.highlight-pycon3 .highlight,' +
+                '.highlight-default .highlight');
     var pre = div.find('pre');
 
     // get the styles from the current theme
@@ -59,4 +62,3 @@ $(document).ready(function() {
         }
     });
 });
-

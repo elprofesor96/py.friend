@@ -1,23 +1,25 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>zipapp — Manage executable Python zip archives &#8212; Python 3.7.3 documentation</title>
-    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>zipapp — Manage executable Python zip archives &#8212; Python 3.10.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../_static/pydoctheme.css?2021.11.1" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     
-    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Python 3.7.3 documentation"
+          title="Search within Python 3.10.0 documentation"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -25,13 +27,11 @@
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="next" title="Python Runtime Services" href="python.html" />
     <link rel="prev" title="venv — Creation of virtual environments" href="venv.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
     <link rel="canonical" href="https://docs.python.org/3/library/zipapp.html" />
     
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../_static/switchers.js"></script>
+      
     
-    
+
     
     <style>
       @media only screen {
@@ -40,9 +40,74 @@
         }
       }
     </style>
- 
+<link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
 
-  </head><body>
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://www.python.org/" class="nav-logo">
+             <img src="../_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">zipapp</span></code> — Manage executable Python zip archives</a><ul>
+<li><a class="reference internal" href="#basic-example">Basic Example</a></li>
+<li><a class="reference internal" href="#command-line-interface">Command-Line Interface</a></li>
+<li><a class="reference internal" href="#python-api">Python API</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+<li><a class="reference internal" href="#specifying-the-interpreter">Specifying the Interpreter</a></li>
+<li><a class="reference internal" href="#creating-standalone-applications-with-zipapp">Creating Standalone Applications with zipapp</a><ul>
+<li><a class="reference internal" href="#making-a-windows-executable">Making a Windows executable</a></li>
+<li><a class="reference internal" href="#caveats">Caveats</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-python-zip-application-archive-format">The Python Zip Application Archive Format</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="venv.html"
+                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">venv</span></code> — Creation of virtual environments</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="python.html"
+                        title="next chapter">Python Runtime Services</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">Report a Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/library/zipapp.rst"
+            rel="nofollow">Show Source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
   
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -59,32 +124,37 @@
         <li class="right" >
           <a href="venv.html" title="venv — Creation of virtual environments"
              accesskey="P">previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="distribution.html" accesskey="U">Software Packaging and Distribution</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">zipapp</span></code> — Manage executable Python zip archives</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>    
 
@@ -98,7 +168,7 @@
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 3.5.</span></p>
 </div>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.7/Lib/zipapp.py">Lib/zipapp.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.10/Lib/zipapp.py">Lib/zipapp.py</a></p>
 <hr class="docutils" id="index-0" />
 <p>This module provides tools to manage the creation of zip files containing
 Python code, which can be  <a class="reference internal" href="../using/cmdline.html#using-on-interface-options"><span class="std std-ref">executed directly by the Python interpreter</span></a>.  The module provides both a
@@ -126,9 +196,9 @@ the module <code class="docutils literal notranslate"><span class="pre">myapp</s
 copied to the target archive (or the contents of its shebang line will be
 displayed if the –info option is specified).</p>
 <p>The following options are understood:</p>
-<dl class="cmdoption">
+<dl class="std cmdoption">
 <dt id="cmdoption-zipapp-o">
-<code class="descname">-o</code><code class="descclassname"> &lt;output&gt;</code><code class="descclassname">, </code><code class="descname">--output</code><code class="descclassname">=&lt;output&gt;</code><a class="headerlink" href="#cmdoption-zipapp-o" title="Permalink to this definition">¶</a></dt>
+<span id="cmdoption-zipapp-output"></span><code class="sig-name descname">-o</code><code class="sig-prename descclassname"> &lt;output&gt;</code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--output</code><code class="sig-prename descclassname">=&lt;output&gt;</code><a class="headerlink" href="#cmdoption-zipapp-o" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write the output to a file named <em>output</em>.  If this option is not specified,
 the output filename will be the same as the input <em>source</em>, with the
 extension <code class="docutils literal notranslate"><span class="pre">.pyz</span></code> added.  If an explicit filename is given, it is used as
@@ -137,17 +207,17 @@ is (so a <code class="docutils literal notranslate"><span class="pre">.pyz</span
 that case, <em>output</em> must not be the same as <em>source</em>).</p>
 </dd></dl>
 
-<dl class="cmdoption">
+<dl class="std cmdoption">
 <dt id="cmdoption-zipapp-p">
-<code class="descname">-p</code><code class="descclassname"> &lt;interpreter&gt;</code><code class="descclassname">, </code><code class="descname">--python</code><code class="descclassname">=&lt;interpreter&gt;</code><a class="headerlink" href="#cmdoption-zipapp-p" title="Permalink to this definition">¶</a></dt>
+<span id="cmdoption-zipapp-python"></span><code class="sig-name descname">-p</code><code class="sig-prename descclassname"> &lt;interpreter&gt;</code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--python</code><code class="sig-prename descclassname">=&lt;interpreter&gt;</code><a class="headerlink" href="#cmdoption-zipapp-p" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a <code class="docutils literal notranslate"><span class="pre">#!</span></code> line to the archive specifying <em>interpreter</em> as the command
 to run.  Also, on POSIX, make the archive executable.  The default is to
 write no <code class="docutils literal notranslate"><span class="pre">#!</span></code> line, and not make the file executable.</p>
 </dd></dl>
 
-<dl class="cmdoption">
+<dl class="std cmdoption">
 <dt id="cmdoption-zipapp-m">
-<code class="descname">-m</code><code class="descclassname"> &lt;mainfn&gt;</code><code class="descclassname">, </code><code class="descname">--main</code><code class="descclassname">=&lt;mainfn&gt;</code><a class="headerlink" href="#cmdoption-zipapp-m" title="Permalink to this definition">¶</a></dt>
+<span id="cmdoption-zipapp-main"></span><code class="sig-name descname">-m</code><code class="sig-prename descclassname"> &lt;mainfn&gt;</code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--main</code><code class="sig-prename descclassname">=&lt;mainfn&gt;</code><a class="headerlink" href="#cmdoption-zipapp-m" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write a <code class="docutils literal notranslate"><span class="pre">__main__.py</span></code> file to the archive that executes <em>mainfn</em>.  The
 <em>mainfn</em> argument should have the form “pkg.mod:fn”, where “pkg.mod” is a
 package/module in the archive, and “fn” is a callable in the given module.
@@ -155,9 +225,9 @@ The <code class="docutils literal notranslate"><span class="pre">__main__.py</sp
 <p><a class="reference internal" href="#cmdoption-zipapp-m"><code class="xref std std-option docutils literal notranslate"><span class="pre">--main</span></code></a> cannot be specified when copying an archive.</p>
 </dd></dl>
 
-<dl class="cmdoption">
+<dl class="std cmdoption">
 <dt id="cmdoption-zipapp-c">
-<code class="descname">-c</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--compress</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-zipapp-c" title="Permalink to this definition">¶</a></dt>
+<span id="cmdoption-zipapp-compress"></span><code class="sig-name descname">-c</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--compress</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-zipapp-c" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compress files with the deflate method, reducing the size of the output
 file. By default, files are stored uncompressed in the archive.</p>
 <p><a class="reference internal" href="#cmdoption-zipapp-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">--compress</span></code></a> has no effect when copying an archive.</p>
@@ -166,17 +236,17 @@ file. By default, files are stored uncompressed in the archive.</p>
 </div>
 </dd></dl>
 
-<dl class="cmdoption">
+<dl class="std cmdoption">
 <dt id="cmdoption-zipapp-info">
-<code class="descname">--info</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-zipapp-info" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">--info</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-zipapp-info" title="Permalink to this definition">¶</a></dt>
 <dd><p>Display the interpreter embedded in the archive, for diagnostic purposes.  In
 this case, any other options are ignored and SOURCE must be an archive, not a
 directory.</p>
 </dd></dl>
 
-<dl class="cmdoption">
+<dl class="std cmdoption">
 <dt id="cmdoption-zipapp-h">
-<code class="descname">-h</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--help</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-zipapp-h" title="Permalink to this definition">¶</a></dt>
+<span id="cmdoption-zipapp-help"></span><code class="sig-name descname">-h</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--help</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-zipapp-h" title="Permalink to this definition">¶</a></dt>
 <dd><p>Print a short usage message and exit.</p>
 </dd></dl>
 
@@ -184,9 +254,9 @@ directory.</p>
 <div class="section" id="python-api">
 <span id="zipapp-python-api"></span><h2>Python API<a class="headerlink" href="#python-api" title="Permalink to this headline">¶</a></h2>
 <p>The module defines two convenience functions:</p>
-<dl class="function">
+<dl class="py function">
 <dt id="zipapp.create_archive">
-<code class="descclassname">zipapp.</code><code class="descname">create_archive</code><span class="sig-paren">(</span><em>source</em>, <em>target=None</em>, <em>interpreter=None</em>, <em>main=None</em>, <em>filter=None</em>, <em>compressed=False</em><span class="sig-paren">)</span><a class="headerlink" href="#zipapp.create_archive" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">zipapp.</code><code class="sig-name descname">create_archive</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">source</span></em>, <em class="sig-param"><span class="n">target</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">interpreter</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">main</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">filter</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">compressed</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#zipapp.create_archive" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create an application archive from <em>source</em>.  The source can be any
 of the following:</p>
 <ul class="simple">
@@ -248,9 +318,9 @@ needed by that class.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="zipapp.get_interpreter">
-<code class="descclassname">zipapp.</code><code class="descname">get_interpreter</code><span class="sig-paren">(</span><em>archive</em><span class="sig-paren">)</span><a class="headerlink" href="#zipapp.get_interpreter" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">zipapp.</code><code class="sig-name descname">get_interpreter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">archive</span></em><span class="sig-paren">)</span><a class="headerlink" href="#zipapp.get_interpreter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the interpreter specified in the <code class="docutils literal notranslate"><span class="pre">#!</span></code> line at the start of the
 archive.  If there is no <code class="docutils literal notranslate"><span class="pre">#!</span></code> line, return <a class="reference internal" href="constants.html#None" title="None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a>.
 The <em>archive</em> argument can be a filename or a file-like object open
@@ -268,7 +338,7 @@ for reading in bytes mode.  It is assumed to be at the start of the archive.</p>
 </div>
 <p>The same can be done using the <a class="reference internal" href="#zipapp.create_archive" title="zipapp.create_archive"><code class="xref py py-func docutils literal notranslate"><span class="pre">create_archive()</span></code></a> function:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">zipapp</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">zipapp</span><span class="o">.</span><span class="n">create_archive</span><span class="p">(</span><span class="s1">&#39;myapp.pyz&#39;</span><span class="p">,</span> <span class="s1">&#39;myapp&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">zipapp</span><span class="o">.</span><span class="n">create_archive</span><span class="p">(</span><span class="s1">&#39;myapp&#39;</span><span class="p">,</span> <span class="s1">&#39;myapp.pyz&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>To make the application directly executable on POSIX, specify an interpreter
@@ -402,11 +472,11 @@ GUI executable, and without it, a console executable.</p>
 <p>To compile the executable, you can either just use the standard MSVC
 command line tools, or you can take advantage of the fact that distutils
 knows how to compile Python source:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">distutils.ccompiler</span> <span class="k">import</span> <span class="n">new_compiler</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">distutils.ccompiler</span> <span class="kn">import</span> <span class="n">new_compiler</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">distutils.sysconfig</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="k">import</span> <span class="n">Path</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">compile</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
 <span class="gp">&gt;&gt;&gt; </span>    <span class="n">src</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">src</span><span class="p">)</span>
@@ -494,6 +564,7 @@ format created by any means are acceptable to Python.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -528,7 +599,7 @@ format created by any means are acceptable to Python.</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a Bug</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.7/Doc/library/zipapp.rst"
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/library/zipapp.rst"
             rel="nofollow">Show Source
         </a>
       </li>
@@ -553,44 +624,59 @@ format created by any means are acceptable to Python.</p>
         <li class="right" >
           <a href="venv.html" title="venv — Creation of virtual environments"
              >previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="distribution.html" >Software Packaging and Distribution</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">zipapp</span></code> — Manage executable Python zip archives</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">Copyright</a> 2001-2019, Python Software Foundation.
+    &copy; <a href="../copyright.html">Copyright</a> 2001-2021, Python Software Foundation.
     <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
     The Python Software Foundation is a non-profit corporation.
-    <a href="https://www.python.org/psf/donations/">Please donate.</a>
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
     <br />
-    Last updated on Jun 19, 2019.
-    <a href="../bugs.html">Found a bug</a>?
+
+    Last updated on Nov 06, 2021.
+    <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.0.1.
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
     </div>
 
   </body>

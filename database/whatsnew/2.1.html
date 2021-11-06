@@ -1,23 +1,25 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>What’s New in Python 2.1 &#8212; Python 3.7.3 documentation</title>
-    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What’s New in Python 2.1 &#8212; Python 3.10.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../_static/pydoctheme.css?2021.11.1" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     
-    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Python 3.7.3 documentation"
+          title="Search within Python 3.10.0 documentation"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -25,13 +27,11 @@
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="next" title="What’s New in Python 2.0" href="2.0.html" />
     <link rel="prev" title="What’s New in Python 2.2" href="2.2.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
     <link rel="canonical" href="https://docs.python.org/3/whatsnew/2.1.html" />
     
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../_static/switchers.js"></script>
+      
     
-    
+
     
     <style>
       @media only screen {
@@ -40,9 +40,78 @@
         }
       }
     </style>
- 
+<link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
 
-  </head><body>
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://www.python.org/" class="nav-logo">
+             <img src="../_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">What’s New in Python 2.1</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#pep-227-nested-scopes">PEP 227: Nested Scopes</a></li>
+<li><a class="reference internal" href="#pep-236-future-directives">PEP 236: __future__ Directives</a></li>
+<li><a class="reference internal" href="#pep-207-rich-comparisons">PEP 207: Rich Comparisons</a></li>
+<li><a class="reference internal" href="#pep-230-warning-framework">PEP 230: Warning Framework</a></li>
+<li><a class="reference internal" href="#pep-229-new-build-system">PEP 229: New Build System</a></li>
+<li><a class="reference internal" href="#pep-205-weak-references">PEP 205: Weak References</a></li>
+<li><a class="reference internal" href="#pep-232-function-attributes">PEP 232: Function Attributes</a></li>
+<li><a class="reference internal" href="#pep-235-importing-modules-on-case-insensitive-platforms">PEP 235: Importing Modules on Case-Insensitive Platforms</a></li>
+<li><a class="reference internal" href="#pep-217-interactive-display-hook">PEP 217: Interactive Display Hook</a></li>
+<li><a class="reference internal" href="#pep-208-new-coercion-model">PEP 208: New Coercion Model</a></li>
+<li><a class="reference internal" href="#pep-241-metadata-in-python-packages">PEP 241: Metadata in Python Packages</a></li>
+<li><a class="reference internal" href="#new-and-improved-modules">New and Improved Modules</a></li>
+<li><a class="reference internal" href="#other-changes-and-fixes">Other Changes and Fixes</a></li>
+<li><a class="reference internal" href="#acknowledgements">Acknowledgements</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="2.2.html"
+                        title="previous chapter">What’s New in Python 2.2</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="2.0.html"
+                        title="next chapter">What’s New in Python 2.0</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">Report a Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/whatsnew/2.1.rst"
+            rel="nofollow">Show Source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
   
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -59,31 +128,36 @@
         <li class="right" >
           <a href="2.2.html" title="What’s New in Python 2.2"
              accesskey="P">previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">What’s New in Python</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href="">What’s New in Python 2.1</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>    
 
@@ -189,14 +263,14 @@ most Python code (and when it is used, it’s often a sign of a poor design
 anyway).</p>
 <p>Compatibility concerns have led to nested scopes being introduced gradually; in
 Python 2.1, they aren’t enabled by default, but can be turned on within a module
-by using a future statement as described in PEP 236.  (See the following section
-for further discussion of PEP 236.)  In Python 2.2, nested scopes will become
+by using a future statement as described in <span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0236"><strong>PEP 236</strong></a>.  (See the following section
+for further discussion of <span class="target" id="index-1"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0236"><strong>PEP 236</strong></a>.)  In Python 2.2, nested scopes will become
 the default and there will be no way to turn them off, but users will have had
 all of 2.1’s lifetime to fix any breakage resulting from their introduction.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
-<dt><span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0227"><strong>PEP 227</strong></a> - Statically Nested Scopes</dt><dd><p>Written and implemented by Jeremy Hylton.</p>
+<dt><span class="target" id="index-2"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0227"><strong>PEP 227</strong></a> - Statically Nested Scopes</dt><dd><p>Written and implemented by Jeremy Hylton.</p>
 </dd>
 </dl>
 </div>
@@ -210,7 +284,7 @@ introducing a convention for enabling optional functionality in release N that
 will become compulsory in release N+1.</p>
 <p>The syntax uses a <code class="docutils literal notranslate"><span class="pre">from...import</span></code> statement using the reserved module name
 <a class="reference internal" href="../library/__future__.html#module-__future__" title="__future__: Future statement definitions"><code class="xref py py-mod docutils literal notranslate"><span class="pre">__future__</span></code></a>.  Nested scopes can be enabled by the following statement:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">nested_scopes</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">nested_scopes</span>
 </pre></div>
 </div>
 <p>While it looks like a normal <a class="reference internal" href="../reference/simple_stmts.html#import"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a> statement, it’s not; there are
@@ -222,7 +296,7 @@ precede any statement that will result in bytecodes being produced.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
-<dt><span class="target" id="index-1"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0236"><strong>PEP 236</strong></a> - Back to the <a class="reference internal" href="../library/__future__.html#module-__future__" title="__future__: Future statement definitions"><code class="xref py py-mod docutils literal notranslate"><span class="pre">__future__</span></code></a></dt><dd><p>Written by Tim Peters, and primarily implemented by Jeremy Hylton.</p>
+<dt><span class="target" id="index-3"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0236"><strong>PEP 236</strong></a> - Back to the <a class="reference internal" href="../library/__future__.html#module-__future__" title="__future__: Future statement definitions"><code class="xref py py-mod docutils literal notranslate"><span class="pre">__future__</span></code></a></dt><dd><p>Written by Tim Peters, and primarily implemented by Jeremy Hylton.</p>
 </dd>
 </dl>
 </div>
@@ -243,7 +317,7 @@ exception to signal the error.</p>
 <p>In Python 2.1, rich comparisons were added in order to support this need.
 Python classes can now individually overload each of the <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>,
 <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">==</span></code>, and <code class="docutils literal notranslate"><span class="pre">!=</span></code> operations.  The new magic method names are:</p>
-<table class="docutils align-center">
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 41%" />
 <col style="width: 59%" />
@@ -255,22 +329,22 @@ Python classes can now individually overload each of the <code class="docutils l
 </thead>
 <tbody>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code></p></td>
-<td><p><a class="reference internal" href="../reference/datamodel.html#object.__lt__" title="object.__lt__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__lt__()</span></code></a></p></td>
+<td><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">__lt__()</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;=</span></code></p></td>
-<td><p><a class="reference internal" href="../reference/datamodel.html#object.__le__" title="object.__le__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__le__()</span></code></a></p></td>
+<td><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">__le__()</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code></p></td>
-<td><p><a class="reference internal" href="../reference/datamodel.html#object.__gt__" title="object.__gt__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__gt__()</span></code></a></p></td>
+<td><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">__gt__()</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;=</span></code></p></td>
-<td><p><a class="reference internal" href="../reference/datamodel.html#object.__ge__" title="object.__ge__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__ge__()</span></code></a></p></td>
+<td><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">__ge__()</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">==</span></code></p></td>
-<td><p><a class="reference internal" href="../reference/datamodel.html#object.__eq__" title="object.__eq__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__eq__()</span></code></a></p></td>
+<td><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">__eq__()</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">!=</span></code></p></td>
-<td><p><a class="reference internal" href="../reference/datamodel.html#object.__ne__" title="object.__ne__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__ne__()</span></code></a></p></td>
+<td><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">__ne__()</span></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -292,12 +366,12 @@ use; this is given as one of the strings <code class="docutils literal notransla
 otherwise it will call the appropriate method and can return any Python object.</p>
 <p>There are also corresponding changes of interest to C programmers; there’s a new
 slot <code class="docutils literal notranslate"><span class="pre">tp_richcmp</span></code> in type objects and an API for performing a given rich
-comparison.  I won’t cover the C API here, but will refer you to PEP 207, or to
+comparison.  I won’t cover the C API here, but will refer you to <span class="target" id="index-4"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0207"><strong>PEP 207</strong></a>, or to
 2.1’s C API documentation, for the full list of related functions.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
-<dt><span class="target" id="index-2"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0207"><strong>PEP 207</strong></a> - Rich Comparisons</dt><dd><p>Written by Guido van Rossum, heavily based on earlier work by David Ascher, and
+<dt><span class="target" id="index-5"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0207"><strong>PEP 207</strong></a> - Rich Comparisons</dt><dd><p>Written by Guido van Rossum, heavily based on earlier work by David Ascher, and
 implemented by Guido van Rossum.</p>
 </dd>
 </dl>
@@ -346,7 +420,7 @@ now.  The warning can be suppressed by calling</p>
 </pre></div>
 </div>
 <p>This adds a filter that will apply only to warnings of the class
-<a class="reference internal" href="../library/exceptions.html#DeprecationWarning" title="DeprecationWarning"><code class="xref py py-class docutils literal notranslate"><span class="pre">DeprecationWarning</span></code></a> triggered in the <a class="reference internal" href="../library/__main__.html#module-__main__" title="__main__: The environment where the top-level script is run."><code class="xref py py-mod docutils literal notranslate"><span class="pre">__main__</span></code></a> module, and applies
+<a class="reference internal" href="../library/exceptions.html#DeprecationWarning" title="DeprecationWarning"><code class="xref py py-class docutils literal notranslate"><span class="pre">DeprecationWarning</span></code></a> triggered in the <a class="reference internal" href="../library/__main__.html#module-__main__" title="__main__: The environment where top-level code is run. Covers command-line interfaces, import-time behavior, and ``__name__ == '__main__'``."><code class="xref py py-mod docutils literal notranslate"><span class="pre">__main__</span></code></a> module, and applies
 a regular expression to only match the message about the <code class="xref py py-mod docutils literal notranslate"><span class="pre">regex</span></code> module
 being deprecated, and will cause such warnings to be ignored.  Warnings can also
 be printed only once, printed every time the offending code is executed, or
@@ -357,12 +431,12 @@ exceptions are caught in the usual way, of course).</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
-<dt><span class="target" id="index-3"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0005"><strong>PEP 5</strong></a> - Guidelines for Language Evolution</dt><dd><p>Written by Paul Prescod, to specify procedures to be followed when removing old
+<dt><span class="target" id="index-6"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0005"><strong>PEP 5</strong></a> - Guidelines for Language Evolution</dt><dd><p>Written by Paul Prescod, to specify procedures to be followed when removing old
 features from Python.  The policy described in this PEP hasn’t been officially
 adopted, but the eventual policy probably won’t be too different from Prescod’s
 proposal.</p>
 </dd>
-<dt><span class="target" id="index-4"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0230"><strong>PEP 230</strong></a> - Warning Framework</dt><dd><p>Written and implemented by Guido van Rossum.</p>
+<dt><span class="target" id="index-7"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0230"><strong>PEP 230</strong></a> - Warning Framework</dt><dd><p>Written and implemented by Guido van Rossum.</p>
 </dd>
 </dl>
 </div>
@@ -396,7 +470,7 @@ simpler.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
-<dt><span class="target" id="index-5"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0229"><strong>PEP 229</strong></a> - Using Distutils to Build Python</dt><dd><p>Written and implemented by A.M. Kuchling.</p>
+<dt><span class="target" id="index-8"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0229"><strong>PEP 229</strong></a> - Using Distutils to Build Python</dt><dd><p>Written and implemented by A.M. Kuchling.</p>
 </dd>
 </dl>
 </div>
@@ -460,7 +534,7 @@ weak references — an object referenced only by proxy objects is deallocated �
 but instead of requiring an explicit call to retrieve the object, the proxy
 transparently forwards all operations to the object as long as the object still
 exists.  If the object is deallocated, attempting to use a proxy will cause a
-<a class="reference internal" href="../library/weakref.html#weakref.ReferenceError" title="weakref.ReferenceError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">weakref.ReferenceError</span></code></a> exception to be raised.</p>
+<code class="xref py py-exc docutils literal notranslate"><span class="pre">weakref.ReferenceError</span></code> exception to be raised.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">proxy</span> <span class="o">=</span> <span class="n">weakref</span><span class="o">.</span><span class="n">proxy</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
 <span class="n">proxy</span><span class="o">.</span><span class="n">attr</span>   <span class="c1"># Equivalent to obj.attr</span>
 <span class="n">proxy</span><span class="o">.</span><span class="n">meth</span><span class="p">()</span> <span class="c1"># Equivalent to obj.meth()</span>
@@ -471,7 +545,7 @@ exists.  If the object is deallocated, attempting to use a proxy will cause a
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
-<dt><span class="target" id="index-6"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0205"><strong>PEP 205</strong></a> - Weak References</dt><dd><p>Written and implemented by Fred L. Drake, Jr.</p>
+<dt><span class="target" id="index-9"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0205"><strong>PEP 205</strong></a> - Weak References</dt><dd><p>Written and implemented by Fred L. Drake, Jr.</p>
 </dd>
 </dl>
 </div>
@@ -481,7 +555,7 @@ exists.  If the object is deallocated, attempting to use a proxy will cause a
 <p>In Python 2.1, functions can now have arbitrary information attached to them.
 People were often using docstrings to hold information about functions and
 methods, because the <code class="docutils literal notranslate"><span class="pre">__doc__</span></code> attribute was the only way of attaching any
-information to a function.  For example, in the Zope Web application server,
+information to a function.  For example, in the Zope web application server,
 functions are marked as safe for public access by having a docstring, and in
 John Aycock’s SPARK parsing framework, docstrings hold parts of the BNF grammar
 to be parsed.  This overloading is unfortunate, since docstrings are really
@@ -505,7 +579,7 @@ that behaves like a mapping.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
-<dt><span class="target" id="index-7"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0232"><strong>PEP 232</strong></a> - Function Attributes</dt><dd><p>Written and implemented by Barry Warsaw.</p>
+<dt><span class="target" id="index-10"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0232"><strong>PEP 232</strong></a> - Function Attributes</dt><dd><p>Written and implemented by Barry Warsaw.</p>
 </dd>
 </dl>
 </div>
@@ -520,7 +594,7 @@ the file’s name  in its original case (they’re case-preserving, too).</p>
 on case-insensitive platforms.  Python will now search for the first
 case-sensitive match by default, raising an <a class="reference internal" href="../library/exceptions.html#ImportError" title="ImportError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ImportError</span></code></a> if no such file
 is found, so <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">file</span></code> will not import a module named <code class="docutils literal notranslate"><span class="pre">FILE.PY</span></code>.
-Case-insensitive matching can be requested by setting the <span class="target" id="index-8"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONCASEOK"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONCASEOK</span></code></a>
+Case-insensitive matching can be requested by setting the <span class="target" id="index-11"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONCASEOK"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONCASEOK</span></code></a>
 environment variable before starting the Python interpreter.</p>
 </div>
 <div class="section" id="pep-217-interactive-display-hook">
@@ -546,7 +620,7 @@ pretty-printing function:</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
-<dt><span class="target" id="index-9"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0217"><strong>PEP 217</strong></a> - Display Hook for Interactive Use</dt><dd><p>Written and implemented by Moshe Zadka.</p>
+<dt><span class="target" id="index-12"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0217"><strong>PEP 217</strong></a> - Display Hook for Interactive Use</dt><dd><p>Written and implemented by Moshe Zadka.</p>
 </dd>
 </dl>
 </div>
@@ -572,7 +646,7 @@ object’s numeric methods).</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
-<dt><span class="target" id="index-10"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0208"><strong>PEP 208</strong></a> - Reworking the Coercion Model</dt><dd><p>Written and implemented by Neil Schemenauer, heavily based upon earlier work by
+<dt><span class="target" id="index-13"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0208"><strong>PEP 208</strong></a> - Reworking the Coercion Model</dt><dd><p>Written and implemented by Neil Schemenauer, heavily based upon earlier work by
 Marc-André Lemburg.  Read this to understand the fine points of how numeric
 operations will now be processed at the C level.</p>
 </dd>
@@ -588,7 +662,7 @@ registering software at the Vaults is optional, and many people don’t bother.<
 <p>As a first small step toward fixing the problem, Python software packaged using
 the Distutils <strong class="command">sdist</strong> command will include a file named
 <code class="file docutils literal notranslate"><span class="pre">PKG-INFO</span></code> containing information about the package such as its name,
-version, and author (metadata, in cataloguing terminology).  PEP 241 contains
+version, and author (metadata, in cataloguing terminology).  <span class="target" id="index-14"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0241"><strong>PEP 241</strong></a> contains
 the full list of fields that can be present in the <code class="file docutils literal notranslate"><span class="pre">PKG-INFO</span></code> file.  As
 people began to package their software using Python 2.1, more and more packages
 will include metadata, making it possible to build automated cataloguing systems
@@ -600,14 +674,14 @@ package to a catalog server.</p>
 <p>You can start creating packages containing <code class="file docutils literal notranslate"><span class="pre">PKG-INFO</span></code> even if you’re not
 using Python 2.1, since a new release of the Distutils will be made for users of
 earlier Python versions.  Version 1.0.2 of the Distutils includes the changes
-described in PEP 241, as well as various bugfixes and enhancements.  It will be
+described in <span class="target" id="index-15"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0241"><strong>PEP 241</strong></a>, as well as various bugfixes and enhancements.  It will be
 available from the Distutils SIG at <a class="reference external" href="https://www.python.org/community/sigs/current/distutils-sig/">https://www.python.org/community/sigs/current/distutils-sig/</a>.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
-<dt><span class="target" id="index-11"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0241"><strong>PEP 241</strong></a> - Metadata for Python Software Packages</dt><dd><p>Written and implemented by A.M. Kuchling.</p>
+<dt><span class="target" id="index-16"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0241"><strong>PEP 241</strong></a> - Metadata for Python Software Packages</dt><dd><p>Written and implemented by A.M. Kuchling.</p>
 </dd>
-<dt><span class="target" id="index-12"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0243"><strong>PEP 243</strong></a> - Module Repository Upload Mechanism</dt><dd><p>Written by Sean Reifschneider, this draft PEP describes a proposed mechanism for
+<dt><span class="target" id="index-17"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0243"><strong>PEP 243</strong></a> - Module Repository Upload Mechanism</dt><dd><p>Written by Sean Reifschneider, this draft PEP describes a proposed mechanism for
 uploading  Python packages to a central server.</p>
 </dd>
 </dl>
@@ -807,6 +881,7 @@ Hudson, Marc-André Lemburg, Fredrik Lundh, Neil Schemenauer, Thomas Wouters.</p
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -845,7 +920,7 @@ Hudson, Marc-André Lemburg, Fredrik Lundh, Neil Schemenauer, Thomas Wouters.</p
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a Bug</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.7/Doc/whatsnew/2.1.rst"
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/whatsnew/2.1.rst"
             rel="nofollow">Show Source
         </a>
       </li>
@@ -870,43 +945,58 @@ Hudson, Marc-André Lemburg, Fredrik Lundh, Neil Schemenauer, Thomas Wouters.</p
         <li class="right" >
           <a href="2.2.html" title="What’s New in Python 2.2"
              >previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >What’s New in Python</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href="">What’s New in Python 2.1</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">Copyright</a> 2001-2019, Python Software Foundation.
+    &copy; <a href="../copyright.html">Copyright</a> 2001-2021, Python Software Foundation.
     <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
     The Python Software Foundation is a non-profit corporation.
-    <a href="https://www.python.org/psf/donations/">Please donate.</a>
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
     <br />
-    Last updated on Jun 19, 2019.
-    <a href="../bugs.html">Found a bug</a>?
+
+    Last updated on Nov 06, 2021.
+    <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.0.1.
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
     </div>
 
   </body>

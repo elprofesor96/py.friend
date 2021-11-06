@@ -1,37 +1,37 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>doctest — Test interactive Python examples &#8212; Python 3.7.3 documentation</title>
-    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>doctest — Test interactive Python examples &#8212; Python 3.10.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../_static/pydoctheme.css?2021.11.1" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     
-    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Python 3.7.3 documentation"
+          title="Search within Python 3.10.0 documentation"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="next" title="unittest — Unit testing framework" href="unittest.html" />
-    <link rel="prev" title="pydoc — Documentation generator and online help system" href="pydoc.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    <link rel="prev" title="Python Development Mode" href="devmode.html" />
     <link rel="canonical" href="https://docs.python.org/3/library/doctest.html" />
     
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../_static/switchers.js"></script>
+      
     
-    
+
     
     <style>
       @media only screen {
@@ -40,9 +40,88 @@
         }
       }
     </style>
- 
+<link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
 
-  </head><body>
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://www.python.org/" class="nav-logo">
+             <img src="../_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">doctest</span></code> — Test interactive Python examples</a><ul>
+<li><a class="reference internal" href="#simple-usage-checking-examples-in-docstrings">Simple Usage: Checking Examples in Docstrings</a></li>
+<li><a class="reference internal" href="#simple-usage-checking-examples-in-a-text-file">Simple Usage: Checking Examples in a Text File</a></li>
+<li><a class="reference internal" href="#how-it-works">How It Works</a><ul>
+<li><a class="reference internal" href="#which-docstrings-are-examined">Which Docstrings Are Examined?</a></li>
+<li><a class="reference internal" href="#how-are-docstring-examples-recognized">How are Docstring Examples Recognized?</a></li>
+<li><a class="reference internal" href="#what-s-the-execution-context">What’s the Execution Context?</a></li>
+<li><a class="reference internal" href="#what-about-exceptions">What About Exceptions?</a></li>
+<li><a class="reference internal" href="#option-flags">Option Flags</a></li>
+<li><a class="reference internal" href="#directives">Directives</a></li>
+<li><a class="reference internal" href="#warnings">Warnings</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#basic-api">Basic API</a></li>
+<li><a class="reference internal" href="#unittest-api">Unittest API</a></li>
+<li><a class="reference internal" href="#advanced-api">Advanced API</a><ul>
+<li><a class="reference internal" href="#doctest-objects">DocTest Objects</a></li>
+<li><a class="reference internal" href="#example-objects">Example Objects</a></li>
+<li><a class="reference internal" href="#doctestfinder-objects">DocTestFinder objects</a></li>
+<li><a class="reference internal" href="#doctestparser-objects">DocTestParser objects</a></li>
+<li><a class="reference internal" href="#doctestrunner-objects">DocTestRunner objects</a></li>
+<li><a class="reference internal" href="#outputchecker-objects">OutputChecker objects</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#debugging">Debugging</a></li>
+<li><a class="reference internal" href="#soapbox">Soapbox</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="devmode.html"
+                        title="previous chapter">Python Development Mode</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="unittest.html"
+                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">unittest</span></code> — Unit testing framework</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">Report a Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/library/doctest.rst"
+            rel="nofollow">Show Source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
   
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -57,34 +136,39 @@
           <a href="unittest.html" title="unittest — Unit testing framework"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="pydoc.html" title="pydoc — Documentation generator and online help system"
+          <a href="devmode.html" title="Python Development Mode"
              accesskey="P">previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="development.html" accesskey="U">Development Tools</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">doctest</span></code> — Test interactive Python examples</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>    
 
@@ -95,7 +179,7 @@
             
   <div class="section" id="module-doctest">
 <span id="doctest-test-interactive-python-examples"></span><h1><a class="reference internal" href="#module-doctest" title="doctest: Test pieces of code within docstrings."><code class="xref py py-mod docutils literal notranslate"><span class="pre">doctest</span></code></a> — Test interactive Python examples<a class="headerlink" href="#module-doctest" title="Permalink to this headline">¶</a></h1>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.7/Lib/doctest.py">Lib/doctest.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.10/Lib/doctest.py">Lib/doctest.py</a></p>
 <hr class="docutils" />
 <p>The <a class="reference internal" href="#module-doctest" title="doctest: Test pieces of code within docstrings."><code class="xref py py-mod docutils literal notranslate"><span class="pre">doctest</span></code></a> module searches for pieces of text that look like interactive
 Python sessions, and then executes those sessions to verify that they work
@@ -536,9 +620,9 @@ and may be passed to the doctest command line interface via the <code class="doc
 </div>
 <p>The first group of options define test semantics, controlling aspects of how
 doctest decides whether actual output matches an example’s expected output:</p>
-<dl class="data">
+<dl class="py data">
 <dt id="doctest.DONT_ACCEPT_TRUE_FOR_1">
-<code class="descclassname">doctest.</code><code class="descname">DONT_ACCEPT_TRUE_FOR_1</code><a class="headerlink" href="#doctest.DONT_ACCEPT_TRUE_FOR_1" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">doctest.</code><code class="sig-name descname">DONT_ACCEPT_TRUE_FOR_1</code><a class="headerlink" href="#doctest.DONT_ACCEPT_TRUE_FOR_1" title="Permalink to this definition">¶</a></dt>
 <dd><p>By default, if an expected output block contains just <code class="docutils literal notranslate"><span class="pre">1</span></code>, an actual output
 block containing just <code class="docutils literal notranslate"><span class="pre">1</span></code> or just <code class="docutils literal notranslate"><span class="pre">True</span></code> is considered to be a match, and
 similarly for <code class="docutils literal notranslate"><span class="pre">0</span></code> versus <code class="docutils literal notranslate"><span class="pre">False</span></code>.  When <a class="reference internal" href="#doctest.DONT_ACCEPT_TRUE_FOR_1" title="doctest.DONT_ACCEPT_TRUE_FOR_1"><code class="xref py py-const docutils literal notranslate"><span class="pre">DONT_ACCEPT_TRUE_FOR_1</span></code></a> is
@@ -548,9 +632,9 @@ doctests expecting “little integer” output still work in these cases.  This
 option will probably go away, but not for several years.</p>
 </dd></dl>
 
-<span class="target" id="index-2"></span><dl class="data">
+<span class="target" id="index-2"></span><dl class="py data">
 <dt id="doctest.DONT_ACCEPT_BLANKLINE">
-<code class="descclassname">doctest.</code><code class="descname">DONT_ACCEPT_BLANKLINE</code><a class="headerlink" href="#doctest.DONT_ACCEPT_BLANKLINE" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">doctest.</code><code class="sig-name descname">DONT_ACCEPT_BLANKLINE</code><a class="headerlink" href="#doctest.DONT_ACCEPT_BLANKLINE" title="Permalink to this definition">¶</a></dt>
 <dd><p>By default, if an expected output block contains a line containing only the
 string <code class="docutils literal notranslate"><span class="pre">&lt;BLANKLINE&gt;</span></code>, then that line will match a blank line in the actual
 output.  Because a genuinely blank line delimits the expected output, this is
@@ -558,9 +642,9 @@ the only way to communicate that a blank line is expected.  When
 <a class="reference internal" href="#doctest.DONT_ACCEPT_BLANKLINE" title="doctest.DONT_ACCEPT_BLANKLINE"><code class="xref py py-const docutils literal notranslate"><span class="pre">DONT_ACCEPT_BLANKLINE</span></code></a> is specified, this substitution is not allowed.</p>
 </dd></dl>
 
-<dl class="data">
+<dl class="py data">
 <dt id="doctest.NORMALIZE_WHITESPACE">
-<code class="descclassname">doctest.</code><code class="descname">NORMALIZE_WHITESPACE</code><a class="headerlink" href="#doctest.NORMALIZE_WHITESPACE" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">doctest.</code><code class="sig-name descname">NORMALIZE_WHITESPACE</code><a class="headerlink" href="#doctest.NORMALIZE_WHITESPACE" title="Permalink to this definition">¶</a></dt>
 <dd><p>When specified, all sequences of whitespace (blanks and newlines) are treated as
 equal.  Any sequence of whitespace within the expected output will match any
 sequence of whitespace within the actual output. By default, whitespace must
@@ -569,9 +653,9 @@ expected output is very long, and you want to wrap it across multiple lines in
 your source.</p>
 </dd></dl>
 
-<span class="target" id="index-3"></span><dl class="data">
+<span class="target" id="index-3"></span><dl class="py data">
 <dt id="doctest.ELLIPSIS">
-<code class="descclassname">doctest.</code><code class="descname">ELLIPSIS</code><a class="headerlink" href="#doctest.ELLIPSIS" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">doctest.</code><code class="sig-name descname">ELLIPSIS</code><a class="headerlink" href="#doctest.ELLIPSIS" title="Permalink to this definition">¶</a></dt>
 <dd><p>When specified, an ellipsis marker (<code class="docutils literal notranslate"><span class="pre">...</span></code>) in the expected output can match
 any substring in the actual output.  This includes substrings that span line
 boundaries, and empty substrings, so it’s best to keep usage of this simple.
@@ -579,9 +663,9 @@ Complicated uses can lead to the same kinds of “oops, it matched too much!”
 surprises that <code class="docutils literal notranslate"><span class="pre">.*</span></code> is prone to in regular expressions.</p>
 </dd></dl>
 
-<dl class="data">
+<dl class="py data">
 <dt id="doctest.IGNORE_EXCEPTION_DETAIL">
-<code class="descclassname">doctest.</code><code class="descname">IGNORE_EXCEPTION_DETAIL</code><a class="headerlink" href="#doctest.IGNORE_EXCEPTION_DETAIL" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">doctest.</code><code class="sig-name descname">IGNORE_EXCEPTION_DETAIL</code><a class="headerlink" href="#doctest.IGNORE_EXCEPTION_DETAIL" title="Permalink to this definition">¶</a></dt>
 <dd><p>When specified, an example that expects an exception passes if an exception of
 the expected type is raised, even if the exception detail does not match.  For
 example, an example expecting <code class="docutils literal notranslate"><span class="pre">ValueError:</span> <span class="pre">42</span></code> will pass if the actual
@@ -621,9 +705,9 @@ to the module containing the exception under test.</p>
 </div>
 </dd></dl>
 
-<dl class="data">
+<dl class="py data">
 <dt id="doctest.SKIP">
-<code class="descclassname">doctest.</code><code class="descname">SKIP</code><a class="headerlink" href="#doctest.SKIP" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">doctest.</code><code class="sig-name descname">SKIP</code><a class="headerlink" href="#doctest.SKIP" title="Permalink to this definition">¶</a></dt>
 <dd><p>When specified, do not run the example at all.  This can be useful in contexts
 where doctest examples serve as both documentation and test cases, and an
 example should be included for documentation purposes, but should not be
@@ -632,30 +716,30 @@ depend on resources which would be unavailable to the test driver.</p>
 <p>The SKIP flag can also be used for temporarily “commenting out” examples.</p>
 </dd></dl>
 
-<dl class="data">
+<dl class="py data">
 <dt id="doctest.COMPARISON_FLAGS">
-<code class="descclassname">doctest.</code><code class="descname">COMPARISON_FLAGS</code><a class="headerlink" href="#doctest.COMPARISON_FLAGS" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">doctest.</code><code class="sig-name descname">COMPARISON_FLAGS</code><a class="headerlink" href="#doctest.COMPARISON_FLAGS" title="Permalink to this definition">¶</a></dt>
 <dd><p>A bitmask or’ing together all the comparison flags above.</p>
 </dd></dl>
 
 <p>The second group of options controls how test failures are reported:</p>
-<dl class="data">
+<dl class="py data">
 <dt id="doctest.REPORT_UDIFF">
-<code class="descclassname">doctest.</code><code class="descname">REPORT_UDIFF</code><a class="headerlink" href="#doctest.REPORT_UDIFF" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">doctest.</code><code class="sig-name descname">REPORT_UDIFF</code><a class="headerlink" href="#doctest.REPORT_UDIFF" title="Permalink to this definition">¶</a></dt>
 <dd><p>When specified, failures that involve multi-line expected and actual outputs are
 displayed using a unified diff.</p>
 </dd></dl>
 
-<dl class="data">
+<dl class="py data">
 <dt id="doctest.REPORT_CDIFF">
-<code class="descclassname">doctest.</code><code class="descname">REPORT_CDIFF</code><a class="headerlink" href="#doctest.REPORT_CDIFF" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">doctest.</code><code class="sig-name descname">REPORT_CDIFF</code><a class="headerlink" href="#doctest.REPORT_CDIFF" title="Permalink to this definition">¶</a></dt>
 <dd><p>When specified, failures that involve multi-line expected and actual outputs
 will be displayed using a context diff.</p>
 </dd></dl>
 
-<dl class="data">
+<dl class="py data">
 <dt id="doctest.REPORT_NDIFF">
-<code class="descclassname">doctest.</code><code class="descname">REPORT_NDIFF</code><a class="headerlink" href="#doctest.REPORT_NDIFF" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">doctest.</code><code class="sig-name descname">REPORT_NDIFF</code><a class="headerlink" href="#doctest.REPORT_NDIFF" title="Permalink to this definition">¶</a></dt>
 <dd><p>When specified, differences are computed by <code class="docutils literal notranslate"><span class="pre">difflib.Differ</span></code>, using the same
 algorithm as the popular <code class="file docutils literal notranslate"><span class="pre">ndiff.py</span></code> utility. This is the only method that
 marks differences within lines as well as across lines.  For example, if a line
@@ -663,9 +747,9 @@ of expected output contains digit <code class="docutils literal notranslate"><sp
 <code class="docutils literal notranslate"><span class="pre">l</span></code>, a line is inserted with a caret marking the mismatching column positions.</p>
 </dd></dl>
 
-<dl class="data">
+<dl class="py data">
 <dt id="doctest.REPORT_ONLY_FIRST_FAILURE">
-<code class="descclassname">doctest.</code><code class="descname">REPORT_ONLY_FIRST_FAILURE</code><a class="headerlink" href="#doctest.REPORT_ONLY_FIRST_FAILURE" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">doctest.</code><code class="sig-name descname">REPORT_ONLY_FIRST_FAILURE</code><a class="headerlink" href="#doctest.REPORT_ONLY_FIRST_FAILURE" title="Permalink to this definition">¶</a></dt>
 <dd><p>When specified, display the first failing example in each doctest, but suppress
 output for all remaining examples.  This will prevent doctest from reporting
 correct examples that break because of earlier failures; but it might also hide
@@ -675,9 +759,9 @@ still run, and still count towards the total number of failures reported; only
 the output is suppressed.</p>
 </dd></dl>
 
-<dl class="data">
+<dl class="py data">
 <dt id="doctest.FAIL_FAST">
-<code class="descclassname">doctest.</code><code class="descname">FAIL_FAST</code><a class="headerlink" href="#doctest.FAIL_FAST" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">doctest.</code><code class="sig-name descname">FAIL_FAST</code><a class="headerlink" href="#doctest.FAIL_FAST" title="Permalink to this definition">¶</a></dt>
 <dd><p>When specified, exit after the first failing example and don’t attempt to run
 the remaining examples. Thus, the number of failures reported will be at most
 1.  This flag may be useful during debugging, since examples after the first
@@ -689,17 +773,17 @@ failure won’t even produce debugging output.</p>
 </div>
 </dd></dl>
 
-<dl class="data">
+<dl class="py data">
 <dt id="doctest.REPORTING_FLAGS">
-<code class="descclassname">doctest.</code><code class="descname">REPORTING_FLAGS</code><a class="headerlink" href="#doctest.REPORTING_FLAGS" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">doctest.</code><code class="sig-name descname">REPORTING_FLAGS</code><a class="headerlink" href="#doctest.REPORTING_FLAGS" title="Permalink to this definition">¶</a></dt>
 <dd><p>A bitmask or’ing together all the reporting flags above.</p>
 </dd></dl>
 
 <p>There is also a way to register new option flag names, though this isn’t
 useful unless you intend to extend <a class="reference internal" href="#module-doctest" title="doctest: Test pieces of code within docstrings."><code class="xref py py-mod docutils literal notranslate"><span class="pre">doctest</span></code></a> internals via subclassing:</p>
-<dl class="function">
+<dl class="py function">
 <dt id="doctest.register_optionflag">
-<code class="descclassname">doctest.</code><code class="descname">register_optionflag</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.register_optionflag" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">doctest.</code><code class="sig-name descname">register_optionflag</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.register_optionflag" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a new option flag with a given name, and return the new flag’s integer
 value.  <a class="reference internal" href="#doctest.register_optionflag" title="doctest.register_optionflag"><code class="xref py py-func docutils literal notranslate"><span class="pre">register_optionflag()</span></code></a> can be used when subclassing
 <a class="reference internal" href="#doctest.OutputChecker" title="doctest.OutputChecker"><code class="xref py py-class docutils literal notranslate"><span class="pre">OutputChecker</span></code></a> or <a class="reference internal" href="#doctest.DocTestRunner" title="doctest.DocTestRunner"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTestRunner</span></code></a> to create new options that are
@@ -716,11 +800,11 @@ called using the following idiom:</p>
 <p>Doctest directives may be used to modify the <a class="reference internal" href="#doctest-options"><span class="std std-ref">option flags</span></a> for an individual example.  Doctest directives are
 special Python comments following an example’s source code:</p>
 <pre>
-<strong id="grammar-token-directive">directive            </strong> ::=  &quot;#&quot; &quot;doctest:&quot; <a class="reference internal" href="#grammar-token-directive-options"><code class="xref docutils literal notranslate"><span class="pre">directive_options</span></code></a>
-<strong id="grammar-token-directive-options">directive_options    </strong> ::=  <a class="reference internal" href="#grammar-token-directive-option"><code class="xref docutils literal notranslate"><span class="pre">directive_option</span></code></a> (&quot;,&quot; <a class="reference internal" href="#grammar-token-directive-option"><code class="xref docutils literal notranslate"><span class="pre">directive_option</span></code></a>)\*
-<strong id="grammar-token-directive-option">directive_option     </strong> ::=  <a class="reference internal" href="#grammar-token-on-or-off"><code class="xref docutils literal notranslate"><span class="pre">on_or_off</span></code></a> <a class="reference internal" href="#grammar-token-directive-option-name"><code class="xref docutils literal notranslate"><span class="pre">directive_option_name</span></code></a>
-<strong id="grammar-token-on-or-off">on_or_off            </strong> ::=  &quot;+&quot; \| &quot;-&quot;
-<strong id="grammar-token-directive-option-name">directive_option_name</strong> ::=  &quot;DONT_ACCEPT_BLANKLINE&quot; \| &quot;NORMALIZE_WHITESPACE&quot; \| ...
+<strong id="grammar-token-doctest-directive"><span id="grammar-token-directive"></span>directive            </strong> ::=  &quot;#&quot; &quot;doctest:&quot; <a class="reference internal" href="#grammar-token-doctest-directive_options"><code class="xref docutils literal notranslate"><span class="pre">directive_options</span></code></a>
+<strong id="grammar-token-doctest-directive_options"><span id="grammar-token-directive-options"></span>directive_options    </strong> ::=  <a class="reference internal" href="#grammar-token-doctest-directive_option"><code class="xref docutils literal notranslate"><span class="pre">directive_option</span></code></a> (&quot;,&quot; <a class="reference internal" href="#grammar-token-doctest-directive_option"><code class="xref docutils literal notranslate"><span class="pre">directive_option</span></code></a>)\*
+<strong id="grammar-token-doctest-directive_option"><span id="grammar-token-directive-option"></span>directive_option     </strong> ::=  <a class="reference internal" href="#grammar-token-doctest-on_or_off"><code class="xref docutils literal notranslate"><span class="pre">on_or_off</span></code></a> <a class="reference internal" href="#grammar-token-doctest-directive_option_name"><code class="xref docutils literal notranslate"><span class="pre">directive_option_name</span></code></a>
+<strong id="grammar-token-doctest-on_or_off"><span id="grammar-token-on-or-off"></span>on_or_off            </strong> ::=  &quot;+&quot; \| &quot;-&quot;
+<strong id="grammar-token-doctest-directive_option_name"><span id="grammar-token-directive-option-name"></span>directive_option_name</strong> ::=  &quot;DONT_ACCEPT_BLANKLINE&quot; \| &quot;NORMALIZE_WHITESPACE&quot; \| ...
 </pre>
 <p>Whitespace is not allowed between the <code class="docutils literal notranslate"><span class="pre">+</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code> and the directive option
 name.  The directive option name can be any of the option flag names explained
@@ -836,9 +920,9 @@ better documentation.</p>
 doctest that should be sufficient for most basic uses.  For a less formal
 introduction to these two functions, see sections <a class="reference internal" href="#doctest-simple-testmod"><span class="std std-ref">Simple Usage: Checking Examples in Docstrings</span></a>
 and <a class="reference internal" href="#doctest-simple-testfile"><span class="std std-ref">Simple Usage: Checking Examples in a Text File</span></a>.</p>
-<dl class="function">
+<dl class="py function">
 <dt id="doctest.testfile">
-<code class="descclassname">doctest.</code><code class="descname">testfile</code><span class="sig-paren">(</span><em>filename</em>, <em>module_relative=True</em>, <em>name=None</em>, <em>package=None</em>, <em>globs=None</em>, <em>verbose=None</em>, <em>report=True</em>, <em>optionflags=0</em>, <em>extraglobs=None</em>, <em>raise_on_error=False</em>, <em>parser=DocTestParser()</em>, <em>encoding=None</em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.testfile" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">doctest.</code><code class="sig-name descname">testfile</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">module_relative</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">package</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">globs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">report</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">optionflags</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">extraglobs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">raise_on_error</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">parser</span><span class="o">=</span><span class="default_value">DocTestParser()</span></em>, <em class="sig-param"><span class="n">encoding</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.testfile" title="Permalink to this definition">¶</a></dt>
 <dd><p>All arguments except <em>filename</em> are optional, and should be specified in keyword
 form.</p>
 <p>Test examples in the file named <em>filename</em>.  Return <code class="docutils literal notranslate"><span class="pre">(failure_count,</span>
@@ -895,13 +979,13 @@ should be used to extract tests from the files.  It defaults to a normal parser
 convert the file to unicode.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="doctest.testmod">
-<code class="descclassname">doctest.</code><code class="descname">testmod</code><span class="sig-paren">(</span><em>m=None</em>, <em>name=None</em>, <em>globs=None</em>, <em>verbose=None</em>, <em>report=True</em>, <em>optionflags=0</em>, <em>extraglobs=None</em>, <em>raise_on_error=False</em>, <em>exclude_empty=False</em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.testmod" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">doctest.</code><code class="sig-name descname">testmod</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">m</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">globs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">report</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">optionflags</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">extraglobs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">raise_on_error</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">exclude_empty</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.testmod" title="Permalink to this definition">¶</a></dt>
 <dd><p>All arguments are optional, and all except for <em>m</em> should be specified in
 keyword form.</p>
 <p>Test examples in docstrings in functions and classes reachable from module <em>m</em>
-(or module <a class="reference internal" href="__main__.html#module-__main__" title="__main__: The environment where the top-level script is run."><code class="xref py py-mod docutils literal notranslate"><span class="pre">__main__</span></code></a> if <em>m</em> is not supplied or is <code class="docutils literal notranslate"><span class="pre">None</span></code>), starting with
+(or module <a class="reference internal" href="__main__.html#module-__main__" title="__main__: The environment where top-level code is run. Covers command-line interfaces, import-time behavior, and ``__name__ == '__main__'``."><code class="xref py py-mod docutils literal notranslate"><span class="pre">__main__</span></code></a> if <em>m</em> is not supplied or is <code class="docutils literal notranslate"><span class="pre">None</span></code>), starting with
 <code class="docutils literal notranslate"><span class="pre">m.__doc__</span></code>.</p>
 <p>Also test examples reachable from dict <code class="docutils literal notranslate"><span class="pre">m.__test__</span></code>, if it exists and is not
 <code class="docutils literal notranslate"><span class="pre">None</span></code>.  <code class="docutils literal notranslate"><span class="pre">m.__test__</span></code> maps names (strings) to functions, classes and
@@ -922,9 +1006,9 @@ constructor defaults to true.</p>
 above, except that <em>globs</em> defaults to <code class="docutils literal notranslate"><span class="pre">m.__dict__</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="doctest.run_docstring_examples">
-<code class="descclassname">doctest.</code><code class="descname">run_docstring_examples</code><span class="sig-paren">(</span><em>f</em>, <em>globs</em>, <em>verbose=False</em>, <em>name=&quot;NoName&quot;</em>, <em>compileflags=None</em>, <em>optionflags=0</em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.run_docstring_examples" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">doctest.</code><code class="sig-name descname">run_docstring_examples</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="n">globs</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">'NoName'</span></em>, <em class="sig-param"><span class="n">compileflags</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">optionflags</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.run_docstring_examples" title="Permalink to this definition">¶</a></dt>
 <dd><p>Test examples associated with object <em>f</em>; for example, <em>f</em> may be a string,
 a module, a function, or a class object.</p>
 <p>A shallow copy of dictionary argument <em>globs</em> is used for the execution context.</p>
@@ -957,9 +1041,9 @@ a <code class="xref py py-func docutils literal notranslate"><span class="pre">l
 </div>
 <p>There are two main functions for creating <a class="reference internal" href="unittest.html#unittest.TestSuite" title="unittest.TestSuite"><code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.TestSuite</span></code></a> instances
 from text files and modules with doctests:</p>
-<dl class="function">
+<dl class="py function">
 <dt id="doctest.DocFileSuite">
-<code class="descclassname">doctest.</code><code class="descname">DocFileSuite</code><span class="sig-paren">(</span><em>*paths</em>, <em>module_relative=True</em>, <em>package=None</em>, <em>setUp=None</em>, <em>tearDown=None</em>, <em>globs=None</em>, <em>optionflags=0</em>, <em>parser=DocTestParser()</em>, <em>encoding=None</em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.DocFileSuite" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">doctest.</code><code class="sig-name descname">DocFileSuite</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">paths</span></em>, <em class="sig-param"><span class="n">module_relative</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">package</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">setUp</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">tearDown</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">globs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">optionflags</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">parser</span><span class="o">=</span><span class="default_value">DocTestParser()</span></em>, <em class="sig-param"><span class="n">encoding</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.DocFileSuite" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert doctest tests from one or more text files to a
 <a class="reference internal" href="unittest.html#unittest.TestSuite" title="unittest.TestSuite"><code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.TestSuite</span></code></a>.</p>
 <p>The returned <a class="reference internal" href="unittest.html#unittest.TestSuite" title="unittest.TestSuite"><code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.TestSuite</span></code></a> is to be run by the unittest framework
@@ -1013,9 +1097,9 @@ convert the file to unicode.</p>
 from a text file using <a class="reference internal" href="#doctest.DocFileSuite" title="doctest.DocFileSuite"><code class="xref py py-func docutils literal notranslate"><span class="pre">DocFileSuite()</span></code></a>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="doctest.DocTestSuite">
-<code class="descclassname">doctest.</code><code class="descname">DocTestSuite</code><span class="sig-paren">(</span><em>module=None</em>, <em>globs=None</em>, <em>extraglobs=None</em>, <em>test_finder=None</em>, <em>setUp=None</em>, <em>tearDown=None</em>, <em>checker=None</em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.DocTestSuite" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">doctest.</code><code class="sig-name descname">DocTestSuite</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">module</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">globs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">extraglobs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">test_finder</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">setUp</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">tearDown</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">checker</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.DocTestSuite" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert doctest tests for a module to a <a class="reference internal" href="unittest.html#unittest.TestSuite" title="unittest.TestSuite"><code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.TestSuite</span></code></a>.</p>
 <p>The returned <a class="reference internal" href="unittest.html#unittest.TestSuite" title="unittest.TestSuite"><code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.TestSuite</span></code></a> is to be run by the unittest framework
 and runs each doctest in the module.  If any of the doctests fail, then the
@@ -1060,9 +1144,9 @@ options), but there’s no way to pass options through <a class="reference inter
 <a class="reference internal" href="#module-doctest" title="doctest: Test pieces of code within docstrings."><code class="xref py py-mod docutils literal notranslate"><span class="pre">doctest</span></code></a> test runners.</p>
 <p>For this reason, <a class="reference internal" href="#module-doctest" title="doctest: Test pieces of code within docstrings."><code class="xref py py-mod docutils literal notranslate"><span class="pre">doctest</span></code></a> also supports a notion of <a class="reference internal" href="#module-doctest" title="doctest: Test pieces of code within docstrings."><code class="xref py py-mod docutils literal notranslate"><span class="pre">doctest</span></code></a>
 reporting flags specific to <a class="reference internal" href="unittest.html#module-unittest" title="unittest: Unit testing framework for Python."><code class="xref py py-mod docutils literal notranslate"><span class="pre">unittest</span></code></a> support, via this function:</p>
-<dl class="function">
+<dl class="py function">
 <dt id="doctest.set_unittest_reportflags">
-<code class="descclassname">doctest.</code><code class="descname">set_unittest_reportflags</code><span class="sig-paren">(</span><em>flags</em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.set_unittest_reportflags" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">doctest.</code><code class="sig-name descname">set_unittest_reportflags</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flags</span></em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.set_unittest_reportflags" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the <a class="reference internal" href="#module-doctest" title="doctest: Test pieces of code within docstrings."><code class="xref py py-mod docutils literal notranslate"><span class="pre">doctest</span></code></a> reporting flags to use.</p>
 <p>Argument <em>flags</em> takes the <a class="reference internal" href="../reference/expressions.html#bitwise"><span class="std std-ref">bitwise OR</span></a> of option flags.  See
 section <a class="reference internal" href="#doctest-options"><span class="std std-ref">Option Flags</span></a>.  Only “reporting flags” can be used.</p>
@@ -1122,55 +1206,55 @@ diagram:</p>
 </div>
 <div class="section" id="doctest-objects">
 <span id="doctest-doctest"></span><h3>DocTest Objects<a class="headerlink" href="#doctest-objects" title="Permalink to this headline">¶</a></h3>
-<dl class="class">
+<dl class="py class">
 <dt id="doctest.DocTest">
-<em class="property">class </em><code class="descclassname">doctest.</code><code class="descname">DocTest</code><span class="sig-paren">(</span><em>examples</em>, <em>globs</em>, <em>name</em>, <em>filename</em>, <em>lineno</em>, <em>docstring</em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.DocTest" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">doctest.</code><code class="sig-name descname">DocTest</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">examples</span></em>, <em class="sig-param"><span class="n">globs</span></em>, <em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">lineno</span></em>, <em class="sig-param"><span class="n">docstring</span></em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.DocTest" title="Permalink to this definition">¶</a></dt>
 <dd><p>A collection of doctest examples that should be run in a single namespace.  The
 constructor arguments are used to initialize the attributes of the same names.</p>
 <p><a class="reference internal" href="#doctest.DocTest" title="doctest.DocTest"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTest</span></code></a> defines the following attributes.  They are initialized by
 the constructor, and should not be modified directly.</p>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="doctest.DocTest.examples">
-<code class="descname">examples</code><a class="headerlink" href="#doctest.DocTest.examples" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">examples</code><a class="headerlink" href="#doctest.DocTest.examples" title="Permalink to this definition">¶</a></dt>
 <dd><p>A list of <a class="reference internal" href="#doctest.Example" title="doctest.Example"><code class="xref py py-class docutils literal notranslate"><span class="pre">Example</span></code></a> objects encoding the individual interactive Python
 examples that should be run by this test.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="doctest.DocTest.globs">
-<code class="descname">globs</code><a class="headerlink" href="#doctest.DocTest.globs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">globs</code><a class="headerlink" href="#doctest.DocTest.globs" title="Permalink to this definition">¶</a></dt>
 <dd><p>The namespace (aka globals) that the examples should be run in. This is a
 dictionary mapping names to values.  Any changes to the namespace made by the
 examples (such as binding new variables) will be reflected in <a class="reference internal" href="#doctest.DocTest.globs" title="doctest.DocTest.globs"><code class="xref py py-attr docutils literal notranslate"><span class="pre">globs</span></code></a>
 after the test is run.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="doctest.DocTest.name">
-<code class="descname">name</code><a class="headerlink" href="#doctest.DocTest.name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">name</code><a class="headerlink" href="#doctest.DocTest.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>A string name identifying the <a class="reference internal" href="#doctest.DocTest" title="doctest.DocTest"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTest</span></code></a>.  Typically, this is the name
 of the object or file that the test was extracted from.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="doctest.DocTest.filename">
-<code class="descname">filename</code><a class="headerlink" href="#doctest.DocTest.filename" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">filename</code><a class="headerlink" href="#doctest.DocTest.filename" title="Permalink to this definition">¶</a></dt>
 <dd><p>The name of the file that this <a class="reference internal" href="#doctest.DocTest" title="doctest.DocTest"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTest</span></code></a> was extracted from; or
 <code class="docutils literal notranslate"><span class="pre">None</span></code> if the filename is unknown, or if the <a class="reference internal" href="#doctest.DocTest" title="doctest.DocTest"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTest</span></code></a> was not
 extracted from a file.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="doctest.DocTest.lineno">
-<code class="descname">lineno</code><a class="headerlink" href="#doctest.DocTest.lineno" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">lineno</code><a class="headerlink" href="#doctest.DocTest.lineno" title="Permalink to this definition">¶</a></dt>
 <dd><p>The line number within <a class="reference internal" href="#doctest.DocTest.filename" title="doctest.DocTest.filename"><code class="xref py py-attr docutils literal notranslate"><span class="pre">filename</span></code></a> where this <a class="reference internal" href="#doctest.DocTest" title="doctest.DocTest"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTest</span></code></a> begins, or
 <code class="docutils literal notranslate"><span class="pre">None</span></code> if the line number is unavailable.  This line number is zero-based
 with respect to the beginning of the file.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="doctest.DocTest.docstring">
-<code class="descname">docstring</code><a class="headerlink" href="#doctest.DocTest.docstring" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">docstring</code><a class="headerlink" href="#doctest.DocTest.docstring" title="Permalink to this definition">¶</a></dt>
 <dd><p>The string that the test was extracted from, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if the string is
 unavailable, or if the test was not extracted from a string.</p>
 </dd></dl>
@@ -1180,34 +1264,34 @@ unavailable, or if the test was not extracted from a string.</p>
 </div>
 <div class="section" id="example-objects">
 <span id="doctest-example"></span><h3>Example Objects<a class="headerlink" href="#example-objects" title="Permalink to this headline">¶</a></h3>
-<dl class="class">
+<dl class="py class">
 <dt id="doctest.Example">
-<em class="property">class </em><code class="descclassname">doctest.</code><code class="descname">Example</code><span class="sig-paren">(</span><em>source</em>, <em>want</em>, <em>exc_msg=None</em>, <em>lineno=0</em>, <em>indent=0</em>, <em>options=None</em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.Example" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">doctest.</code><code class="sig-name descname">Example</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">source</span></em>, <em class="sig-param"><span class="n">want</span></em>, <em class="sig-param"><span class="n">exc_msg</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lineno</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">indent</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">options</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.Example" title="Permalink to this definition">¶</a></dt>
 <dd><p>A single interactive example, consisting of a Python statement and its expected
 output.  The constructor arguments are used to initialize the attributes of
 the same names.</p>
 <p><a class="reference internal" href="#doctest.Example" title="doctest.Example"><code class="xref py py-class docutils literal notranslate"><span class="pre">Example</span></code></a> defines the following attributes.  They are initialized by
 the constructor, and should not be modified directly.</p>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="doctest.Example.source">
-<code class="descname">source</code><a class="headerlink" href="#doctest.Example.source" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">source</code><a class="headerlink" href="#doctest.Example.source" title="Permalink to this definition">¶</a></dt>
 <dd><p>A string containing the example’s source code.  This source code consists of a
 single Python statement, and always ends with a newline; the constructor adds
 a newline when necessary.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="doctest.Example.want">
-<code class="descname">want</code><a class="headerlink" href="#doctest.Example.want" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">want</code><a class="headerlink" href="#doctest.Example.want" title="Permalink to this definition">¶</a></dt>
 <dd><p>The expected output from running the example’s source code (either from
 stdout, or a traceback in case of exception).  <a class="reference internal" href="#doctest.Example.want" title="doctest.Example.want"><code class="xref py py-attr docutils literal notranslate"><span class="pre">want</span></code></a> ends with a
 newline unless no output is expected, in which case it’s an empty string.  The
 constructor adds a newline when necessary.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="doctest.Example.exc_msg">
-<code class="descname">exc_msg</code><a class="headerlink" href="#doctest.Example.exc_msg" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">exc_msg</code><a class="headerlink" href="#doctest.Example.exc_msg" title="Permalink to this definition">¶</a></dt>
 <dd><p>The exception message generated by the example, if the example is expected to
 generate an exception; or <code class="docutils literal notranslate"><span class="pre">None</span></code> if it is not expected to generate an
 exception.  This exception message is compared against the return value of
@@ -1215,24 +1299,24 @@ exception.  This exception message is compared against the return value of
 unless it’s <code class="docutils literal notranslate"><span class="pre">None</span></code>.  The constructor adds a newline if needed.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="doctest.Example.lineno">
-<code class="descname">lineno</code><a class="headerlink" href="#doctest.Example.lineno" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">lineno</code><a class="headerlink" href="#doctest.Example.lineno" title="Permalink to this definition">¶</a></dt>
 <dd><p>The line number within the string containing this example where the example
 begins.  This line number is zero-based with respect to the beginning of the
 containing string.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="doctest.Example.indent">
-<code class="descname">indent</code><a class="headerlink" href="#doctest.Example.indent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">indent</code><a class="headerlink" href="#doctest.Example.indent" title="Permalink to this definition">¶</a></dt>
 <dd><p>The example’s indentation in the containing string, i.e., the number of space
 characters that precede the example’s first prompt.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="doctest.Example.options">
-<code class="descname">options</code><a class="headerlink" href="#doctest.Example.options" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">options</code><a class="headerlink" href="#doctest.Example.options" title="Permalink to this definition">¶</a></dt>
 <dd><p>A dictionary mapping from option flags to <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>, which is used
 to override default options for this example.  Any option flags not contained
 in this dictionary are left at their default value (as specified by the
@@ -1244,9 +1328,9 @@ in this dictionary are left at their default value (as specified by the
 </div>
 <div class="section" id="doctestfinder-objects">
 <span id="doctest-doctestfinder"></span><h3>DocTestFinder objects<a class="headerlink" href="#doctestfinder-objects" title="Permalink to this headline">¶</a></h3>
-<dl class="class">
+<dl class="py class">
 <dt id="doctest.DocTestFinder">
-<em class="property">class </em><code class="descclassname">doctest.</code><code class="descname">DocTestFinder</code><span class="sig-paren">(</span><em>verbose=False</em>, <em>parser=DocTestParser()</em>, <em>recurse=True</em>, <em>exclude_empty=True</em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.DocTestFinder" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">doctest.</code><code class="sig-name descname">DocTestFinder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">parser</span><span class="o">=</span><span class="default_value">DocTestParser()</span></em>, <em class="sig-param"><span class="n">recurse</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">exclude_empty</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.DocTestFinder" title="Permalink to this definition">¶</a></dt>
 <dd><p>A processing class used to extract the <a class="reference internal" href="#doctest.DocTest" title="doctest.DocTest"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTest</span></code></a>s that are relevant to
 a given object, from its docstring and the docstrings of its contained objects.
 <a class="reference internal" href="#doctest.DocTest" title="doctest.DocTest"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTest</span></code></a>s can be extracted from modules, classes, functions,
@@ -1260,9 +1344,9 @@ will only examine the given object, and not any contained objects.</p>
 <p>If the optional argument <em>exclude_empty</em> is false, then
 <a class="reference internal" href="#doctest.DocTestFinder.find" title="doctest.DocTestFinder.find"><code class="xref py py-meth docutils literal notranslate"><span class="pre">DocTestFinder.find()</span></code></a> will include tests for objects with empty docstrings.</p>
 <p><a class="reference internal" href="#doctest.DocTestFinder" title="doctest.DocTestFinder"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTestFinder</span></code></a> defines the following method:</p>
-<dl class="method">
+<dl class="py method">
 <dt id="doctest.DocTestFinder.find">
-<code class="descname">find</code><span class="sig-paren">(</span><em>obj[, name][, module][, globs][, extraglobs]</em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.DocTestFinder.find" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">find</code><span class="sig-paren">(</span><em class="sig-param">obj[, name][, module][, globs][, extraglobs]</em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.DocTestFinder.find" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of the <a class="reference internal" href="#doctest.DocTest" title="doctest.DocTest"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTest</span></code></a>s that are defined by <em>obj</em>’s
 docstring, or by any of its contained objects’ docstrings.</p>
 <p>The optional argument <em>name</em> specifies the object’s name; this name will be
@@ -1297,15 +1381,15 @@ defaults to <code class="docutils literal notranslate"><span class="pre">{}</spa
 </div>
 <div class="section" id="doctestparser-objects">
 <span id="doctest-doctestparser"></span><h3>DocTestParser objects<a class="headerlink" href="#doctestparser-objects" title="Permalink to this headline">¶</a></h3>
-<dl class="class">
+<dl class="py class">
 <dt id="doctest.DocTestParser">
-<em class="property">class </em><code class="descclassname">doctest.</code><code class="descname">DocTestParser</code><a class="headerlink" href="#doctest.DocTestParser" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">doctest.</code><code class="sig-name descname">DocTestParser</code><a class="headerlink" href="#doctest.DocTestParser" title="Permalink to this definition">¶</a></dt>
 <dd><p>A processing class used to extract interactive examples from a string, and use
 them to create a <a class="reference internal" href="#doctest.DocTest" title="doctest.DocTest"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTest</span></code></a> object.</p>
 <p><a class="reference internal" href="#doctest.DocTestParser" title="doctest.DocTestParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTestParser</span></code></a> defines the following methods:</p>
-<dl class="method">
+<dl class="py method">
 <dt id="doctest.DocTestParser.get_doctest">
-<code class="descname">get_doctest</code><span class="sig-paren">(</span><em>string</em>, <em>globs</em>, <em>name</em>, <em>filename</em>, <em>lineno</em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.DocTestParser.get_doctest" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_doctest</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">string</span></em>, <em class="sig-param"><span class="n">globs</span></em>, <em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">lineno</span></em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.DocTestParser.get_doctest" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract all doctest examples from the given string, and collect them into a
 <a class="reference internal" href="#doctest.DocTest" title="doctest.DocTest"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTest</span></code></a> object.</p>
 <p><em>globs</em>, <em>name</em>, <em>filename</em>, and <em>lineno</em> are attributes for the new
@@ -1313,17 +1397,17 @@ them to create a <a class="reference internal" href="#doctest.DocTest" title="do
 information.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="doctest.DocTestParser.get_examples">
-<code class="descname">get_examples</code><span class="sig-paren">(</span><em>string</em>, <em>name='&lt;string&gt;'</em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.DocTestParser.get_examples" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_examples</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">string</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">'&lt;string&gt;'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.DocTestParser.get_examples" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract all doctest examples from the given string, and return them as a list
 of <a class="reference internal" href="#doctest.Example" title="doctest.Example"><code class="xref py py-class docutils literal notranslate"><span class="pre">Example</span></code></a> objects.  Line numbers are 0-based.  The optional argument
 <em>name</em> is a name identifying this string, and is only used for error messages.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="doctest.DocTestParser.parse">
-<code class="descname">parse</code><span class="sig-paren">(</span><em>string</em>, <em>name='&lt;string&gt;'</em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.DocTestParser.parse" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">parse</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">string</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">'&lt;string&gt;'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.DocTestParser.parse" title="Permalink to this definition">¶</a></dt>
 <dd><p>Divide the given string into examples and intervening text, and return them as
 a list of alternating <a class="reference internal" href="#doctest.Example" title="doctest.Example"><code class="xref py py-class docutils literal notranslate"><span class="pre">Example</span></code></a>s and strings. Line numbers for the
 <a class="reference internal" href="#doctest.Example" title="doctest.Example"><code class="xref py py-class docutils literal notranslate"><span class="pre">Example</span></code></a>s are 0-based.  The optional argument <em>name</em> is a name
@@ -1335,9 +1419,9 @@ identifying this string, and is only used for error messages.</p>
 </div>
 <div class="section" id="doctestrunner-objects">
 <span id="doctest-doctestrunner"></span><h3>DocTestRunner objects<a class="headerlink" href="#doctestrunner-objects" title="Permalink to this headline">¶</a></h3>
-<dl class="class">
+<dl class="py class">
 <dt id="doctest.DocTestRunner">
-<em class="property">class </em><code class="descclassname">doctest.</code><code class="descname">DocTestRunner</code><span class="sig-paren">(</span><em>checker=None</em>, <em>verbose=None</em>, <em>optionflags=0</em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.DocTestRunner" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">doctest.</code><code class="sig-name descname">DocTestRunner</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">checker</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">optionflags</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.DocTestRunner" title="Permalink to this definition">¶</a></dt>
 <dd><p>A processing class used to execute and verify the interactive examples in a
 <a class="reference internal" href="#doctest.DocTest" title="doctest.DocTest"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTest</span></code></a>.</p>
 <p>The comparison between expected outputs and actual outputs is done by an
@@ -1364,9 +1448,9 @@ iff the command-line switch <code class="docutils literal notranslate"><span cla
 runner compares expected output to actual output, and how it displays failures.
 For more information, see section <a class="reference internal" href="#doctest-options"><span class="std std-ref">Option Flags</span></a>.</p>
 <p><a class="reference internal" href="#doctest.DocTestParser" title="doctest.DocTestParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTestParser</span></code></a> defines the following methods:</p>
-<dl class="method">
+<dl class="py method">
 <dt id="doctest.DocTestRunner.report_start">
-<code class="descname">report_start</code><span class="sig-paren">(</span><em>out</em>, <em>test</em>, <em>example</em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.DocTestRunner.report_start" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">report_start</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out</span></em>, <em class="sig-param"><span class="n">test</span></em>, <em class="sig-param"><span class="n">example</span></em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.DocTestRunner.report_start" title="Permalink to this definition">¶</a></dt>
 <dd><p>Report that the test runner is about to process the given example. This method
 is provided to allow subclasses of <a class="reference internal" href="#doctest.DocTestRunner" title="doctest.DocTestRunner"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTestRunner</span></code></a> to customize their
 output; it should not be called directly.</p>
@@ -1375,9 +1459,9 @@ output; it should not be called directly.</p>
 <a class="reference internal" href="#doctest.DocTestRunner.run" title="doctest.DocTestRunner.run"><code class="xref py py-meth docutils literal notranslate"><span class="pre">DocTestRunner.run()</span></code></a>.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="doctest.DocTestRunner.report_success">
-<code class="descname">report_success</code><span class="sig-paren">(</span><em>out</em>, <em>test</em>, <em>example</em>, <em>got</em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.DocTestRunner.report_success" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">report_success</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out</span></em>, <em class="sig-param"><span class="n">test</span></em>, <em class="sig-param"><span class="n">example</span></em>, <em class="sig-param"><span class="n">got</span></em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.DocTestRunner.report_success" title="Permalink to this definition">¶</a></dt>
 <dd><p>Report that the given example ran successfully.  This method is provided to
 allow subclasses of <a class="reference internal" href="#doctest.DocTestRunner" title="doctest.DocTestRunner"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTestRunner</span></code></a> to customize their output; it
 should not be called directly.</p>
@@ -1386,9 +1470,9 @@ from the example.  <em>test</em> is the test containing <em>example</em>.  <em>o
 output function that was passed to <a class="reference internal" href="#doctest.DocTestRunner.run" title="doctest.DocTestRunner.run"><code class="xref py py-meth docutils literal notranslate"><span class="pre">DocTestRunner.run()</span></code></a>.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="doctest.DocTestRunner.report_failure">
-<code class="descname">report_failure</code><span class="sig-paren">(</span><em>out</em>, <em>test</em>, <em>example</em>, <em>got</em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.DocTestRunner.report_failure" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">report_failure</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out</span></em>, <em class="sig-param"><span class="n">test</span></em>, <em class="sig-param"><span class="n">example</span></em>, <em class="sig-param"><span class="n">got</span></em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.DocTestRunner.report_failure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Report that the given example failed.  This method is provided to allow
 subclasses of <a class="reference internal" href="#doctest.DocTestRunner" title="doctest.DocTestRunner"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTestRunner</span></code></a> to customize their output; it should not
 be called directly.</p>
@@ -1397,9 +1481,9 @@ from the example.  <em>test</em> is the test containing <em>example</em>.  <em>o
 output function that was passed to <a class="reference internal" href="#doctest.DocTestRunner.run" title="doctest.DocTestRunner.run"><code class="xref py py-meth docutils literal notranslate"><span class="pre">DocTestRunner.run()</span></code></a>.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="doctest.DocTestRunner.report_unexpected_exception">
-<code class="descname">report_unexpected_exception</code><span class="sig-paren">(</span><em>out</em>, <em>test</em>, <em>example</em>, <em>exc_info</em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.DocTestRunner.report_unexpected_exception" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">report_unexpected_exception</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out</span></em>, <em class="sig-param"><span class="n">test</span></em>, <em class="sig-param"><span class="n">example</span></em>, <em class="sig-param"><span class="n">exc_info</span></em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.DocTestRunner.report_unexpected_exception" title="Permalink to this definition">¶</a></dt>
 <dd><p>Report that the given example raised an unexpected exception. This method is
 provided to allow subclasses of <a class="reference internal" href="#doctest.DocTestRunner" title="doctest.DocTestRunner"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTestRunner</span></code></a> to customize their
 output; it should not be called directly.</p>
@@ -1409,9 +1493,9 @@ containing information about the unexpected exception (as returned by
 output function that was passed to <a class="reference internal" href="#doctest.DocTestRunner.run" title="doctest.DocTestRunner.run"><code class="xref py py-meth docutils literal notranslate"><span class="pre">DocTestRunner.run()</span></code></a>.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="doctest.DocTestRunner.run">
-<code class="descname">run</code><span class="sig-paren">(</span><em>test</em>, <em>compileflags=None</em>, <em>out=None</em>, <em>clear_globs=True</em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.DocTestRunner.run" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">test</span></em>, <em class="sig-param"><span class="n">compileflags</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">out</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">clear_globs</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.DocTestRunner.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>Run the examples in <em>test</em> (a <a class="reference internal" href="#doctest.DocTest" title="doctest.DocTest"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTest</span></code></a> object), and display the
 results using the writer function <em>out</em>.</p>
 <p>The examples are run in the namespace <code class="docutils literal notranslate"><span class="pre">test.globs</span></code>.  If <em>clear_globs</em> is
@@ -1426,9 +1510,9 @@ output checker, and the results are formatted by the
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">DocTestRunner.report_*()</span></code> methods.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="doctest.DocTestRunner.summarize">
-<code class="descname">summarize</code><span class="sig-paren">(</span><em>verbose=None</em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.DocTestRunner.summarize" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">summarize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.DocTestRunner.summarize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Print a summary of all the test cases that have been run by this DocTestRunner,
 and return a <a class="reference internal" href="../glossary.html#term-named-tuple"><span class="xref std std-term">named tuple</span></a> <code class="docutils literal notranslate"><span class="pre">TestResults(failed,</span> <span class="pre">attempted)</span></code>.</p>
 <p>The optional <em>verbose</em> argument controls how detailed the summary is.  If the
@@ -1441,18 +1525,18 @@ used.</p>
 </div>
 <div class="section" id="outputchecker-objects">
 <span id="doctest-outputchecker"></span><h3>OutputChecker objects<a class="headerlink" href="#outputchecker-objects" title="Permalink to this headline">¶</a></h3>
-<dl class="class">
+<dl class="py class">
 <dt id="doctest.OutputChecker">
-<em class="property">class </em><code class="descclassname">doctest.</code><code class="descname">OutputChecker</code><a class="headerlink" href="#doctest.OutputChecker" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">doctest.</code><code class="sig-name descname">OutputChecker</code><a class="headerlink" href="#doctest.OutputChecker" title="Permalink to this definition">¶</a></dt>
 <dd><p>A class used to check the whether the actual output from a doctest example
 matches the expected output.  <a class="reference internal" href="#doctest.OutputChecker" title="doctest.OutputChecker"><code class="xref py py-class docutils literal notranslate"><span class="pre">OutputChecker</span></code></a> defines two methods:
-<a class="reference internal" href="#doctest.OutputChecker.check_output" title="doctest.OutputChecker.check_output"><code class="xref py py-meth docutils literal notranslate"><span class="pre">check_output()</span></code></a>, which compares a given pair of outputs, and returns true
+<a class="reference internal" href="#doctest.OutputChecker.check_output" title="doctest.OutputChecker.check_output"><code class="xref py py-meth docutils literal notranslate"><span class="pre">check_output()</span></code></a>, which compares a given pair of outputs, and returns <code class="docutils literal notranslate"><span class="pre">True</span></code>
 if they match; and <a class="reference internal" href="#doctest.OutputChecker.output_difference" title="doctest.OutputChecker.output_difference"><code class="xref py py-meth docutils literal notranslate"><span class="pre">output_difference()</span></code></a>, which returns a string describing
 the differences between two outputs.</p>
 <p><a class="reference internal" href="#doctest.OutputChecker" title="doctest.OutputChecker"><code class="xref py py-class docutils literal notranslate"><span class="pre">OutputChecker</span></code></a> defines the following methods:</p>
-<dl class="method">
+<dl class="py method">
 <dt id="doctest.OutputChecker.check_output">
-<code class="descname">check_output</code><span class="sig-paren">(</span><em>want</em>, <em>got</em>, <em>optionflags</em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.OutputChecker.check_output" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">check_output</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">want</span></em>, <em class="sig-param"><span class="n">got</span></em>, <em class="sig-param"><span class="n">optionflags</span></em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.OutputChecker.check_output" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> iff the actual output from an example (<em>got</em>) matches the
 expected output (<em>want</em>).  These strings are always considered to match if
 they are identical; but depending on what option flags the test runner is
@@ -1460,9 +1544,9 @@ using, several non-exact match types are also possible.  See section
 <a class="reference internal" href="#doctest-options"><span class="std std-ref">Option Flags</span></a> for more information about option flags.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="doctest.OutputChecker.output_difference">
-<code class="descname">output_difference</code><span class="sig-paren">(</span><em>example</em>, <em>got</em>, <em>optionflags</em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.OutputChecker.output_difference" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">output_difference</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">example</span></em>, <em class="sig-param"><span class="n">got</span></em>, <em class="sig-param"><span class="n">optionflags</span></em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.OutputChecker.output_difference" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a string describing the differences between the expected output for a
 given example (<em>example</em>) and the actual output (<em>got</em>).  <em>optionflags</em> is the
 set of option flags used to compare <em>want</em> and <em>got</em>.</p>
@@ -1535,9 +1619,9 @@ contains just this module docstring:</p>
 </ul>
 <p>Functions that convert doctests to Python code, and possibly run the synthesized
 code under the debugger:</p>
-<dl class="function">
+<dl class="py function">
 <dt id="doctest.script_from_examples">
-<code class="descclassname">doctest.</code><code class="descname">script_from_examples</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.script_from_examples" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">doctest.</code><code class="sig-name descname">script_from_examples</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">s</span></em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.script_from_examples" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert text with examples to a script.</p>
 <p>Argument <em>s</em> is a string containing doctest examples.  The string is converted
 to a Python script, where doctest examples in <em>s</em> are converted to regular code,
@@ -1569,9 +1653,9 @@ useful when you want to transform an interactive Python session into a Python
 script.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="doctest.testsource">
-<code class="descclassname">doctest.</code><code class="descname">testsource</code><span class="sig-paren">(</span><em>module</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.testsource" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">doctest.</code><code class="sig-name descname">testsource</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">module</span></em>, <em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.testsource" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert the doctest for an object to a script.</p>
 <p>Argument <em>module</em> is a module object, or dotted name of a module, containing the
 object whose doctests are of interest.  Argument <em>name</em> is the name (within the
@@ -1587,9 +1671,9 @@ contains a top-level function <code class="xref py py-func docutils literal notr
 converted to code, and the rest placed in comments.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="doctest.debug">
-<code class="descclassname">doctest.</code><code class="descname">debug</code><span class="sig-paren">(</span><em>module</em>, <em>name</em>, <em>pm=False</em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.debug" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">doctest.</code><code class="sig-name descname">debug</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">module</span></em>, <em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">pm</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.debug" title="Permalink to this definition">¶</a></dt>
 <dd><p>Debug the doctests for an object.</p>
 <p>The <em>module</em> and <em>name</em> arguments are the same as for function
 <a class="reference internal" href="#doctest.testsource" title="doctest.testsource"><code class="xref py py-func docutils literal notranslate"><span class="pre">testsource()</span></code></a> above.  The synthesized Python script for the named object’s
@@ -1606,9 +1690,9 @@ specified, or is false, the script is run under the debugger from the start, via
 passing an appropriate <a class="reference internal" href="functions.html#exec" title="exec"><code class="xref py py-func docutils literal notranslate"><span class="pre">exec()</span></code></a> call to <a class="reference internal" href="pdb.html#pdb.run" title="pdb.run"><code class="xref py py-func docutils literal notranslate"><span class="pre">pdb.run()</span></code></a>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="doctest.debug_src">
-<code class="descclassname">doctest.</code><code class="descname">debug_src</code><span class="sig-paren">(</span><em>src</em>, <em>pm=False</em>, <em>globs=None</em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.debug_src" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">doctest.</code><code class="sig-name descname">debug_src</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">src</span></em>, <em class="sig-param"><span class="n">pm</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">globs</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.debug_src" title="Permalink to this definition">¶</a></dt>
 <dd><p>Debug the doctests in a string.</p>
 <p>This is like function <a class="reference internal" href="#doctest.debug" title="doctest.debug"><code class="xref py py-func docutils literal notranslate"><span class="pre">debug()</span></code></a> above, except that a string containing
 doctest examples is specified directly, via the <em>src</em> argument.</p>
@@ -1622,9 +1706,9 @@ If specified, a shallow copy of the dictionary is used.</p>
 most interest to testing framework authors, and will only be sketched here.  See
 the source code, and especially <a class="reference internal" href="#doctest.DebugRunner" title="doctest.DebugRunner"><code class="xref py py-class docutils literal notranslate"><span class="pre">DebugRunner</span></code></a>’s docstring (which is a
 doctest!) for more details:</p>
-<dl class="class">
+<dl class="py class">
 <dt id="doctest.DebugRunner">
-<em class="property">class </em><code class="descclassname">doctest.</code><code class="descname">DebugRunner</code><span class="sig-paren">(</span><em>checker=None</em>, <em>verbose=None</em>, <em>optionflags=0</em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.DebugRunner" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">doctest.</code><code class="sig-name descname">DebugRunner</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">checker</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">optionflags</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.DebugRunner" title="Permalink to this definition">¶</a></dt>
 <dd><p>A subclass of <a class="reference internal" href="#doctest.DocTestRunner" title="doctest.DocTestRunner"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTestRunner</span></code></a> that raises an exception as soon as a
 failure is encountered.  If an unexpected exception occurs, an
 <a class="reference internal" href="#doctest.UnexpectedException" title="doctest.UnexpectedException"><code class="xref py py-exc docutils literal notranslate"><span class="pre">UnexpectedException</span></code></a> exception is raised, containing the test, the
@@ -1636,57 +1720,57 @@ documentation for <a class="reference internal" href="#doctest.DocTestRunner" ti
 </dd></dl>
 
 <p>There are two exceptions that may be raised by <a class="reference internal" href="#doctest.DebugRunner" title="doctest.DebugRunner"><code class="xref py py-class docutils literal notranslate"><span class="pre">DebugRunner</span></code></a> instances:</p>
-<dl class="exception">
+<dl class="py exception">
 <dt id="doctest.DocTestFailure">
-<em class="property">exception </em><code class="descclassname">doctest.</code><code class="descname">DocTestFailure</code><span class="sig-paren">(</span><em>test</em>, <em>example</em>, <em>got</em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.DocTestFailure" title="Permalink to this definition">¶</a></dt>
+<em class="property">exception </em><code class="sig-prename descclassname">doctest.</code><code class="sig-name descname">DocTestFailure</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">test</span></em>, <em class="sig-param"><span class="n">example</span></em>, <em class="sig-param"><span class="n">got</span></em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.DocTestFailure" title="Permalink to this definition">¶</a></dt>
 <dd><p>An exception raised by <a class="reference internal" href="#doctest.DocTestRunner" title="doctest.DocTestRunner"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTestRunner</span></code></a> to signal that a doctest example’s
 actual output did not match its expected output. The constructor arguments are
 used to initialize the attributes of the same names.</p>
 </dd></dl>
 
 <p><a class="reference internal" href="#doctest.DocTestFailure" title="doctest.DocTestFailure"><code class="xref py py-exc docutils literal notranslate"><span class="pre">DocTestFailure</span></code></a> defines the following attributes:</p>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="doctest.DocTestFailure.test">
-<code class="descclassname">DocTestFailure.</code><code class="descname">test</code><a class="headerlink" href="#doctest.DocTestFailure.test" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">DocTestFailure.</code><code class="sig-name descname">test</code><a class="headerlink" href="#doctest.DocTestFailure.test" title="Permalink to this definition">¶</a></dt>
 <dd><p>The <a class="reference internal" href="#doctest.DocTest" title="doctest.DocTest"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTest</span></code></a> object that was being run when the example failed.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="doctest.DocTestFailure.example">
-<code class="descclassname">DocTestFailure.</code><code class="descname">example</code><a class="headerlink" href="#doctest.DocTestFailure.example" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">DocTestFailure.</code><code class="sig-name descname">example</code><a class="headerlink" href="#doctest.DocTestFailure.example" title="Permalink to this definition">¶</a></dt>
 <dd><p>The <a class="reference internal" href="#doctest.Example" title="doctest.Example"><code class="xref py py-class docutils literal notranslate"><span class="pre">Example</span></code></a> that failed.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="doctest.DocTestFailure.got">
-<code class="descclassname">DocTestFailure.</code><code class="descname">got</code><a class="headerlink" href="#doctest.DocTestFailure.got" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">DocTestFailure.</code><code class="sig-name descname">got</code><a class="headerlink" href="#doctest.DocTestFailure.got" title="Permalink to this definition">¶</a></dt>
 <dd><p>The example’s actual output.</p>
 </dd></dl>
 
-<dl class="exception">
+<dl class="py exception">
 <dt id="doctest.UnexpectedException">
-<em class="property">exception </em><code class="descclassname">doctest.</code><code class="descname">UnexpectedException</code><span class="sig-paren">(</span><em>test</em>, <em>example</em>, <em>exc_info</em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.UnexpectedException" title="Permalink to this definition">¶</a></dt>
+<em class="property">exception </em><code class="sig-prename descclassname">doctest.</code><code class="sig-name descname">UnexpectedException</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">test</span></em>, <em class="sig-param"><span class="n">example</span></em>, <em class="sig-param"><span class="n">exc_info</span></em><span class="sig-paren">)</span><a class="headerlink" href="#doctest.UnexpectedException" title="Permalink to this definition">¶</a></dt>
 <dd><p>An exception raised by <a class="reference internal" href="#doctest.DocTestRunner" title="doctest.DocTestRunner"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTestRunner</span></code></a> to signal that a doctest
 example raised an unexpected exception.  The constructor arguments are used
 to initialize the attributes of the same names.</p>
 </dd></dl>
 
 <p><a class="reference internal" href="#doctest.UnexpectedException" title="doctest.UnexpectedException"><code class="xref py py-exc docutils literal notranslate"><span class="pre">UnexpectedException</span></code></a> defines the following attributes:</p>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="doctest.UnexpectedException.test">
-<code class="descclassname">UnexpectedException.</code><code class="descname">test</code><a class="headerlink" href="#doctest.UnexpectedException.test" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">UnexpectedException.</code><code class="sig-name descname">test</code><a class="headerlink" href="#doctest.UnexpectedException.test" title="Permalink to this definition">¶</a></dt>
 <dd><p>The <a class="reference internal" href="#doctest.DocTest" title="doctest.DocTest"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocTest</span></code></a> object that was being run when the example failed.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="doctest.UnexpectedException.example">
-<code class="descclassname">UnexpectedException.</code><code class="descname">example</code><a class="headerlink" href="#doctest.UnexpectedException.example" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">UnexpectedException.</code><code class="sig-name descname">example</code><a class="headerlink" href="#doctest.UnexpectedException.example" title="Permalink to this definition">¶</a></dt>
 <dd><p>The <a class="reference internal" href="#doctest.Example" title="doctest.Example"><code class="xref py py-class docutils literal notranslate"><span class="pre">Example</span></code></a> that failed.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="doctest.UnexpectedException.exc_info">
-<code class="descclassname">UnexpectedException.</code><code class="descname">exc_info</code><a class="headerlink" href="#doctest.UnexpectedException.exc_info" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">UnexpectedException.</code><code class="sig-name descname">exc_info</code><a class="headerlink" href="#doctest.UnexpectedException.exc_info" title="Permalink to this definition">¶</a></dt>
 <dd><p>A tuple containing information about the unexpected exception, as returned by
 <a class="reference internal" href="sys.html#sys.exc_info" title="sys.exc_info"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys.exc_info()</span></code></a>.</p>
 </dd></dl>
@@ -1773,6 +1857,7 @@ also makes for a confusing test.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -1811,8 +1896,8 @@ also makes for a confusing test.</p>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="pydoc.html"
-                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pydoc</span></code> — Documentation generator and online help system</a></p>
+  <p class="topless"><a href="devmode.html"
+                        title="previous chapter">Python Development Mode</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="unittest.html"
                         title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">unittest</span></code> — Unit testing framework</a></p>
@@ -1821,7 +1906,7 @@ also makes for a confusing test.</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a Bug</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.7/Doc/library/doctest.rst"
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/library/doctest.rst"
             rel="nofollow">Show Source
         </a>
       </li>
@@ -1844,46 +1929,61 @@ also makes for a confusing test.</p>
           <a href="unittest.html" title="unittest — Unit testing framework"
              >next</a> |</li>
         <li class="right" >
-          <a href="pydoc.html" title="pydoc — Documentation generator and online help system"
+          <a href="devmode.html" title="Python Development Mode"
              >previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="development.html" >Development Tools</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">doctest</span></code> — Test interactive Python examples</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">Copyright</a> 2001-2019, Python Software Foundation.
+    &copy; <a href="../copyright.html">Copyright</a> 2001-2021, Python Software Foundation.
     <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
     The Python Software Foundation is a non-profit corporation.
-    <a href="https://www.python.org/psf/donations/">Please donate.</a>
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
     <br />
-    Last updated on Jun 19, 2019.
-    <a href="../bugs.html">Found a bug</a>?
+
+    Last updated on Nov 06, 2021.
+    <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.0.1.
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
     </div>
 
   </body>

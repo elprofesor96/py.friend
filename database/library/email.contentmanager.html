@@ -1,23 +1,25 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>email.contentmanager: Managing MIME Content &#8212; Python 3.7.3 documentation</title>
-    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>email.contentmanager: Managing MIME Content &#8212; Python 3.10.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../_static/pydoctheme.css?2021.11.1" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     
-    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Python 3.7.3 documentation"
+          title="Search within Python 3.10.0 documentation"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -25,13 +27,11 @@
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="next" title="email: Examples" href="email.examples.html" />
     <link rel="prev" title="email.headerregistry: Custom Header Objects" href="email.headerregistry.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
     <link rel="canonical" href="https://docs.python.org/3/library/email.contentmanager.html" />
     
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../_static/switchers.js"></script>
+      
     
-    
+
     
     <style>
       @media only screen {
@@ -40,9 +40,64 @@
         }
       }
     </style>
- 
+<link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
 
-  </head><body>
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://www.python.org/" class="nav-logo">
+             <img src="../_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.contentmanager</span></code>: Managing MIME Content</a><ul>
+<li><a class="reference internal" href="#content-manager-instances">Content Manager Instances</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="email.headerregistry.html"
+                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.headerregistry</span></code>: Custom Header Objects</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="email.examples.html"
+                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email</span></code>: Examples</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">Report a Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/library/email.contentmanager.rst"
+            rel="nofollow">Show Source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
   
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -59,33 +114,38 @@
         <li class="right" >
           <a href="email.headerregistry.html" title="email.headerregistry: Custom Header Objects"
              accesskey="P">previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="netdata.html" >Internet Data Handling</a> &#187;</li>
           <li class="nav-item nav-item-3"><a href="email.html" accesskey="U"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email</span></code> — An email and MIME handling package</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.contentmanager</span></code>: Managing MIME Content</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>    
 
@@ -96,20 +156,20 @@
             
   <div class="section" id="module-email.contentmanager">
 <span id="email-contentmanager-managing-mime-content"></span><h1><a class="reference internal" href="#module-email.contentmanager" title="email.contentmanager: Storing and Retrieving Content from MIME Parts"><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.contentmanager</span></code></a>: Managing MIME Content<a class="headerlink" href="#module-email.contentmanager" title="Permalink to this headline">¶</a></h1>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.7/Lib/email/contentmanager.py">Lib/email/contentmanager.py</a></p>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.10/Lib/email/contentmanager.py">Lib/email/contentmanager.py</a></p>
 <hr class="docutils" />
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 3.6: </span><a class="footnote-reference brackets" href="#id2" id="id1">1</a></p>
 </div>
-<dl class="class">
+<dl class="py class">
 <dt id="email.contentmanager.ContentManager">
-<em class="property">class </em><code class="descclassname">email.contentmanager.</code><code class="descname">ContentManager</code><a class="headerlink" href="#email.contentmanager.ContentManager" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">email.contentmanager.</code><code class="sig-name descname">ContentManager</code><a class="headerlink" href="#email.contentmanager.ContentManager" title="Permalink to this definition">¶</a></dt>
 <dd><p>Base class for content managers.  Provides the standard registry mechanisms
 to register converters between MIME content and other representations, as
 well as the <code class="docutils literal notranslate"><span class="pre">get_content</span></code> and <code class="docutils literal notranslate"><span class="pre">set_content</span></code> dispatch methods.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="email.contentmanager.ContentManager.get_content">
-<code class="descname">get_content</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="headerlink" href="#email.contentmanager.ContentManager.get_content" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_content</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">msg</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kw</span></em><span class="sig-paren">)</span><a class="headerlink" href="#email.contentmanager.ContentManager.get_content" title="Permalink to this definition">¶</a></dt>
 <dd><p>Look up a handler function based on the <code class="docutils literal notranslate"><span class="pre">mimetype</span></code> of <em>msg</em> (see next
 paragraph), call it, passing through all arguments, and return the result
 of the call.  The expectation is that the handler will extract the
@@ -128,9 +188,9 @@ stopping with the first one found:</p>
 full MIME type.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="email.contentmanager.ContentManager.set_content">
-<code class="descname">set_content</code><span class="sig-paren">(</span><em>msg</em>, <em>obj</em>, <em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="headerlink" href="#email.contentmanager.ContentManager.set_content" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_content</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">msg</span></em>, <em class="sig-param"><span class="n">obj</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kw</span></em><span class="sig-paren">)</span><a class="headerlink" href="#email.contentmanager.ContentManager.set_content" title="Permalink to this definition">¶</a></dt>
 <dd><p>If the <code class="docutils literal notranslate"><span class="pre">maintype</span></code> is <code class="docutils literal notranslate"><span class="pre">multipart</span></code>, raise a <a class="reference internal" href="exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a>; otherwise
 look up a handler function based on the type of <em>obj</em> (see next
 paragraph), call <a class="reference internal" href="email.message.html#email.message.EmailMessage.clear_content" title="email.message.EmailMessage.clear_content"><code class="xref py py-meth docutils literal notranslate"><span class="pre">clear_content()</span></code></a> on the
@@ -152,7 +212,7 @@ found:</p>
 </ul>
 </div></blockquote>
 <p>If none of the above match, repeat all of the checks above for each of
-the types in the <a class="reference internal" href="../glossary.html#term-mro"><span class="xref std std-term">MRO</span></a> (<code class="docutils literal notranslate"><span class="pre">typ.__mro__</span></code>).  Finally, if no other key
+the types in the <a class="reference internal" href="../glossary.html#term-MRO"><span class="xref std std-term">MRO</span></a> (<code class="docutils literal notranslate"><span class="pre">typ.__mro__</span></code>).  Finally, if no other key
 yields a handler, check for a handler for the key <code class="docutils literal notranslate"><span class="pre">None</span></code>.  If there is
 no handler for <code class="docutils literal notranslate"><span class="pre">None</span></code>, raise a <a class="reference internal" href="exceptions.html#KeyError" title="KeyError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyError</span></code></a> for the fully
 qualified name of the type.</p>
@@ -160,16 +220,16 @@ qualified name of the type.</p>
 also <a class="reference internal" href="email.message.html#email.message.MIMEPart" title="email.message.MIMEPart"><code class="xref py py-class docutils literal notranslate"><span class="pre">MIMEPart</span></code></a>).</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="email.contentmanager.ContentManager.add_get_handler">
-<code class="descname">add_get_handler</code><span class="sig-paren">(</span><em>key</em>, <em>handler</em><span class="sig-paren">)</span><a class="headerlink" href="#email.contentmanager.ContentManager.add_get_handler" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add_get_handler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">key</span></em>, <em class="sig-param"><span class="n">handler</span></em><span class="sig-paren">)</span><a class="headerlink" href="#email.contentmanager.ContentManager.add_get_handler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Record the function <em>handler</em> as the handler for <em>key</em>.  For the possible
 values of <em>key</em>, see <a class="reference internal" href="#email.contentmanager.get_content" title="email.contentmanager.get_content"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_content()</span></code></a>.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="email.contentmanager.ContentManager.add_set_handler">
-<code class="descname">add_set_handler</code><span class="sig-paren">(</span><em>typekey</em>, <em>handler</em><span class="sig-paren">)</span><a class="headerlink" href="#email.contentmanager.ContentManager.add_set_handler" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add_set_handler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">typekey</span></em>, <em class="sig-param"><span class="n">handler</span></em><span class="sig-paren">)</span><a class="headerlink" href="#email.contentmanager.ContentManager.add_set_handler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Record <em>handler</em> as the function to call when an object of a type
 matching <em>typekey</em> is passed to <a class="reference internal" href="#email.contentmanager.set_content" title="email.contentmanager.set_content"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_content()</span></code></a>.  For the possible
 values of <em>typekey</em>, see <a class="reference internal" href="#email.contentmanager.set_content" title="email.contentmanager.set_content"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_content()</span></code></a>.</p>
@@ -184,9 +244,9 @@ values of <em>typekey</em>, see <a class="reference internal" href="#email.conte
 <a class="reference internal" href="#email.contentmanager.raw_data_manager" title="email.contentmanager.raw_data_manager"><code class="xref py py-data docutils literal notranslate"><span class="pre">raw_data_manager</span></code></a> is the
 <a class="reference internal" href="email.policy.html#email.policy.EmailPolicy.content_manager" title="email.policy.EmailPolicy.content_manager"><code class="xref py py-attr docutils literal notranslate"><span class="pre">content_manager</span></code></a> provided by
 <a class="reference internal" href="email.policy.html#email.policy.EmailPolicy" title="email.policy.EmailPolicy"><code class="xref py py-attr docutils literal notranslate"><span class="pre">EmailPolicy</span></code></a> and its derivatives.</p>
-<dl class="data">
+<dl class="py data">
 <dt id="email.contentmanager.raw_data_manager">
-<code class="descclassname">email.contentmanager.</code><code class="descname">raw_data_manager</code><a class="headerlink" href="#email.contentmanager.raw_data_manager" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">email.contentmanager.</code><code class="sig-name descname">raw_data_manager</code><a class="headerlink" href="#email.contentmanager.raw_data_manager" title="Permalink to this definition">¶</a></dt>
 <dd><p>This content manager provides only a minimum interface beyond that provided
 by <a class="reference internal" href="email.compat32-message.html#email.message.Message" title="email.message.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> itself:  it deals only with text, raw
 byte strings, and <a class="reference internal" href="email.compat32-message.html#email.message.Message" title="email.message.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> objects.  Nevertheless, it
@@ -196,9 +256,9 @@ manually decode it, <code class="docutils literal notranslate"><span class="pre"
 controlling the headers added to a part and controlling the content transfer
 encoding, and it enables the use of the various <code class="docutils literal notranslate"><span class="pre">add_</span></code> methods, thereby
 simplifying the creation of multipart messages.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="email.contentmanager.get_content">
-<code class="descclassname">email.contentmanager.</code><code class="descname">get_content</code><span class="sig-paren">(</span><em>msg</em>, <em>errors='replace'</em><span class="sig-paren">)</span><a class="headerlink" href="#email.contentmanager.get_content" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">email.contentmanager.</code><code class="sig-name descname">get_content</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">msg</span></em>, <em class="sig-param"><span class="n">errors</span><span class="o">=</span><span class="default_value">'replace'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#email.contentmanager.get_content" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the payload of the part as either a string (for <code class="docutils literal notranslate"><span class="pre">text</span></code> parts), an
 <a class="reference internal" href="email.message.html#email.message.EmailMessage" title="email.message.EmailMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">EmailMessage</span></code></a> object (for <code class="docutils literal notranslate"><span class="pre">message/rfc822</span></code>
 parts), or a <code class="docutils literal notranslate"><span class="pre">bytes</span></code> object (for all other non-multipart types).  Raise
@@ -208,13 +268,13 @@ decoding the payload to unicode.  The default error handler is
 <code class="docutils literal notranslate"><span class="pre">replace</span></code>.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="email.contentmanager.set_content">
-<code class="descclassname">email.contentmanager.</code><code class="descname">set_content</code><span class="sig-paren">(</span><em>msg</em>, <em>&lt;'str'&gt;</em>, <em>subtype=&quot;plain&quot;</em>, <em>charset='utf-8'                     cte=None</em>, <em>disposition=None</em>, <em>filename=None</em>, <em>cid=None</em>, <em>params=None</em>, <em>headers=None</em><span class="sig-paren">)</span><a class="headerlink" href="#email.contentmanager.set_content" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">email.contentmanager.</code><code class="sig-name descname">set_content</code><span class="sig-paren">(</span><em class="sig-param">msg</em>, <em class="sig-param">&lt;'str'&gt;</em>, <em class="sig-param">subtype=&quot;plain&quot;</em>, <em class="sig-param">charset='utf-8'</em>, <em class="sig-param">cte=None</em>, <em class="sig-param">disposition=None</em>, <em class="sig-param">filename=None</em>, <em class="sig-param">cid=None</em>, <em class="sig-param">params=None</em>, <em class="sig-param">headers=None</em><span class="sig-paren">)</span><a class="headerlink" href="#email.contentmanager.set_content" title="Permalink to this definition">¶</a></dt>
 <dt>
-<code class="descclassname">email.contentmanager.</code><code class="descname">set_content</code><span class="sig-paren">(</span><em>msg</em>, <em>&lt;'bytes'&gt;</em>, <em>maintype</em>, <em>subtype</em>, <em>cte=&quot;base64&quot;</em>, <em>disposition=None</em>, <em>filename=None</em>, <em>cid=None</em>, <em>params=None</em>, <em>headers=None</em><span class="sig-paren">)</span></dt>
+<code class="sig-prename descclassname">email.contentmanager.</code><code class="sig-name descname">set_content</code><span class="sig-paren">(</span><em class="sig-param">msg</em>, <em class="sig-param">&lt;'bytes'&gt;</em>, <em class="sig-param">maintype</em>, <em class="sig-param">subtype</em>, <em class="sig-param">cte=&quot;base64&quot;</em>, <em class="sig-param">disposition=None</em>, <em class="sig-param">filename=None</em>, <em class="sig-param">cid=None</em>, <em class="sig-param">params=None</em>, <em class="sig-param">headers=None</em><span class="sig-paren">)</span></dt>
 <dt>
-<code class="descclassname">email.contentmanager.</code><code class="descname">set_content</code><span class="sig-paren">(</span><em>msg</em>, <em>&lt;'EmailMessage'&gt;</em>, <em>cte=None</em>, <em>disposition=None</em>, <em>filename=None</em>, <em>cid=None</em>, <em>params=None</em>, <em>headers=None</em><span class="sig-paren">)</span></dt>
+<code class="sig-prename descclassname">email.contentmanager.</code><code class="sig-name descname">set_content</code><span class="sig-paren">(</span><em class="sig-param">msg</em>, <em class="sig-param">&lt;'EmailMessage'&gt;</em>, <em class="sig-param">cte=None</em>, <em class="sig-param">disposition=None</em>, <em class="sig-param">filename=None</em>, <em class="sig-param">cid=None</em>, <em class="sig-param">params=None</em>, <em class="sig-param">headers=None</em><span class="sig-paren">)</span></dt>
 <dd><p>Add headers and payload to <em>msg</em>:</p>
 <p>Add a <em class="mailheader">Content-Type</em> header with a <code class="docutils literal notranslate"><span class="pre">maintype/subtype</span></code>
 value.</p>
@@ -292,6 +352,7 @@ headers to <em>msg</em>.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -316,7 +377,7 @@ headers to <em>msg</em>.</p>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a Bug</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/3.7/Doc/library/email.contentmanager.rst"
+        <a href="https://github.com/python/cpython/blob/3.10/Doc/library/email.contentmanager.rst"
             rel="nofollow">Show Source
         </a>
       </li>
@@ -341,45 +402,60 @@ headers to <em>msg</em>.</p>
         <li class="right" >
           <a href="email.headerregistry.html" title="email.headerregistry: Custom Header Objects"
              >previous</a> |</li>
-        <li><img src="../_static/py.png" alt=""
-                 style="vertical-align: middle; margin-top: -1px"/></li>
-        <li><a href="https://www.python.org/">Python</a> &#187;</li>
-        <li>
-          <span class="language_switcher_placeholder">en</span>
-          <span class="version_switcher_placeholder">3.7.3</span>
-          <a href="../index.html">Documentation </a> &#187;
-        </li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">3.10.0 Documentation</a> &#187;
+    </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="netdata.html" >Internet Data Handling</a> &#187;</li>
           <li class="nav-item nav-item-3"><a href="email.html" ><code class="xref py py-mod docutils literal notranslate"><span class="pre">email</span></code> — An email and MIME handling package</a> &#187;</li>
-    <li class="right">
-        
+        <li class="nav-item nav-item-this"><a href=""><code class="xref py py-mod docutils literal notranslate"><span class="pre">email.contentmanager</span></code>: Managing MIME Content</a></li>
+                <li class="right">
+                    
 
-    <div class="inline-search" style="display: none" role="search">
+    <div class="inline-search" role="search">
         <form class="inline-search" action="../search.html" method="get">
-          <input placeholder="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
           <input type="submit" value="Go" />
           <input type="hidden" name="check_keywords" value="yes" />
           <input type="hidden" name="area" value="default" />
         </form>
     </div>
-    <script type="text/javascript">$('.inline-search').show(0);</script>
-         |
-    </li>
-
+                     |
+                </li>
+            
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">Copyright</a> 2001-2019, Python Software Foundation.
+    &copy; <a href="../copyright.html">Copyright</a> 2001-2021, Python Software Foundation.
     <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
     The Python Software Foundation is a non-profit corporation.
-    <a href="https://www.python.org/psf/donations/">Please donate.</a>
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
     <br />
-    Last updated on Jun 19, 2019.
-    <a href="../bugs.html">Found a bug</a>?
+
+    Last updated on Nov 06, 2021.
+    <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.0.1.
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
     </div>
 
   </body>
