@@ -1,5 +1,4 @@
 import configparser
-import sys
 import webbrowser
 import urllib.request
 import os
@@ -10,12 +9,12 @@ from stdlib_list import stdlib_list
 
 class PyFriendClass:
     def __init__(self):
-        self.standardLibraries = stdlib_list()
+        self.standardLibraries = stdlib_list("3.9")
         self.configFile = configparser.ConfigParser()
         self.configFile.read("pyfriend.conf")
         self.appPath = "."
-        self.docsUrl = self.configFile["APP"].get("python_url")
-        self.downloadFileName = self.docsUrl.split("/")[-1]
+        self.docsUrl = "" 
+        self.downloadFileName = ""
 
     def printAllStandardLibraries(self):
         print('\n [*] List of all Standard Libraries\n')
@@ -37,7 +36,27 @@ class PyFriendClass:
         except webbrowser.Error as e:
             print(e)
             
-    def downloadDocs(self):
+    def checkIfDocsExists(self, python3Version, version_parser):
+        try:
+            self.docsUrl = "https://docs.python.org/{}/archives/python-{}-docs-html.zip".format(version_parser, python3Version)      
+            url_open = urllib.request.urlopen(self.docsUrl)
+        except:
+            print("\n[-] Cannot find Python3 official docs for the specific version provided.")
+            exit()
+        
+        
+    def checkIfArgIsPythonVersionFormat(self, python3Version):
+        try:
+            version_parser = python3Version.split(sep=".")
+            version_parser = version_parser[0] + "." + version_parser[1]
+            return version_parser
+        except:
+            print("\n[-] Wrong python3 version. Exemple format: 3.11.2")
+            exit()
+
+    def downloadDocs(self, python3Version, version_parser):
+        self.docsUrl = "https://docs.python.org/{}/archives/python-{}-docs-html.zip".format(version_parser, python3Version)       
+        self.downloadFileName = self.docsUrl.split("/")[-1]
         url_open = urllib.request.urlopen(self.docsUrl)
         zip_file = open(self.appPath + "/" + self.downloadFileName, "wb")
         file_size = int(url_open.getheader('Content-Length'))
@@ -60,10 +79,12 @@ class PyFriendClass:
         zip_file.extractall(self.appPath + "/")
         zip_file.close()
 
-    def resetDatabase(self):
+    def resetDatabase(self, python3Version):
+        version_parser = self.checkIfArgIsPythonVersionFormat(python3Version)
+        self.checkIfDocsExists(python3Version, version_parser)
         shutil.rmtree(self.appPath + "/" + "database")
         time.sleep(0.5)
-        self.downloadDocs()
+        self.downloadDocs(python3Version, version_parser)
         time.sleep(0.5)
         self.unzipDocs()
         zip_file_name = self.downloadFileName
