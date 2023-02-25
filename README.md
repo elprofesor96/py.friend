@@ -1,4 +1,5 @@
-## PyFriend
+# PyFriend
+# Description
 
 PyFriend is a CLI tool for python developers.
 
@@ -10,19 +11,13 @@ This App will open the official python3 docs in HTML form for easy use.
 
 PyFriend is a very handy tool that any python developer should have.
 
-# Dependencies
+# Install
+## Dependencies
 
 To install dependencies: ```pip3 install -r requirements.txt```
 
+
 # Usage
-
-- First, you need to change 'pyfriend.conf'.
-
-- Path option is the application path. Update this with folder path. Exemple: /home/user/Desktop/Py-Friend
-
-- Python_url option is from the python3 official website. The url is found in 'download python3 docs' on website.
-
-- You can leave python_url as default for python3.7.3 html docs.
 
 For Help: ```python3 pyfriend.py -h```
 
